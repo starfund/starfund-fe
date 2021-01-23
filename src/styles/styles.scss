@@ -1,0 +1,74 @@
+@import 'variables';
+@import '~rootstrap-ui/dist/styles/scss/index';
+@import '~loaders.css/src/animations/ball-scale-multiple';
+
+.loading-wrapper {
+  align-items: center;
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+  width: 5rem;
+
+  // These two classes are required by react-loaders
+  .loader-hidden {
+    display: none;
+  }
+
+  .loader-active {
+    display: block;
+  }
+}
+
+.header {
+  padding: 1rem;
+  text-align: center;
+
+  &__logo {
+    width: 150px;
+  }
+}
+
+.login-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.billing-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-card-form {
+  max-width: 50%;
+
+  &-row {
+    display: flex;
+  }
+
+  &-section {
+    border: solid grey;
+    margin: 0 -2.7rem 1rem 1.6rem;
+  }
+}
+
+.payments {
+  margin-left: 5rem;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.8rem 0;
+}
+
+.half-row {
+  margin-left: 1rem;
+}
+
+.input-container {
+  flex: 1;
+  margin: 0 1.3rem 2.6rem;
+}
+
