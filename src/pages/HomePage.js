@@ -7,7 +7,7 @@ import HomeFooter from '../components/HomeFooter';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home">
       <ParalaxHome />
       <HomeStars />
       <HomeInfo />

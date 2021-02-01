@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <title>Stripe Base</title>
+        <title>Supporting Fighters and Athletes | StarFund</title>
       </Helmet>
       <Header />
       <BrowserRouter>
