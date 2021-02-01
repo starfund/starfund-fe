@@ -12,7 +12,7 @@ const routes = [
     path: routesPaths.index,
     component: <HomePage />,
     exact: true,
-    private: true
+    private: false
   },
   {
     path: routesPaths.login,
@@ -29,7 +29,7 @@ const routes = [
     path: routesPaths.billing,
     component: <BillingPage />,
     exact: true,
-    private: true
+    private: false
   }
 ];
 

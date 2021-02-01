@@ -1,23 +1,17 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { useSession } from 'hooks';
 
-import LogoutButton from 'components/user/LogoutButton';
-import BillingPage from './BillingPage';
+import ParalaxHome from '../components/ParalaxHome';
+import HomeStars from '../components/HomeStars';
+import HomeInfo from '../components/HomeInfo';
+import HomeFooter from '../components/HomeFooter';
 
 const HomePage = () => {
-  const { user } = useSession();
-
   return (
     <div>
-      <BillingPage />
-      {user && user.email && (
-        <p>
-          <FormattedMessage id="home.welcome" values={user} />
-        </p>
-      )}
-      <br />
-      <LogoutButton />
+      <ParalaxHome />
+      <HomeStars />
+      <HomeInfo />
+      <HomeFooter />
     </div>
   );
 };
