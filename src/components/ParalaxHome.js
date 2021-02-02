@@ -5,7 +5,9 @@ import './index.css';
 const ParalaxHome = () => {
   return (
     <div className="parallax">
-      <img alt="" src="https://mdbootstrap.com/img/Photos/Slides/3.jpg" />
+      <video autoPlay src={require('../assets/HomeVid.mp4')}>
+        <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
+      </video>
     </div>
   );
 };
