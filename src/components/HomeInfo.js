@@ -1,5 +1,9 @@
 import React from 'react';
 
+import LoveContent from '../assets/LoveContent.jpeg';
+import FightersBlack from '../assets/FightersBlack.jpeg';
+import Pricing from '../assets/Pricing.jpeg';
+
 const HomeInfo = () => {
   return (
     <div className="info-container">
@@ -23,19 +27,34 @@ const HomeInfo = () => {
         </h4>
         <div className="steps">
           <div className="step1">
-            <h3> STEP 1 </h3>
-            <h2> Pick Your Favorite Fighter </h2>
-            <h5> Let them know that, they are not alone and you got their back. </h5>
+            <div className="step-content">
+              <img src={FightersBlack} alt="step1" />
+              <div className="step1-text">
+                <h3> STEP 1 </h3>
+                <h2> Pick Your Favorite Fighter </h2>
+                <h5> Let them know that, they are not alone and you got their back. </h5>
+              </div>
+            </div>
           </div>
           <div className="step2">
-            <h3> STEP 2 </h3>
-            <h2> Pick The Amount </h2>
-            <h5> Pick the existing membership of your favorite fighter. </h5>
+            <div className="step-content">
+              <div className="step2-text">
+                <h3> STEP 2 </h3>
+                <h2> Pick The Amount </h2>
+                <h5> Pick the existing membership of your favorite fighter. </h5>
+              </div>
+              <img src={Pricing} alt="step2" />
+            </div>
           </div>
           <div className="step3">
-            <h3> STEP 3 </h3>
-            <h2> Enjoy Exclusive Access </h2>
-            <h5> Be a part of the Journey from the Beginning Experience exclusive access. </h5>
+            <div className="step-content">
+              <img src={LoveContent} alt="step3" />
+              <div className="step3-text">
+                <h3> STEP 3 </h3>
+                <h2> Enjoy Exclusive Access </h2>
+                <h5> Be a part of the Journey from the Beginning Experience exclusive access. </h5>
+              </div>
+            </div>
           </div>
         </div>
         <h2> Are you ready to connect with your Stars? </h2>

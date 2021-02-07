@@ -23,7 +23,7 @@
     "clean-dist": "npm run remove-dist && mkdir dist",
     "clean-ssr": "rimraf ./server/build",
     "remove-dist": "rimraf ./dist",
-    "prebuild": "npm-run-all clean-dist test",
+    "prebuild": "npm-run-all clean-dist",
     "build": "babel-node tools/build.js",
     "build:server": "babel-node server/scripts/buildServer.js",
     "build:client": "babel-node server/scripts/buildClient.js",
