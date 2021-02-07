@@ -1,3 +1,12 @@
 .custom-header {
   border-bottom: solid red;
+  height: 70px;
+
+  nav { height: 100% }
+
+  img { margin-right: 5% }
+
+  a { font-weight: bold; }
+
+  ul > li { margin: 0 30px }
 }
