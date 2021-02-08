@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getFighters } from '../state/actions/fighterActions';
 
 const HomeStars = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getFighters());
+  }, [dispatch]);
+  const fighters = useSelector(state => state.fighters.fighters);
+
   return (
-    <div>
+    <div className="stars-container">
       <h1> STARFUND STARS </h1>
       <div className="fighters-container">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(f => (
-          <div key={f} className="card fighter-card">
-            <img className="card-img-top" src="..." alt="Card cap" />
-            <div className="card-body">
-              <p className="card-text">ASDF movie</p>
+        {fighters.length > 0 &&
+          fighters.map(f => (
+            <div key={f.id} className="card fighter-card">
+              <img className="card-img-top" src={f.attachments[0]?.url} alt="Card cap" />
+              <div className="card-body">
+                <p className="card-text">
+                  {f.firstName} {f.lastName}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
