@@ -6,6 +6,7 @@ import LoginPage from 'pages/LoginPage';
 import SignUpPage from 'pages/SignUpPage';
 import NotFoundPage from 'pages/NotFoundPage';
 import BillingPage from 'pages/BillingPage';
+import FighterPage from 'pages/FighterPage';
 
 const routes = [
   {
@@ -23,13 +24,19 @@ const routes = [
     component: <SignUpPage />
   },
   {
-    component: <NotFoundPage />
+    path: routesPaths.fighter,
+    component: <FighterPage />,
+    private: false,
+    exact: false
   },
   {
     path: routesPaths.billing,
     component: <BillingPage />,
     exact: true,
     private: false
+  },
+  {
+    component: <NotFoundPage />
   }
 ];
 

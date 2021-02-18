@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { getFighters } from '../state/actions/fighterActions';
 
 const HomeStars = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
@@ -17,11 +19,11 @@ const HomeStars = () => {
         {fighters.length > 0 &&
           fighters.map(f => (
             <div key={f.id} className="card fighter-card">
-              <img className="card-img-top" src={f.attachments[0]?.url} alt="Card cap" />
+              <img className="card-img-top" src={f?.profilePicture} alt="Card cap" />
               <div className="card-body">
-                <p className="card-text">
+                <a href="#" className="card-text" onClick={() => history.push(`/fighter/${f.id}`)}>
                   {f.firstName} {f.lastName}
-                </p>
+                </a>
               </div>
             </div>
           ))}

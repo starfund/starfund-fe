@@ -28,7 +28,6 @@ h1 {
 }
 
 .fighter-card {
-  flex: 1 0 15%;
   margin: 15px 5%;
   height: 200px;
   width: 200px;
@@ -118,4 +117,83 @@ h1 {
 .step-content {
   display: flex;
   flex: 1 0 50%;
+}
+
+.fighter-container {
+  button {
+    max-height: 35px;
+    border: solid red 1px;
+    border-radius: 36px;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .fighter-cover {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .presentation-card {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 50px;
+    width: 50%;
+  }
+
+  .red-line {
+    color: red;
+    border: solid 1px;
+    width: 50%;
+  }
+
+  .avatar-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+  }
+
+  .fighter-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 65px;
+    object-fit: fill;
+  }
+
+  .how-it-works {
+    max-width: 30%;
+    margin-left: 10%;
+    text-align: center;
+    padding: 0 3%;
+
+    .text {
+      height: 20%;
+    }
+  }
+
+  .main-content {
+    display: flex;
+  }
+
+  .foot-banner {
+    margin: auto;
+    margin-top: 50px;
+    width: 50%;
+    text-align: center;
+
+    .text {
+      display: flex;
+      text-align: center;
+
+      div {
+        margin: 3%;
+      }
+    }
+  }
 }
