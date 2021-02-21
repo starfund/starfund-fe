@@ -12,11 +12,11 @@ const App = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Supporting Fighters and Athletes | StarFund</title>
-      </Helmet>
-      <Header />
       <BrowserRouter>
+        <Helmet>
+          <title>Supporting Fighters and Athletes | StarFund</title>
+        </Helmet>
+        <Header />
         <Switch>
           {routes.map((route, index) => (
             <RouteFromPath key={`route${index}`} {...route} authenticated={authenticated} />
