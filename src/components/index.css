@@ -1,5 +1,6 @@
 html, body, .home {
 	height: 100%;
+  font-family: "Open Sans" !important;
 }
 
 #app {

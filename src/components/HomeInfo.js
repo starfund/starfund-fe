@@ -7,7 +7,7 @@ import Pricing from '../assets/Pricing.jpeg';
 const HomeInfo = () => {
   return (
     <div className="info-container">
-      <h1> WHAT`S STARFUND? </h1>
+      <h1> WHATS STARFUND? </h1>
       <div>
         <h4>
           {' '}

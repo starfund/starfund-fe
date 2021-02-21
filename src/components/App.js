@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import '@fontsource/open-sans';
 
 import { useSession } from 'hooks';
 import RouteFromPath from 'components/routes/RouteFromPath';
