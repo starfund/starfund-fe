@@ -3,6 +3,9 @@ const routes = {
   login: '/login',
   signUp: '/sign-up',
   billing: '/billing',
+  fighters: '/fighters',
+  shop: '/shop',
+  about: '/about-us',
   fighter: '/fighter/:id'
 };
 

@@ -7,6 +7,9 @@ import SignUpPage from 'pages/SignUpPage';
 import NotFoundPage from 'pages/NotFoundPage';
 import BillingPage from 'pages/BillingPage';
 import FighterPage from 'pages/FighterPage';
+import FightersPage from 'pages/FightersPage';
+import AboutPage from 'pages/AboutPage';
+import ShopPage from 'pages/ShopPage';
 
 const routes = [
   {
@@ -26,6 +29,24 @@ const routes = [
   {
     path: routesPaths.fighter,
     component: <FighterPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.fighters,
+    component: <FightersPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.shop,
+    component: <ShopPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.about,
+    component: <AboutPage />,
     private: false,
     exact: false
   },
