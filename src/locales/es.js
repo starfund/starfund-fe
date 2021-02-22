@@ -22,6 +22,8 @@ export default {
 
   'home.welcome': 'Bienvenido a React Redux Base {username}',
 
+  createPaymentMethod: 'PAGO SEGURO',
+
   // errors
   'email.presence': 'Debe ingresar un email para continuar',
   'email.invalid': 'Debe ingresar un email válido',

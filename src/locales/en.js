@@ -33,7 +33,7 @@ export default {
   'form.email': 'Email',
   'form.email.placeholder': 'email@example.com',
 
-  createPaymentMethod: 'ADD CARD',
+  createPaymentMethod: 'PLACE SECURE ORDER',
   payment1: '$1',
   payment2: '$100'
 };

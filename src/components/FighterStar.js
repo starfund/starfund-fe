@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { getFighters } from '../state/actions/fighterActions';
+import ConfirmationModal from './common/ConfirmationModal';
+import BillingForm from './BillingForm';
 import Chat from '../assets/Chat.png';
 import Journey from '../assets/Journey.png';
 import Unlock from '../assets/Unlock.png';
@@ -14,6 +16,7 @@ import NewsPaper from '../assets/NewsPaper.png';
 const FighterStar = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
@@ -60,7 +63,7 @@ const FighterStar = () => {
           </div>
           <br />
           <br />
-          <button type="button" className="btn btn-danger">
+          <button type="button" className="btn btn-danger" onClick={() => setModalIsOpen(true)}>
             SUBSCRIBE
           </button>
         </div>
@@ -96,6 +99,15 @@ const FighterStar = () => {
           </div>
         </div>
       </div>
+      <ConfirmationModal
+        title="MONTHLY MEMBERSHIP"
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        isDelete={false}
+        confirmationAction={() => console.log}
+      >
+        <BillingForm />
+      </ConfirmationModal>
     </div>
   );
 };
