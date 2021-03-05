@@ -45,7 +45,7 @@ const Header = () => {
               </li>
             </ul>
             <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
-              {authenticated ? 'Profile' : 'Access'}
+              {authenticated ? 'LOG OUT' : 'LOG IN'}
             </span>
           </div>
         </nav>
