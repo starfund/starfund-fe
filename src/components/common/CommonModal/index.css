@@ -1,0 +1,21 @@
+.modal_title {
+  background-color: black;
+  border: none;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.33;
+  text-align: center;
+  color: white;
+  height: 70px;
+  padding: 15px;
+}
+
+.modal_datepicker {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal_content_column {
+  display: flex;
+}

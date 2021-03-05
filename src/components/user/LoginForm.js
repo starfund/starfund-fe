@@ -53,7 +53,7 @@ export const LoginForm = ({ onSubmit }) => {
           {...inputProps(fields.password)}
         />
       </div>
-      <button type="submit">
+      <button className="btn btn-danger" type="submit">
         <FormattedMessage id="login.form.submit" />
       </button>
       {status === LOADING && <Loading />}

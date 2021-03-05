@@ -222,3 +222,13 @@ a {
   justify-content: center;
   text-align: center;
 }
+
+.change-name-modal__container {
+  form { margin: 15px; }
+
+  input { width: 100%; margin: 5px 0; }
+
+  label { float: left; font-weight: bold; font-size: 14px; }
+
+  button { margin-top: 10px; }
+}

@@ -64,7 +64,7 @@ export const SignUpForm = ({ onSubmit }) => {
           {...inputProps(fields.passwordConfirmation)}
         />
       </div>
-      <button type="submit">
+      <button className="btn btn-danger" type="submit">
         <FormattedMessage id="login.form.submit" />
       </button>
       {status === LOADING && <Loading />}
