@@ -4,7 +4,7 @@ import { useSession, useDispatch } from 'hooks';
 
 import { signUp, login } from 'state/actions/userActions';
 
-import logo from 'assets/starfund-logo.png';
+import LogoWhite from 'assets/LogoWhite.svg';
 import CommonModal from './CommonModal';
 import LoginForm from '../user/LoginForm';
 import SignUpForm from '../user/SignUpForm';
@@ -22,9 +22,9 @@ const Header = () => {
   return (
     <>
       <header className="custom-header">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div onClick={() => history.push('/')}>
-            <img src={logo} alt="logo" />
+            <img src={LogoWhite} alt="logo" />
           </div>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">

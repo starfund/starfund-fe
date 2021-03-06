@@ -14,7 +14,7 @@ const HomeStars = () => {
 
   return (
     <div className="stars-container">
-      <h1> STARFUND STARS </h1>
+      <h1> Featured Athletes </h1>
       <div className="fighters-container">
         {fighters.length > 0 &&
           fighters.map(f => (

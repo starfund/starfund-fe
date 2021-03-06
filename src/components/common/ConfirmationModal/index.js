@@ -29,11 +29,24 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen }) => {
       onRequestClose={() => setIsOpen(false)}
     >
       <div className="change-name-modal__container">
-        <div className="modal_title">
+        <div className="confirm_modal_title">
           {title}
           <p> Total Billed Today: $5 </p>
         </div>
         {children}
+        <div className="confirm_modal_title">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-4 offset-sm-1 ">
+                <p className="big"> 100% GUARANTEED </p>
+              </div>
+              <div className="col-sm-5 offset-sm-1">
+                <i className="fas fa-shield-alt" />
+                <p> Secured with SSL </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Modal>
   );

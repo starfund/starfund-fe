@@ -62,9 +62,13 @@ const BillingForm = ({ stripe, elements }) => {
           />
         </div>
       </div>
-      <div className="checkout-footer col-md-12">
-        <h4 className="card-header">100% secure purchase</h4>
-      </div>
+      <p className="small-copy">
+        By clicking "Place Secure Order", you agree to enroll in our monthly subscription plan and
+        to our Offer Terms and Terms of Service. Your payment method will be charged the price above
+        the first month and monthly thereafter at the then-current rate. Prices are tax inclusive.
+        Cancel any time in Settings. No refunds for partial unused periods, or after gift is
+        redeemed.
+      </p>
     </div>
   );
 };

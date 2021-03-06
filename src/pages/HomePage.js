@@ -4,6 +4,9 @@ import ParalaxHome from '../components/ParalaxHome';
 import HomeStars from '../components/HomeStars';
 import HomeInfo from '../components/HomeInfo';
 import HomeFooter from '../components/HomeFooter';
+import HomeAnnouncements from '../components/HomeAnnouncements';
+import FAQS from '../components/FAQS';
+import HomeExclusive from '../components/HomeExclusive';
 
 const HomePage = () => {
   return (
@@ -11,6 +14,9 @@ const HomePage = () => {
       <ParalaxHome />
       <HomeStars />
       <HomeInfo />
+      <HomeAnnouncements />
+      <FAQS />
+      <HomeExclusive />
       <HomeFooter />
     </div>
   );
