@@ -13,7 +13,7 @@ const HomeExclusive = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4 home-text">
-            <h1> Be an Exclusive Fun </h1>
+            <h1> Be an Exclusive Fan </h1>
             <br />
             <p>
               {' '}

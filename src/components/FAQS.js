@@ -8,7 +8,7 @@ const FAQS = () => {
     <div className="faqs-container">
       <div className="container">
         <div className="row">
-          <div className="col-md-7 offset-md-4">
+          <div className="col-md-7 offset-md-3">
             <h2 className="offset-md-2"> Frequently Asked Questions </h2>
             <br />
             <div id="accordion">

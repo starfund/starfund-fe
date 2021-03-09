@@ -25,6 +25,10 @@ h2 {
   color: white;
 }
 
+.navbar-collapse {
+  margin-left: 20%;
+}
+
 .ReactModal__Content {
   padding: 0 !important;
   text-align: center;

@@ -40,6 +40,11 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#" onClick={() => history.push('/about-us')}>
+                  Watch
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#" onClick={() => history.push('/about-us')}>
                   About us
                 </a>
               </li>
