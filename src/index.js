@@ -15,6 +15,12 @@ import locales from 'locales';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from 'constants/constants';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'styles/styles.scss';
+/* eslint-disable */
+import $ from 'jquery';
+import Popper from 'popper.js';
+/* eslint-disable */
+
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 require('./favicon.ico'); // Tell webpack to load favicon.ico
 
