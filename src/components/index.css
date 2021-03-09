@@ -156,11 +156,17 @@ h2 {
   padding: 100px 0;
 
   .card-body {
-    padding: 35px !important;
+    padding: 5px 35px !important;
   }
 
   .card-header {
-    button { float: right; background-size: cover !important; width: 30px; height: 30px }
+    button {
+      float: right;
+      background-size: cover !important;
+      width: 30px;
+      height: 30px
+    }
+    p { max-width: 80%; }
   }
 }
 

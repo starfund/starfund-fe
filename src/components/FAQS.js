@@ -9,13 +9,12 @@ const FAQS = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-7 offset-md-4">
-            <h2> Frequently Asked Questions </h2>
+            <h2 className="offset-md-2"> Frequently Asked Questions </h2>
             <br />
             <div id="accordion">
               <div className="card text-white bg-dark">
                 <div className="card-header" id="headingOne">
-                  <h5 className="flex mb-0">
-                    <p> What is Starfund? </p>
+                  <h5 className="mb-0">
                     <button
                       className="btn btn-link"
                       type="button"
@@ -25,9 +24,10 @@ const FAQS = () => {
                       aria-controls="collapseOne"
                       style={{ background: `url(${ArrowDown})` }}
                     />
+                    <p> What is Starfund? </p>
                   </h5>
                 </div>
-
+                <br />
                 <div
                   id="collapseOne"
                   className="collapse show"
@@ -46,10 +46,10 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
+              <br />
               <div className="card text-white bg-dark">
                 <div className="card-header" id="headingTwo">
                   <h5 className="mb-0">
-                    <p> How does it work? </p>
                     <button
                       className="btn btn-link collapsed"
                       data-toggle="collapse"
@@ -59,6 +59,7 @@ const FAQS = () => {
                       aria-controls="collapseTwo"
                       style={{ background: `url(${ArrowDown})` }}
                     />
+                    <p> How does it work? </p>
                   </h5>
                 </div>
                 <div
@@ -82,10 +83,10 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
+              <br />
               <div className="card text-white bg-dark">
                 <div className="card-header" id="headingThree">
                   <h5 className="mb-0">
-                    <p>What is included in a Starfund membership?</p>
                     <button
                       className="btn btn-link collapsed"
                       data-toggle="collapse"
@@ -95,6 +96,7 @@ const FAQS = () => {
                       aria-controls="collapseThree"
                       style={{ background: `url(${ArrowDown})` }}
                     />
+                    <p>What is included in a Starfund membership?</p>
                   </h5>
                 </div>
                 <div
@@ -115,10 +117,10 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
+              <br />
               <div className="card text-white bg-dark">
                 <div className="card-header" id="headingFour">
                   <h5 className="mb-0">
-                    <p> How do I cancel? </p>
                     <button
                       className="btn btn-link"
                       data-toggle="collapse"
@@ -128,6 +130,7 @@ const FAQS = () => {
                       aria-controls="collapseFour"
                       style={{ background: `url(${ArrowDown})` }}
                     />
+                    <p> How do I cancel? </p>
                   </h5>
                 </div>
 
