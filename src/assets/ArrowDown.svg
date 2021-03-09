@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 45 45">
+    <defs>
+        <path id="phviawcmka" d="M23.595 29.491l-7.1-7.17c-.232-.234-.231-.615.001-.849.233-.234.612-.234.844 0l6.678 6.743 6.678-6.742c.232-.235.61-.235.843 0 .118.116.175.27.175.424 0 .154-.057.307-.174.424l-7.1 7.17c-.112.113-.264.176-.422.176-.158 0-.31-.063-.423-.176z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <path fill="#000" d="M24.5 2C36.926 2 47 12.074 47 24.5S36.926 47 24.5 47C12.073 47 2 36.926 2 24.5S12.073 2 24.5 2z" transform="translate(-1260 -4180) translate(590 4158) translate(668 20)"/>
+                    <g transform="translate(-1260 -4180) translate(590 4158) translate(668 20)">
+                        <use fill="#000" xlink:href="#phviawcmka"/>
+                        <use fill="#FFF" xlink:href="#phviawcmka"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

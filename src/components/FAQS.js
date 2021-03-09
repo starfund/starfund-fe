@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ArrowDown from '../assets/ArrowDown.svg';
 import './index.css';
 
 const FAQS = () => {
@@ -11,9 +12,10 @@ const FAQS = () => {
             <h2> Frequently Asked Questions </h2>
             <br />
             <div id="accordion">
-              <div className="card">
+              <div className="card text-white bg-dark">
                 <div className="card-header" id="headingOne">
-                  <h5 className="mb-0">
+                  <h5 className="flex mb-0">
+                    <p> What is Starfund? </p>
                     <button
                       className="btn btn-link"
                       type="button"
@@ -21,9 +23,8 @@ const FAQS = () => {
                       data-target="#collapseOne"
                       aria-expanded="true"
                       aria-controls="collapseOne"
-                    >
-                      What is Starfund?
-                    </button>
+                      style={{ background: `url(${ArrowDown})` }}
+                    />
                   </h5>
                 </div>
 
@@ -45,9 +46,10 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card text-white bg-dark">
                 <div className="card-header" id="headingTwo">
                   <h5 className="mb-0">
+                    <p> How does it work? </p>
                     <button
                       className="btn btn-link collapsed"
                       data-toggle="collapse"
@@ -55,9 +57,8 @@ const FAQS = () => {
                       type="button"
                       aria-expanded="false"
                       aria-controls="collapseTwo"
-                    >
-                      How does it work?
-                    </button>
+                      style={{ background: `url(${ArrowDown})` }}
+                    />
                   </h5>
                 </div>
                 <div
@@ -81,9 +82,10 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card text-white bg-dark">
                 <div className="card-header" id="headingThree">
                   <h5 className="mb-0">
+                    <p>What is included in a Starfund membership?</p>
                     <button
                       className="btn btn-link collapsed"
                       data-toggle="collapse"
@@ -91,9 +93,8 @@ const FAQS = () => {
                       aria-expanded="false"
                       type="button"
                       aria-controls="collapseThree"
-                    >
-                      What is included in a Starfund membership?
-                    </button>
+                      style={{ background: `url(${ArrowDown})` }}
+                    />
                   </h5>
                 </div>
                 <div
@@ -114,25 +115,25 @@ const FAQS = () => {
                   </div>
                 </div>
               </div>
-              <div className="card">
+              <div className="card text-white bg-dark">
                 <div className="card-header" id="headingFour">
                   <h5 className="mb-0">
+                    <p> How do I cancel? </p>
                     <button
                       className="btn btn-link"
                       data-toggle="collapse"
                       data-target="#collapseFour"
                       type="button"
-                      aria-expanded="true"
+                      aria-expanded="false"
                       aria-controls="collapseFour"
-                    >
-                      How do I cancel?
-                    </button>
+                      style={{ background: `url(${ArrowDown})` }}
+                    />
                   </h5>
                 </div>
 
                 <div
-                  id="collapsFour"
-                  className="collapse show"
+                  id="collapseFour"
+                  className="collapse"
                   aria-labelledby="headingFour"
                   data-parent="#accordion"
                 >

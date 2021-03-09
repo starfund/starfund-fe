@@ -154,6 +154,14 @@ h2 {
 
 .faqs-container {
   padding: 100px 0;
+
+  .card-body {
+    padding: 35px !important;
+  }
+
+  .card-header {
+    button { float: right; background-size: cover !important; width: 30px; height: 30px }
+  }
 }
 
 .how-it-works {
