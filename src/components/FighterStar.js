@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { createSelector } from 'reselect';
 import { useParams, useHistory } from 'react-router-dom';
 
 import HomeExclusive from './HomeExclusive';
@@ -23,7 +24,10 @@ const FighterStar = () => {
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
-  const fighter = useSelector(state => state.fighters.fighters[parseInt(id) - 1]);
+  const fighterSelector = createSelector(state =>
+    state.fighters.fighters.filter(f => f.id == parseInt(id))
+  );
+  const fighter = useSelector(fighterSelector);
 
   return (
     <div className="fighter-container">
