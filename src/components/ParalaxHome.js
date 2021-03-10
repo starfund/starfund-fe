@@ -32,9 +32,15 @@ const ParalaxHome = () => {
           </p>
         </div>
         <div className="col-md-7 offset-md-1">
-          <video className="parallax" autoPlay loop src={require('../assets/HomeVid.mp4')}>
-            <track src="captions_en.vtt" kind="captions" srcLang="en" label="english_captions" />
-          </video>
+          <iframe
+            title="preview"
+            width="760"
+            height="515"
+            src={`${require('../assets/HomeVid.mp4')}?controls=0`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </div>
       <ConfirmationModal

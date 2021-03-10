@@ -9,6 +9,7 @@ import CommonModal from './CommonModal';
 import LoginForm from '../user/LoginForm';
 import SignUpForm from '../user/SignUpForm';
 import LogoutButton from '../user/LogoutButton';
+import ProfileUser from '../../assets/ProfileUser.svg';
 import './index.css';
 
 const Header = () => {
@@ -49,8 +50,9 @@ const Header = () => {
                 </a>
               </li>
             </ul>
+            <img src={ProfileUser} alt="profile" />
             <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
-              {authenticated ? 'LOG OUT' : 'LOG IN'}
+              {authenticated ? 'Logout' : 'Login'}
             </span>
           </div>
         </nav>
