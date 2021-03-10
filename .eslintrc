@@ -110,6 +110,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "arrow-parens": 0,
     "react/no-unescaped-entities": off,
+    "radix": off,
   },
   "settings": {
     "import/resolver": {

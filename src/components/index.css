@@ -233,6 +233,7 @@ h2 {
 
   .navbar {
     padding-left: 20%;
+    margin-top: -6px;
 
     li { padding-right: 15%; }
 

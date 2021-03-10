@@ -23,7 +23,7 @@ const FighterStar = () => {
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
-  const fighter = useSelector(state => state.fighters.fighters[parseInt(id, 0)]);
+  const fighter = useSelector(state => state.fighters.fighters[parseInt(id) - 1]);
 
   return (
     <div className="fighter-container">
