@@ -22,29 +22,29 @@ const Header = () => {
   return (
     <>
       <header className="custom-header">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark">
           <div onClick={() => history.push('/')}>
             <img src={LogoWhite} alt="logo" />
           </div>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="#" onClick={() => history.push('/fighters')}>
+                <a className="nav-link" href="" onClick={() => history.push('/fighters')}>
                   Stars <span className="sr-only">(current)</span>
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={() => history.push('/shop')}>
+                <a className="nav-link" href="" onClick={() => history.push('/shop')}>
                   Shop
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={() => history.push('/about-us')}>
+                <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
                   Watch
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={() => history.push('/about-us')}>
+                <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
                   About us
                 </a>
               </li>

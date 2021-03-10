@@ -75,6 +75,7 @@ h2 {
 }
 
 .stars-container {
+  padding-top: 20px;
   padding-bottom: 20px;
   background-color: #191c21;
 }
@@ -174,10 +175,6 @@ h2 {
   }
 }
 
-.how-it-works {
-  background-color: #f5f5f5;
-}
-
 .steps {
   margin-bottom: 50px;
   text-align: left;
@@ -220,12 +217,26 @@ h2 {
 }
 
 .fighter-container {
+  background-color: #020612;
+  
+  h2 { text-align: center }
+  
   button {
     max-height: 35px;
     border: solid red 1px;
     border-radius: 36px;
     font-weight: bold;
-    margin: 10px;
+    padding: 5px 0;
+    font-size: 16px;
+    background-color: #ea0a0a;
+  }
+
+  .navbar {
+    padding-left: 20%;
+
+    li { padding-right: 15%; }
+
+    a { width: max-content }
   }
 
   .bold {
@@ -234,7 +245,7 @@ h2 {
 
   .fighter-cover {
     width: 100%;
-    max-height: 300px;
+    height: 753px;
   }
 
   .presentation-card {
@@ -266,11 +277,28 @@ h2 {
     object-fit: fill;
   }
 
+  .video {
+    padding: 0 50px;
+  }
+
+  .video-text {
+    padding-top: 20px;
+  }
+
   .how-it-works {
+    color: white;
     max-width: 30%;
     margin-left: 10%;
     text-align: center;
-    padding: 0 3%;
+
+    button { width: 100% }
+
+    .content {
+      background-color: #191c21;
+      padding: 50px;
+      width: 250px;
+    }
+
 
     .text {
       height: 20%;
@@ -279,6 +307,8 @@ h2 {
 
   .main-content {
     display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .foot-banner {

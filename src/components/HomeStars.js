@@ -36,11 +36,7 @@ const HomeStars = () => {
               <div key={f.id} className="card fighter-card">
                 <img className="card-img-top" src={f?.profilePicture} alt="Card cap" />
                 <div className="card-body">
-                  <a
-                    href="#"
-                    className="card-text"
-                    onClick={() => history.push(`/fighter/${f.id}`)}
-                  >
+                  <a href="" className="card-text" onClick={() => history.push(`/fighter/${f.id}`)}>
                     {f.firstName} {f.lastName}
                   </a>
                 </div>

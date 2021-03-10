@@ -1,7 +1,7 @@
 .custom-header {
   height: 70px;
-  background-color: black;
-  color: black;
+  background-color: #020612;
+  color: #020612;
 
   nav { height: 100% }
 
@@ -10,4 +10,8 @@
   a { font-weight: bold; }
 
   ul > li { margin: 0 30px }
+}
+
+.navbar {
+  background-color: #020612 !important;
 }
