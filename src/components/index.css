@@ -1,6 +1,6 @@
 html, body, .home {
 	height: 100%;
-  font-family: "Open Sans" !important;
+  font-family: "Poppins" !important;
   background-color: #020612;
   padding-top: 100px;
 }
@@ -8,6 +8,8 @@ html, body, .home {
 #app {
   height: 100%;
 }
+
+* { font-family: "Poppins" !important; }
 
 p {
   color: white;

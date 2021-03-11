@@ -64,6 +64,7 @@
   "dependencies": {
     "@babel/helper-compilation-targets": "7.13.8",
     "@fontsource/open-sans": "4.1.0",
+    "@fontsource/poppins": "4.2.2",
     "@formatjs/intl-relativetimeformat": "2.6.3",
     "@fortawesome/fontawesome-free": "5.15.2",
     "@rootstrap/redux-tools": "1.0.0",
@@ -105,7 +106,8 @@
     "reselect": "4.0.0",
     "rootstrap-ui": "0.0.2",
     "slick-carousel": "1.8.1",
-    "validate.js": "0.12.0"
+    "validate.js": "0.12.0",
+    "webfontloader": "1.6.28"
   },
   "devDependencies": {
     "@babel/cli": "7.5.0",
