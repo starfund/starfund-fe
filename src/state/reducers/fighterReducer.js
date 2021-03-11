@@ -2,7 +2,8 @@ import { createReducer } from '@rootstrap/redux-tools';
 import { getFighters } from 'state/actions/fighterActions';
 
 const initialState = {
-  fighters: {}
+  fighters: [],
+  selected: 0
 };
 
 const actionHandlers = {
