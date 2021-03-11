@@ -10,6 +10,7 @@ import FighterPage from 'pages/FighterPage';
 import FightersPage from 'pages/FightersPage';
 import AboutPage from 'pages/AboutPage';
 import ShopPage from 'pages/ShopPage';
+import TermsPage from 'pages/TermsPage';
 
 const routes = [
   {
@@ -41,6 +42,12 @@ const routes = [
   {
     path: routesPaths.shop,
     component: <ShopPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.terms,
+    component: <TermsPage />,
     private: false,
     exact: false
   },

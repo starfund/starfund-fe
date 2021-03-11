@@ -216,6 +216,19 @@ h2 {
   flex: 1 0 50%;
 }
 
+.terms-container {
+  background-color: #020612;
+
+  h2, h3, h4 { color: white; }
+  h4 { padding: 15px 0; }
+  p {padding: 5px 0;}
+
+  div {
+    padding: 30px;
+    justify-content: left;
+  }
+}
+
 .fighter-container {
   background-color: #020612;
   
