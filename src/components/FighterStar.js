@@ -139,6 +139,7 @@ const FighterStar = () => {
         setIsOpen={setModalIsOpen}
         isDelete={false}
         confirmationAction={() => console.log}
+        price={fighter?.subPrice}
       >
         <BillingForm />
       </ConfirmationModal>
