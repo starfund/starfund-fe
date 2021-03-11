@@ -87,6 +87,32 @@ h2 {
   padding-top: 10px;
   line-height: 60px;
   width: 100%;
+
+  .footer-header {
+    p {
+      color: #838aa6;
+      font-weight: 600;
+    }
+  }
+
+  .row-1 {
+    p {
+      color: #f5f6f6;
+      font-weight: 300;
+    }
+
+    button {
+      background-color: #3b414a;
+      color: white;
+      border: none;
+      width: 190px;
+      height: 70px;
+    }
+  }
+
+  .language-row {
+    border-bottom: solid 1px white;
+  }
 }
 
 .fighter-card {
