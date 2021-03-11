@@ -157,6 +157,16 @@ h2 {
 .announcements-container {
   background-color: #191c21;
   padding-bottom: 100px;
+
+  img {
+    width: 292px;
+    height: 380px;
+    padding-bottom: 50px;
+  }
+
+  .pictures {
+    padding: 50px;
+  }
 }
 
 .faqs-container {
