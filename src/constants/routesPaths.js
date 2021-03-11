@@ -7,7 +7,8 @@ const routes = {
   shop: '/shop',
   about: '/about-us',
   fighter: '/fighter/:id',
-  terms: '/terms'
+  terms: '/terms',
+  privacy: '/privacy'
 };
 
 export default routes;
