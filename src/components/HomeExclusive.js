@@ -21,7 +21,7 @@ const HomeExclusive = () => {
             </p>
             <br />
             <button type="button" className="btn btn-danger" onClick={() => setModalIsOpen(true)}>
-              Get Started
+              GET STARTED
             </button>
           </div>
           <div className="col-md-4 offset-md-1">
