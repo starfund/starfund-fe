@@ -138,11 +138,6 @@ h2 {
   font-weight: bold;
 }
 
-.fighters-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .info-container {
   text-align: center;
   margin-bottom: 30px;

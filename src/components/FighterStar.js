@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
+import Slider from './common/Slider';
 import { getFighters } from '../state/actions/fighterActions';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
@@ -15,6 +16,8 @@ import Browser from '../assets/Browser.svg';
 import Clicking from '../assets/Clicking.svg';
 import Account from '../assets/Account.svg';
 
+import '../styles/components/_home-starts.scss';
+
 const FighterStar = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -23,6 +26,7 @@ const FighterStar = () => {
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
+  const fighters = useSelector(state => state.fighters.fighters);
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
@@ -107,7 +111,31 @@ const FighterStar = () => {
       </div>
       <div className="stars-container">
         <h2> Explore Other Athletes </h2>
-        <div className="fighters-container" />
+        <div className="fighters-container fighters-slider-wrapper">
+          <Slider>
+            {fighters.length > 0 &&
+              fighters.map(f => (
+                <a
+                  key={f.id}
+                  className="fighter-card-link"
+                  href=""
+                  onClick={() => history.push(`/fighter/${f.id}`)}
+                >
+                  <div key={f.id} className="fighter-card">
+                    <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
+                    <div className="fighter-card-overlay">
+                      <div className="fighter-card-name-wrapper">
+                        <span className="fighter-card-text">{f.firstName} </span>
+                        <span className="fighter-card-text secondary">{f.lastName} </span>
+                      </div>
+                      <div className="fighter-card-separator" />
+                      <span className="fighter-card-text">{f.organization} </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+          </Slider>
+        </div>
       </div>
       <div className="foot-banner">
         <h2 className="bold"> Get started in 2 minutes </h2>
