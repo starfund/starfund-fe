@@ -1,0 +1,87 @@
+.fighters-slider-wrapper {
+  width: 60%;
+  align-self: center;
+  margin: auto;
+}
+
+.fighter-card {
+  border-radius: 20px !important;
+  height: 476px;
+  max-width: 257px;
+
+
+  img { 
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  &:hover {
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 10px 5px rgba(25,28,33,0); 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 10px 5px rgba(25,28,33,0);
+  }
+}
+
+.fighter-card-overlay {
+  position: relative;
+  bottom: 36%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.fighter-card-name-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.fighter-card-text {
+  font-size: 30px;
+  color: white;
+  text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+
+  &.secondary { 
+    font-size: 20px;
+  }
+}
+
+.fighter-card-separator {
+  width: 35px;
+  height: 4px;
+  margin: 15px 38px;
+  box-shadow: 5px 10px 15px 0 rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  margin: 15px auto;
+}
+
+.fighter-card-link {
+  text-decoration: none !important;
+}
+
+.slider {
+  height: 476px;
+}
+
+.stars-title {
+  height: 63px;
+  margin: 0 69px 60px 71px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 2.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+}
+
+.fighter-card-image {
+  object-fit: cover;
+}

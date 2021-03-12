@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 import { getFighters } from '../state/actions/fighterActions';
+
+import Slider from './common/Slider';
+
+import '../styles/components/_home-starts.scss';
 
 const HomeStars = () => {
   const dispatch = useDispatch();
@@ -15,39 +15,33 @@ const HomeStars = () => {
     dispatch(getFighters());
   }, [dispatch]);
   const fighters = useSelector(state => state.fighters.fighters);
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
 
   return (
     <div className="stars-container">
-      <h1> Featured Athletes </h1>
-      <div className="fighters-container">
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
+      <h1 className="stars-title"> Explore Other Athletes </h1>
+      <div className="fighters-slider-wrapper">
+        <Slider>
           {fighters.length > 0 &&
             fighters.map(f => (
-              <div key={f.id} className="card fighter-card">
-                <img className="card-img-top" src={f?.profilePicture} alt="Card cap" />
-                <div className="card-body">
-                  <a href="" className="card-text" onClick={() => history.push(`/fighter/${f.id}`)}>
-                    {f.firstName} {f.lastName}
-                  </a>
+              <a
+                key={f.id}
+                className="fighter-card-link"
+                href=""
+                onClick={() => history.push(`/fighter/${f.id}`)}
+              >
+                <div key={f.id} className="fighter-card">
+                  <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
+                  <div className="fighter-card-overlay">
+                    <div className="fighter-card-name-wrapper">
+                      <span className="fighter-card-text">{f.firstName} </span>
+                      <span className="fighter-card-text secondary">{f.lastName} </span>
+                    </div>
+                    <div className="fighter-card-separator" />
+                    <span className="fighter-card-text">{f.organization} </span>
+                  </div>
                 </div>
-              </div>
+              </a>
             ))}
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
         </Slider>
       </div>
     </div>

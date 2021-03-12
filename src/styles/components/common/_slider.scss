@@ -1,0 +1,24 @@
+.slick-slide {
+  padding: 0 13px;
+}
+
+.slick-slider {
+  ::before {
+    font-size: 40px;
+    position: relative;
+  }
+}
+
+.slick-prev {
+  &::before {
+    position: relative;
+    right: 30px;
+  }
+}
+
+.slick-next {
+  &::before {
+    position: relative;
+    left: 10px;
+  }
+}
