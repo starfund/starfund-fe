@@ -9,8 +9,8 @@ import './index.css';
 
 const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const height = isMobile ? '100%' : '212';
-  const width = isMobile ? '100%' : '560px';
+  const height = isMobile ? '100%' : '460px';
+  const width = isMobile ? '100%' : '460px';
   const styles = modalStyles(
     isMobile,
     height,
@@ -29,13 +29,13 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
       shouldCloseOnOverlayClick
       onRequestClose={() => setIsOpen(false)}
     >
-      <div className="change-name-modal__container">
+      <div className="confirmation_modal_container">
         <div className="confirm_modal_title">
           {title}
           <p> Total Billed Today: {subPrice}</p>
         </div>
         {children}
-        <div className="confirm_modal_title">
+        <div className="confirm_modal_footer">
           <div className="container">
             <div className="row">
               <div className="col-sm-4 offset-sm-1 ">
