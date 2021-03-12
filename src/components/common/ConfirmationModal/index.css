@@ -17,6 +17,8 @@
   color: white;
   height: 15%;
   padding: 20px;
+
+  p { padding-top: 5px}
 }
 
 .confirm_modal_footer {

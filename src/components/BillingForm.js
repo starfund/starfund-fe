@@ -19,7 +19,10 @@ const BillingForm = ({ stripe, elements }) => {
           <div className="">
             <div className="card-field">
               <span> Card info </span>
-              <CardElement style={{ base: { fontSize: '18px', border: 'solid 1px black' } }} />
+              <CardElement
+                hidePostalCode
+                style={{ base: { fontSize: '18px', border: 'solid 1px black' } }}
+              />
             </div>
           </div>
           <Button
