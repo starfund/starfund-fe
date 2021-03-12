@@ -269,16 +269,6 @@ h2 {
   background-color: #020612;
   
   h2 { text-align: center }
-  
-  button {
-    max-height: 35px;
-    border: solid red 1px;
-    border-radius: 36px;
-    font-weight: bold;
-    padding: 5px 0;
-    font-size: 16px;
-    background-color: #ea0a0a;
-  }
 
   .navbar {
     padding-left: 20%;
@@ -359,6 +349,16 @@ h2 {
     display: flex;
     padding-top: 50px;
     padding-bottom: 50px;
+
+    button {
+      max-height: 35px;
+      border: solid red 1px;
+      border-radius: 36px;
+      font-weight: bold;
+      padding: 5px 0;
+      font-size: 16px;
+      background-color: #ea0a0a;
+    }
   }
 
   .foot-banner {
