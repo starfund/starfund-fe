@@ -384,10 +384,13 @@ h2 {
 }
 
 .stars-preview-container {
-  margin: auto;
-  width: 50%;
+  height: 100%;
   justify-content: center;
   text-align: center;
+
+  .stars-container {
+    height: 100%;
+  }
 }
 
 .change-name-modal__container {
