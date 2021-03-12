@@ -28,7 +28,17 @@ const ParalaxHome = () => {
           <br />
           <p className="small">
             {' '}
-            By sharing your email, you agree to our Terms of Service and Privacy Policy.{' '}
+            By sharing your email, you agree to our
+            <a href="/terms" target="_blank">
+              {' '}
+              Terms of Service
+            </a>{' '}
+            and
+            <a href="/privacy" target="_blank">
+              {' '}
+              Privacy Policy
+            </a>
+            .{' '}
           </p>
         </div>
         <div className="col-md-7 offset-md-1">

@@ -1,6 +1,6 @@
 html, body, .home {
 	height: 100%;
-  font-family: "Open Sans" !important;
+  font-family: "Poppins" !important;
   background-color: #020612;
   padding-top: 100px;
 }
@@ -8,6 +8,8 @@ html, body, .home {
 #app {
   height: 100%;
 }
+
+* { font-family: "Poppins" !important; }
 
 p {
   color: white;
@@ -50,6 +52,8 @@ h2 {
 
 .checkout-container {
   justify-content: center;
+  height: 300px;
+  span { color: grey; font-weight: 600; }
 }
 
 .bi-shield-lock {
@@ -59,6 +63,7 @@ h2 {
 .small-copy {
   font-size: 10px;
   padding: 10px;
+  color: grey;
 }
 
 .parallax {
@@ -79,11 +84,47 @@ h2 {
   background-color: #191c21;
 }
 
+.card-field {
+  padding: 3%;
+  text-align: left;
+
+  .StripeElement {
+    border: solid 1px grey;
+    padding: 15px;
+  }
+}
+
 .footer {
   height: 60px;
   padding-top: 10px;
   line-height: 60px;
   width: 100%;
+
+  .footer-header {
+    p {
+      color: #838aa6;
+      font-weight: 600;
+    }
+  }
+
+  .row-1 {
+    p {
+      color: #f5f6f6;
+      font-weight: 300;
+    }
+
+    button {
+      background-color: #3b414a;
+      color: white;
+      border: none;
+      width: 190px;
+      height: 70px;
+    }
+  }
+
+  .language-row {
+    border-bottom: solid 1px white;
+  }
 }
 
 
@@ -145,6 +186,16 @@ h2 {
 .announcements-container {
   background-color: #191c21;
   padding-bottom: 100px;
+
+  img {
+    width: 292px;
+    height: 380px;
+    padding-bottom: 50px;
+  }
+
+  .pictures {
+    padding: 50px;
+  }
 }
 
 .faqs-container {
@@ -204,6 +255,19 @@ h2 {
 .step-content {
   display: flex;
   flex: 1 0 50%;
+}
+
+.terms-container {
+  background-color: #020612;
+
+  h2, h3, h4 { color: white; }
+  h4 { padding: 15px 0; }
+  p {padding: 5px 0;}
+
+  div {
+    padding: 30px;
+    justify-content: left;
+  }
 }
 
 .fighter-container {
@@ -273,7 +337,7 @@ h2 {
   }
 
   .video-text {
-    padding-top: 20px;
+    padding-top: 10px;
   }
 
   .how-it-works {

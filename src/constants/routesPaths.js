@@ -6,7 +6,9 @@ const routes = {
   fighters: '/fighters',
   shop: '/shop',
   about: '/about-us',
-  fighter: '/fighter/:id'
+  fighter: '/fighter/:id',
+  terms: '/terms',
+  privacy: '/privacy'
 };
 
 export default routes;

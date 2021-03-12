@@ -16,7 +16,7 @@ export const modalStyles = (isMobile, height, width, padding, top, left) => ({
   overlay: {
     zIndex: 1000,
     transition: 'right 200ms linear',
-    backgroundColor: 'rgba(0, 0, 0, 0.32)',
+    backgroundColor: 'rgba(0, 0, 0, 0.90)',
     overflow: 'scroll'
   }
 });

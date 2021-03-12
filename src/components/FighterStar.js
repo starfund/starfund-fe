@@ -91,8 +91,8 @@ const FighterStar = () => {
         <div className="video">
           <iframe
             title="preview"
-            width="760"
-            height="515"
+            width="925"
+            height="552"
             src={fighter?.previewUrl}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -139,6 +139,7 @@ const FighterStar = () => {
         setIsOpen={setModalIsOpen}
         isDelete={false}
         confirmationAction={() => console.log}
+        price={fighter?.subPrice}
       >
         <BillingForm />
       </ConfirmationModal>
