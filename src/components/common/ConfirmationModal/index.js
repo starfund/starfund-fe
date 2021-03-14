@@ -10,7 +10,7 @@ import './index.css';
 const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : '460px';
-  const width = isMobile ? '100%' : '460px';
+  const width = isMobile ? '100%' : '760px';
   const styles = modalStyles(
     isMobile,
     height,

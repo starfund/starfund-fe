@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Cards from 'react-credit-cards';
 // import { useDispatch } from 'react-redux';
 import { object } from 'prop-types';
-import { CardElement } from 'react-stripe-elements';
+//import { CardElement } from 'react-stripe-elements';
+import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
 import withStripe from 'components/hocs/withStripe';
 import usePayments from 'hooks/usePayments';
-// import Field from 'components/common/StripeField';
+import Field from 'components/common/StripeField';
 
 import Button from './common/Button';
+import Input from './common/Input';
+
+import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements }) => {
   // const dispatch = useDispatch();
+  const [cvc, setCvc] = useState({});
+  const [cvcLabel, setCvcLabel] = useState('');
+  const [expiry, setExpiry] = useState({});
+  const [expiryLabel, setExpiryLabel] = useState('');
+  const [focus, setFocus] = useState('');
+  const [number, setNumber] = useState({});
+  const [numberLabel, setNumberLabel] = useState('');
+  const [name, setName] = useState({});
+  const [nameLabel, setNameLabel] = useState('');
   const { createCreditCard: onSubmit } = usePayments(stripe, elements);
 
   return (
@@ -17,21 +31,34 @@ const BillingForm = ({ stripe, elements }) => {
       <div className="new-card-form col-md-12">
         <div className="">
           <div className="">
-            <div className="card-field">
-              <span> Card info </span>
-              <CardElement
-                hidePostalCode
-                style={{ base: { fontSize: '18px', border: 'solid 1px black' } }}
+            <div className="card-field flex" id="PaymentForm">
+              <Cards
+                cvc={cvcLabel}
+                expiry={expiryLabel}
+                focused={focus}
+                name={nameLabel}
+                number={numberLabel}
+              />
+              <Field
+                onChange={setNumber}
+                label="Credit Card Info"
+                StripeComponent={CardNumberElement}
+                error={number.error}
+              />
+              <Field
+                onChange={setExpiry}
+                label="Credit Card Info"
+                StripeComponent={CardExpiryElement}
+                error={expiry.error}
+              />
+              <Field
+                onChange={setCvc}
+                label="Credit Card Info"
+                StripeComponent={CardCVCElement}
+                error={cvc.error}
               />
             </div>
           </div>
-          <Button
-            onClick={() => onSubmit({})}
-            labelId="createPaymentMethod"
-            type="primary"
-            size="small"
-            className="btn btn-primary"
-          />
         </div>
       </div>
       <p className="small-copy">

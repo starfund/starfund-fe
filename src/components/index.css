@@ -88,6 +88,11 @@ h2 {
   padding: 3%;
   text-align: left;
 
+  .rccs {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
   .StripeElement {
     border: solid 1px grey;
     padding: 15px;
