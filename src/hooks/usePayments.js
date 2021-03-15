@@ -37,7 +37,7 @@ export default stripe => {
         expMonth,
         expYear
       };
-      await dispatch(createCard({ customerId: 1, token: data.token, isUpdate: false }));
+      await dispatch(createCard({ token: data.token, isUpdate: false }));
     }
 
     setLoading(false);

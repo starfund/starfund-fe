@@ -31,10 +31,7 @@ const StripeField = ({
     <div className={cn('stripe-field', { error })}>
       <StripeComponent
         options={CARD_OPTIONS}
-        onChange={o => {
-          console.log(o);
-          onChange;
-        }}
+        onChange={onChange}
         placeholder={placeholder}
         onFocus={onFocus}
         {...props}
