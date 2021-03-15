@@ -85,7 +85,7 @@ h2 {
 }
 
 .stars-container {
-  padding: 40px 0 80px;
+  padding: 30px 0 80px;
   background-color: #191c21;
 }
 
@@ -304,6 +304,10 @@ h2 {
   }
 }
 
+.fighters-container {
+  padding-top: 20px;
+}
+
 .fighter-container {
   background-color: #020612;
   
@@ -387,7 +391,6 @@ h2 {
   .main-content {
     display: flex;
     padding-top: 50px;
-    padding-bottom: 50px;
 
     button {
       max-height: 35px;
@@ -403,6 +406,7 @@ h2 {
   .foot-banner {
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 50%;
     text-align: center;
 

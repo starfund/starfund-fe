@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <ParalaxHome />
-      <HomeStars />
+      <HomeStars title="Explore Other Athletes" />
       <HomeInfo />
       <HomeAnnouncements />
       <FAQS />

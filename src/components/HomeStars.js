@@ -8,7 +8,7 @@ import Slider from './common/Slider';
 
 import '../styles/components/_home-starts.scss';
 
-const HomeStars = () => {
+const HomeStars = ({ title }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
@@ -18,7 +18,7 @@ const HomeStars = () => {
 
   return (
     <div className="stars-container">
-      <h1 className="stars-title"> Explore Other Athletes </h1>
+      <h1 className="stars-title"> {title} </h1>
       <div className="fighters-slider-wrapper">
         <Slider>
           {fighters.length > 0 &&

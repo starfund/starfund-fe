@@ -5,7 +5,7 @@ import HomeStars from '../components/HomeStars';
 const FightersPage = () => {
   return (
     <div className="stars-preview-container">
-      <HomeStars />
+      <HomeStars title="Find your fighter" />
     </div>
   );
 };

@@ -109,6 +109,29 @@ const FighterStar = () => {
           </p>
         </div>
       </div>
+      <div className="foot-banner">
+        <h2 className="bold"> Get started in 2 minutes </h2>
+        <br />
+        <div className="text">
+          <div>
+            <img src={Clicking} alt="cwm" />
+            <p> Choose Membership </p>
+          </div>
+          <div>
+            <img src={Account} alt="cwm" />
+            <p> Create Account </p>
+          </div>
+          <div>
+            <img src={Browser} alt="cwm" />
+            <p> Add Payment Method </p>
+          </div>
+          <div>
+            <img src={Award} alt="cwm" />
+            <p> Get Benefits </p>
+          </div>
+        </div>
+      </div>
+      <HomeExclusive />
       <div className="stars-container">
         <h2> Explore Other Athletes </h2>
         <div className="fighters-container fighters-slider-wrapper">
@@ -137,29 +160,6 @@ const FighterStar = () => {
           </Slider>
         </div>
       </div>
-      <div className="foot-banner">
-        <h2 className="bold"> Get started in 2 minutes </h2>
-        <br />
-        <div className="text">
-          <div>
-            <img src={Clicking} alt="cwm" />
-            <p> Choose Membership </p>
-          </div>
-          <div>
-            <img src={Account} alt="cwm" />
-            <p> Create Account </p>
-          </div>
-          <div>
-            <img src={Browser} alt="cwm" />
-            <p> Add Payment Method </p>
-          </div>
-          <div>
-            <img src={Award} alt="cwm" />
-            <p> Get Benefits </p>
-          </div>
-        </div>
-      </div>
-      <HomeExclusive />
       <HomeFooter />
       <ConfirmationModal
         title="MONTHLY MEMBERSHIP"
