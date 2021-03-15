@@ -43,18 +43,8 @@ const FighterStar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="" onClick={() => history.push('/shop')}>
-                Statistics
-              </a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
                 Videos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
-                Direct chat
               </a>
             </li>
           </ul>
