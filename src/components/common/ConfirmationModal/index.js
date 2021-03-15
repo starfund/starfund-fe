@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { modalStyles } from './styles';
 import { useMediaQuery } from '../../../utils/mediaHoc';
 
+import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
 const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
@@ -42,8 +43,9 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
                 <p className="big"> 100% GUARANTEED </p>
               </div>
               <div className="col-sm-5 offset-sm-1">
-                <i className="fas fa-shield-alt" />
-                <p> Secured with SSL </p>
+                <p> SECURED WITH SSL </p>
+                <br />
+                <img src={SupportedCards} alt="Supported cards" />
               </div>
             </div>
           </div>

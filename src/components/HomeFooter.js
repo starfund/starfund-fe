@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Facebook from '../assets/Facebook.svg';
+import Instagram from '../assets/Instagram.svg';
+import Youtube from '../assets/Youtube.svg';
 import './index.css';
 
 const HomeFooter = () => {
@@ -27,7 +30,8 @@ const HomeFooter = () => {
           <div className="col-md-3">
             <p> Who we are </p>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 flex">
+            <img src={Instagram} alt="Instagram" />
             <p> Instagram </p>
           </div>
           <div className="col-md-3">
@@ -44,7 +48,8 @@ const HomeFooter = () => {
           <div className="col-md-3">
             <p> Career </p>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 flex">
+            <img src={Youtube} alt="Youtube" />
             <p> Youtube </p>
           </div>
           <div className="col-md-3" />
@@ -56,7 +61,8 @@ const HomeFooter = () => {
           <div className="col-md-3">
             <p> News </p>
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 flex">
+            <img src={Facebook} alt="Facebook" />
             <p> Facebook </p>
           </div>
           <div className="col-md-3" />
@@ -67,9 +73,16 @@ const HomeFooter = () => {
           <div className="col-md-3" />
           <div className="col-md-3" />
         </div>
-        <div className="row">
+        <div className="row last-row">
           <a href="/terms"> Terms & Conditions </a>
+          <p>
+            {' '}
+            <span className="dot" />{' '}
+          </p>
           <a href="/privacy"> Privacy Policy </a>
+          <p>
+            <span className="dot" />
+          </p>
           <a href="/help"> Help & Support </a>
         </div>
       </div>
