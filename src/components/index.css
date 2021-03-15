@@ -27,6 +27,10 @@ h2 {
   color: white;
 }
 
+.pad-20 {
+  padding-left: 20px;
+}
+
 .navbar-collapse {
   margin-left: 20%;
 }

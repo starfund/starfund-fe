@@ -39,13 +39,17 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
         <div className="confirm_modal_footer">
           <div className="container">
             <div className="row">
-              <div className="col-sm-4 offset-sm-1 ">
+              <div className="col-sm-3 ">
                 <p className="big"> 100% GUARANTEED </p>
               </div>
-              <div className="col-sm-5 offset-sm-1">
-                <p> SECURED WITH SSL </p>
+              <div className="col-sm-4 offset-sm-1">
+                <p className="pad-20"> SECURED WITH SSL </p>
                 <br />
                 <img src={SupportedCards} alt="Supported cards" />
+              </div>
+              <div className="col-sm-3">
+                <p className="pad-20"> Have a question? </p>
+                <p> starfundapp@gmail.com </p>
               </div>
             </div>
           </div>
