@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Cards from 'react-credit-cards';
 // import { useDispatch } from 'react-redux';
 import { object } from 'prop-types';
-//import { CardElement } from 'react-stripe-elements';
+// import { CardElement } from 'react-stripe-elements';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
 import withStripe from 'components/hocs/withStripe';
 import usePayments from 'hooks/usePayments';
@@ -15,15 +15,13 @@ import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements }) => {
   // const dispatch = useDispatch();
-  const [cvc, setCvc] = useState({});
-  const [cvcLabel, setCvcLabel] = useState('');
-  const [expiry, setExpiry] = useState({});
-  const [expiryLabel, setExpiryLabel] = useState('');
+  const [cvc] = useState('XXX');
+  const [expiry] = useState('');
   const [focus, setFocus] = useState('');
-  const [number, setNumber] = useState({});
-  const [numberLabel, setNumberLabel] = useState('');
-  const [name, setName] = useState({});
-  const [nameLabel, setNameLabel] = useState('');
+  const [number] = useState('5252');
+  const [numberStripe, setNumberStripe] = useState({});
+  const [cvcStripe, setCvcStripe] = useState({});
+  const [expiryStripe, setExpiryStripe] = useState({});
   const { createCreditCard: onSubmit } = usePayments(stripe, elements);
 
   return (
@@ -32,32 +30,46 @@ const BillingForm = ({ stripe, elements }) => {
         <div className="">
           <div className="">
             <div className="card-field flex" id="PaymentForm">
-              <Cards
-                cvc={cvcLabel}
-                expiry={expiryLabel}
-                focused={focus}
-                name={nameLabel}
-                number={numberLabel}
-              />
-              <Field
-                onChange={setNumber}
-                label="Credit Card Info"
-                StripeComponent={CardNumberElement}
-                error={number.error}
-              />
-              <Field
-                onChange={setExpiry}
-                label="Credit Card Info"
-                StripeComponent={CardExpiryElement}
-                error={expiry.error}
-              />
-              <Field
-                onChange={setCvc}
-                label="Credit Card Info"
-                StripeComponent={CardCVCElement}
-                error={cvc.error}
-              />
+              <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
+              <div className="stripe-container">
+                <Field
+                  onChange={setNumberStripe}
+                  StripeComponent={CardNumberElement}
+                  error={numberStripe.error}
+                  onFocus={() => setFocus('number')}
+                  width={15}
+                />
+                <Input
+                  name="name"
+                  placeholder="Holder Name"
+                  onFocus={e => setFocus(e.target.name)}
+                  className="stripe-name"
+                />
+                <div className="flex">
+                  <Field
+                    onChange={setExpiryStripe}
+                    StripeComponent={CardExpiryElement}
+                    error={expiryStripe.error}
+                    width={9}
+                    onFocus={() => setFocus('expiry')}
+                    className="expiry"
+                  />
+                  <Field
+                    onChange={setCvcStripe}
+                    StripeComponent={CardCVCElement}
+                    error={cvcStripe.error}
+                    width={6}
+                    onFocus={() => setFocus('cvc')}
+                  />
+                </div>
+              </div>
             </div>
+            <Button
+              onClick={() => onSubmit({})}
+              labelId="createPaymentMethod"
+              type="primary"
+              className="btn btn-primary pay-button"
+            />
           </div>
         </div>
       </div>

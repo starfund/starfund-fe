@@ -52,8 +52,13 @@ h2 {
 
 .checkout-container {
   justify-content: center;
-  height: 300px;
+  height: 330px;
   span { color: grey; font-weight: 600; }
+  background-color: antiquewhite;
+
+  p { color: black; }
+
+  .pay-button { width: 400px; }
 }
 
 .bi-shield-lock {
@@ -62,7 +67,7 @@ h2 {
 
 .small-copy {
   font-size: 10px;
-  padding: 10px;
+  padding: 10px 30px;
   color: grey;
 }
 
@@ -88,14 +93,43 @@ h2 {
   padding: 3%;
   text-align: left;
 
+  .stripe-container {
+    width: 90%;
+  }
+
+  .stripe-name {
+    width: 240px;
+    padding: 8px;
+    height: 35px;
+    border: none;
+    border-bottom: solid 1px black;
+    background-color: antiquewhite;
+    margin-top: 15px;
+  }
+
+  .stripe-name:focus {
+    outline: none;
+  }
+
+  .expiry { margin-right: 20px; }
+
   .rccs {
     margin-left: 50px;
     margin-right: 50px;
+    margin-top: 5px;
   }
 
+  .stripe-label {
+    color: black;
+    font-size: 14px;
+  }
+
+  label { color: black; }
+
   .StripeElement {
-    border: solid 1px grey;
-    padding: 15px;
+    border-bottom: solid 1px black;
+    padding: 8px;
+    height: 35px;
   }
 }
 

@@ -16,11 +16,29 @@ const CARD_OPTIONS = {
   }
 };
 
-const StripeField = ({ onChange, StripeComponent, label, placeholder, error, width }) => (
+const StripeField = ({
+  onChange,
+  StripeComponent,
+  label,
+  onFocus,
+  placeholder,
+  error,
+  width,
+  ...props
+}) => (
   <div className="stripe" style={width ? { width: `${width}rem` } : { flex: 1 }}>
     <label className="stripe-label tag-bold">{label}</label>
     <div className={cn('stripe-field', { error })}>
-      <StripeComponent options={CARD_OPTIONS} onChange={onChange} placeholder={placeholder} />
+      <StripeComponent
+        options={CARD_OPTIONS}
+        onChange={o => {
+          console.log(o);
+          onChange;
+        }}
+        placeholder={placeholder}
+        onFocus={onFocus}
+        {...props}
+      />
     </div>
     {error && <div className="error-message p2">{error.message}</div>}
   </div>
