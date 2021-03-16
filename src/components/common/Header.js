@@ -65,25 +65,36 @@ const Header = () => {
         {authenticated ? (
           <LogoutButton />
         ) : (
-          <>
+          <div className="registration-container">
             {signIn ? (
               <>
                 <LoginForm onSubmit={loginRequest} />
+                <br />
+                <br />
                 <p>
                   {' '}
                   Need an account? <a onClick={() => setSignIn(false)}> Sign up </a>
+                </p>
+                <br />
+                <p className="small-copy">
+                  By logging in, you agree to our <a href="/privacy">Privacy Policy</a> and{' '}
+                  <a href="/terms">Terms of Service</a>.
                 </p>
               </>
             ) : (
               <>
                 <SignUpForm onSubmit={signUpRequest} />
                 <p>
-                  {' '}
                   Already have an account? <a onClick={() => setSignIn(true)}> Sign in </a>
+                </p>
+                <br />
+                <p className="small-copy">
+                  By signing up, you agree to our <a href="/privacy">Privacy Policy</a> and{' '}
+                  <a href="/terms">Terms of Service</a>.
                 </p>
               </>
             )}
-          </>
+          </div>
         )}
       </CommonModal>
     </>

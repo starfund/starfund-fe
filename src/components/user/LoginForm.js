@@ -35,29 +35,31 @@ export const LoginForm = ({ onSubmit }) => {
   const inputProps = useTextInputProps({ handleValueChange, handleBlur, values, errors });
 
   return (
-    <form onSubmit={handleSubmit}>
-      {status === ERROR && <strong>{error}</strong>}
-      <div>
-        <Input
-          name="email"
-          type="email"
-          label={intl.formatMessage(messages.email)}
-          {...inputProps(fields.email)}
-        />
-      </div>
-      <div>
-        <Input
-          name="password"
-          type="password"
-          label={intl.formatMessage(messages.password)}
-          {...inputProps(fields.password)}
-        />
-      </div>
-      <button className="btn btn-danger" type="submit">
-        <FormattedMessage id="login.form.submit" />
-      </button>
-      {status === LOADING && <Loading />}
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        {status === ERROR && <strong>{error}</strong>}
+        <div>
+          <Input
+            name="email"
+            type="email"
+            label={intl.formatMessage(messages.email)}
+            {...inputProps(fields.email)}
+          />
+        </div>
+        <div>
+          <Input
+            name="password"
+            type="password"
+            label={intl.formatMessage(messages.password)}
+            {...inputProps(fields.password)}
+          />
+        </div>
+        <button className="btn btn-danger" type="submit">
+          <FormattedMessage id="login.form.submit" />
+        </button>
+        {status === LOADING && <Loading />}
+      </form>
+    </div>
   );
 };
 

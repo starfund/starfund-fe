@@ -9,7 +9,7 @@ import './index.css';
 
 const CommonModal = ({ children, title, isOpen, setIsOpen }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const height = isMobile ? '100%' : '212';
+  const height = isMobile ? '100%' : '420';
   const width = isMobile ? '100%' : '400px';
   const styles = modalStyles(
     isMobile,
