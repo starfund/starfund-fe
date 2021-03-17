@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSession, useDispatch } from 'hooks';
 
 import { signUp, login } from 'state/actions/userActions';
+import { SUCCESS, useStatus } from '@rootstrap/redux-tools';
 
 import LogoWhite from 'assets/LogoWhite.svg';
 import CommonModal from './CommonModal';
@@ -15,9 +16,25 @@ import './index.css';
 const Header = () => {
   const history = useHistory();
   const { authenticated } = useSession();
+  const dispatch = useDispatch();
+
+  const { status } = useStatus(login);
+  const { status2 } = useStatus(signUp);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (status === SUCCESS) {
+      setModalIsOpen(false);
+    }
+  }, [dispatch, status]);
+  useEffect(() => {
+    if (status2 === SUCCESS) {
+      setModalIsOpen(false);
+    }
+  }, [dispatch, status2]);
+
   const signUpRequest = useDispatch(signUp);
   const loginRequest = useDispatch(login);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [signIn, setSignIn] = useState(true);
 
   return (
@@ -72,12 +89,11 @@ const Header = () => {
                 <br />
                 <br />
                 <p>
-                  {' '}
                   Need an account? <a onClick={() => setSignIn(false)}> Sign up </a>
                 </p>
                 <br />
                 <p className="small-copy">
-                  By logging in, you agree to our <a href="/privacy">Privacy Policy</a> and{' '}
+                  By logging in, you agree to our <a href="/privacy">Privacy Policy</a> and
                   <a href="/terms">Terms of Service</a>.
                 </p>
               </>
