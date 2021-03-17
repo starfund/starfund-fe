@@ -481,21 +481,86 @@ h2 {
 
   h3 { font-size: 18px; }
 
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .user-home {
     min-height: inherit;
     background-color: #020612;
     border-bottom: solid 2px grey;
   }
 
+  .user-feed-container {
+    background-color: #191c21;
+    padding: 20px 10px;
+    border-radius: 10px;
+
+    nav { background-color: #191c21 !important; }
+
+    .feed-content {
+      .no-support {
+        padding: 50px 135px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 600;
+
+        button {
+          border-radius: 99px;
+          background-color: #ea0a0a;
+          color: white;
+          font-weight: 600;
+        }
+      }
+
+    }
+  }
+
+  .user-feed {
+    border-bottom: solid 1px grey;
+    padding: 0;
+    margin-bottom: 17px;
+
+    .nav-tabs {
+      border-bottom: solid 1px red;
+      a { color: white; }
+    }
+
+    button {
+      border-radius: 99px;
+      margin-bottom: 10px;
+      border: solid 2px;
+      font-weight: bold;
+    }
+  }
+
   .find-athletes {
     background-color: #191c21;
     border-radius: 10px;
     padding: 40px 25px;
+
+    button {
+      border-radius: 99px;
+      margin-bottom: 10px;
+      border: solid 2px;
+      font-weight: bold;
+    }
   }
 
   .user-avatar {
     background-color: #191c21;
     border-radius: 10px;
     padding: 40px 25px;
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .info { text-align: center; }
   }
 }

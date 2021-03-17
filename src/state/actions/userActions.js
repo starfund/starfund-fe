@@ -4,10 +4,8 @@ import parseError from 'utils/parseError';
 
 export const login = createThunk('LOGIN', async user => {
   try {
-    const {
-      data: { data }
-    } = await userService.login({ user });
-    return data;
+    const { data } = await userService.login({ user });
+    return data.user;
   } catch ({ response: { data } }) {
     throw parseError(data);
   }
