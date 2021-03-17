@@ -8,7 +8,8 @@ const routes = {
   about: '/about-us',
   fighter: '/fighter/:id',
   terms: '/terms',
-  privacy: '/privacy'
+  privacy: '/privacy',
+  userHome: '/dashboard'
 };
 
 export default routes;

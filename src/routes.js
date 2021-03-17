@@ -12,6 +12,7 @@ import AboutPage from 'pages/AboutPage';
 import ShopPage from 'pages/ShopPage';
 import TermsPage from 'pages/TermsPage';
 import PrivacyPage from 'pages/PrivacyPage';
+import UserHomePage from 'pages/UserHomePage';
 
 const routes = [
   {
@@ -69,6 +70,12 @@ const routes = [
     component: <BillingPage />,
     exact: true,
     private: false
+  },
+  {
+    path: routesPaths.userHome,
+    component: <UserHomePage />,
+    exact: true,
+    private: true
   },
   {
     component: <NotFoundPage />
