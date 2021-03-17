@@ -5,6 +5,10 @@ html, body, .home {
   padding-top: 100px;
 }
 
+@media only screen and (min-width : 1200px) {
+  .container { max-width: 1500px !important; } 
+}
+
 #app {
   height: 100%;
 }
@@ -15,16 +19,15 @@ p {
   color: white;
 }
 
+h1, h2, h3, h4 { color: white; font-weight: 600 !important; }
+
 h1 {
   font-size: 50px !important;
   text-align: center;
-  color: white;
 }
 
 h2 {
   font-size: 30px !important;
-  font-weight: 600 !important;
-  color: white;
 }
 
 .pad-20 {
@@ -318,7 +321,6 @@ h2 {
   background-color: #020612;
   padding: 0 20%;
 
-  h2, h3, h4 { color: white; }
   h4 { padding: 15px 0; }
   p {padding: 5px 0;}
 
@@ -459,6 +461,11 @@ h2 {
   }
 }
 
+.blank-line {
+  border: solid 1px grey;
+  margin: 20px 0;
+}
+
 .change-name-modal__container {
   form { margin: 15px; }
 
@@ -467,4 +474,28 @@ h2 {
   label { float: left; font-weight: bold; font-size: 14px; }
 
   button { margin-top: 10px; }
+}
+
+.user-home-container {
+  min-height: 1500px;
+
+  h3 { font-size: 18px; }
+
+  .user-home {
+    min-height: inherit;
+    background-color: #020612;
+    border-bottom: solid 2px grey;
+  }
+
+  .find-athletes {
+    background-color: #191c21;
+    border-radius: 10px;
+    padding: 40px 25px;
+  }
+
+  .user-avatar {
+    background-color: #191c21;
+    border-radius: 10px;
+    padding: 40px 25px;
+  }
 }
