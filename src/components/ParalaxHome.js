@@ -21,10 +21,10 @@ const ParalaxHome = () => {
           </p>
           <br />
           <Input name="email" type="email" />
-          <br />
           <button type="button" className="btn btn-danger" onClick={() => setModalIsOpen(true)}>
             SUBSCRIBE
           </button>
+          <br />
           <br />
           <p className="small">
             {' '}

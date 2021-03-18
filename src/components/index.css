@@ -13,7 +13,10 @@ html, body, .home {
   height: 100%;
 }
 
-* { font-family: "Poppins" !important; }
+* {
+  font-family: "Poppins" !important;
+  font-weight: 600 !important;
+}
 
 p {
   color: white;
@@ -54,7 +57,19 @@ h2 {
   text-align: left;
 
   h1 { text-align: left; font-weight: 600; }
-  button, input { width: 100% }
+  button, input { 
+    border-radius: 99px;
+    height: 40px;
+    width: 100%
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  button {
+    background-color: #ea0a0a;
+  }
 }
 
 .registration-container {
@@ -167,8 +182,9 @@ h2 {
       background-color: #3b414a;
       color: white;
       border: none;
-      width: 190px;
-      height: 70px;
+      border-radius: 99px;
+      width: 215px;
+      height: 50px;
     }
 
     img { padding-right: 10px; width: 25px; height: 60px; }
@@ -479,6 +495,13 @@ h2 {
 .blank-line {
   border: solid 1px grey;
   margin: 20px 0;
+}
+
+.small-blank-line {
+  border: solid 1px white;
+  margin: 20px 0; 
+  width: 50px;
+  margin: auto;
 }
 
 .change-name-modal__container {

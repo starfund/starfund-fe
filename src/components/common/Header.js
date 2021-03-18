@@ -61,11 +61,6 @@ const Header = () => {
                   Watch
                 </a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
-                  About us
-                </a>
-              </li>
             </ul>
             <img src={ProfileUser} alt="profile" />
             <span className="navbar-text" onClick={() => setModalIsOpen(true)}>

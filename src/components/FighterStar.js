@@ -35,11 +35,14 @@ const FighterStar = () => {
     <div className="fighter-container">
       <div className="cover-container">
         <img className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
-        <div className="centered">
-          {fighter.firstName} {fighter.lastName}
-          <br />
-          <div className="blank-line" />
-        </div>
+        {fighter && (
+          <div className="centered">
+            {fighter.firstName} {fighter.lastName}
+            <br />
+            <div className="small-blank-line" />
+            {fighter.organization}
+          </div>
+        )}
       </div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-collapse" id="navbarText">

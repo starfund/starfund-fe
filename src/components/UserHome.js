@@ -24,7 +24,7 @@ const UserHome = () => {
                     <br />
                     <p>
                       {' '}
-                      hasdf {currentUser.firstName} {currentUser.lastName}{' '}
+                      {currentUser.firstName} {currentUser.lastName}{' '}
                     </p>
                   </>
                 )}
