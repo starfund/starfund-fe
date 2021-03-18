@@ -14,16 +14,20 @@ const UserHome = () => {
           <div className="col-sm-2 col-lg-2 user-container">
             <div className="user-avatar">
               <div className="info">
-                <img
-                  className="center"
-                  alt="user"
-                  src={currentUser?.profilePic ? currentUser.profilePic : DefaultAvatar}
-                />
-                <br />
-                <p>
-                  {' '}
-                  hasdf {currentUser.first} {currentUser.lastName}{' '}
-                </p>
+                {currentUser && (
+                  <>
+                    <img
+                      className="center"
+                      alt="user"
+                      src={currentUser?.profilePic ? currentUser.profilePic : DefaultAvatar}
+                    />
+                    <br />
+                    <p>
+                      {' '}
+                      hasdf {currentUser.firstName} {currentUser.lastName}{' '}
+                    </p>
+                  </>
+                )}
               </div>
               <div className="blank-line" />
               <h3> SUPPORTING </h3>

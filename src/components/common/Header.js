@@ -19,7 +19,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { status } = useStatus(login);
-  const { status2 } = useStatus(signUp);
+  const status2 = useStatus(signUp);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const Header = () => {
     }
   }, [dispatch, status]);
   useEffect(() => {
-    if (status2 === SUCCESS) {
+    if (status === SUCCESS) {
       setModalIsOpen(false);
     }
-  }, [dispatch, status2]);
+  }, [dispatch, status, status2.status]);
 
   const signUpRequest = useDispatch(signUp);
   const loginRequest = useDispatch(login);

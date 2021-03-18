@@ -33,7 +33,14 @@ const FighterStar = () => {
 
   return (
     <div className="fighter-container">
-      <img className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
+      <div className="cover-container">
+        <img className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
+        <div className="centered">
+          {fighter.firstName} {fighter.lastName}
+          <br />
+          <div className="blank-line" />
+        </div>
+      </div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
