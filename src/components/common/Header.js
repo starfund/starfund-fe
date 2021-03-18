@@ -89,7 +89,18 @@ const Header = () => {
                 <br />
                 <br />
                 <p>
-                  Need an account? <a onClick={() => setSignIn(false)}> Sign up </a>
+                  Need an account?
+                  <a
+                    role="button"
+                    tabIndex="0"
+                    onClick={e => {
+                      setSignIn(false);
+                      e.preventDefault();
+                    }}
+                  >
+                    {' '}
+                    Sign up{' '}
+                  </a>
                 </p>
                 <br />
                 <p className="small-copy">
