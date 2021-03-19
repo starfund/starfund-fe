@@ -65,6 +65,7 @@ h2 {
 
   input {
     margin-bottom: 10px;
+    padding: 20px;
   }
 
   button {
@@ -78,13 +79,25 @@ h2 {
 
 .checkout-container {
   justify-content: center;
-  height: 330px;
+  height: 400px;
   span { color: grey; font-weight: 600; }
   background-color: antiquewhite;
 
   p { color: black; }
 
   .pay-button { width: 400px; }
+
+  .missing-email {
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 30px;
+
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+    }
+  }
 }
 
 .bi-shield-lock {
@@ -115,6 +128,10 @@ h2 {
   background-color: #191c21;
 }
 
+.card-form{
+  margin-left: -20px !important;
+}
+
 .card-field {
   padding: 3%;
   text-align: left;
@@ -140,7 +157,6 @@ h2 {
   .expiry { margin-right: 20px; }
 
   .rccs {
-    margin-left: 50px;
     margin-right: 50px;
     margin-top: 5px;
   }

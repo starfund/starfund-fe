@@ -30,6 +30,7 @@ const FighterStar = () => {
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
+  const currentUser = useSelector(state => state.session.user);
 
   return (
     <div className="fighter-container">
@@ -168,8 +169,9 @@ const FighterStar = () => {
         isDelete={false}
         confirmationAction={() => console.log}
         price={fighter?.subPrice}
+        email={currentUser?.email}
       >
-        <BillingForm />
+        <BillingForm email={currentUser?.email} />
       </ConfirmationModal>
     </div>
   );

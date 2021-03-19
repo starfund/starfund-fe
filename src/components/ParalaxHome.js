@@ -7,6 +7,7 @@ import './index.css';
 
 const ParalaxHome = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [email, setEmail] = useState('');
 
   return (
     <div className="container home-container">
@@ -20,7 +21,7 @@ const ParalaxHome = () => {
             your athlete.
           </p>
           <br />
-          <Input name="email" type="email" />
+          <Input name="email" type="email" onChange={e => setEmail(e.target.value)} />
           <button type="button" className="btn btn-danger" onClick={() => setModalIsOpen(true)}>
             SUBSCRIBE
           </button>
@@ -59,8 +60,9 @@ const ParalaxHome = () => {
         setIsOpen={setModalIsOpen}
         isDelete={false}
         confirmationAction={() => console.log}
+        email={email}
       >
-        <BillingForm />
+        <BillingForm email={email} />
       </ConfirmationModal>
     </div>
   );

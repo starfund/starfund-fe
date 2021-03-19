@@ -8,7 +8,7 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
-const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
+const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : '460px';
   const width = isMobile ? '100%' : '760px';
@@ -34,6 +34,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
         <div className="confirm_modal_title">
           {title}
           <p> Total Billed Today: {subPrice}</p>
+          <p> Email you will recieve your bill: {email} </p>
         </div>
         {children}
         <div className="confirm_modal_footer">

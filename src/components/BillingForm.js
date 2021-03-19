@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards';
-// import { useDispatch } from 'react-redux';
-import { object } from 'prop-types';
+import { object, string } from 'prop-types';
 // import { CardElement } from 'react-stripe-elements';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
 import withStripe from 'components/hocs/withStripe';
@@ -13,11 +12,12 @@ import Input from './common/Input';
 
 import 'react-credit-cards/lib/styles.scss';
 
-const BillingForm = ({ stripe, elements }) => {
-  // const dispatch = useDispatch();
+const BillingForm = ({ stripe, elements, email }) => {
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
   const [focus, setFocus] = useState('');
+  const [emailField, setEmailField] = useState(email);
+  const [name, setName] = useState('');
   const [number] = useState('5252');
   const [numberStripe, setNumberStripe] = useState({});
   const [cvcStripe, setCvcStripe] = useState({});
@@ -26,53 +26,66 @@ const BillingForm = ({ stripe, elements }) => {
 
   return (
     <div className="row no-gutters checkout-container">
-      <div className="new-card-form col-md-12">
-        <div className="">
-          <div className="">
-            <div className="card-field flex" id="PaymentForm">
-              <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
-              <div className="stripe-container">
-                <Field
-                  onChange={setNumberStripe}
-                  StripeComponent={CardNumberElement}
-                  error={numberStripe.error}
-                  onFocus={() => setFocus('number')}
-                  width={15}
-                />
-                <Input
-                  name="name"
-                  placeholder="Holder Name"
-                  onFocus={e => setFocus(e.target.name)}
-                  className="stripe-name"
-                />
-                <div className="flex">
-                  <Field
-                    onChange={setExpiryStripe}
-                    StripeComponent={CardExpiryElement}
-                    error={expiryStripe.error}
-                    width={9}
-                    onFocus={() => setFocus('expiry')}
-                    className="expiry"
-                  />
-                  <Field
-                    onChange={setCvcStripe}
-                    StripeComponent={CardCVCElement}
-                    error={cvcStripe.error}
-                    width={6}
-                    onFocus={() => setFocus('cvc')}
-                  />
-                </div>
-              </div>
-            </div>
-            <Button
-              onClick={() => onSubmit({})}
-              labelId="createPaymentMethod"
-              type="primary"
-              className="btn btn-primary pay-button"
+      <form className="card-form">
+        {!email && (
+          <div className="missing-email">
+            <Input
+              name="email"
+              type="email"
+              placeholder="Email"
+              onChange={e => setEmailField(e.target.value)}
             />
           </div>
+        )}
+        <div className="new-card-form col-md-12">
+          <div className="">
+            <div className="">
+              <div className="card-field flex" id="PaymentForm">
+                <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
+                <div className="stripe-container">
+                  <Field
+                    onChange={setNumberStripe}
+                    StripeComponent={CardNumberElement}
+                    error={numberStripe.error}
+                    onFocus={() => setFocus('number')}
+                    width={15}
+                  />
+                  <Input
+                    name="name"
+                    placeholder="Holder Name"
+                    onFocus={e => setFocus(e.target.name)}
+                    onChange={e => setName(e.target.value)}
+                    className="stripe-name"
+                  />
+                  <div className="flex">
+                    <Field
+                      onChange={setExpiryStripe}
+                      StripeComponent={CardExpiryElement}
+                      error={expiryStripe.error}
+                      width={9}
+                      onFocus={() => setFocus('expiry')}
+                      className="expiry"
+                    />
+                    <Field
+                      onChange={setCvcStripe}
+                      StripeComponent={CardCVCElement}
+                      error={cvcStripe.error}
+                      width={6}
+                      onFocus={() => setFocus('cvc')}
+                    />
+                  </div>
+                </div>
+              </div>
+              <Button
+                onClick={() => onSubmit({ name, email: emailField })}
+                labelId="createPaymentMethod"
+                type="submit"
+                className="btn btn-primary pay-button"
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
       <p className="small-copy">
         By clicking "Place Secure Order", you agree to enroll in our monthly subscription plan and
         to our{' '}
@@ -89,7 +102,8 @@ const BillingForm = ({ stripe, elements }) => {
 
 BillingForm.propTypes = {
   stripe: object,
-  elements: object
+  elements: object,
+  email: string
 };
 
 export default withStripe(BillingForm);
