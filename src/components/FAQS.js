@@ -35,14 +35,9 @@ const FAQS = () => {
                   data-parent="#accordion"
                 >
                   <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                    you probably haven't heard of them accusamus labore sustainable VHS.
+                    Starfund is a place where athletes create exclusive content, products and
+                    surprises for their fans. Fans can become an active participant in the work of
+                    their favorite athletes, in the monthly membership form.
                   </div>
                 </div>
               </div>
@@ -70,10 +65,10 @@ const FAQS = () => {
                 >
                   <div className="card-body">
                     Starfund powers membership business for athletes by giving them the tools they
-                    need to manage and energize their paying fans, with a subscription-style payment
-                    model, fans pay their favorite athletes a monthly amount of their choice in
-                    exchange for exclusive, extra content, or a closer look into their athletic
-                    life.
+                    need to acquire, manage and energize their paying fans, with a
+                    subscription-style payment model, fans pay their favorite athletes a monthly
+                    amount of their choice in exchange for exclusive, extra content or a closer look
+                    into their athletic life.
                     <br />
                     Pick Your Favorite Fighter
                     <br />
@@ -106,14 +101,7 @@ const FAQS = () => {
                   data-parent="#accordion"
                 >
                   <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                    you probably haven't heard of them accusamus labore sustainable VHS.
+                    Access all your favorite fighters exclusive contents, behind scenes videos.
                   </div>
                 </div>
               </div>
@@ -141,14 +129,8 @@ const FAQS = () => {
                   data-parent="#accordion"
                 >
                   <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                    shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt
-                    you probably haven't heard of them accusamus labore sustainable VHS.
+                    Just go to your profile and choose "Cancel" button under your subscription
+                    information
                   </div>
                 </div>
               </div>
