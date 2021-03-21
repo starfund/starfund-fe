@@ -1,2 +1,10 @@
 // Typography
 $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// breakpoints
+$xl-breakpoint: 1200;
+$md-breakpoint: 768;
+
+:export {
+  xlBreakpoint: $xl-breakpoint
+}
