@@ -7,6 +7,7 @@ import { statusReducer } from '@rootstrap/redux-tools';
 import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
+import subscriptions from './subscriptionReducer';
 
 const sessionPersistConfig = {
   key: 'session',
@@ -20,7 +21,8 @@ const rootReducer = () =>
     session: persistReducer(sessionPersistConfig, session),
     statusReducer,
     payments,
-    fighters
+    fighters,
+    subscriptions
   });
 
 export default rootReducer;

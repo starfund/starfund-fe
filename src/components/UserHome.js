@@ -33,7 +33,7 @@ const UserHome = () => {
               <h3> SUPPORTING </h3>
               <div className="blank-line" />
               {supporting?.length > 0 && supporting.map()}
-              {!supporting && <p> You aren’t supporting any athletes yet. </p>}
+              {!supporting && <p> You are not subscribed to any athletes yet. </p>}
             </div>
           </div>
           <div className="col-sm-8 col-lg-8 user-feed-container">
@@ -68,7 +68,7 @@ const UserHome = () => {
             <div className="find-athletes">
               <h4> FIND ATHLETES YOU LOVE </h4>
               <div className="blank-line" />
-              <p> Search your favorite Athletes to find them the need your support. </p>
+              <p> Search your favorite Athletes to check out all their content and news. </p>
               <br />
               <button className="btn btn-outline-secondary" type="button">
                 FIND ATHLETES
