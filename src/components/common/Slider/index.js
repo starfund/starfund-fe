@@ -1,5 +1,5 @@
 import React from 'react';
-import { node } from 'prop-types';
+import { node, object } from 'prop-types';
 import SlickSlider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -43,10 +43,13 @@ const settings = {
   ]
 };
 
-const Slider = ({ children }) => <SlickSlider {...settings}>{children}</SlickSlider>;
+const Slider = ({ children, extraSettings }) => (
+  <SlickSlider {...{ ...settings, ...extraSettings }}>{children}</SlickSlider>
+);
 
 Slider.propTypes = {
-  children: node
+  children: node,
+  extraSettings: object
 };
 
 export default Slider;
