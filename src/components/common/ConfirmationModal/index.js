@@ -23,6 +23,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
   );
   const subPrice = price ? `$${price / 100}` : '$5';
   const newUser = useSelector(state => state.subscriptions.newUser);
+  const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
   return (
     <Modal
@@ -34,7 +35,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
     >
       <div className="confirmation_modal_container">
         <div className="confirm_modal_title">
-          {newUser && (
+          {newUser && shouldUpdatePassword && (
             <>
               <h2> Select your password to finish your account </h2>
             </>

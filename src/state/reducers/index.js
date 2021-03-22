@@ -12,7 +12,7 @@ import subscriptions from './subscriptionReducer';
 const sessionPersistConfig = {
   key: 'session',
   storage: localForage,
-  whitelist: ['authenticated', 'info', 'user'],
+  whitelist: ['authenticated', 'info', 'user', 'subscriptions'],
   stateReconciler: autoMergeLevel2
 };
 

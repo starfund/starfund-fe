@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import { useSession } from 'hooks';
 
 import UserHomePage from './UserHomePage';
@@ -13,8 +13,10 @@ import HomeExclusive from '../components/HomeExclusive';
 
 const HomePage = () => {
   const { authenticated } = useSession();
+  const newUser = useSelector(state => state.subscriptions.newUser);
+  const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
-  if (authenticated) {
+  if (!newUser && !shouldUpdatePassword && authenticated) {
     return <UserHomePage />;
   }
   return (

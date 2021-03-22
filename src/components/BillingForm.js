@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Cards from 'react-credit-cards';
 import { object, string } from 'prop-types';
 // import { CardElement } from 'react-stripe-elements';
@@ -11,11 +11,12 @@ import Field from 'components/common/StripeField';
 import Button from './common/Button';
 import Input from './common/Input';
 
-import userService from '../services/userService';
+import { updatePassword } from '../state/actions/subscriptionActions';
 
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email }) => {
+  const dispatch = useDispatch();
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
   const [focus, setFocus] = useState('');
@@ -30,10 +31,11 @@ const BillingForm = ({ stripe, elements, email }) => {
   const { createCreditCard: onSubmit } = usePayments(stripe, elements);
 
   const newUser = useSelector(state => state.subscriptions.newUser);
+  const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
   return (
     <div className="row no-gutters checkout-container">
-      {newUser && (
+      {newUser && shouldUpdatePassword && (
         <>
           <form className="newbie-form">
             <div className="missing-email">
@@ -55,7 +57,7 @@ const BillingForm = ({ stripe, elements, email }) => {
             <br />
             <br />
             <Button
-              onClick={() => userService.setNewbiePassword(password)}
+              onClick={() => dispatch(updatePassword(password))}
               labelId="confirmAccountPassword"
               type="submit"
               className="btn btn-primary pay-button"
