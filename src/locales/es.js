@@ -10,6 +10,7 @@ export default {
   'login.form.email.presence': 'Debe ingresar un email para continuar',
   'login.form.email.invalid': 'Debe ingresar un email válido',
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
+  confirmAccountPassword: 'Comenzar',
 
   'signup.title': 'REGISRARSE',
   'signup.signin': 'Iniciar Sesión',

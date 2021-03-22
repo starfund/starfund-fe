@@ -9,7 +9,7 @@ const initialState = {
 const actionHandlers = {
   [subscribe.success]: (state, { payload }) => {
     state.subscription = payload;
-    state.newUser = true;
+    state.newUser = payload.newbie;
   }
 };
 

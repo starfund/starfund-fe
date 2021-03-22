@@ -12,6 +12,12 @@ class UserService {
   static signUp(user) {
     return httpClient.post('/users', user);
   }
+
+  static setNewbiePassword(newPassword) {
+    return httpClient.post('/user/update_password', {
+      password: newPassword
+    });
+  }
 }
 
 export default UserService;

@@ -128,6 +128,12 @@ h2 {
   background-color: #191c21;
 }
 
+.newbie-form {
+  margin: auto;
+  width: 80%;
+  height: 80%;
+}
+
 .card-form{
   margin-left: -20px !important;
 }

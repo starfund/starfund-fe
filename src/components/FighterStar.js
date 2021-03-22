@@ -167,7 +167,6 @@ const FighterStar = () => {
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
-        confirmationAction={() => console.log}
         price={fighter?.subPrice}
         email={currentUser?.email}
       >

@@ -11,6 +11,8 @@ import Field from 'components/common/StripeField';
 import Button from './common/Button';
 import Input from './common/Input';
 
+import userService from '../services/userService';
+
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email }) => {
@@ -20,6 +22,8 @@ const BillingForm = ({ stripe, elements, email }) => {
   const [emailField, setEmailField] = useState(email);
   const [name, setName] = useState('');
   const [number] = useState('5252');
+  const [password, setPassword] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState(''); // eslint-disable-line no-unused-vars
   const [numberStripe, setNumberStripe] = useState({});
   const [cvcStripe, setCvcStripe] = useState({});
   const [expiryStripe, setExpiryStripe] = useState({});
@@ -31,13 +35,31 @@ const BillingForm = ({ stripe, elements, email }) => {
     <div className="row no-gutters checkout-container">
       {newUser && (
         <>
-          <form>
+          <form className="newbie-form">
             <div className="missing-email">
-              <Input name="password" type="password" placeholder="Password" />
+              <Input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={e => setPassword(e.target.value)}
+              />
             </div>
             <div className="missing-email">
-              <Input name="confirm-password" type="password" placeholder="Confirm Password" />
+              <Input
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                onChange={e => setPasswordConfirmation(e.target.value)}
+              />
             </div>
+            <br />
+            <br />
+            <Button
+              onClick={() => userService.setNewbiePassword(password)}
+              labelId="confirmAccountPassword"
+              type="submit"
+              className="btn btn-primary pay-button"
+            />
           </form>
         </>
       )}
