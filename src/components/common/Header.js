@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useSession, useDispatch } from 'hooks';
 
 import { signUp, login } from 'state/actions/userActions';
@@ -62,10 +62,37 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            <img src={ProfileUser} alt="profile" />
-            <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
-              {authenticated ? 'Logout' : 'Login'}
-            </span>
+            <div className="nav-actions flex">
+              <img src={ProfileUser} alt="profile" />
+              {authenticated && (
+                <div className="dropdown">
+                  <span
+                    className="dropdown-toggle"
+                    type="button"
+                    id="dropdownMenu2"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Actions
+                  </span>
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <Link to="/profile" className="dropdown-item" type="button">
+                      Profile
+                    </Link>
+                    <div className="dropdown-divider" />
+                    <LogoutButton />
+                  </div>
+                </div>
+              )}
+              {!authenticated && (
+                <>
+                  <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
+                    Login
+                  </span>
+                </>
+              )}
+            </div>
           </div>
         </nav>
       </header>

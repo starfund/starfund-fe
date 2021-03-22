@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 const UserHome = () => {
@@ -46,9 +48,9 @@ const UserHome = () => {
                     </a>
                   </li>
                 </ul>
-                <button className="btn btn-outline-secondary" type="button">
+                <span className="btn btn-outline-secondary" type="button">
                   Showing: All Athletes
-                </button>
+                </span>
               </div>
             </nav>
             <div className="feed-content">
@@ -56,10 +58,9 @@ const UserHome = () => {
                 <div className="no-support">
                   <p> Subsribe to your favorite athlete to see post in your feed </p>
                   <br />
-                  <button type="button" className="btn btn-lg">
-                    {' '}
+                  <Link type="button" className="btn btn-lg link-button" to="/fighters">
                     FIND ATHLETES YOU LOVE{' '}
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
@@ -70,9 +71,9 @@ const UserHome = () => {
               <div className="blank-line" />
               <p> Search your favorite Athletes to check out all their content and news. </p>
               <br />
-              <button className="btn btn-outline-secondary" type="button">
+              <Link className="btn btn-outline-secondary link-button" type="button" to="/fighters">
                 FIND ATHLETES
-              </button>
+              </Link>
             </div>
           </div>
         </div>

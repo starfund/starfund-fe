@@ -11,6 +11,10 @@ const actionHandlers = {
   [subscribe.request]: state => {
     state.newUser = true;
   },
+  [subscribe.error]: state => {
+    state.newUser = false;
+    state.shouldUpdatePassword = false;
+  },
   [subscribe.success]: (state, { payload }) => {
     state.subscription = payload;
     state.newUser = payload.newbie;
@@ -19,6 +23,9 @@ const actionHandlers = {
   [updatePassword.success]: (state, { payload }) => {
     state.shouldUpdatePassword = payload.shouldUpdatePassword;
     state.newbie = payload.newbie;
+  },
+  [updatePassword.error]: state => {
+    state.newbie = false;
   }
 };
 
