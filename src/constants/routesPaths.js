@@ -9,7 +9,8 @@ const routes = {
   fighter: '/fighter/:id',
   terms: '/terms',
   privacy: '/privacy',
-  userHome: '/dashboard'
+  userHome: '/dashboard',
+  profile: '/profile'
 };
 
 export default routes;

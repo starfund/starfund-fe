@@ -13,6 +13,7 @@ import ShopPage from 'pages/ShopPage';
 import TermsPage from 'pages/TermsPage';
 import PrivacyPage from 'pages/PrivacyPage';
 import UserHomePage from 'pages/UserHomePage';
+import ProfilePage from 'pages/ProfilePage';
 
 const routes = [
   {
@@ -74,6 +75,12 @@ const routes = [
   {
     path: routesPaths.userHome,
     component: <UserHomePage />,
+    exact: true,
+    private: true
+  },
+  {
+    path: routesPaths.profile,
+    component: <ProfilePage />,
     exact: true,
     private: true
   },
