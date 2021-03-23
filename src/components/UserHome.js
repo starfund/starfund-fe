@@ -17,7 +17,7 @@ const UserHome = () => {
             <div className="user-avatar">
               <div className="info">
                 {currentUser && (
-                  <>
+                  <React.Fragment>
                     <img
                       className="center"
                       alt="user"
@@ -28,7 +28,7 @@ const UserHome = () => {
                       {' '}
                       {currentUser.firstName} {currentUser.lastName}{' '}
                     </p>
-                  </>
+                  </React.Fragment>
                 )}
               </div>
               <div className="blank-line" />

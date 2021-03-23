@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
-import Input from './common/Input';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import './index.css';
 
 const ParalaxHome = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [email, setEmail] = useState('');
 
   return (
     <div className="container home-container">
@@ -22,7 +20,6 @@ const ParalaxHome = () => {
             your athlete.
           </p>
           <br />
-          <Input name="email" type="email" onChange={e => setEmail(e.target.value)} />
           <Link to="/fighters" type="button" className="btn btn-danger">
             SUBSCRIBE TO ATHLETES
           </Link>
@@ -60,10 +57,8 @@ const ParalaxHome = () => {
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
-        confirmationAction={() => console.log}
-        email={email}
       >
-        <BillingForm email={email} />
+        <BillingForm />
       </ConfirmationModal>
     </div>
   );
