@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import Input from './common/Input';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
@@ -22,9 +23,9 @@ const ParalaxHome = () => {
           </p>
           <br />
           <Input name="email" type="email" onChange={e => setEmail(e.target.value)} />
-          <button type="button" className="btn btn-danger" onClick={() => setModalIsOpen(true)}>
-            SUBSCRIBE
-          </button>
+          <Link to="/fighters" type="button" className="btn btn-danger">
+            SUBSCRIBE TO ATHLETES
+          </Link>
           <br />
           <br />
           <p className="small">

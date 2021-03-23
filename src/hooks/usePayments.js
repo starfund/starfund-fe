@@ -11,7 +11,7 @@ export default stripe => {
   const [loading, setLoading] = useState(false);
   const { showErrorToast } = useToast();
 
-  const createCreditCard = async billing => {
+  const createCreditCard = async (billing, fighter) => {
     const { name, email } = billing;
 
     setLoading(true);
@@ -38,7 +38,7 @@ export default stripe => {
         expMonth,
         expYear
       };
-      await dispatch(subscribe({ token: data.token, email, fighter: 1, amount: 5 }));
+      await dispatch(subscribe({ token: data.token, email, fighter }));
     }
 
     setLoading(false);

@@ -61,7 +61,7 @@ h2 {
   text-align: left;
 
   h1 { text-align: left; font-weight: 600; }
-  button, input { 
+  a, button, input { 
     border-radius: 99px;
     height: 40px;
     width: 100%
@@ -72,7 +72,7 @@ h2 {
     padding: 20px;
   }
 
-  button {
+  a.btn, button {
     background-color: #ea0a0a;
   }
 }
@@ -213,7 +213,11 @@ h2 {
       height: 50px;
     }
 
-    img { padding-right: 10px; width: 25px; height: 60px; }
+    img {
+      padding-right: 10px;
+      width: 25px;
+      height: 60px;
+    }
   }
 
   .language-row {
@@ -545,17 +549,18 @@ h2 {
 
   h3 { font-size: 18px; }
 
-  img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
 
   .user-home {
     min-height: inherit;
     background-color: #020612;
     border-bottom: solid 2px grey;
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
 
   .user-feed-container {
