@@ -11,6 +11,7 @@ import LoginForm from '../user/LoginForm';
 import SignUpForm from '../user/SignUpForm';
 import LogoutButton from '../user/LogoutButton';
 import ProfileUser from '../../assets/ProfileUser.svg';
+import LanguageDropDown from './LanguageDropdown';
 import './index.css';
 
 const Header = () => {
@@ -62,6 +63,7 @@ const Header = () => {
                 </a>
               </li>
             </ul>
+            <LanguageDropDown />
             <div className="nav-actions flex">
               <img src={ProfileUser} alt="profile" />
               {authenticated && (

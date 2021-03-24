@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LanguageDropdown from './common/LanguageDropdown';
+
 import Facebook from '../assets/Facebook.svg';
 import Instagram from '../assets/Instagram.svg';
 import Youtube from '../assets/Youtube.svg';
@@ -65,7 +67,9 @@ const HomeFooter = () => {
             <img src={Facebook} alt="Facebook" />
             <p> Facebook </p>
           </div>
-          <div className="col-md-3" />
+          <div className="col-md-3 d-flex align-items-center">
+            <LanguageDropdown />
+          </div>
         </div>
         <div className="row language-row">
           <div className="col-md-3" />

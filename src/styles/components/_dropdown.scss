@@ -1,0 +1,18 @@
+@import '../variables';
+
+.dropdown-container {
+  border-radius: 5px;
+  background-color: transparent;
+  color: $gray;
+  margin-right: 10px;
+  height: 30px !important;
+}
+
+.language-dropdown-container {
+  display: flex;
+}
+
+.language-dropdown-image {
+  width: 30px;
+  height: 30px !important;
+}
