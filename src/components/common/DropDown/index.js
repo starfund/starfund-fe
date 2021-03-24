@@ -1,0 +1,29 @@
+import React from 'react';
+import { arrayOf, string, object, func } from 'prop-types';
+
+import '../../../styles/components/_dropdown.scss';
+
+const DropDown = ({ name, options = [], onChange }) => (
+  <select
+    className="dropdown-container"
+    name={name}
+    onChange={e => {
+      e.persist();
+      onChange(e.target.value);
+    }}
+  >
+    {options.map(({ label, value }, index) => (
+      <option key={index} value={value}>
+        {label}
+      </option>
+    ))}
+  </select>
+);
+
+DropDown.propTypes = {
+  options: arrayOf(object),
+  name: string,
+  onChange: func.isRequired
+};
+
+export default DropDown;

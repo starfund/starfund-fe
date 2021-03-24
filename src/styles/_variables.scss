@@ -5,6 +5,9 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $xl-breakpoint: 1200;
 $md-breakpoint: 768;
 
+//colors
+$gray: rgba(255, 255, 255, 0.5);
+
 :export {
   xlBreakpoint: $xl-breakpoint
 }
