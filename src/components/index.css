@@ -669,5 +669,8 @@ h2 {
 
 .watch-container {
   min-height: 1500px;
-  background-color: #020612; 
+  background-color: #020612;
+  padding: 50px;
+  align-content: center;
+  text-align: center;
 }
