@@ -48,21 +48,26 @@ const HomeInfo = () => {
           </div>
         </div>
         <SecondarySlider>
-          {fighters.map(f => (
-            <div className="homeinfo-slider-card slide-left" key={f.id}>
-              <iframe
-                title="fighter-video"
-                className="homeinfo-slider-video"
-                src={`${f.previewUrl}?controls=0&modestbranding=1&rel=0`}
-              />
-              <div>
-                <div className="homeinfo-slider-card-overlay">
-                  <span className="no-wrap">Loid Radzavob</span>
-                  <span>Las vegas / Nevada</span>
+          {fighters &&
+            fighters.map(f =>
+              f.publicVideos.map(v => (
+                <div className="homeinfo-slider-card slide-left" key={f.id}>
+                  <video
+                    title="fighter-video"
+                    className="homeinfo-slider-video"
+                    controls
+                    autoPlay
+                    src={v.url}
+                  />
+                  <div>
+                    <div className="homeinfo-slider-card-overlay">
+                      <span className="no-wrap">Loid Radzavob</span>
+                      <span>Las vegas / Nevada</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              ))
+            )}
         </SecondarySlider>
       </div>
     </div>
