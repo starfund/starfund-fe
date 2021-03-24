@@ -41,14 +41,12 @@ const ParalaxHome = () => {
           </p>
         </div>
         <div className="col-md-7 offset-md-1">
-          <iframe
+          <video
             title="preview"
             width="760"
             height="515"
-            src={`${require('../assets/HomeVid.mp4')}?controls=0`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+            controls
+            src={require('../assets/HomeVid.mp4')}
           />
         </div>
       </div>

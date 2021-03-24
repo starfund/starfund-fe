@@ -13,6 +13,10 @@ html, body, .home {
   height: 100%;
 }
 
+video:focus {
+  outline: none;
+}
+
 * {
   font-family: "Poppins" !important;
   font-weight: 600 !important;
