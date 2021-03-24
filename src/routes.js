@@ -15,6 +15,7 @@ import PrivacyPage from 'pages/PrivacyPage';
 import UserHomePage from 'pages/UserHomePage';
 import ProfilePage from 'pages/ProfilePage';
 import WatchPage from 'pages/WatchPage';
+import BecomeStarPage from 'pages/BecomeStarPage';
 
 const routes = [
   {
@@ -76,6 +77,12 @@ const routes = [
   {
     path: routesPaths.watch,
     component: <WatchPage />,
+    exact: true,
+    private: false
+  },
+  {
+    path: routesPaths.becomeStar,
+    component: <BecomeStarPage />,
     exact: true,
     private: false
   },

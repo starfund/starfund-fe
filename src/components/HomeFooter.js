@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import LanguageDropdown from './common/LanguageDropdown';
 
 import Facebook from '../assets/Facebook.svg';
@@ -37,10 +38,9 @@ const HomeFooter = () => {
             <p> Instagram </p>
           </div>
           <div className="col-md-3">
-            <button type="button" className="btn btn-lg">
-              {' '}
-              ENROLL AS STAR{' '}
-            </button>
+            <Link to="/join-us" type="button" className="btn btn-lg">
+              ENROLL AS STAR
+            </Link>
           </div>
         </div>
         <div className="row row-1">

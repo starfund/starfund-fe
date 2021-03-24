@@ -11,6 +11,7 @@ const routes = {
   terms: '/terms',
   privacy: '/privacy',
   userHome: '/dashboard',
+  becomeStar: '/join-us',
   profile: '/profile'
 };
 

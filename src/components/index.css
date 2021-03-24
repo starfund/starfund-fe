@@ -208,7 +208,7 @@ h2 {
       font-weight: 300;
     }
 
-    button {
+    a.btn {
       background-color: #3b414a;
       color: white;
       border: none;
