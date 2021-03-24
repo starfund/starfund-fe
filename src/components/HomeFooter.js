@@ -28,14 +28,17 @@ const HomeFooter = () => {
         </div>
         <div className="row row-1">
           <div className="col-md-3">
-            <p> Athletes </p>
+            <a onClick={() => window.open('/fighters', '_self')}> Athletes </a>
           </div>
           <div className="col-md-3">
-            <p> Who we are </p>
+            <a onClick={() => window.open('/about-us', '_self')}> Who we are </a>
           </div>
           <div className="col-md-3 flex">
             <img src={Instagram} alt="Instagram" />
-            <p> Instagram </p>
+            <a onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}>
+              {' '}
+              Instagram{' '}
+            </a>
           </div>
           <div className="col-md-3">
             <Link to="/join-us" type="button" className="btn btn-lg">
@@ -48,24 +51,31 @@ const HomeFooter = () => {
             <p> Shop </p>
           </div>
           <div className="col-md-3">
-            <p> Career </p>
+            <p> </p>
           </div>
           <div className="col-md-3 flex">
             <img src={Youtube} alt="Youtube" />
-            <p> Youtube </p>
+            <a
+              onClick={() =>
+                window.open('https://www.youtube.com/channel/UCocOwXWltbLzvtyDBu9Y5tA', '_blank')
+              }
+            >
+              {' '}
+              Youtube{' '}
+            </a>
           </div>
           <div className="col-md-3" />
         </div>
         <div className="row row-1">
           <div className="col-md-3">
-            <p> Watch </p>
+            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
           </div>
           <div className="col-md-3">
-            <p> News </p>
+            <p> </p>
           </div>
           <div className="col-md-3 flex">
             <img src={Facebook} alt="Facebook" />
-            <p> Facebook </p>
+            <a onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}>Facebook</a>
           </div>
           <div className="col-md-3 d-flex align-items-center">
             <LanguageDropdown />

@@ -203,6 +203,8 @@ h2 {
   }
 
   .row-1 {
+    a { color: white !important; }
+
     p {
       color: #f5f6f6;
       font-weight: 300;
