@@ -58,7 +58,7 @@ const Header = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
+                <a className="nav-link" href="" onClick={() => history.push('/watch')}>
                   Watch
                 </a>
               </li>

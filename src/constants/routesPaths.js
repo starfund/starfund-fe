@@ -6,6 +6,7 @@ const routes = {
   fighters: '/fighters',
   shop: '/shop',
   about: '/about-us',
+  watch: '/watch',
   fighter: '/fighter/:id',
   terms: '/terms',
   privacy: '/privacy',

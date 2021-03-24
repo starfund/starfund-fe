@@ -14,6 +14,7 @@ import TermsPage from 'pages/TermsPage';
 import PrivacyPage from 'pages/PrivacyPage';
 import UserHomePage from 'pages/UserHomePage';
 import ProfilePage from 'pages/ProfilePage';
+import WatchPage from 'pages/WatchPage';
 
 const routes = [
   {
@@ -69,6 +70,12 @@ const routes = [
   {
     path: routesPaths.billing,
     component: <BillingPage />,
+    exact: true,
+    private: false
+  },
+  {
+    path: routesPaths.watch,
+    component: <WatchPage />,
     exact: true,
     private: false
   },

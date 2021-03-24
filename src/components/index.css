@@ -666,3 +666,8 @@ h2 {
 
   input { margin: 30px; }
 }
+
+.watch-container {
+  min-height: 1500px;
+  background-color: #020612; 
+}
