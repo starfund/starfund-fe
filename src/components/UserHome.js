@@ -1,13 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
+import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 const UserHome = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getSubscriptions());
+  }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
-  const supporting = useSelector(state => state.session.user?.supporting);
+  const supporting = useSelector(state => state.subscriptions?.subscriptions);
 
   return (
     <div className="user-home">
@@ -34,7 +39,16 @@ const UserHome = () => {
               <div className="blank-line" />
               <h3> SUPPORTING </h3>
               <div className="blank-line" />
-              {supporting?.length > 0 && supporting.map()}
+              {supporting?.length > 0 &&
+                supporting.map(s => (
+                  <div key={s.id} className="fighter-sub flex">
+                    <img src={s.fighterPicture} alt="sub" />
+                    <p>
+                      {' '}
+                      {s.fighter.firstName} {s.fighter.lastName}{' '}
+                    </p>
+                  </div>
+                ))}
               {!supporting && <p> You are not subscribed to any athletes yet. </p>}
             </div>
           </div>

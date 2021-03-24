@@ -20,3 +20,12 @@ export const updatePassword = createThunk('UPDATE_PASSWORD', async password => {
     throw parseError(data);
   }
 });
+
+export const getSubscriptions = createThunk('GET_SUBSCRIPTIONS', async () => {
+  try {
+    const { data } = await subscriptionService.userSubs();
+    return data;
+  } catch ({ response: data }) {
+    throw parseError(data);
+  }
+});
