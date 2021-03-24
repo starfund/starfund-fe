@@ -10,6 +10,8 @@ import './index.css';
 const HomeExclusive = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const isFighter = window.location.href.indexOf('fighter') > -1;
+  const fighter =
+    isFighter && window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
   return (
     <div className="exclusive-container">
@@ -30,7 +32,7 @@ const HomeExclusive = () => {
                   className="btn btn-danger"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  FIND YOUR STAR ATHLETE
+                  SUBSCRIBE NOW
                 </button>
               </React.Fragment>
             ) : (
@@ -51,9 +53,9 @@ const HomeExclusive = () => {
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
-        confirmationAction={() => console.log}
+        fighter={fighter}
       >
-        <BillingForm />
+        <BillingForm fighter={fighter} />
       </ConfirmationModal>
     </div>
   );

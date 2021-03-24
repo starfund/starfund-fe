@@ -138,26 +138,28 @@ const FighterStar = () => {
         <div className="fighters-container fighters-slider-wrapper">
           <Slider>
             {fighters.length > 0 &&
-              fighters.map(f => (
-                <a
-                  key={f.id}
-                  className="fighter-card-link"
-                  href=""
-                  onClick={() => history.push(`/fighter/${f.id}`)}
-                >
-                  <div key={f.id} className="fighter-card">
-                    <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
-                    <div className="fighter-card-overlay">
-                      <div className="fighter-card-name-wrapper">
-                        <span className="fighter-card-text">{f.firstName} </span>
-                        <span className="fighter-card-text secondary">{f.lastName} </span>
+              fighters
+                .filter(f => f.id !== fighter.id)
+                .map(f => (
+                  <a
+                    key={f.id}
+                    className="fighter-card-link"
+                    href=""
+                    onClick={() => history.push(`/fighter/${f.id}`)}
+                  >
+                    <div key={f.id} className="fighter-card">
+                      <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
+                      <div className="fighter-card-overlay">
+                        <div className="fighter-card-name-wrapper">
+                          <span className="fighter-card-text">{f.firstName} </span>
+                          <span className="fighter-card-text secondary">{f.lastName} </span>
+                        </div>
+                        <div className="fighter-card-separator" />
+                        <span className="fighter-card-text">{f.organization} </span>
                       </div>
-                      <div className="fighter-card-separator" />
-                      <span className="fighter-card-text">{f.organization} </span>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))}
           </Slider>
         </div>
       </div>
@@ -169,8 +171,9 @@ const FighterStar = () => {
         isDelete={false}
         price={fighter?.subPrice}
         email={currentUser?.email}
+        fighter={fighter?.id}
       >
-        <BillingForm email={currentUser?.email} />
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} />
       </ConfirmationModal>
     </div>
   );

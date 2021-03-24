@@ -11,8 +11,8 @@ export default stripe => {
   const [loading, setLoading] = useState(false);
   const { showErrorToast } = useToast();
 
-  const createCreditCard = async (billing, fighter) => {
-    const { name, email } = billing;
+  const createCreditCard = async billing => {
+    const { name, email, fighter } = billing;
 
     setLoading(true);
 

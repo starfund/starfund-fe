@@ -2,7 +2,7 @@ import { createReducer } from '@rootstrap/redux-tools';
 import { subscribe, updatePassword } from 'state/actions/subscriptionActions';
 
 const initialState = {
-  subscriptions: {},
+  subscriptions: [],
   newUser: false,
   shouldUpdatePassword: false
 };
@@ -16,7 +16,7 @@ const actionHandlers = {
     state.shouldUpdatePassword = false;
   },
   [subscribe.success]: (state, { payload }) => {
-    state.subscriptions.concat(payload);
+    state.subscriptions = [...state.subscriptions, [payload]];
     state.newUser = payload.newbie;
     state.shouldUpdatePassword = payload.shouldUpdatePassword;
   },

@@ -15,7 +15,7 @@ import { updatePassword } from '../state/actions/subscriptionActions';
 
 import 'react-credit-cards/lib/styles.scss';
 
-const BillingForm = ({ stripe, elements, email }) => {
+const BillingForm = ({ stripe, elements, email, fighter }) => {
   const dispatch = useDispatch();
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
@@ -36,7 +36,7 @@ const BillingForm = ({ stripe, elements, email }) => {
   return (
     <div className="row no-gutters checkout-container">
       {newUser && shouldUpdatePassword && (
-        <>
+        <React.Fragment>
           <form className="newbie-form">
             <div className="missing-email">
               <Input
@@ -63,10 +63,10 @@ const BillingForm = ({ stripe, elements, email }) => {
               className="btn btn-primary pay-button"
             />
           </form>
-        </>
+        </React.Fragment>
       )}
       {!newUser && (
-        <>
+        <React.Fragment>
           <form className="card-form">
             {!email && (
               <div className="missing-email">
@@ -118,7 +118,7 @@ const BillingForm = ({ stripe, elements, email }) => {
                     </div>
                   </div>
                   <Button
-                    onClick={() => onSubmit({ name, email: emailField })}
+                    onClick={() => onSubmit({ name, email: emailField, fighter: fighter })}
                     labelId="createPaymentMethod"
                     type="submit"
                     className="btn btn-primary pay-button"
@@ -137,7 +137,7 @@ const BillingForm = ({ stripe, elements, email }) => {
             thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in
             Settings. No refunds for partial unused periods, or after gift is redeemed.
           </p>
-        </>
+        </React.Fragment>
       )}
     </div>
   );

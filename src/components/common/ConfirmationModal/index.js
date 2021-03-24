@@ -9,7 +9,7 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
-const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email }) => {
+const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email, fighter }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : '460px';
   const width = isMobile ? '100%' : '760px';
@@ -36,16 +36,16 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
       <div className="confirmation_modal_container">
         <div className="confirm_modal_title">
           {newUser && shouldUpdatePassword && (
-            <>
+            <React.Fragment>
               <h2> Select your password to finish your account </h2>
-            </>
+            </React.Fragment>
           )}
           {!newUser && (
-            <>
+            <React.Fragment>
               {title}
               <p> Total Billed Today: {subPrice}</p>
               <p> Email you will recieve your bill: {email} </p>
-            </>
+            </React.Fragment>
           )}
         </div>
         {children}
