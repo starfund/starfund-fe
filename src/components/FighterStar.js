@@ -150,8 +150,8 @@ const FighterStar = () => {
               {fighter && (
                 <ReactPlayer
                   title="preview"
-                  width="925"
-                  height="552"
+                  width="925px"
+                  height="552px"
                   url={fighter.publicVideos[0]?.url}
                   controls
                 />

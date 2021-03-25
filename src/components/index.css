@@ -762,6 +762,10 @@ h2 {
   padding: 50px;
   align-content: center;
   text-align: center;
+
+  .stars-container {
+    background: none;
+  }
 }
 
 .fighter-videos {

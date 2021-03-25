@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ReactPlayer from 'react-player';
+
+import HomeStars from '../components/HomeStars';
+
 import { getFighters } from '../state/actions/fighterActions';
 
 const WatchPage = () => {
@@ -20,7 +23,7 @@ const WatchPage = () => {
     <div className="watch-container">
       <h1> Watch Featured Videos </h1>
       <br />
-      <ReactPlayer url={url} width="400" height="380" controls />
+      <ReactPlayer url={url} width="100%" height="380" controls />
       <div className="flex">
         {fighters &&
           fighters.length > 0 &&
@@ -37,6 +40,7 @@ const WatchPage = () => {
               )
           )}
       </div>
+      <HomeStars title="Know The Athletes" />
     </div>
   );
 };
