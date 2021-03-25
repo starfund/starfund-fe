@@ -408,6 +408,14 @@ h2 {
     position: relative;
     text-align: center;
     color: white;
+
+    button {
+      height: 50px;
+      margin: 40px 182px 0;
+      padding: 9px 84px 18px 83px;
+      border-radius: 99px;
+      background-color: #ea0a0a
+    }
   }
 
   .centered {

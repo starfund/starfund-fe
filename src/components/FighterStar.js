@@ -51,6 +51,28 @@ const FighterStar = () => {
             <br />
             <div className="small-blank-line" />
             {fighter.organization}
+            <br />
+            {authenticated &&
+              supporting &&
+              fighter &&
+              !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                <button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  onClick={() => setModalIsOpen(true)}
+                >
+                  SUBSCRIBE NOW
+                </button>
+              )}
+            {!authenticated && (
+              <button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={() => setModalIsOpen(true)}
+              >
+                SUBSCRIBE NOW
+              </button>
+            )}
           </div>
         )}
       </div>
