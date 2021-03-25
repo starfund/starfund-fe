@@ -77,6 +77,24 @@ const UserHome = () => {
                   </Link>
                 </div>
               )}
+              {supporting &&
+                supporting.map(sup =>
+                  sup.content.map(content => (
+                    <React.Fragment>
+                      <div className="content-row">
+                        {content.image && <img src={content.image} height="300" alt="content" />}
+                        {content.video && (
+                          <video src={content.video} width="200" height="200" controls />
+                        )}
+                        <br />
+                        <p>{content.eventDate}</p>
+                        <h2>{content.title}</h2>
+                        <h3>{content.description}</h3>
+                      </div>
+                      <div className="blank-line" />
+                    </React.Fragment>
+                  ))
+                )}
             </div>
           </div>
           <div className="col-sm-2 col-lg-2">

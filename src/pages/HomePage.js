@@ -22,7 +22,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <ParalaxHome />
-      <HomeStars title="Explore Other Athletes" />
+      <HomeStars title="Explore Athletes" />
       <HomeInfo />
       <HomeAnnouncements />
       <FAQS />

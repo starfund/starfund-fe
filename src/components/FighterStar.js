@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
+import { useSession } from 'hooks';
 
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import Slider from './common/Slider';
 import { getFighters } from '../state/actions/fighterActions';
+import { getSubscriptions } from '../state/actions/subscriptionActions';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import Email from '../assets/Email.svg';
@@ -22,11 +24,18 @@ const FighterStar = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
+  const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
+  useEffect(() => {
+    if (authenticated) {
+      dispatch(getSubscriptions());
+    }
+  }, [authenticated, dispatch]);
   const fighters = useSelector(state => state.fighters.fighters);
+  const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
@@ -42,6 +51,28 @@ const FighterStar = () => {
             <br />
             <div className="small-blank-line" />
             {fighter.organization}
+            <br />
+            {authenticated &&
+              supporting &&
+              fighter &&
+              !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                <button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  onClick={() => setModalIsOpen(true)}
+                >
+                  SUBSCRIBE NOW
+                </button>
+              )}
+            {!authenticated && (
+              <button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={() => setModalIsOpen(true)}
+              >
+                SUBSCRIBE NOW
+              </button>
+            )}
           </div>
         )}
       </div>
@@ -85,24 +116,38 @@ const FighterStar = () => {
             </div>
           </div>
           <br />
-          <button
-            type="button"
-            className="btn btn-danger btn-lg"
-            onClick={() => setModalIsOpen(true)}
-          >
-            SUBSCRIBE NOW
-          </button>
+          {authenticated &&
+            supporting &&
+            fighter &&
+            !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+              <button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={() => setModalIsOpen(true)}
+              >
+                SUBSCRIBE NOW
+              </button>
+            )}
+          {!authenticated && (
+            <button
+              type="button"
+              className="btn btn-danger btn-lg"
+              onClick={() => setModalIsOpen(true)}
+            >
+              SUBSCRIBE NOW
+            </button>
+          )}
         </div>
         <div className="video">
-          <iframe
-            title="preview"
-            width="925"
-            height="552"
-            src={fighter?.previewUrl}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {fighter && (
+            <video
+              title="preview"
+              width="925"
+              height="552"
+              src={fighter.publicVideos[0]?.url}
+              controls
+            />
+          )}
           <p className="video-text">
             {' '}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -110,29 +155,63 @@ const FighterStar = () => {
           </p>
         </div>
       </div>
-      <div className="foot-banner">
-        <h2 className="bold"> Get started in 2 minutes </h2>
-        <br />
-        <div className="text">
-          <div>
-            <img src={Clicking} alt="cwm" />
-            <p> Choose Membership </p>
+      {authenticated &&
+        supporting &&
+        fighter &&
+        !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+          <React.Fragment>
+            <div className="foot-banner">
+              <h2 className="bold"> Get started in 2 minutes </h2>
+              <br />
+              <div className="text">
+                <div>
+                  <img src={Clicking} alt="cwm" />
+                  <p> Choose Membership </p>
+                </div>
+                <div>
+                  <img src={Account} alt="cwm" />
+                  <p> Create Account </p>
+                </div>
+                <div>
+                  <img src={Browser} alt="cwm" />
+                  <p> Add Payment Method </p>
+                </div>
+                <div>
+                  <img src={Award} alt="cwm" />
+                  <p> Get Benefits </p>
+                </div>
+              </div>
+            </div>
+            <HomeExclusive />
+          </React.Fragment>
+        )}
+      {!authenticated && (
+        <React.Fragment>
+          <div className="foot-banner">
+            <h2 className="bold"> Get started in 2 minutes </h2>
+            <br />
+            <div className="text">
+              <div>
+                <img src={Clicking} alt="cwm" />
+                <p> Choose Membership </p>
+              </div>
+              <div>
+                <img src={Account} alt="cwm" />
+                <p> Create Account </p>
+              </div>
+              <div>
+                <img src={Browser} alt="cwm" />
+                <p> Add Payment Method </p>
+              </div>
+              <div>
+                <img src={Award} alt="cwm" />
+                <p> Get Benefits </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <img src={Account} alt="cwm" />
-            <p> Create Account </p>
-          </div>
-          <div>
-            <img src={Browser} alt="cwm" />
-            <p> Add Payment Method </p>
-          </div>
-          <div>
-            <img src={Award} alt="cwm" />
-            <p> Get Benefits </p>
-          </div>
-        </div>
-      </div>
-      <HomeExclusive />
+          <HomeExclusive />
+        </React.Fragment>
+      )}
       <div className="stars-container">
         <h2> Explore Other Athletes </h2>
         <div className="fighters-container fighters-slider-wrapper">
