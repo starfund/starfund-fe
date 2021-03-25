@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 import { useHistory } from 'react-router-dom';
 import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 
-import routes from 'constants/routesPaths';
 import { subscribe, updatePassword } from 'state/actions/subscriptionActions';
 import { modalStyles } from './styles';
 import { useMediaQuery } from '../../../utils/mediaHoc';
@@ -46,7 +45,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
     if (authenticated && updateStatus === SUCCESS) {
       dispatch(updatePassword.reset());
       setIsOpen(false);
-      history.push(routes.userHome);
+      window.location.href = '/dashboard';
     }
   }, [
     authenticated,
