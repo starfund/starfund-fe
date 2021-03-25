@@ -47,7 +47,7 @@ const ParalaxHome = () => {
             width="760"
             height="515"
             controls
-            url={require('../assets/HomeVid.mp4')}
+            url={require('../assets/HomeVideoBig.mp4')}
           />
         </div>
       </div>
