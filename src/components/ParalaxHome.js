@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import './index.css';
@@ -41,12 +42,12 @@ const ParalaxHome = () => {
           </p>
         </div>
         <div className="col-md-7 offset-md-1">
-          <video
+          <ReactPlayer
             title="preview"
             width="760"
             height="515"
             controls
-            src={require('../assets/HomeVid.mp4')}
+            url={require('../assets/HomeVid.mp4')}
           />
         </div>
       </div>

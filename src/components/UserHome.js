@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -80,11 +81,11 @@ const UserHome = () => {
               {supporting &&
                 supporting.map(sup =>
                   sup.content.map(content => (
-                    <React.Fragment>
+                    <React.Fragment key={content.title}>
                       <div className="content-row">
                         {content.image && <img src={content.image} height="300" alt="content" />}
                         {content.video && (
-                          <video src={content.video} width="200" height="200" controls />
+                          <ReactPlayer url={content.video} width="200" height="200" controls />
                         )}
                         <br />
                         <p>{content.eventDate}</p>

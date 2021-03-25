@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import ReactPlayer from 'react-player';
 import { getFighters } from '../state/actions/fighterActions';
 
 const WatchPage = () => {
@@ -9,15 +10,20 @@ const WatchPage = () => {
     dispatch(getFighters());
   }, [dispatch]);
   const fighters = useSelector(state => state.fighters.fighters);
-  const [url, setUrl] = useState(fighters[0]?.publicVideos[0]?.url);
+
+  const [url, setUrl] = useState('');
+  useEffect(() => {
+    setUrl(fighters[0]?.publicVideos[0]?.url);
+  }, [fighters]);
 
   return (
     <div className="watch-container">
       <h1> Discover Athletes </h1>
       <br />
-      <video width="800" height="450" controls src={url} />
+      <ReactPlayer url={url} width="400" height="380" controls />
       <div className="flex">
-        {fighters.length > 0 &&
+        {fighters &&
+          fighters.length > 0 &&
           fighters.map(
             f =>
               f.publicVideos && (
@@ -26,9 +32,7 @@ const WatchPage = () => {
                   className="col-sm-4 fighter-watch"
                   onClick={() => setUrl(f.publicVideos[0]?.url)}
                 >
-                  <video width="300" height="250">
-                    <source src={f.publicVideos[0]?.url} />
-                  </video>
+                  <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
                 </div>
               )
           )}

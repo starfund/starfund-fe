@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSession } from 'hooks';
 
+import ReactPlayer from 'react-player';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import Slider from './common/Slider';
@@ -140,11 +141,11 @@ const FighterStar = () => {
         </div>
         <div className="video">
           {fighter && (
-            <video
+            <ReactPlayer
               title="preview"
               width="925"
               height="552"
-              src={fighter.publicVideos[0]?.url}
+              url={fighter.publicVideos[0]?.url}
               controls
             />
           )}

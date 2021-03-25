@@ -467,6 +467,7 @@ h2 {
 
   .video {
     padding: 0 50px 50px 50px;
+    margin: auto;
   }
 
   .video-text {
@@ -581,6 +582,8 @@ h2 {
     .fighter-sub {
       height: 75px;
 
+      img { border-radius: 50%; }
+      
       p {
         font-size: 18px;
         font-weight: 600;

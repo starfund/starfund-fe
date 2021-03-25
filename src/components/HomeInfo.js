@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import ReactPlayer from 'react-player';
 import SecondarySlider from './common/SecondarySlider';
 
 import '../styles/components/_home-info.scss';
@@ -52,12 +53,12 @@ const HomeInfo = () => {
             fighters.map(f =>
               f.publicVideos.map(v => (
                 <div className="homeinfo-slider-card slide-left" key={f.id}>
-                  <video
+                  <ReactPlayer
                     title="fighter-video"
                     className="homeinfo-slider-video"
                     controls
                     autoPlay
-                    src={v.url}
+                    url={v.url}
                   />
                   <div>
                     <div className="homeinfo-slider-card-overlay">
