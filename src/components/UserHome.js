@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -50,7 +51,12 @@ const UserHome = () => {
                     </p>
                   </div>
                 ))}
-              {!supporting && <p> You are not subscribed to any athletes yet. </p>}
+              {supporting.length == 0 && (
+                <div className="no-support">
+                  <p> You are not subscribed to any athletes yet. </p>
+                  <br />
+                </div>
+              )}
             </div>
           </div>
           <div className="col-sm-8 col-lg-8 user-feed-container">
@@ -69,7 +75,7 @@ const UserHome = () => {
               </div>
             </nav>
             <div className="feed-content">
-              {!supporting && (
+              {supporting.length === 0 && (
                 <div className="no-support">
                   <p> Subsribe to your favorite athlete to see post in your feed </p>
                   <br />

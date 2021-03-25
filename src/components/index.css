@@ -567,6 +567,23 @@ h2 {
   button { margin-top: 10px; }
 }
 
+.fighter-sub {
+  height: 75px;
+
+  img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 0 0 10px;
+  }
+}
+
 .user-home-container {
   min-height: 1500px;
 
@@ -587,17 +604,6 @@ h2 {
       }
     }
 
-    .fighter-sub {
-      height: 75px;
-
-      img { border-radius: 50%; }
-
-      p {
-        font-size: 18px;
-        font-weight: 600;
-        padding: 8px 0 0 10px;
-      }
-    }
   }
 
   .user-feed-container {
@@ -686,14 +692,6 @@ h2 {
     border-radius: 10px;
     padding: 40px 25px;
 
-    .fighter-sub {
-      img {
-        width: 45px;
-        height: 45px;
-        object-fit: contain;
-      }
-    }
-
     .center {
       display: block;
       margin-left: auto;
@@ -715,14 +713,41 @@ h2 {
   padding: 50px;
 
 
-  img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
+  .info {
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
 
-  input { margin: 30px; }
+  .link-button {
+    border-radius: 99px;
+    background-color: #ea0a0a;
+    color: white;
+    font-weight: 600;
+    background-color: #ea0a0a;
+    width: 100%;
+  }
+
+  .update-btn {
+    height: 40px;
+    margin-top: 25px;
+  }
+
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  input {
+    margin: 25px 0;
+    width: 100%;
+    border-radius: 20px;
+    padding: 7px;
+    text-align: center;
+  }
 }
 
 .watch-container {
