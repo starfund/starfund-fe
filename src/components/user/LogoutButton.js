@@ -8,7 +8,7 @@ const LogoutButton = () => {
   const logoutRequest = useDispatch(logout);
 
   return (
-    <button onClick={logoutRequest} type="button" className="btn">
+    <button onClick={logoutRequest} type="button" className="btn dropdown-item">
       <FormattedMessage id="logout.button" />
     </button>
   );

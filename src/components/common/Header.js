@@ -38,10 +38,10 @@ const Header = () => {
   const [signIn, setSignIn] = useState(true);
 
   return (
-    <>
+    <React.Fragment>
       <header className="custom-header">
         <nav className="navbar navbar-expand-lg navbar-dark">
-          <div onClick={() => history.push('/')}>
+          <div className="main-logo" onClick={() => history.push('/')}>
             <img src={LogoWhite} alt="logo" />
           </div>
           <div className="collapse navbar-collapse" id="navbarText">
@@ -49,11 +49,6 @@ const Header = () => {
               <li className="nav-item active">
                 <a className="nav-link" href="" onClick={() => history.push('/fighters')}>
                   Stars <span className="sr-only">(current)</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="" onClick={() => history.push('/shop')}>
-                  Shop
                 </a>
               </li>
               <li className="nav-item">
@@ -74,11 +69,11 @@ const Header = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    Actions
+                    ACTIONS
                   </span>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <Link to="/profile" className="dropdown-item" type="button">
-                      Profile
+                      PROFILE
                     </Link>
                     <div className="dropdown-divider" />
                     <LogoutButton />
@@ -86,11 +81,11 @@ const Header = () => {
                 </div>
               )}
               {!authenticated && (
-                <>
+                <React.Fragment>
                   <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
                     Login
                   </span>
-                </>
+                </React.Fragment>
               )}
             </div>
           </div>
@@ -106,7 +101,7 @@ const Header = () => {
         ) : (
           <div className="registration-container">
             {signIn ? (
-              <>
+              <React.Fragment>
                 <LoginForm onSubmit={loginRequest} />
                 <br />
                 <br />
@@ -129,9 +124,9 @@ const Header = () => {
                   By logging in, you agree to our <a href="/privacy">Privacy Policy</a> and
                   <a href="/terms">Terms of Service</a>.
                 </p>
-              </>
+              </React.Fragment>
             ) : (
-              <>
+              <React.Fragment>
                 <SignUpForm onSubmit={signUpRequest} />
                 <p>
                   Already have an account? <a onClick={() => setSignIn(true)}> Sign in </a>
@@ -141,12 +136,12 @@ const Header = () => {
                   By signing up, you agree to our <a href="/privacy">Privacy Policy</a> and{' '}
                   <a href="/terms">Terms of Service</a>.
                 </p>
-              </>
+              </React.Fragment>
             )}
           </div>
         )}
       </CommonModal>
-    </>
+    </React.Fragment>
   );
 };
 

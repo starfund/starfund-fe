@@ -48,7 +48,7 @@ const HomeFooter = () => {
         </div>
         <div className="row row-1">
           <div className="col-md-3">
-            <p> Shop </p>
+            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
           </div>
           <div className="col-md-3">
             <p> </p>
@@ -67,9 +67,7 @@ const HomeFooter = () => {
           <div className="col-md-3" />
         </div>
         <div className="row row-1">
-          <div className="col-md-3">
-            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
-          </div>
+          <div className="col-md-3" />
           <div className="col-md-3">
             <p> </p>
           </div>

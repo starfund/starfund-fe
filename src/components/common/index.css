@@ -5,7 +5,13 @@
 
   nav { height: 100% }
 
-  img { padding-right: 10px; }
+  img {
+    padding-right: 10px;
+  }
+  
+  .main-logo {
+    cursor: pointer;
+  }
 
   a { font-weight: bold; }
 

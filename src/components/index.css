@@ -50,7 +50,7 @@ h2 {
 }
 
 .nav-actions {
-  margin-right: 70px;
+  margin-right: 56px;
 }
 
 .ReactModal__Content {
@@ -211,7 +211,13 @@ h2 {
   }
 
   .row-1 {
-    a { color: white !important; }
+    a {
+      color: white !important;
+    }
+
+    a:hover {
+      cursor:pointer;
+    }
 
     p {
       color: #f5f6f6;
