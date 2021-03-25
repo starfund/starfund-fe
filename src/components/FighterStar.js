@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { useSession } from 'hooks';
 
+import { useParams, useHistory } from 'react-router-dom';
 import ReactPlayer from 'react-player';
-import HomeExclusive from './HomeExclusive';
-import HomeFooter from './HomeFooter';
-import Slider from './common/Slider';
+import { useSession } from 'hooks';
 import { getFighters } from '../state/actions/fighterActions';
+
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+
+import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
+import FighterVideos from './FighterVideos';
+import HomeExclusive from './HomeExclusive';
+import HomeFooter from './HomeFooter';
+
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
 import VideoCamera from '../assets/VideoCamera.svg';
@@ -27,6 +31,7 @@ const FighterStar = () => {
   const history = useHistory();
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [videos, setVideos] = useState(false);
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
@@ -81,138 +86,143 @@ const FighterStar = () => {
         <div className="navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="" onClick={() => history.push('/fighters')}>
+              <a className="nav-link" href="" onClick={() => setVideos(false)}>
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="" onClick={() => history.push('/about-us')}>
+              <a className="nav-link" onClick={() => setVideos(true)}>
                 Videos
               </a>
             </li>
           </ul>
         </div>
       </nav>
-      <div className="main-content">
-        <div className="how-it-works">
-          <div className="content">
-            <p className="bold"> How does it work? </p>
-            <br />
-            <br />
-            <div className="text">
-              <img src={VideoCamera} alt="bcm" />
-              <p>Unlock 20 exclusive posts</p>
+      {!videos && (
+        <React.Fragment>
+          <div className="main-content">
+            <div className="how-it-works">
+              <div className="content">
+                <p className="bold"> How does it work? </p>
+                <br />
+                <br />
+                <div className="text">
+                  <img src={VideoCamera} alt="bcm" />
+                  <p>Unlock 20 exclusive posts</p>
+                </div>
+                <br />
+                <br />
+                <div className="text">
+                  <img src={Pin} alt="bpj" />
+                  <p>Be part of my journey</p>
+                </div>
+                <br />
+                <br />
+                <div className="text">
+                  <img src={Email} alt="cwm" />
+                  <p>Chat with me Directly</p>
+                </div>
+              </div>
+              <br />
+              {authenticated &&
+                supporting &&
+                fighter &&
+                !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-lg"
+                    onClick={() => setModalIsOpen(true)}
+                  >
+                    SUBSCRIBE NOW
+                  </button>
+                )}
+              {!authenticated && (
+                <button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  onClick={() => setModalIsOpen(true)}
+                >
+                  SUBSCRIBE NOW
+                </button>
+              )}
             </div>
-            <br />
-            <br />
-            <div className="text">
-              <img src={Pin} alt="bpj" />
-              <p>Be part of my journey</p>
-            </div>
-            <br />
-            <br />
-            <div className="text">
-              <img src={Email} alt="cwm" />
-              <p>Chat with me Directly</p>
+            <div className="video">
+              {fighter && (
+                <ReactPlayer
+                  title="preview"
+                  width="925"
+                  height="552"
+                  url={fighter.publicVideos[0]?.url}
+                  controls
+                />
+              )}
+              <p className="video-text">
+                {' '}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </p>
             </div>
           </div>
-          <br />
           {authenticated &&
             supporting &&
             fighter &&
             !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
-              <button
-                type="button"
-                className="btn btn-danger btn-lg"
-                onClick={() => setModalIsOpen(true)}
-              >
-                SUBSCRIBE NOW
-              </button>
+              <React.Fragment>
+                <div className="foot-banner">
+                  <h2 className="bold"> Get started in 2 minutes </h2>
+                  <br />
+                  <div className="text">
+                    <div>
+                      <img src={Clicking} alt="cwm" />
+                      <p> Choose Membership </p>
+                    </div>
+                    <div>
+                      <img src={Account} alt="cwm" />
+                      <p> Create Account </p>
+                    </div>
+                    <div>
+                      <img src={Browser} alt="cwm" />
+                      <p> Add Payment Method </p>
+                    </div>
+                    <div>
+                      <img src={Award} alt="cwm" />
+                      <p> Get Benefits </p>
+                    </div>
+                  </div>
+                </div>
+                <HomeExclusive />
+              </React.Fragment>
             )}
           {!authenticated && (
-            <button
-              type="button"
-              className="btn btn-danger btn-lg"
-              onClick={() => setModalIsOpen(true)}
-            >
-              SUBSCRIBE NOW
-            </button>
+            <React.Fragment>
+              <div className="foot-banner">
+                <h2 className="bold"> Get started in 2 minutes </h2>
+                <br />
+                <div className="text">
+                  <div>
+                    <img src={Clicking} alt="cwm" />
+                    <p> Choose Membership </p>
+                  </div>
+                  <div>
+                    <img src={Account} alt="cwm" />
+                    <p> Create Account </p>
+                  </div>
+                  <div>
+                    <img src={Browser} alt="cwm" />
+                    <p> Add Payment Method </p>
+                  </div>
+                  <div>
+                    <img src={Award} alt="cwm" />
+                    <p> Get Benefits </p>
+                  </div>
+                </div>
+              </div>
+              <HomeExclusive />
+            </React.Fragment>
           )}
-        </div>
-        <div className="video">
-          {fighter && (
-            <ReactPlayer
-              title="preview"
-              width="925"
-              height="552"
-              url={fighter.publicVideos[0]?.url}
-              controls
-            />
-          )}
-          <p className="video-text">
-            {' '}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-      </div>
-      {authenticated &&
-        supporting &&
-        fighter &&
-        !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
-          <React.Fragment>
-            <div className="foot-banner">
-              <h2 className="bold"> Get started in 2 minutes </h2>
-              <br />
-              <div className="text">
-                <div>
-                  <img src={Clicking} alt="cwm" />
-                  <p> Choose Membership </p>
-                </div>
-                <div>
-                  <img src={Account} alt="cwm" />
-                  <p> Create Account </p>
-                </div>
-                <div>
-                  <img src={Browser} alt="cwm" />
-                  <p> Add Payment Method </p>
-                </div>
-                <div>
-                  <img src={Award} alt="cwm" />
-                  <p> Get Benefits </p>
-                </div>
-              </div>
-            </div>
-            <HomeExclusive />
-          </React.Fragment>
-        )}
-      {!authenticated && (
-        <React.Fragment>
-          <div className="foot-banner">
-            <h2 className="bold"> Get started in 2 minutes </h2>
-            <br />
-            <div className="text">
-              <div>
-                <img src={Clicking} alt="cwm" />
-                <p> Choose Membership </p>
-              </div>
-              <div>
-                <img src={Account} alt="cwm" />
-                <p> Create Account </p>
-              </div>
-              <div>
-                <img src={Browser} alt="cwm" />
-                <p> Add Payment Method </p>
-              </div>
-              <div>
-                <img src={Award} alt="cwm" />
-                <p> Get Benefits </p>
-              </div>
-            </div>
-          </div>
-          <HomeExclusive />
         </React.Fragment>
       )}
+      {videos && <FighterVideos fighter={fighter} />}
       <div className="stars-container">
         <h2> Explore Other Athletes </h2>
         <div className="fighters-container fighters-slider-wrapper">
