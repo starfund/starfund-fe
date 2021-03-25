@@ -83,11 +83,29 @@ const UserHome = () => {
                   sup.content.map(content => (
                     <React.Fragment key={content.title}>
                       <div className="content-row">
-                        {content.image && <img src={content.image} height="300" alt="content" />}
+                        <div className="fighter-title flex">
+                          <img
+                            src={sup.fighter.profilePicture}
+                            className="fighter-img"
+                            alt="title"
+                          />
+                          <p>
+                            {' '}
+                            {sup.fighter.firstName} {sup.fighter.lastName}{' '}
+                          </p>
+                        </div>
+                        <br />
+                        {content.image && (
+                          <img
+                            className="content-img"
+                            src={content.image}
+                            height="300"
+                            alt="content"
+                          />
+                        )}
                         {content.video && (
                           <ReactPlayer url={content.video} width="200" height="200" controls />
                         )}
-                        <br />
                         <p>{content.eventDate}</p>
                         <h2>{content.title}</h2>
                         <h3>{content.description}</h3>

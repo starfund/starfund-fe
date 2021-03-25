@@ -26,7 +26,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
   const [focus, setFocus] = useState('');
   const [emailField, setEmailField] = useState(email);
   const [name, setName] = useState('');
-  const [number] = useState('5252');
+  const [number] = useState('4242');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState(''); // eslint-disable-line no-unused-vars
   const [numberStripe, setNumberStripe] = useState({});

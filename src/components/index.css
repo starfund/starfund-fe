@@ -38,7 +38,11 @@ h2 {
 }
 
 .pad-20 {
-  padding-left: 20px;
+  padding-left: 19px;
+}
+
+.email-pad {
+  padding-top: 23px;
 }
 
 .navbar-collapse {
@@ -89,11 +93,15 @@ h2 {
   justify-content: center;
   height: 400px;
   span { color: grey; font-weight: 600; }
-  background-color: antiquewhite;
+  background-color: white;
 
-  p { color: black; }
+  p { color: grey; }
 
-  .pay-button { width: 400px; }
+  .pay-button {
+    width: 315px;
+    height: 40px;
+    padding: 8px;
+  }
 
   .missing-email {
     width: 100%;
@@ -160,7 +168,7 @@ h2 {
     height: 35px;
     border: none;
     border-bottom: solid 1px black;
-    background-color: antiquewhite;
+    background-color: white;
     margin-top: 15px;
   }
 
@@ -583,7 +591,7 @@ h2 {
       height: 75px;
 
       img { border-radius: 50%; }
-      
+
       p {
         font-size: 18px;
         font-weight: 600;
@@ -608,8 +616,24 @@ h2 {
 
         p { padding: 7px 0; }
         
-        img {
+        .content-img {
           width: 100%;
+        }
+
+        .fighter-title {
+          p {
+            padding-top: 15px;
+            font-size: 18px;
+            font-weight: 600;
+          }
+        }
+
+        .fighter-img {
+          border-radius: 50%;
+          object-fit: contain;
+          width: 55px;
+          height: 55px;
+          margin-right: 20px;
         }
       }
 

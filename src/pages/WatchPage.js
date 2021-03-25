@@ -18,7 +18,7 @@ const WatchPage = () => {
 
   return (
     <div className="watch-container">
-      <h1> Discover Athletes </h1>
+      <h1> Watch Featured Videos </h1>
       <br />
       <ReactPlayer url={url} width="400" height="380" controls />
       <div className="flex">

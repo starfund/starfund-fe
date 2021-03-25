@@ -96,7 +96,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
                 </div>
                 <div className="col-sm-3">
                   <p className="pad-20"> Have a question? </p>
-                  <p> starfundapp@gmail.com </p>
+                  <p className="email-pad"> starfundapp@gmail.com </p>
                 </div>
               </div>
             </div>
