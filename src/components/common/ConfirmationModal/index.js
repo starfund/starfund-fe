@@ -1,15 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { useHistory } from 'react-router-dom';
+import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 
+import routes from 'constants/routesPaths';
+import { subscribe, updatePassword } from 'state/actions/subscriptionActions';
 import { modalStyles } from './styles';
 import { useMediaQuery } from '../../../utils/mediaHoc';
 
 import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
-const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email, fighter }) => {
+const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : '460px';
   const width = isMobile ? '100%' : '760px';
@@ -21,9 +27,37 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email, f
     isMobile ? '0' : '40%',
     isMobile ? '0' : '50%'
   );
+  const { status: subStatus } = useStatus(subscribe);
+  const { status: updateStatus } = useStatus(updatePassword);
+  const authenticated = useSelector(state => state.session.authenticated);
+
   const subPrice = price ? `$${price / 100}` : '$5';
   const newUser = useSelector(state => state.subscriptions.newUser);
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
+
+  useEffect(() => {
+    if (!shouldUpdatePassword && authenticated) {
+      if (subStatus === SUCCESS) {
+        dispatch(subscribe.reset());
+        setIsOpen(false);
+      }
+    }
+
+    if (authenticated && updateStatus === SUCCESS) {
+      dispatch(updatePassword.reset());
+      setIsOpen(false);
+      history.push(routes.userHome);
+    }
+  }, [
+    authenticated,
+    dispatch,
+    setIsOpen,
+    shouldUpdatePassword,
+    newUser,
+    updateStatus,
+    subStatus,
+    history
+  ]);
 
   return (
     <Modal

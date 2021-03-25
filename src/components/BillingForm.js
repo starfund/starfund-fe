@@ -2,20 +2,24 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cards from 'react-credit-cards';
 import { object, string } from 'prop-types';
-// import { CardElement } from 'react-stripe-elements';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
+
+import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
 import usePayments from 'hooks/usePayments';
 import Field from 'components/common/StripeField';
+import { useStatus, LOADING } from '@rootstrap/redux-tools';
 
 import Button from './common/Button';
 import Input from './common/Input';
 
-import { updatePassword } from '../state/actions/subscriptionActions';
+import { subscribe, updatePassword } from '../state/actions/subscriptionActions';
 
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email, fighter }) => {
+  const { status: subStatus } = useStatus(subscribe);
+  const { status: updateStatus } = useStatus(updatePassword);
   const dispatch = useDispatch();
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
@@ -35,7 +39,10 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
 
   return (
     <div className="row no-gutters checkout-container">
-      {newUser && shouldUpdatePassword && (
+      {(subStatus === LOADING || updateStatus === LOADING) && (
+        <Loading className="align-self-center justify-content-center" />
+      )}
+      {newUser && shouldUpdatePassword && updateStatus !== LOADING && (
         <React.Fragment>
           <form className="newbie-form">
             <div className="missing-email">
@@ -118,7 +125,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                     </div>
                   </div>
                   <Button
-                    onClick={() => onSubmit({ name, email: emailField, fighter: fighter })}
+                    onClick={() => onSubmit({ name, email: emailField, fighter })}
                     labelId="createPaymentMethod"
                     type="submit"
                     className="btn btn-primary pay-button"
