@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import ReactPlayer from 'react-player';
@@ -8,7 +8,12 @@ import '../styles/components/_home-info.scss';
 
 const HomeInfo = () => {
   const fighters = useSelector(state => state.fighters.fighters);
-  const [activeFighter, setActiveFighter] = useState(0);
+  const [activeFighter, setActiveFighter] = useState();
+
+  useEffect(() => {
+    setActiveFighter(fighters[0]?.id);
+  }, [fighters]);
+
   return (
     <div className="info-container">
       <div className="">
@@ -27,12 +32,12 @@ const HomeInfo = () => {
           </div>
           <div className="row">
             <ul className="info-container-fighters row">
-              {fighters?.slice(0, 4).map((f, index) => (
+              {fighters?.slice(0, 4).map(f => (
                 <li key={f.id}>
                   <button
                     type="button"
-                    onClick={() => setActiveFighter(index)}
-                    className={`${activeFighter === index ? 'active' : ''} info-fighter-wrapper`}
+                    onClick={() => setActiveFighter(f.id)}
+                    className={`${activeFighter === f.id ? 'active' : ''} info-fighter-wrapper`}
                   >
                     <img
                       src={f?.profilePicture}
@@ -40,7 +45,7 @@ const HomeInfo = () => {
                       alt="fighter-avatar"
                     />
                     <span className="" aria-current="page">
-                      Loik Radzhabov
+                      {`${f.firstName} ${f.lastName}`}
                     </span>
                   </button>
                 </li>
@@ -49,26 +54,24 @@ const HomeInfo = () => {
           </div>
         </div>
         <SecondarySlider>
-          {fighters &&
-            fighters.map(f =>
-              f.publicVideos.map(v => (
-                <div className="homeinfo-slider-card slide-left" key={f.id}>
-                  <ReactPlayer
-                    title="fighter-video"
-                    className="homeinfo-slider-video"
-                    controls
-                    autoPlay
-                    url={v.url}
-                  />
-                  <div>
-                    <div className="homeinfo-slider-card-overlay">
-                      <span className="no-wrap">Loid Radzavob</span>
-                      <span>Las vegas / Nevada</span>
-                    </div>
+          {fighters[activeFighter] &&
+            fighters[activeFighter].publicVideos.map((v, index) => (
+              <div className="homeinfo-slider-card slide-left" key={index}>
+                <ReactPlayer
+                  title="fighter-video"
+                  className="homeinfo-slider-video"
+                  controls
+                  autoPlay
+                  url={v.url}
+                />
+                <div>
+                  <div className="homeinfo-slider-card-overlay">
+                    <span className="no-wrap">Loid Radzavob</span>
+                    <span>Las vegas / Nevada</span>
                   </div>
                 </div>
-              ))
-            )}
+              </div>
+            ))}
         </SecondarySlider>
       </div>
     </div>
