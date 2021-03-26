@@ -1,5 +1,6 @@
 import { createReducer } from '@rootstrap/redux-tools';
 import { login, signUp, logout, updateSession } from 'state/actions/userActions';
+import { subscribe } from 'state/actions/subscriptionActions';
 
 const initialState = {
   authenticated: false,
@@ -17,6 +18,9 @@ const actionHandlers = {
   [updateSession]: (state, { payload }) => {
     state.info = payload;
     state.authenticated = true;
+  },
+  [subscribe.success]: (state, { payload }) => {
+    state.user = payload.user;
   },
   [logout.success]: () => initialState
 };
