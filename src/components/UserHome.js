@@ -14,7 +14,7 @@ const UserHome = () => {
     dispatch(getSubscriptions());
   }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
-  const supporting = useSelector(state => state.subscriptions?.subscriptions);
+  const supporting = useSelector(state => state.subscriptions.subscriptions);
 
   return (
     <div className="user-home">
@@ -85,40 +85,42 @@ const UserHome = () => {
                 </div>
               )}
               {supporting &&
-                supporting.map(sup =>
-                  sup.content.map(content => (
-                    <React.Fragment key={content.title}>
-                      <div className="content-row">
-                        <div className="fighter-title flex">
-                          <img
-                            src={sup.fighter.profilePicture}
-                            className="fighter-img"
-                            alt="title"
-                          />
-                          <p>
-                            {' '}
-                            {sup.fighter.firstName} {sup.fighter.lastName}{' '}
-                          </p>
+                supporting.map(
+                  sup =>
+                    sup.content &&
+                    sup.content.map(content => (
+                      <React.Fragment key={content.title}>
+                        <div className="content-row">
+                          <div className="fighter-title flex">
+                            <img
+                              src={sup.fighter.profilePicture}
+                              className="fighter-img"
+                              alt="title"
+                            />
+                            <p>
+                              {' '}
+                              {sup.fighter.firstName} {sup.fighter.lastName}{' '}
+                            </p>
+                          </div>
+                          <br />
+                          {content.image && (
+                            <img
+                              className="content-img"
+                              src={content.image}
+                              height="300"
+                              alt="content"
+                            />
+                          )}
+                          {content.video && (
+                            <ReactPlayer url={content.video} width="200" height="200" controls />
+                          )}
+                          <p>{content.eventDate}</p>
+                          <h2>{content.title}</h2>
+                          <h3>{content.description}</h3>
                         </div>
-                        <br />
-                        {content.image && (
-                          <img
-                            className="content-img"
-                            src={content.image}
-                            height="300"
-                            alt="content"
-                          />
-                        )}
-                        {content.video && (
-                          <ReactPlayer url={content.video} width="200" height="200" controls />
-                        )}
-                        <p>{content.eventDate}</p>
-                        <h2>{content.title}</h2>
-                        <h3>{content.description}</h3>
-                      </div>
-                      <div className="blank-line" />
-                    </React.Fragment>
-                  ))
+                        <div className="blank-line" />
+                      </React.Fragment>
+                    ))
                 )}
             </div>
           </div>

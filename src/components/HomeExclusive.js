@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ import './index.css';
 const HomeExclusive = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const isFighter = window.location.href.indexOf('fighter') > -1;
+  const currentUser = useSelector(state => state.session.user);
   const fighter =
     isFighter && window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
@@ -54,8 +56,9 @@ const HomeExclusive = () => {
         setIsOpen={setModalIsOpen}
         isDelete={false}
         fighter={fighter}
+        email={currentUser?.email}
       >
-        <BillingForm fighter={fighter} />
+        <BillingForm email={currentUser?.email} fighter={fighter} />
       </ConfirmationModal>
     </div>
   );

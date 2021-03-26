@@ -63,7 +63,6 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
       isOpen={isOpen}
       style={styles}
       ariaHideApp={false}
-      shouldCloseOnOverlayClick
       onRequestClose={() => setIsOpen(false)}
     >
       <div className="confirmation_modal_container">
