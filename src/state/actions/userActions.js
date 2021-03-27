@@ -28,4 +28,13 @@ export const signUp = createThunk('SIGNUP', async user => {
   }
 });
 
+export const update = createThunk('UPDATE', async user => {
+  try {
+    const { data } = await userService.update({ user });
+    return data.user;
+  } catch ({ response: { data } }) {
+    throw parseError(data);
+  }
+});
+
 export const updateSession = createAction('UPDATE_SESSION');
