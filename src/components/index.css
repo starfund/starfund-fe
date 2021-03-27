@@ -427,7 +427,6 @@ h2 {
 
     button {
       height: 50px;
-      margin: 40px 182px 0;
       padding: 9px 84px 18px 83px;
       border-radius: 99px;
       background-color: #ea0a0a
@@ -441,6 +440,14 @@ h2 {
     font-size: 60px;
     font-weight: bold;
     transform: translate(-50%, -50%);
+    padding-top: 150px;
+
+    p {
+      font-size: 60px !important;
+      font-weight: bold !important;
+      color: white;
+      font-size: 18px;
+    }
   }
 
   .fighter-cover {

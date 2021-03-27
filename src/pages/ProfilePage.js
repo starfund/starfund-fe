@@ -18,6 +18,7 @@ const ProfilePage = () => {
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
+  const [phone, setPhone] = useState(currentUser?.phone);
   const [birthdate, setBirthdate] = useState(currentUser.birthdate);
 
   return (
@@ -68,7 +69,7 @@ const ProfilePage = () => {
             <div className="credit-card-info" />
           </div>
           <div className="col-sm-4 col-lg-4 offset-sm-1">
-            <h2> BASIC INFORMATION </h2>
+            <h2> YOUR INFORMATION </h2>
             <Input
               name="firstName"
               placeholder="First Name"
@@ -80,6 +81,12 @@ const ProfilePage = () => {
               placeholder="Last Name"
               value={lastName}
               onChange={e => setLastName(e.target.value)}
+            />
+            <Input
+              name="phone"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={e => setPhone(e.target.value)}
             />
             <Input
               name="birthdate"

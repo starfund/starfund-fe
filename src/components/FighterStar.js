@@ -53,11 +53,12 @@ const FighterStar = () => {
         <img className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
         {fighter && (
           <div className="centered">
-            {fighter.firstName} {fighter.lastName}
             <br />
-            <div className="small-blank-line" />
-            {fighter.organization}
             <br />
+            <p>
+              {' '}
+              {fighter.firstName} {fighter.lastName}{' '}
+            </p>
             {authenticated &&
               supporting &&
               fighter &&
@@ -67,7 +68,7 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  SUBSCRIBE NOW
+                  SUBSCRIBE
                 </button>
               )}
             {!authenticated && (
@@ -76,7 +77,7 @@ const FighterStar = () => {
                 className="btn btn-danger btn-lg"
                 onClick={() => setModalIsOpen(true)}
               >
-                SUBSCRIBE NOW
+                SUBSCRIBE
               </button>
             )}
           </div>
