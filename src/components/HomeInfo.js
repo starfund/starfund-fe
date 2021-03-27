@@ -13,19 +13,21 @@ const HomeInfo = () => {
   const [activeFighter, setActiveFighter] = useState();
   const [dimensions, setDimensions] = useState(initialDimensions);
 
+  const thereWasRezise = () => {
+    const { innerWidth: width } = window;
+    if (width < 1200) {
+      setDimensions({ width: 600, height: 400 });
+    } else {
+      setDimensions(initialDimensions);
+    }
+  };
+
   useEffect(() => {
     setActiveFighter(fighters[0]?.id);
   }, [fighters]);
 
   useEffect(() => {
-    const thereWasRezise = () => {
-      const { innerWidth: width } = window;
-      if (width < 1200) {
-        setDimensions({ width: 600, height: 400 });
-      } else {
-        setDimensions(initialDimensions);
-      }
-    };
+    thereWasRezise();
 
     window.addEventListener('resize', thereWasRezise);
 
