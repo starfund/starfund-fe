@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -15,6 +15,8 @@ const ProfilePage = () => {
   }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
+  const [firstName, setFirstName] = useState(currentUser.firstName);
+  const [lastName, setLastName] = useState(currentUser.lastName);
 
   return (
     <div className="profile-container">
@@ -66,8 +68,18 @@ const ProfilePage = () => {
           <div className="col-sm-4 col-lg-4 offset-sm-1">
             <h2> BASIC INFORMATION </h2>
             <form>
-              <Input name="firstName" placeholder="First Name" />
-              <Input name="lastName" placeholder="Last Name" />
+              <Input
+                name="firstName"
+                placeholder="First Name"
+                value={firstName}
+                onChange={e => setFirstName(e.target.value)}
+              />
+              <Input
+                name="lastName"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={e => setLastName(e.target.value)}
+              />
               <Input name="birthdate" placeholder="Birthdate" />
               <button type="submit" className="link-button update-btn">
                 {' '}
