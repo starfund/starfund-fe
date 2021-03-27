@@ -33,12 +33,10 @@ export default stripe => {
         country,
         zipCode: zipcode,
         last_4: last4,
-        cardHolderFirstName: name,
-        cardHolderLastName: name,
         expMonth,
         expYear
       };
-      await dispatch(subscribe({ token: data.token, email, fighter }));
+      await dispatch(subscribe({ token: data.token, name, email, fighter, card_data: data }));
     }
 
     setLoading(false);
