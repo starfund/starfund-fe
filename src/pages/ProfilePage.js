@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import { update } from '../state/actions/userActions';
 
 import Input from '../components/common/Input';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -17,6 +18,7 @@ const ProfilePage = () => {
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
+  const [birthdate, setBirthdate] = useState(currentUser.birthdate);
 
   return (
     <div className="profile-container">
@@ -67,25 +69,32 @@ const ProfilePage = () => {
           </div>
           <div className="col-sm-4 col-lg-4 offset-sm-1">
             <h2> BASIC INFORMATION </h2>
-            <form>
-              <Input
-                name="firstName"
-                placeholder="First Name"
-                value={firstName}
-                onChange={e => setFirstName(e.target.value)}
-              />
-              <Input
-                name="lastName"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={e => setLastName(e.target.value)}
-              />
-              <Input name="birthdate" placeholder="Birthdate" />
-              <button type="submit" className="link-button update-btn">
-                {' '}
-                UPDATE{' '}
-              </button>
-            </form>
+            <Input
+              name="firstName"
+              placeholder="First Name"
+              value={firstName}
+              onChange={e => setFirstName(e.target.value)}
+            />
+            <Input
+              name="lastName"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={e => setLastName(e.target.value)}
+            />
+            <Input
+              name="birthdate"
+              placeholder="Birthdate"
+              value={birthdate}
+              type="date"
+              onChange={e => setBirthdate(e.target.value)}
+            />
+            <button
+              type="button"
+              className="link-button update-btn"
+              onClick={() => dispatch(update({ firstName, lastName, birthdate }))}
+            >
+              UPDATE
+            </button>
           </div>
           <div className="col-sm-3 col-lg-3" />
         </div>

@@ -13,6 +13,10 @@ class UserService {
     return httpClient.post('/users', user);
   }
 
+  static update(user) {
+    return httpClient.put('/user', user);
+  }
+
   static setNewbiePassword(newPassword) {
     return httpClient.post('/user/update_password', {
       password: newPassword
