@@ -11,6 +11,7 @@ import { getFighters } from '../state/actions/fighterActions';
 import 'styles/components/_watch-page.scss';
 
 const WatchPage = () => {
+  const [ctaVisible, setCtaVisible] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getFighters());
@@ -22,12 +23,16 @@ const WatchPage = () => {
     setUrl(fighters[0]?.publicVideos[0]?.url);
   }, [fighters]);
 
+  useEffect(() => {
+    setTimeout(() => setCtaVisible(true), 5000);
+  }, []);
+
   const CurrentFighter = fighters[0] || {};
 
   return (
     <div className="watch-container">
       <h1> Watch Featured Videos </h1>
-      <SubscribeCallToAction />
+      <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
       <br />
       {url && (
         <div className="fighter-video-overlay">

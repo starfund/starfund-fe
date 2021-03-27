@@ -6,13 +6,31 @@ import SecondarySlider from './common/SecondarySlider';
 
 import '../styles/components/_home-info.scss';
 
+const initialDimensions = { width: 950, height: 501 };
+
 const HomeInfo = () => {
   const fighters = useSelector(state => state.fighters.fighters);
   const [activeFighter, setActiveFighter] = useState();
+  const [dimensions, setDimensions] = useState(initialDimensions);
 
   useEffect(() => {
     setActiveFighter(fighters[0]?.id);
   }, [fighters]);
+
+  useEffect(() => {
+    const thereWasRezise = () => {
+      const { innerWidth: width } = window;
+      if (width < 1200) {
+        setDimensions({ width: 600, height: 400 });
+      } else {
+        setDimensions(initialDimensions);
+      }
+    };
+
+    window.addEventListener('resize', thereWasRezise);
+
+    return () => window.removeEventListener('resize', thereWasRezise);
+  }, []);
 
   return (
     <div className="info-container">
@@ -63,6 +81,8 @@ const HomeInfo = () => {
                   controls
                   autoPlay
                   url={v.url}
+                  width={dimensions.width}
+                  height={dimensions.height}
                 />
                 <div>
                   <div className="homeinfo-slider-card-overlay">

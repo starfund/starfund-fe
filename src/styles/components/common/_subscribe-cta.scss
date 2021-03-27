@@ -1,9 +1,101 @@
+@import '../../variables';
 
 .subscribe-cta {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  padding: 50px;
+  padding: 50px 25px;
   font-size: 20px;
   z-index: 999999;
+  top: 70%;
+  left: 80%;
+  margin: 0 !important;
+  max-width: 300px;
+  background-color: black;
+  border-radius: 15%;
+  border: solid;
+
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+  }
+
+  &:hover {
+    border-color: white;
+  }
+
+  @media (max-width: $xl-breakpoint + 'px') {
+    padding: 20px 10px;
+    font-size: 15px;
+    max-width: 200px;
+  }
 }
+
+.subscribe-cta-text {
+  position: relative;
+  top: -10px;
+  color: white;
+
+  @media (max-width: $xl-breakpoint + 'px') { top: -5px }
+}
+
+.subscribe-cta-button {
+  width: 200px;
+  height: 60px;
+  outline: none !important;
+  text-decoration: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50px;
+  bottom: -23px;
+  color: #dc3545;
+  background-color: black;
+
+  transition: 0.25s;
+  box-shadow: 0.3em 0.3em 0 0 #dc3545, inset 0.3em 0.3em 0 0 #dc3545;
+
+  &:hover,
+  &:focus {
+    box-shadow: 
+      0 0 0 0 #dc3545,
+      inset 6em 3.5em 0 0 #dc3545;
+    color: black;
+  }
+  
+  @media (max-width: $xl-breakpoint + 'px') {
+    font-size: 15px;
+    width: 100px;
+    height: 40px;
+    left: 45px;
+    bottom: -20px;
+  }
+}
+
+.subscribe-cta-close-btn {
+  color: rgb(33, 37, 41);
+  &:hover { color: white }
+  outline: none !important;
+  text-decoration: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  top: 10px;
+  right: 10px;
+
+  @media (max-width: $xl-breakpoint + 'px') {
+    top: -4px;
+    right: -4px;
+  }
+}
+

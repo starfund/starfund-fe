@@ -5,6 +5,8 @@ html, body, .home {
   padding-top: 100px;
 }
 
+body { overflow-x: hidden }
+
 @media only screen and (min-width : 1200px) {
   .container { max-width: 1500px !important; } 
 }
