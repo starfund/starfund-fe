@@ -15,8 +15,11 @@ const FighterVideos = ({ fighter, supporting }) => {
       <br />
       <div className="container">
         <div className="row flex">
-          {fighter.publicVideos.length == 0 && (
+          {fighter.publicVideos.length == 0 && fighter.privateVideos.length == 0 && (
             <h2 className="center">This fighter has not uploaded any videos yet</h2>
+          )}
+          {fighter.privateVideos.length > 0 && payedFighter.length == 0 && (
+            <h2 className="center">Subscribe to unlock all the videos</h2>
           )}
           {fighter.publicVideos &&
             fighter.publicVideos.map(v => (
