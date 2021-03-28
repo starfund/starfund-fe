@@ -10,18 +10,18 @@ const HomeAnnouncements = () => {
     <div className="announcements-container">
       <div className="container">
         <div className="row">
-          <div className="col-md-4 home-text">
+          <div className="col-sm-12 home-text">
             <h1> Fighter Announcement </h1>
             <br />
             <p>Empowering Stars and Entertaining Fans.</p>
-          </div>
-          <div className="col-md-6 offset-md-1 flex pictures">
-            <div className="col-md-10">
-              <img src={ContentMock2} alt="Mock" />
-            </div>
-            <div className="col-md-6">
-              <img src={ContentMock3} alt="Mock" />
-              <img src={ContentMock1} alt="Mock" />
+            <div className="col-sm-12 offset-md-1 flex pictures">
+              <div className="col-sm-12 col-md-6">
+                <img src={ContentMock2} alt="Mock" />
+              </div>
+              <div className="col-sm-12 col-md-6">
+                <img src={ContentMock3} alt="Mock" />
+                <img src={ContentMock1} alt="Mock" />
+              </div>
             </div>
           </div>
         </div>

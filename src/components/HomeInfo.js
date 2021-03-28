@@ -88,8 +88,8 @@ const HomeInfo = () => {
                 />
                 <div>
                   <div className="homeinfo-slider-card-overlay">
-                    <span className="no-wrap">Loid Radzavob</span>
-                    <span>Las vegas / Nevada</span>
+                    <span className="no-wrap">Preview Video</span>
+                    <span>Subscribe to see all videos</span>
                   </div>
                 </div>
               </div>
