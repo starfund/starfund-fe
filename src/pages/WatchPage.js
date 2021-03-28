@@ -43,32 +43,34 @@ const WatchPage = () => {
           <ReactPlayer url={url} width="100%" height="380" controls />
         </div>
       )}
-      <div className="flex">
-        {fighters?.length > 0 &&
-          fighters.map(
-            f =>
-              f.publicVideos && (
-                <div
-                  key={f.id}
-                  className="col-sm-4 fighter-watch"
-                  onClick={() => setUrl(f.publicVideos[0]?.url)}
-                >
-                  <div className="fighter-video-overlay">
-                    <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
-                    {f.publicVideos[0]?.url && (
-                      <div className="avatar-container">
-                        <img
-                          className="fighter-avatar small"
-                          src={CurrentFighter.coverPhoto}
-                          alt="fighter avatar"
-                        />
-                        <span>{`${CurrentFighter.firstName} ${CurrentFighter.lastName}`}</span>
-                      </div>
-                    )}
+      <div className="container">
+        <div className="row flex">
+          {fighters?.length > 0 &&
+            fighters.map(
+              f =>
+                f.publicVideos && (
+                  <div
+                    key={f.id}
+                    className="col-sm-4 fighter-watch"
+                    onClick={() => setUrl(f.publicVideos[0]?.url)}
+                  >
+                    <div className="fighter-video-overlay">
+                      <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
+                      {f.publicVideos[0]?.url && (
+                        <div className="avatar-container">
+                          <img
+                            className="fighter-avatar small"
+                            src={CurrentFighter.coverPhoto}
+                            alt="fighter avatar"
+                          />
+                          <span>{`${CurrentFighter.firstName} ${CurrentFighter.lastName}`}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )
-          )}
+                )
+            )}
+        </div>
       </div>
       <br />
       <br />
