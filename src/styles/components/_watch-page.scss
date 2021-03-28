@@ -6,11 +6,12 @@
 
   .avatar-container {
     background-color: black;
-    position: absolute;
     padding: 10px 15px;
     border-bottom-right-radius: 15% 50%;
     align-items: center;
     display: flex;
+    widows: 65%;
+    margin-bottom: 15px;
   }
 
   .fighter-avatar {
