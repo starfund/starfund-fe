@@ -781,4 +781,8 @@ h2 {
 .fighter-videos {
   padding: 50px;
 
+  .center {
+    margin: auto;
+    width: 90%
+  }
 }

@@ -70,6 +70,8 @@ const WatchPage = () => {
               )
           )}
       </div>
+      <br />
+      <br />
       <HomeStars title="Know The Athletes" />
     </div>
   );
