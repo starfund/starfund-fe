@@ -100,9 +100,9 @@ const FighterStar = () => {
         </div>
       </nav>
       {!videos && (
-        <React.Fragment>
-          <div className="main-content">
-            <div className="how-it-works">
+        <div className="container">
+          <div className="main-content row">
+            <div className="how-it-works offset-lg-1 col-sm-12 col-md-4 col-lg-3">
               <div className="content">
                 <p className="bold"> How does it work? </p>
                 <br />
@@ -147,12 +147,12 @@ const FighterStar = () => {
                 </button>
               )}
             </div>
-            <div className="video">
+            <div className="col-sm-12 col-md-8">
               {fighter && (
                 <ReactPlayer
                   title="preview"
-                  width="925px"
-                  height="552px"
+                  width="100%"
+                  height="80%"
                   url={fighter.publicVideos[0]?.url}
                   controls
                 />
@@ -195,33 +195,35 @@ const FighterStar = () => {
               </React.Fragment>
             )}
           {!authenticated && (
-            <React.Fragment>
+            <div className="container">
               <div className="foot-banner">
-                <h2 className="bold"> Get started in 2 minutes </h2>
-                <br />
-                <div className="text">
-                  <div>
-                    <img src={Clicking} alt="cwm" />
-                    <p> Choose Membership </p>
-                  </div>
-                  <div>
-                    <img src={Account} alt="cwm" />
-                    <p> Create Account </p>
-                  </div>
-                  <div>
-                    <img src={Browser} alt="cwm" />
-                    <p> Add Payment Method </p>
-                  </div>
-                  <div>
-                    <img src={Award} alt="cwm" />
-                    <p> Get Benefits </p>
+                <div className="col-12">
+                  <h2 className="bold"> Get started in 2 minutes </h2>
+                  <br />
+                  <div className="text row">
+                    <div className="col-5 col-md-3">
+                      <img src={Clicking} alt="cwm" />
+                      <p> Choose Membership </p>
+                    </div>
+                    <div className="col-5 col-md-2">
+                      <img src={Account} alt="cwm" />
+                      <p> Create Account </p>
+                    </div>
+                    <div className="col-5 col-md-2">
+                      <img src={Browser} alt="cwm" />
+                      <p> Add Payment Method </p>
+                    </div>
+                    <div className="col-5 col-md-2">
+                      <img src={Award} alt="cwm" />
+                      <p> Get Benefits </p>
+                    </div>
                   </div>
                 </div>
               </div>
               <HomeExclusive />
-            </React.Fragment>
+            </div>
           )}
-        </React.Fragment>
+        </div>
       )}
       {videos && <FighterVideos fighter={fighter} supporting={supporting} />}
       <div className="stars-container">
