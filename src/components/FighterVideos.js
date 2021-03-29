@@ -11,8 +11,7 @@ const FighterVideos = ({ fighter, supporting }) => {
       <br />
       <br />
       <ReactPlayer url={url} width="100%" height="600px" controls />
-      <br />
-      <br />
+      <div className="blank-line" />
       <div className="container">
         <div className="row flex">
           {fighter.publicVideos.length == 0 && fighter.privateVideos.length == 0 && (
