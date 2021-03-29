@@ -11,49 +11,48 @@ import './index.css';
 const HomeFooter = () => {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="row footer-header">
-          <div className="col-md-3">
+      <div className="container row">
+        <div className="col-lg-3 col-6 ">
+          <div className="">
             <p> Explore </p>
           </div>
-          <div className="col-md-3">
-            <p> About </p>
-          </div>
-          <div className="col-md-3">
-            <p> Social </p>
-          </div>
-          <div className="col-md-3">
-            <p> Join Us </p>
-          </div>
-        </div>
-        <div className="row row-1">
-          <div className="col-md-3">
+          <div className="">
             <a onClick={() => window.open('/fighters', '_self')}> Athletes </a>
           </div>
-          <div className="col-md-3">
+          <div className="">
+            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
+          </div>
+        </div>
+        <div className="col-lg-3 col-6">
+          <div className="">
+            <p> About </p>
+          </div>
+          <div className="">
             <a onClick={() => window.open('/about-us', '_self')}> Who we are </a>
           </div>
-          <div className="col-md-3 flex">
+
+          <div className="">
+            <Link
+              to="/join-us"
+              type="button"
+              className="btn btn-lg enroll-as-a-star-btn rounded-pill"
+            >
+              ENROLL AS STAR
+            </Link>
+          </div>
+        </div>
+        <div className="col-lg-3 col-6">
+          <div className="">
+            <p> Social </p>
+          </div>
+          <div className="flex">
             <img src={Instagram} alt="Instagram" />
             <a onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}>
               {' '}
               Instagram{' '}
             </a>
           </div>
-          <div className="col-md-3">
-            <Link to="/join-us" type="button" className="btn btn-lg">
-              ENROLL AS STAR
-            </Link>
-          </div>
-        </div>
-        <div className="row row-1">
-          <div className="col-md-3">
-            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
-          </div>
-          <div className="col-md-3">
-            <p> </p>
-          </div>
-          <div className="col-md-3 flex">
+          <div className="flex">
             <img src={Youtube} alt="Youtube" />
             <a
               onClick={() =>
@@ -64,26 +63,23 @@ const HomeFooter = () => {
               Youtube{' '}
             </a>
           </div>
-          <div className="col-md-3" />
-        </div>
-        <div className="row row-1">
-          <div className="col-md-3" />
-          <div className="col-md-3">
-            <p> </p>
-          </div>
-          <div className="col-md-3 flex">
+          <div className="flex">
             <img src={Facebook} alt="Facebook" />
             <a onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}>Facebook</a>
           </div>
-          <div className="col-md-3 d-flex align-items-center">
+        </div>
+        <div className="col-sm-3 col-6">
+          <div className="col">
+            <p> Join Us </p>
+          </div>
+          <div className="" />
+          <div className="">
+            <p> </p>
+          </div>
+
+          <div className=" d-flex align-items-center">
             <LanguageDropdown />
           </div>
-        </div>
-        <div className="row language-row">
-          <div className="col-md-3" />
-          <div className="col-md-3" />
-          <div className="col-md-3" />
-          <div className="col-md-3" />
         </div>
         <div className="row last-row">
           <a href="/terms"> Terms & Conditions </a>

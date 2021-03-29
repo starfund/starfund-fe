@@ -3,6 +3,10 @@ html, body, .home {
   font-family: "Poppins" !important;
   background-color: #020612;
   padding-top: 100px;
+
+  @media only screen and (max-width : 576px) {
+    padding-top: 20px;
+  }
 }
 
 body { overflow-x: hidden }
@@ -33,6 +37,9 @@ h1, h2, h3, h4 { color: white; font-weight: 600 !important; }
 h1 {
   font-size: 50px !important;
   text-align: center;
+  @media only screen and (max-width : 576px) {
+    font-size: 40px !important;
+  }
 }
 
 h2 {
@@ -53,6 +60,23 @@ h2 {
 
 .nav-actions {
   margin-right: 56px;
+
+  @media only screen and (max-width : 992px) {
+    margin: 0;
+    padding: .5rem 0;
+  }
+}
+
+#navbarText {
+  ul {
+    > * {
+      margin-right: 0;
+    }
+  }
+}
+
+.dropdown-menu {
+  left: -65px !important;
 }
 
 .ReactModal__Content {
@@ -242,12 +266,9 @@ h2 {
     }
   }
 
-  .language-row {
-    border-bottom: solid 1px white;
-  }
-
   .last-row {
     a { padding: 0 20px }
+    padding-left: 15px;
   }
 
   .dot {
@@ -257,6 +278,18 @@ h2 {
     border-radius: 50%;
     display: inline-block;
     color: white;
+  }
+
+  .enroll-as-a-star-btn {
+    background-color: #3b414a;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+
+    @media only screen and (max-width : 576px) {
+      width: 150px;
+      font-size: 15px;
+    }
   }
 }
 
@@ -323,7 +356,17 @@ h2 {
 
   .pictures {
     padding: 50px;
+
+    @media only screen and (max-width: 768px) {
+      padding: 20px 0;
+    }
+
+    @media only screen and (max-width : 576px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
+
 }
 
 .faqs-container {
@@ -780,5 +823,16 @@ h2 {
 
 .fighter-videos {
   padding: 50px;
+
+}
+
+.home-exclusive-image {
+  width: 100%;
+  max-width: 700px;
+
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  }
 
 }

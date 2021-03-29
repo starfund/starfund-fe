@@ -4,10 +4,13 @@ $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 // breakpoints
 $xl-breakpoint: 1200;
 $md-breakpoint: 768;
+$sm-breakpoint: 576;
 
 //colors
 $gray: rgba(255, 255, 255, 0.5);
 
 :export {
-  xlBreakpoint: $xl-breakpoint
+  xlBreakpoint: $xl-breakpoint;
+  mdBreakpoint: $md-breakpoint;
+  smBreakpoint:$sm-breakpoint
 }

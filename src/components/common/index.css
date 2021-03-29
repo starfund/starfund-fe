@@ -1,5 +1,5 @@
 .custom-header {
-  height: 70px;
+  min-height: 70px;
   background-color: #020612;
   color: #020612;
 

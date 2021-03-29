@@ -1,3 +1,5 @@
+@import '../variables';
+
 .fighters-slider-wrapper {
   width: 60%;
   align-self: center;
@@ -38,6 +40,11 @@
 .fighter-card-name-wrapper {
   display: flex;
   flex-direction: column;
+
+  > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .fighter-card-text {
@@ -71,8 +78,6 @@
 }
 
 .stars-title {
-  height: 63px;
-  margin: 0 69px 60px 71px;
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   font-weight: bold;
@@ -80,6 +85,10 @@
   letter-spacing: normal;
   text-align: center;
   color: white;
+
+  @media (max-width: $sm-breakpoint + 'px') {
+    font-size: 35px !important;
+  }
 }
 
 .fighter-card-image {

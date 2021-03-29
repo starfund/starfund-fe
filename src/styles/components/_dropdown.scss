@@ -11,6 +11,13 @@
 
 .language-dropdown-container {
   display: flex;
+
+  @media (max-width: $sm-breakpoint + 'px') {
+    width: 150px;
+    img { 
+      display: none;
+    }
+  }
 }
 
 .language-dropdown-image {

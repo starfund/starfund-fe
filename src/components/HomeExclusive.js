@@ -45,8 +45,8 @@ const HomeExclusive = () => {
               </React.Fragment>
             )}
           </div>
-          <div className="col-md-4 offset-md-1">
-            <img src={ExclusiveImage} alt="Exlusive Fighters" />
+          <div className="col-md-8 d-flex justify-content-center">
+            <img className="home-exclusive-image" src={ExclusiveImage} alt="Exlusive Fighters" />
           </div>
         </div>
       </div>

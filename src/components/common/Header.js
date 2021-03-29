@@ -44,20 +44,31 @@ const Header = () => {
           <div className="main-logo" onClick={() => history.push('/')}>
             <img src={LogoWhite} alt="logo" />
           </div>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarText"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+              <li className="nav-item active text-right">
                 <a className="nav-link" href="" onClick={() => history.push('/fighters')}>
                   Stars <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-right">
                 <a className="nav-link" href="" onClick={() => history.push('/watch')}>
                   Watch
                 </a>
               </li>
             </ul>
-            <div className="nav-actions flex">
+            <div className="nav-actions flex justify-content-end">
               <img src={ProfileUser} alt="profile" />
               {authenticated && (
                 <div className="dropdown">

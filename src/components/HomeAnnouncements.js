@@ -14,11 +14,11 @@ const HomeAnnouncements = () => {
             <h1> Fighter Announcement </h1>
             <br />
             <p>Empowering Stars and Entertaining Fans.</p>
-            <div className="col-sm-12 offset-md-1 flex pictures">
-              <div className="col-sm-12 col-md-6">
+            <div className="col-sm-12 flex pictures">
+              <div className="col-sm-6 col-md-6">
                 <img src={ContentMock2} alt="Mock" />
               </div>
-              <div className="col-sm-12 col-md-6">
+              <div className="col-sm-6 col-md-6">
                 <img src={ContentMock3} alt="Mock" />
                 <img src={ContentMock1} alt="Mock" />
               </div>

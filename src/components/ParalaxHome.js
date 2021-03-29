@@ -26,7 +26,7 @@ const ParalaxHome = () => {
           </Link>
           <br />
           <br />
-          <p className="small">
+          <p className="small mb-4 mt-2">
             {' '}
             By sharing your email, you agree to our
             <a href="/terms" target="_blank">

@@ -5,12 +5,9 @@
   overflow: hidden;
   width: 100%;
 
-  @media (max-width: $md-breakpoint + 'px') {
-    margin-top: 50px;
-  }
 }
 
-.secondary-slider-children {
+.secondary-slider-children { 
   display: flex;
   position: relative;
   left: 0;
@@ -20,6 +17,10 @@
   margin-left: 20%;
   overflow-x: hidden;
   height: 600px;
+
+  @media (max-width: $sm-breakpoint + 'px') {
+    margin: 0;
+  }
 }
 
 .homeinfo-slider-card {
@@ -39,6 +40,9 @@
 .homeinfo-slider-video {
   border-radius: 10px;
   float: right;
+  video {
+    object-fit: cover;
+  }
 }
 
 .secondary-slider-buttons {
@@ -59,6 +63,13 @@
 
   @media (max-width: $xl-breakpoint + 'px') {
     top: 22%;
+  }
+
+
+  @media (max-width: $sm-breakpoint + 'px') {
+    display: unset;
+    width: 100%;
+
   }
 
 }
@@ -84,11 +95,26 @@
     &.prev {
       transform: rotate(-45deg);
       left: 0;
+
+      @media (max-width: $sm-breakpoint + 'px') {
+        left: -5px;
+      }
     }
 
     &.next {
       transform: rotate(135deg);
       right: -22px;
       top: 120px;
+
+      @media (max-width: $sm-breakpoint + 'px') {
+        position: absolute;
+        right: 67px;
+        top: 0;
+      }
+    }
+
+    @media (max-width: $sm-breakpoint + 'px') {
+      width: 30px;
+      height: 30px;
     }
 }

@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import ReactPlayer from 'react-player';
 import SecondarySlider from './common/SecondarySlider';
 
+import { smBreakpoint } from '../styles/_variables.scss';
+
 import '../styles/components/_home-info.scss';
 
 const initialDimensions = { width: 950, height: 501 };
@@ -15,7 +17,9 @@ const HomeInfo = () => {
 
   const thereWasRezise = () => {
     const { innerWidth: width } = window;
-    if (width < 1200) {
+    if (width < smBreakpoint) {
+      setDimensions({ width, height: 300 });
+    } else if (width < 1200) {
       setDimensions({ width: 600, height: 400 });
     } else {
       setDimensions(initialDimensions);
@@ -53,7 +57,7 @@ const HomeInfo = () => {
           <div className="row">
             <ul className="info-container-fighters row">
               {fighters?.slice(0, 4).map(f => (
-                <li key={f.id}>
+                <li key={f.id} className="col-12 col-sm-6 col-lg-3">
                   <button
                     type="button"
                     onClick={() => setActiveFighter(f.id)}
