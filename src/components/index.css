@@ -835,4 +835,9 @@ h2 {
     margin-top: 15px;
   }
 
+  .center {
+    margin: auto;
+    width: 90%
+  }
+
 }

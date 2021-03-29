@@ -223,9 +223,7 @@ const FighterStar = () => {
           )}
         </React.Fragment>
       )}
-      {videos && supporting.length > 0 && (
-        <FighterVideos fighter={fighter} supporting={supporting} />
-      )}
+      {videos && <FighterVideos fighter={fighter} supporting={supporting} />}
       <div className="stars-container">
         <h2> Explore Other Athletes </h2>
         <div className="fighters-container fighters-slider-wrapper">
