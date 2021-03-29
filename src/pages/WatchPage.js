@@ -33,7 +33,6 @@ const WatchPage = () => {
     <div className="watch-container">
       <h1> Watch Featured Videos </h1>
       <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
-      <br />
       {url && (
         <div className="fighter-video-overlay">
           <div className="avatar-container">
@@ -43,6 +42,7 @@ const WatchPage = () => {
           <ReactPlayer url={url} width="100%" height="380" controls />
         </div>
       )}
+      <div className="blank-line" />
       <div className="container">
         <div className="row flex">
           {fighters?.length > 0 &&

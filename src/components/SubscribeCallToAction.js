@@ -10,9 +10,9 @@ const SubscribeCallToAction = ({ visible, onClose }) => (
       x
     </button>
     <span className="subscribe-cta-text">
-      Subscribe to get access to hundreds of videos and exclusive content
+      Subscribe to get access to all athletes videos and exclusive content
     </span>
-    <Link to="/fighters" type="button" className=" subscribe-cta-button">
+    <Link to="/fighters" type="button" className="subscribe-cta-button">
       SUBSCRIBE
     </Link>
   </div>

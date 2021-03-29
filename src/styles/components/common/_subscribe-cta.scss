@@ -7,7 +7,7 @@
   padding: 50px 25px;
   font-size: 20px;
   z-index: 999999;
-  top: 70%;
+  top: 80%;
   left: 80%;
   margin: 0 !important;
   max-width: 300px;
@@ -57,11 +57,11 @@
   position: absolute;
   left: 50px;
   bottom: -23px;
-  color: #dc3545;
-  background-color: black;
+  color: white;
+  background-color: red;
 
   transition: 0.25s;
-  box-shadow: 0.3em 0.3em 0 0 #dc3545, inset 0.3em 0.3em 0 0 #dc3545;
+  box-shadow: 0.2em 0.2em 0 0 white, inset 0.2em 0.2em 0 0 white;
 
   &:hover,
   &:focus {
@@ -73,7 +73,7 @@
   
   @media (max-width: $xl-breakpoint + 'px') {
     font-size: 15px;
-    width: 100px;
+    width: 120px;
     height: 40px;
     left: 45px;
     bottom: -20px;
