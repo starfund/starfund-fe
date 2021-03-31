@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useIntl } from 'react-intl';
 import { useParams, useHistory } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { useSession } from 'hooks';
@@ -11,6 +12,7 @@ import { getSubscriptions } from '../state/actions/subscriptionActions';
 import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
+import HowItWorks from './HowItWorks';
 import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
@@ -18,15 +20,12 @@ import HomeFooter from './HomeFooter';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
 import VideoCamera from '../assets/VideoCamera.svg';
-import Award from '../assets/Award.svg';
-import Browser from '../assets/Browser.svg';
-import Clicking from '../assets/Clicking.svg';
-import Account from '../assets/Account.svg';
 
 import '../styles/components/_home-starts.scss';
 
 const FighterStar = () => {
   const { id } = useParams();
+  const intl = useIntl();
   const dispatch = useDispatch();
   const history = useHistory();
   const { authenticated } = useSession();
@@ -68,7 +67,7 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  SUBSCRIBE
+                  {intl.formatMessage({ id: 'button.subsribe' })}
                 </button>
               )}
             {!authenticated && (
@@ -77,7 +76,7 @@ const FighterStar = () => {
                 className="btn btn-danger btn-lg"
                 onClick={() => setModalIsOpen(true)}
               >
-                SUBSCRIBE
+                {intl.formatMessage({ id: 'button.subsribe' })}
               </button>
             )}
           </div>
@@ -88,12 +87,13 @@ const FighterStar = () => {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="" onClick={() => setVideos(false)}>
-                Home <span className="sr-only">(current)</span>
+                {intl.formatMessage({ id: 'header.home' })}{' '}
+                <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" onClick={() => setVideos(true)}>
-                Videos
+                {intl.formatMessage({ id: 'header.videos' })}
               </a>
             </li>
           </ul>
@@ -104,24 +104,24 @@ const FighterStar = () => {
           <div className="main-content row">
             <div className="how-it-works offset-lg-1 col-sm-12 col-md-4 col-lg-3">
               <div className="content">
-                <p className="bold"> How does it work? </p>
+                <p className="bold"> {intl.formatMessage({ id: 'fighter.howItWorks.title' })} </p>
                 <br />
                 <br />
                 <div className="text">
                   <img src={VideoCamera} alt="bcm" />
-                  <p>Unlock 20 exclusive posts</p>
+                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
                 </div>
                 <br />
                 <br />
                 <div className="text">
                   <img src={Pin} alt="bpj" />
-                  <p>Be part of my journey</p>
+                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
                 </div>
                 <br />
                 <br />
                 <div className="text">
                   <img src={Email} alt="cwm" />
-                  <p>Chat with me Directly</p>
+                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
                 </div>
               </div>
               <br />
@@ -134,7 +134,7 @@ const FighterStar = () => {
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    SUBSCRIBE NOW
+                    {intl.formatMessage({ id: 'button.subsribeNow' })}
                   </button>
                 )}
               {!authenticated && (
@@ -143,7 +143,7 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  SUBSCRIBE NOW
+                  {intl.formatMessage({ id: 'button.subsribeNow' })}
                 </button>
               )}
             </div>
@@ -157,69 +157,21 @@ const FighterStar = () => {
                   controls
                 />
               )}
-              <p className="video-text">
-                {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </p>
+              <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
             </div>
           </div>
           {authenticated &&
             supporting &&
             fighter &&
             !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
-              <React.Fragment>
-                <div className="foot-banner">
-                  <h2 className="bold"> Get started in 2 minutes </h2>
-                  <br />
-                  <div className="text">
-                    <div>
-                      <img src={Clicking} alt="cwm" />
-                      <p> Choose Membership </p>
-                    </div>
-                    <div>
-                      <img src={Account} alt="cwm" />
-                      <p> Create Account </p>
-                    </div>
-                    <div>
-                      <img src={Browser} alt="cwm" />
-                      <p> Add Payment Method </p>
-                    </div>
-                    <div>
-                      <img src={Award} alt="cwm" />
-                      <p> Get Benefits </p>
-                    </div>
-                  </div>
-                </div>
+              <div className="container">
+                <HowItWorks />
                 <HomeExclusive />
-              </React.Fragment>
+              </div>
             )}
           {!authenticated && (
             <div className="container">
-              <div className="foot-banner">
-                <div className="col-12">
-                  <h2 className="bold"> Get started in 2 minutes </h2>
-                  <br />
-                  <div className="text row">
-                    <div className="col-5 col-md-3">
-                      <img src={Clicking} alt="cwm" />
-                      <p> Choose Membership </p>
-                    </div>
-                    <div className="col-5 col-md-2">
-                      <img src={Account} alt="cwm" />
-                      <p> Create Account </p>
-                    </div>
-                    <div className="col-5 col-md-2">
-                      <img src={Browser} alt="cwm" />
-                      <p> Add Payment Method </p>
-                    </div>
-                    <div className="col-5 col-md-2">
-                      <img src={Award} alt="cwm" />
-                      <p> Get Benefits </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <HowItWorks />
               <HomeExclusive />
             </div>
           )}
@@ -258,7 +210,7 @@ const FighterStar = () => {
       </div>
       <HomeFooter />
       <ConfirmationModal
-        title="MONTHLY MEMBERSHIP"
+        title={intl.formatMessage({ id: 'billing.title' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}

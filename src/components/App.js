@@ -13,7 +13,7 @@ const App = () => {
   const { authenticated } = useSession();
 
   return (
-    <>
+    <React.Fragment>
       <IntlWrapper>
         <BrowserRouter>
           <Helmet>
@@ -27,7 +27,7 @@ const App = () => {
           </Switch>
         </BrowserRouter>
       </IntlWrapper>
-    </>
+    </React.Fragment>
   );
 };
 

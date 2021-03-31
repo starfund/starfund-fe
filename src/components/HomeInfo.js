@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import SecondarySlider from './common/SecondarySlider';
 
@@ -11,6 +12,7 @@ import '../styles/components/_home-info.scss';
 const initialDimensions = { width: 950, height: 501 };
 
 const HomeInfo = () => {
+  const intl = useIntl();
   const fighters = useSelector(state => state.fighters.fighters);
   const [activeFighter, setActiveFighter] = useState();
   const [dimensions, setDimensions] = useState(initialDimensions);
@@ -44,14 +46,12 @@ const HomeInfo = () => {
         <div className="info-container-header">
           <div className="row text-row info-container-header-text">
             <div className="col-md-6">
-              <h2 className="info-container-title"> Exclusive Contents </h2>
+              <h2 className="info-container-title">
+                {intl.formatMessage({ id: 'home.info.title' })}
+              </h2>
             </div>
             <div className="col-md-6 info-container-description">
-              <p>
-                {' '}
-                We love supporting athletes to create amazing exclusive content and products their
-                fans will love.{' '}
-              </p>
+              <p>{intl.formatMessage({ id: 'home.info.subTitle' })}</p>
             </div>
           </div>
           <div className="row">
@@ -92,8 +92,10 @@ const HomeInfo = () => {
                 />
                 <div>
                   <div className="homeinfo-slider-card-overlay">
-                    <span className="no-wrap">Preview Video</span>
-                    <span>Subscribe to see all videos</span>
+                    <span className="no-wrap">
+                      {intl.formatMessage({ id: 'home.preview.text' })}
+                    </span>
+                    <span>{intl.formatMessage({ id: 'home.subscribe.text' })}</span>
                   </div>
                 </div>
               </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 
@@ -12,8 +13,9 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
-const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email }) => {
+const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   const history = useHistory();
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : '460px';
@@ -69,14 +71,16 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
         <div className="confirm_modal_title">
           {newUser && shouldUpdatePassword && (
             <React.Fragment>
-              <h2> Select your password to finish your account </h2>
+              <h2> {intl.formatMessage({ id: 'modal.header.selectPassword' })} </h2>
             </React.Fragment>
           )}
           {!newUser && (
             <React.Fragment>
               {title}
-              <p> Total Billed Today: {subPrice}</p>
-              <p> Email you will recieve your bill: {email} </p>
+              <p>
+                {' '}
+                {intl.formatMessage({ id: 'modal.header.totalBilled' })} {subPrice}
+              </p>
             </React.Fragment>
           )}
         </div>
@@ -86,15 +90,18 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price, email })
             <div className="container">
               <div className="row">
                 <div className="col-sm-3 ">
-                  <p className="big"> 100% GUARANTEED </p>
+                  <p className="big">
+                    {' '}
+                    100% {intl.formatMessage({ id: 'modal.footer.guaranteed' })}{' '}
+                  </p>
                 </div>
                 <div className="col-sm-4 offset-sm-1">
-                  <p className="pad-20"> SECURED WITH SSL </p>
+                  <p className="pad-20"> {intl.formatMessage({ id: 'modal.footer.secured' })} </p>
                   <br />
                   <img src={SupportedCards} alt="Supported cards" />
                 </div>
                 <div className="col-sm-3">
-                  <p className="pad-20"> Have a question? </p>
+                  <p className="pad-20"> {intl.formatMessage({ id: 'modal.footer.question' })} </p>
                   <p className="email-pad"> starfundapp@gmail.com </p>
                 </div>
               </div>

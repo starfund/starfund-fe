@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 
@@ -10,6 +11,7 @@ import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 const UserHome = () => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
@@ -39,7 +41,7 @@ const UserHome = () => {
                 )}
               </div>
               <div className="blank-line" />
-              <h3> SUPPORTING </h3>
+              <h3>{intl.formatMessage({ id: 'user.home.supporting' })}</h3>
               <div className="blank-line" />
               {supporting?.length > 0 &&
                 supporting.map(s => (
@@ -53,7 +55,7 @@ const UserHome = () => {
                 ))}
               {supporting.length == 0 && (
                 <div className="no-support">
-                  <p> You are not subscribed to any athletes yet. </p>
+                  <p>{intl.formatMessage({ id: 'user.home.supporting.nothing' })}</p>
                   <br />
                 </div>
               )}
@@ -65,22 +67,22 @@ const UserHome = () => {
                 <ul className="nav nav-tabs">
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="">
-                      All Posts
+                      {intl.formatMessage({ id: 'user.home.posts' })}
                     </a>
                   </li>
                 </ul>
                 <span className="btn btn-outline-secondary" type="button">
-                  Showing: All Athletes
+                  {intl.formatMessage({ id: 'user.home.showing' })}
                 </span>
               </div>
             </nav>
             <div className="feed-content">
               {supporting.length === 0 && (
                 <div className="no-support">
-                  <p> Subsribe to your favorite athlete to see post in your feed </p>
+                  <p>{intl.formatMessage({ id: 'user.home.subscribe' })}</p>
                   <br />
                   <Link type="button" className="btn btn-lg link-button" to="/fighters">
-                    FIND ATHLETES YOU LOVE{' '}
+                    {intl.formatMessage({ id: 'user.home.find' })}
                   </Link>
                 </div>
               )}
@@ -126,12 +128,12 @@ const UserHome = () => {
           </div>
           <div className="col-sm-2 col-lg-2">
             <div className="find-athletes">
-              <h4> FIND ATHLETES YOU LOVE </h4>
+              <h4>{intl.formatMessage({ id: 'user.home.find' })}</h4>
               <div className="blank-line" />
-              <p> Search your favorite Athletes to check out all their content and news. </p>
+              <p>{intl.formatMessage({ id: 'user.home.find.text' })}</p>
               <br />
               <Link className="btn btn-outline-secondary link-button" type="button" to="/fighters">
-                FIND ATHLETES
+                {intl.formatMessage({ id: 'user.home.findSimple' })}
               </Link>
             </div>
           </div>

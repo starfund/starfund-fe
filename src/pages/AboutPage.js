@@ -1,9 +1,11 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 const AboutPage = () => {
+  const intl = useIntl();
   return (
     <div className="about-container">
-      <p> Coming soon... </p>
+      <p>{intl.formatMessage({ id: 'comingSoon' })}</p>
     </div>
   );
 };

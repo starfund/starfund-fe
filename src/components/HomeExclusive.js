@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 
 import ExclusiveImage from '../assets/ExclusiveImage.png';
 import ConfirmationModal from './common/ConfirmationModal';
@@ -9,6 +10,7 @@ import BillingForm from './BillingForm';
 import './index.css';
 
 const HomeExclusive = () => {
+  const intl = useIntl();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const isFighter = window.location.href.indexOf('fighter') > -1;
   const currentUser = useSelector(state => state.session.user);
@@ -20,12 +22,9 @@ const HomeExclusive = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-4 home-text">
-            <h1> Be an Exclusive Fan </h1>
+            <h1>{intl.formatMessage({ id: 'home.exclusive.title' })}</h1>
             <br />
-            <p>
-              {' '}
-              Connect directly with your athlete. Enjoy videos, behind the scenes and products.{' '}
-            </p>
+            <p>{intl.formatMessage({ id: 'home.exclusive.subTitle' })}</p>
             <br />
             {isFighter ? (
               <React.Fragment>
@@ -34,13 +33,13 @@ const HomeExclusive = () => {
                   className="btn btn-danger"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  SUBSCRIBE NOW
+                  {intl.formatMessage({ id: 'button.subscribeNow' })}
                 </button>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <Link type="button" className="btn btn-danger" to="/fighters">
-                  FIND YOUR STAR ATHLETE
+                  {intl.formatMessage({ id: 'button.findAthlete' })}
                 </Link>
               </React.Fragment>
             )}
@@ -51,7 +50,7 @@ const HomeExclusive = () => {
         </div>
       </div>
       <ConfirmationModal
-        title="MONTHLY MEMBERSHIP"
+        title={intl.formatMessage({ id: 'billing.title' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}

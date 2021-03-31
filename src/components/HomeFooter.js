@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import { useIntl } from 'react-intl';
+
 import LanguageDropdown from './common/LanguageDropdown';
 
 import Facebook from '../assets/Facebook.svg';
@@ -9,41 +11,47 @@ import Youtube from '../assets/Youtube.svg';
 import './index.css';
 
 const HomeFooter = () => {
+  const intl = useIntl();
   return (
     <footer className="footer">
       <div className="container row">
         <div className="col-lg-3 col-6 ">
           <div className="">
-            <p> Explore </p>
+            <p>{intl.formatMessage({ id: 'header.explore' })}</p>
           </div>
           <div className="">
-            <a onClick={() => window.open('/fighters', '_self')}> Athletes </a>
+            <a onClick={() => window.open('/fighters', '_self')}>
+              {intl.formatMessage({ id: 'header.athletes' })}
+            </a>
           </div>
           <div className="">
-            <a onClick={() => window.open('/watch', '_self')}> Watch </a>
+            <a onClick={() => window.open('/watch', '_self')}>
+              {intl.formatMessage({ id: 'header.watch' })}
+            </a>
           </div>
         </div>
         <div className="col-lg-3 col-6">
           <div className="">
-            <p> About </p>
+            <p>{intl.formatMessage({ id: 'header.about' })}</p>
           </div>
           <div className="">
-            <a onClick={() => window.open('/about-us', '_self')}> Who we are </a>
+            <a onClick={() => window.open('/about-us', '_self')}>
+              {intl.formatMessage({ id: 'header.who' })}
+            </a>
           </div>
-
           <div className="">
             <Link
               to="/join-us"
               type="button"
               className="btn btn-lg enroll-as-a-star-btn rounded-pill"
             >
-              ENROLL AS STAR
+              {intl.formatMessage({ id: 'button.enroll' })}
             </Link>
           </div>
         </div>
         <div className="col-lg-3 col-6">
           <div className="">
-            <p> Social </p>
+            <p>{intl.formatMessage({ id: 'header.social' })}</p>
           </div>
           <div className="flex">
             <img src={Instagram} alt="Instagram" />
@@ -70,7 +78,7 @@ const HomeFooter = () => {
         </div>
         <div className="col-sm-3 col-6">
           <div className="col">
-            <p> Join Us </p>
+            <p>{intl.formatMessage({ id: 'header.join' })}</p>
           </div>
           <div className="" />
           <div className="">
@@ -82,16 +90,16 @@ const HomeFooter = () => {
           </div>
         </div>
         <div className="row last-row">
-          <a href="/terms"> Terms & Conditions </a>
+          <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
           <p>
             {' '}
             <span className="dot" />{' '}
           </p>
-          <a href="/privacy"> Privacy Policy </a>
+          <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
           <p>
             <span className="dot" />
           </p>
-          <a href="/help"> Help & Support </a>
+          <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
         </div>
       </div>
     </footer>

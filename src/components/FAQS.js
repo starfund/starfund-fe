@@ -1,15 +1,18 @@
 import React from 'react';
 
+import { useIntl } from 'react-intl';
+
 import ArrowDown from '../assets/ArrowDown.svg';
 import './index.css';
 
 const FAQS = () => {
+  const intl = useIntl();
   return (
     <div className="faqs-container">
       <div className="container">
         <div className="row">
           <div className="col-md-7 offset-md-3">
-            <h2 className="offset-md-2"> Frequently Asked Questions </h2>
+            <h2 className="offset-md-2"> {intl.formatMessage({ id: 'faqs.title' })} </h2>
             <br />
             <div id="accordion">
               <div className="card text-white bg-dark">
@@ -24,7 +27,7 @@ const FAQS = () => {
                       aria-controls="collapseOne"
                       style={{ background: `url(${ArrowDown})` }}
                     />
-                    <p> What is Starfund? </p>
+                    <p> {intl.formatMessage({ id: 'faqs.q1' })} </p>
                   </h5>
                 </div>
                 <br />
@@ -34,11 +37,7 @@ const FAQS = () => {
                   aria-labelledby="headingOne"
                   data-parent="#accordion"
                 >
-                  <div className="card-body">
-                    Starfund is a place where athletes create exclusive content, products and
-                    surprises for their fans. Fans can become an active participant in the work of
-                    their favorite athletes, in the monthly membership form.
-                  </div>
+                  <div className="card-body">{intl.formatMessage({ id: 'faqs.a1' })}</div>
                 </div>
               </div>
               <br />
@@ -54,7 +53,7 @@ const FAQS = () => {
                       aria-controls="collapseTwo"
                       style={{ background: `url(${ArrowDown})` }}
                     />
-                    <p> How does it work? </p>
+                    <p> {intl.formatMessage({ id: 'faqs.q2' })} </p>
                   </h5>
                 </div>
                 <div
@@ -64,17 +63,12 @@ const FAQS = () => {
                   data-parent="#accordion"
                 >
                   <div className="card-body">
-                    Starfund powers membership business for athletes by giving them the tools they
-                    need to acquire, manage and energize their paying fans, with a
-                    subscription-style payment model, fans pay their favorite athletes a monthly
-                    amount of their choice in exchange for exclusive, extra content or a closer look
-                    into their athletic life.
-                    <br />
-                    Pick Your Favorite Fighter
-                    <br />
-                    Pick The Amount
-                    <br />
-                    Enjoy Exclusive Access
+                    {intl.formatMessage({ id: 'faqs.a2' })}
+                    <ul>
+                      <li>{intl.formatMessage({ id: 'faqs.a2.item1' })}</li>
+                      <li>{intl.formatMessage({ id: 'faqs.a2.item2' })}</li>
+                      <li>{intl.formatMessage({ id: 'faqs.a2.item3' })}</li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -91,7 +85,7 @@ const FAQS = () => {
                       aria-controls="collapseThree"
                       style={{ background: `url(${ArrowDown})` }}
                     />
-                    <p>What is included in a Starfund membership?</p>
+                    <p>{intl.formatMessage({ id: 'faqs.q3' })}</p>
                   </h5>
                 </div>
                 <div
@@ -118,7 +112,7 @@ const FAQS = () => {
                       aria-controls="collapseFour"
                       style={{ background: `url(${ArrowDown})` }}
                     />
-                    <p> How do I cancel? </p>
+                    <p>{intl.formatMessage({ id: 'faqs.q4' })}</p>
                   </h5>
                 </div>
 
@@ -128,10 +122,7 @@ const FAQS = () => {
                   aria-labelledby="headingFour"
                   data-parent="#accordion"
                 >
-                  <div className="card-body">
-                    Just go to your profile and choose "Cancel" button under your subscription
-                    information
-                  </div>
+                  <div className="card-body">{intl.formatMessage({ id: 'faqs.a4' })}</div>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Cards from 'react-credit-cards';
 import { object, string } from 'prop-types';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
+import { useIntl } from 'react-intl';
 
 import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
@@ -21,6 +22,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
   const { status: subStatus } = useStatus(subscribe);
   const { status: updateStatus } = useStatus(updatePassword);
   const dispatch = useDispatch();
+  const intl = useIntl();
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
   const [focus, setFocus] = useState('');
@@ -49,7 +51,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
               <Input
                 name="password"
                 type="password"
-                placeholder="Password"
+                placeholder={intl.formatMessage({ id: 'billing.password' })}
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
@@ -57,7 +59,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
               <Input
                 name="confirmPassword"
                 type="password"
-                placeholder="Confirm Password"
+                placeholder={intl.formatMessage({ id: 'billing.confirmPassword' })}
                 onChange={e => setPasswordConfirmation(e.target.value)}
               />
             </div>
@@ -65,7 +67,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
             <br />
             <Button
               onClick={() => dispatch(updatePassword(password))}
-              labelId="confirmAccountPassword"
+              labelId="billing.confirmAccountPassword"
               type="submit"
               className="btn btn-primary pay-button"
             />
@@ -80,7 +82,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                 <Input
                   name="email"
                   type="email"
-                  placeholder="Email"
+                  placeholder={intl.formatMessage({ id: 'billing.email' })}
                   onChange={e => setEmailField(e.target.value)}
                 />
               </div>
@@ -96,11 +98,12 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                         StripeComponent={CardNumberElement}
                         error={numberStripe.error}
                         onFocus={() => setFocus('number')}
+                        placeholder={intl.formatMessage({ id: 'billing.number' })}
                         width={15}
                       />
                       <Input
                         name="name"
-                        placeholder="Holder Name"
+                        placeholder={intl.formatMessage({ id: 'billing.name' })}
                         onFocus={e => setFocus(e.target.name)}
                         onChange={e => setName(e.target.value)}
                         className="stripe-name"
@@ -111,6 +114,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                           StripeComponent={CardExpiryElement}
                           error={expiryStripe.error}
                           width={9}
+                          placeholder={intl.formatMessage({ id: 'billing.expiry' })}
                           onFocus={() => setFocus('expiry')}
                           className="expiry"
                         />
@@ -118,6 +122,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                           onChange={setCvcStripe}
                           StripeComponent={CardCVCElement}
                           error={cvcStripe.error}
+                          placeholder={intl.formatMessage({ id: 'billing.cvc' })}
                           width={6}
                           onFocus={() => setFocus('cvc')}
                         />
@@ -126,7 +131,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                   </div>
                   <Button
                     onClick={() => onSubmit({ name, email: emailField, fighter })}
-                    labelId="createPaymentMethod"
+                    labelId="billing.createPaymentMethod"
                     type="submit"
                     className="btn btn-primary pay-button"
                   />
@@ -135,14 +140,11 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
             </div>
           </form>
           <p className="small-copy">
-            By clicking "Place Secure Order", you agree to enroll in our monthly subscription plan
-            and to our{' '}
+            {intl.formatMessage({ id: 'billing.copy' })}
             <a href="/terms" target="_blank">
-              Offer Terms and Terms of Service
+              {intl.formatMessage({ id: 'billing.legal' })}
             </a>
-            . Your payment method will be charged the price above the first month and monthly
-            thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in
-            Settings. No refunds for partial unused periods, or after gift is redeemed.
+            {intl.formatMessage({ id: 'billing.copy2' })}
           </p>
         </React.Fragment>
       )}

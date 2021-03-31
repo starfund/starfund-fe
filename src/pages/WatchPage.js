@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 
 import SubscribeCallToAction from '../components/SubscribeCallToAction';
@@ -11,6 +12,7 @@ import { getFighters } from '../state/actions/fighterActions';
 import 'styles/components/_watch-page.scss';
 
 const WatchPage = () => {
+  const intl = useIntl();
   const [ctaVisible, setCtaVisible] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +33,7 @@ const WatchPage = () => {
 
   return (
     <div className="watch-container">
-      <h1> Watch Featured Videos </h1>
+      <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
       {url && (
         <div className="fighter-video-overlay">
@@ -77,7 +79,7 @@ const WatchPage = () => {
       </div>
       <br />
       <br />
-      <HomeStars title="Know The Athletes" />
+      <HomeStars title={intl.formatMessage({ id: 'fighter.know' })} />
     </div>
   );
 };

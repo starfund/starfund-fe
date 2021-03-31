@@ -18,7 +18,7 @@ export default component => {
     }, [stripe]);
 
     return (
-      <>
+      <React.Fragment>
         <Helmet onChangeClientState={updateStripe}>
           <script id="stripe-js" src="https://js.stripe.com/v3/" async />
         </Helmet>
@@ -29,7 +29,7 @@ export default component => {
             </Elements>
           </StripeProvider>
         )}
-      </>
+      </React.Fragment>
     );
   };
 
