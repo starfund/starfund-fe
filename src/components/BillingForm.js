@@ -46,7 +46,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
         <Loading className="align-self-center justify-content-center" />
       )}
       {newUser && shouldUpdatePassword && updateStatus !== LOADING && (
-        <React.Fragment>
+        <div className="col-12">
           <form className="newbie-form">
             <div className="missing-email">
               <Input
@@ -73,11 +73,11 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
               className="btn btn-primary pay-button"
             />
           </form>
-        </React.Fragment>
+        </div>
       )}
       {!newUser && (
         <React.Fragment>
-          <form className="card-form">
+          <form className="col-12 card-form">
             {!email && (
               <div className="missing-email">
                 <Input
@@ -88,45 +88,49 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                 />
               </div>
             )}
-            <div className="new-card-form col-md-12">
+            <div className="new-card-form col-12">
               <div className="">
                 <div className="">
-                  <div className="card-field flex" id="PaymentForm">
-                    <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
-                    <div className="stripe-container">
-                      <Field
-                        onChange={setNumberStripe}
-                        StripeComponent={CardNumberElement}
-                        error={numberStripe.error}
-                        onFocus={() => setFocus('number')}
-                        placeholder={intl.formatMessage({ id: 'billing.number' })}
-                        width={15}
-                      />
-                      <Input
-                        name="name"
-                        placeholder={intl.formatMessage({ id: 'billing.name' })}
-                        onFocus={e => setFocus(e.target.name)}
-                        onChange={e => setName(e.target.value)}
-                        className="stripe-name"
-                      />
-                      <div className="flex">
+                  <div className="card-field row" id="PaymentForm">
+                    <div className="col-12 col-md-5">
+                      <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
+                    </div>
+                    <div className="col-12 col-md-6 offset-md-1">
+                      <div className="offset-1 offset-sm-2 offset-md-0 col-12">
                         <Field
-                          onChange={setExpiryStripe}
-                          StripeComponent={CardExpiryElement}
-                          error={expiryStripe.error}
-                          width={9}
-                          placeholder={intl.formatMessage({ id: 'billing.expiry' })}
-                          onFocus={() => setFocus('expiry')}
-                          className="expiry"
+                          onChange={setNumberStripe}
+                          StripeComponent={CardNumberElement}
+                          error={numberStripe.error}
+                          onFocus={() => setFocus('number')}
+                          placeholder={intl.formatMessage({ id: 'billing.number' })}
+                          width={16}
                         />
-                        <Field
-                          onChange={setCvcStripe}
-                          StripeComponent={CardCVCElement}
-                          error={cvcStripe.error}
-                          placeholder={intl.formatMessage({ id: 'billing.cvc' })}
-                          width={6}
-                          onFocus={() => setFocus('cvc')}
+                        <Input
+                          name="name"
+                          placeholder={intl.formatMessage({ id: 'billing.name' })}
+                          onFocus={e => setFocus(e.target.name)}
+                          onChange={e => setName(e.target.value)}
+                          className="stripe-name"
                         />
+                        <div className="flex">
+                          <Field
+                            onChange={setExpiryStripe}
+                            StripeComponent={CardExpiryElement}
+                            error={expiryStripe.error}
+                            width={10}
+                            placeholder={intl.formatMessage({ id: 'billing.expiry' })}
+                            onFocus={() => setFocus('expiry')}
+                            className="expiry"
+                          />
+                          <Field
+                            onChange={setCvcStripe}
+                            StripeComponent={CardCVCElement}
+                            error={cvcStripe.error}
+                            placeholder={intl.formatMessage({ id: 'billing.cvc' })}
+                            width={6}
+                            onFocus={() => setFocus('cvc')}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

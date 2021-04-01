@@ -89,7 +89,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
           <div className="confirm_modal_footer">
             <div className="container">
               <div className="row">
-                <div className="col-sm-3 ">
+                <div className="col-12 col-md-3">
                   <p className="big">
                     {' '}
                     100% {intl.formatMessage({ id: 'modal.footer.guaranteed' })}{' '}
