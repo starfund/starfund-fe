@@ -15,7 +15,7 @@ const HomeFooter = () => {
   return (
     <footer className="footer">
       <div className="container row">
-        <div className="col-lg-3 col-6 ">
+        <div className="col-lg-3 col-6 row-1">
           <div className="">
             <p>{intl.formatMessage({ id: 'header.explore' })}</p>
           </div>
@@ -30,7 +30,7 @@ const HomeFooter = () => {
             </a>
           </div>
         </div>
-        <div className="col-lg-3 col-6">
+        <div className="col-lg-3 col-6 row-1">
           <div className="">
             <p>{intl.formatMessage({ id: 'header.about' })}</p>
           </div>
@@ -49,7 +49,7 @@ const HomeFooter = () => {
             </Link>
           </div>
         </div>
-        <div className="col-lg-3 col-6">
+        <div className="col-lg-3 col-6 row-1">
           <div className="">
             <p>{intl.formatMessage({ id: 'header.social' })}</p>
           </div>

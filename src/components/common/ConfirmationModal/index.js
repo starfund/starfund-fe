@@ -76,7 +76,7 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
           )}
           {!newUser && (
             <React.Fragment>
-              {title}
+              <h2>{title}</h2>
               <p>
                 {' '}
                 {intl.formatMessage({ id: 'modal.header.totalBilled' })} {subPrice}

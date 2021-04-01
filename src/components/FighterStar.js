@@ -134,7 +134,7 @@ const FighterStar = () => {
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({ id: 'button.subsribeNow' })}
+                    {intl.formatMessage({ id: 'button.subscribeNow' })}
                   </button>
                 )}
               {!authenticated && (
@@ -143,7 +143,7 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {intl.formatMessage({ id: 'button.subsribeNow' })}
+                  {intl.formatMessage({ id: 'button.subscribeNow' })}
                 </button>
               )}
             </div>

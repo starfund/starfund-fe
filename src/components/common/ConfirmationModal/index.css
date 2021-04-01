@@ -18,7 +18,15 @@
   height: 15%;
   padding: 20px;
 
-  p { padding-top: 5px}
+  h2 {
+    font-size: 22px !important;
+  }
+
+  p {
+    padding-top: 5px;
+    color: lightgrey;
+    font-size: 14px;
+  }
 }
 
 .confirm_modal_footer {
