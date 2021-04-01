@@ -67,7 +67,7 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {intl.formatMessage({ id: 'button.subsribe' })}
+                  {intl.formatMessage({ id: 'button.subscribe' })}
                 </button>
               )}
             {!authenticated && (
@@ -76,7 +76,7 @@ const FighterStar = () => {
                 className="btn btn-danger btn-lg"
                 onClick={() => setModalIsOpen(true)}
               >
-                {intl.formatMessage({ id: 'button.subsribe' })}
+                {intl.formatMessage({ id: 'button.subscribe' })}
               </button>
             )}
           </div>
@@ -179,7 +179,7 @@ const FighterStar = () => {
       )}
       {videos && <FighterVideos fighter={fighter} supporting={supporting} />}
       <div className="stars-container">
-        <h2> Explore Other Athletes </h2>
+        <h2>{intl.formatMessage({ id: 'fighter.discoverMore' })}</h2>
         <div className="fighters-container fighters-slider-wrapper">
           <Slider>
             {fighters.length > 0 &&

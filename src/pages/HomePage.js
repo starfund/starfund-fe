@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useSession } from 'hooks';
+import { useIntl } from 'react-intl';
 
 import UserHomePage from './UserHomePage';
 import ParalaxHome from '../components/ParalaxHome';
@@ -13,6 +14,7 @@ import HomeExclusive from '../components/HomeExclusive';
 
 const HomePage = () => {
   const { authenticated } = useSession();
+  const intl = useIntl();
   const newUser = useSelector(state => state.subscriptions.newUser);
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
@@ -22,7 +24,7 @@ const HomePage = () => {
   return (
     <div className="home">
       <ParalaxHome />
-      <HomeStars title="Explore Athletes" />
+      <HomeStars title={intl.formatMessage({ id: 'home.fighters.title' })} />
       <HomeInfo />
       <HomeAnnouncements />
       <FAQS />

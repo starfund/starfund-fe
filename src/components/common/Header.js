@@ -108,7 +108,11 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <CommonModal title="Log In" isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
+      <CommonModal
+        title={intl.formatMessage({ id: 'signup.title' })}
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+      >
         {!authenticated && (
           <div className="registration-container">
             {signIn ? (
@@ -132,7 +136,7 @@ const Header = () => {
                 <br />
                 <p className="small-copy">
                   {intl.formatMessage({ id: 'legal.login' })}
-                  <a href="/privacy">{intl.formatMessage({ id: 'legal.policy' })}</a> &
+                  <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a> &
                   <a href="/terms">{intl.formatMessage({ id: 'legal.terms' })}</a>.
                 </p>
               </React.Fragment>

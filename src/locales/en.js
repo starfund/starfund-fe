@@ -128,6 +128,7 @@ export default {
   'fighter.announcements.subTitle': 'Empowering Stars and Entertaining Fans.',
 
   // HOME
+  'home.fighters.title': 'Explore Athletes',
   'home.exclusive.title': 'Be an Exclusive Fan',
   'home.exclusive.subTitle':
     'Connect directly with your athlete. Enjoy videos, behind the scenes and products.',

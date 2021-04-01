@@ -9,7 +9,7 @@ import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
 import usePayments from 'hooks/usePayments';
 import Field from 'components/common/StripeField';
-import { useStatus, LOADING } from '@rootstrap/redux-tools';
+import { useStatus, LOADING, ERROR } from '@rootstrap/redux-tools';
 
 import Button from './common/Button';
 import Input from './common/Input';
@@ -19,7 +19,7 @@ import { subscribe, updatePassword } from '../state/actions/subscriptionActions'
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email, fighter }) => {
-  const { status: subStatus } = useStatus(subscribe);
+  const { status: subStatus, error } = useStatus(subscribe);
   const { status: updateStatus } = useStatus(updatePassword);
   const dispatch = useDispatch();
   const intl = useIntl();
@@ -41,6 +41,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
 
   return (
     <div className="row no-gutters checkout-container">
+      {subStatus === ERROR && <strong>{error}</strong>}
       {(subStatus === LOADING || updateStatus === LOADING) && (
         <Loading className="align-self-center justify-content-center" />
       )}
