@@ -32,6 +32,9 @@ const Header = () => {
     if (status === SUCCESS) {
       setModalIsOpen(false);
     }
+    if (status2.status === SUCCESS) {
+      setModalIsOpen(false);
+    }
   }, [dispatch, status, status2.status]);
 
   const intl = useIntl();
@@ -105,14 +108,8 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <CommonModal
-        title={authenticated ? 'Are you sure to logout?' : 'Log In'}
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-      >
-        {authenticated ? (
-          <LogoutButton />
-        ) : (
+      <CommonModal title="Log In" isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
+        {!authenticated && (
           <div className="registration-container">
             {signIn ? (
               <React.Fragment>
