@@ -55,7 +55,10 @@ const HomeFooter = () => {
           </div>
           <div className="flex">
             <img src={Instagram} alt="Instagram" />
-            <a onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}>
+            <a
+              className="social"
+              onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
+            >
               {' '}
               Instagram{' '}
             </a>
@@ -63,6 +66,7 @@ const HomeFooter = () => {
           <div className="flex">
             <img src={Youtube} alt="Youtube" />
             <a
+              className="social"
               onClick={() =>
                 window.open('https://www.youtube.com/channel/UCocOwXWltbLzvtyDBu9Y5tA', '_blank')
               }
@@ -73,7 +77,12 @@ const HomeFooter = () => {
           </div>
           <div className="flex">
             <img src={Facebook} alt="Facebook" />
-            <a onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}>Facebook</a>
+            <a
+              className="social"
+              onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
+            >
+              Facebook
+            </a>
           </div>
         </div>
         <div className="col-sm-3 col-6">

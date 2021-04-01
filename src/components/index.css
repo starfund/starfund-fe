@@ -230,11 +230,19 @@ h2 {
   line-height: 60px;
   width: 100%;
 
+  img {
+    margin-right: 12px !important;
+  }
+
   .footer-header {
     p {
       color: #838aa6;
       font-weight: 600;
     }
+  }
+
+  .social {
+    color: white;
   }
 
   .row-1 {

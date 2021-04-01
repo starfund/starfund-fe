@@ -11,6 +11,7 @@
   
   .main-logo {
     cursor: pointer;
+    padding-top: 10px;
   }
 
   a { font-weight: bold; }
@@ -20,4 +21,8 @@
 
 .navbar {
   background-color: #020612;
+}
+  
+.navbar-collapse {
+  padding-top: 8px;
 }
