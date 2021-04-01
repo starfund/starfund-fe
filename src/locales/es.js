@@ -10,14 +10,14 @@ export default {
   'registration.needAccount': 'No tienes una cuenta? ',
   'registration.haveAccount': 'Ya tienes una cuenta? ',
 
-  'signup.title': 'REGISRARSE',
+  'signup.title': 'REGISTRARSE',
   'signup.signin': 'Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
   'signup.form.confirmation.presence': 'Debe confirmar su contraseña para continuar',
   'signup.form.confirmation.equality':
     'Su confirmación de contraseña debe ser igual a la contraseña',
 
-  'logout.button': 'LOGOUT',
+  'logout.button': 'SALIR',
   'home.welcome': 'Bienvenido a React Redux Base {username}',
 
   'login.form.email.presence': 'Debe ingresar un email para continuar',
@@ -42,7 +42,7 @@ export default {
 
   // Fields
   'form.signin.submit': 'INICIAR SESIÓN',
-  'form.signup.submit': 'REGISRARSE',
+  'form.signup.submit': 'REGISTRARSE',
   'form.name': 'Nombre',
   'form.name.placeholder': 'Nombre',
   'form.lastName': 'Apellido',
@@ -52,7 +52,7 @@ export default {
 
   // Modals
   'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
-  'modal.header.totalBilled': 'Total Facturado Hoy: ',
+  'modal.header.totalBilled': 'Total a cobrar hoy: ',
   'modal.footer.guaranteed': 'PAGO SEGURO',
   'modal.footer.secured': 'ASEGURADO CON SSL',
   'modal.footer.question': 'Necesitas ayuda?',
