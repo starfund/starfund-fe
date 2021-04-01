@@ -569,7 +569,6 @@ h2 {
   .main-content {
     display: flex;
     padding-top: 50px;
-    margin-bottom: 100px;
 
     button {
       max-height: 35px;
@@ -583,7 +582,6 @@ h2 {
   }
 
   .foot-banner {
-    margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
 
