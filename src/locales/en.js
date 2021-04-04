@@ -56,7 +56,7 @@ export default {
   'header.stars': 'Stars',
   'header.home': 'Home',
   'header.videos': 'Videos',
-  'header.actions': 'ACTIONS',
+  'header.actions': 'MENU',
   'header.profile': 'PROFILE',
   'header.login': 'Login',
   'header.explore': 'Explore',

@@ -4,7 +4,8 @@ export const SUPPORTED_LANGUAGES = ['en', 'es'];
 export const DEFAULT_LANGUAGE = 'en';
 export const LANGUAGE_OPTIONS = [
   { label: 'English', value: 'en' },
-  { label: 'Español', value: 'es' }
+  { label: 'Español', value: 'es' },
+  { label: 'Russian', value: 'ru' }
 ];
 
 export const stripeCssImport =

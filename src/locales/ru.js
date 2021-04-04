@@ -1,40 +1,151 @@
 export default {
-  'login.title': 'LOGIN',
-  'login.signup': 'Sign up',
-
+  // Auth
+  'login.title': 'Войти',
+  'login.signup': 'Зарегистрироваться',
   'login.form.email': 'Email',
-  'login.form.password': 'Password',
-  'login.form.submit': 'Submit',
+  'login.form.password': 'Пароль',
+  'login.form.submit': 'Разместить',
+  'login.forgot_password': 'Забыли пароль?',
 
-  'login.forgot_password': 'Forgot your password?',
+  'signup.title': 'Зарегистрироваться',
+  'signup.signin': 'Войти',
+  'signup.form.passconfirmation': 'Подтверждение пароля',
+  'registration.needAccount': 'Создать аккаунт?',
+  'registration.haveAccount': 'Уже имеется аккаунт?',
 
-  'signup.title': 'SIGN UP',
-  'signup.signin': 'Sign in',
-  'signup.form.passconfirmation': 'Password confirmation',
-  confirmAccountPassword: 'Access',
+  'logout.button': 'Выйти',
+  'home.welcome': 'Добро пожаловать в Starfund',
 
-  'logout.button': 'LOGOUT',
-
-  'home.welcome': 'Welcome to React Redux Base {email}',
+  // General
+  'button.subscribe': 'Подписаться',
+  'button.subscribeNow': 'Подписаться сейчас',
+  'button.findAthlete': 'Найти своего фаворита',
+  'button.enroll': 'Зарегистрироваться как спортсмен',
+  'cta.text':
+    'Подписаться для того, чтобы получить доступ ко всем спортсменам и эксклюзивному контенту',
+  commingSoon: 'Скоро на сайте',
+  emailUs: 'Написать нам на почту',
+  findFighter: 'Найти своего бойца',
 
   // errors
-  'email.presence': 'You must enter an email to continue',
-  'email.invalid': 'You must enter a valid email',
-  'password.presence': 'You must enter a password to continue',
-  'passwordConfirmation.presence': 'You must enter a password confirmation to continue',
-  'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
+  'email.presence': 'Для продолжения введите email',
+  'email.invalid': 'Введите верный email',
+  'password.presence': 'Для продолжения введите пароль',
+  'passwordConfirmation.presence': 'Для продолжения введите подтверждение пароля',
+  'passwordConfirmation.equality': 'Пароли должны совпадать',
 
   // Fields
-  'form.signin.submit': 'SIGN IN',
-  'form.signup.submit': 'SIGN UP',
-  'form.name': 'Name',
-  'form.name.placeholder': 'Name',
-  'form.lastName': 'Last Name',
-  'form.lastName.placeholder': 'Last Name',
+  'form.signin.submit': 'Войти',
+  'form.signup.submit': 'Зарегистрироваться',
+  'form.name': 'Имя',
+  'form.name.placeholder': 'Имя',
+  'form.lastName': 'Фамилия',
+  'form.lastName.placeholder': 'Фамилия',
   'form.email': 'Email',
   'form.email.placeholder': 'email@example.com',
 
-  createPaymentMethod: 'PLACE SECURE ORDER',
-  payment1: '$1',
-  payment2: '$100'
+  // Modals
+  'modal.header.selectPassword': 'Выбрать свой пароль для окончания регистрации',
+  'modal.header.totalBilled': 'Oбщая сумма, выставленная сегодня: ',
+  'modal.footer.guaranteed': 'Безопасность данных гарантирована',
+  'modal.footer.secured': 'Сайт защищен сертификатом безопасности(SSL)',
+  'modal.footer.question': 'Есть вопросы?',
+
+  // Header
+  'header.watch': 'Смотреть',
+  'header.shop': 'Купить',
+  'header.stars': 'Звезды',
+  'header.home': 'Домой',
+  'header.videos': 'Видео',
+  'header.actions': 'Меню',
+  'header.profile': 'Профиль',
+  'header.login': 'Войти',
+  'header.explore': 'Узнать',
+  'header.athletes': 'Атлеты',
+  'header.about': 'О нас',
+  'header.who': 'Кто мы?',
+  'header.social': 'Соц сети',
+  'header.join': 'Присоединиться',
+
+  // Legal
+  'legal.terms': 'Условия пользования',
+  'legal.conditions': 'Условия и положения',
+  'legal.help': 'Поддержка',
+  'legal.privacy': 'Политика конфиденциальности',
+  'legal.login': 'Войдя вы соглашаетесь',
+  'legal.signup': 'Регистрируясь вы соглашаетесь',
+  'legal.share': 'Предоставляя email вы соглашаетесь',
+
+  // Billing
+  'billing.password': 'Пароль',
+  'billing.confirmPassword': 'Подтвердить пароль',
+  'billing.confirmAccountPassword': 'Подтвердить',
+  'billing.title': 'Ежемесячная подписка ',
+  'billing.email': 'Email',
+  'billing.number': 'Номер',
+  'billing.name': 'Имя на карте',
+  'billing.expiry': 'Дата истечения',
+  'billing.cvc': 'CVC код',
+  'billing.createPaymentMethod': 'Добавить заказ',
+  'billing.copy': 'Добавив заказ вы соглашаетесь на ежемесячную подписку',
+  'billing.copy2':
+    'С вашего метода оплаты будет взиматься плата за первый месяц, а затем будет взиматься ежемесячная плата по текущему курсу. Цены указаны без учета налогов. Отмените в любое время в настройках. Возврат средств за неполный неиспользованный период или после выкупа подарка не производится',
+  'billing.legal': 'Условия пользования',
+
+  // FAQS
+  'faqs.title': 'Часто задаваемые вопросы',
+  'faqs.q1': 'Что такое Starfund?',
+  'faqs.a1':
+    '«Starfund - это место, где спортсмены создают эксклюзивный контент, продукты и сюрпризы для своих фанатов. Подписчики могут стать активными участниками работы любимых спортсменов, заполнив ежемесячную форму членства.',
+  'faqs.q2': 'Как это работает?',
+  'faqs.a2':
+    'Starfund-это платформа, предоставлящая эксклюзивный контент своим подписчикам на основе ежемесячной подписки. Фанаты платят своим любимым спортсменам ежемесячную сумму по своему выбору, в обмен на эксклюзивный дополнительный контент, а также для того,, чтобы ближе познакомиться с их спортивной жизнью. ',
+  'faqs.a2.item1': 'Выбрать любимого бойца',
+  'faqs.a2.item2': 'Выбрать сумму',
+  'faqs.a2.item3': 'Наслаждайтесь эксклюзивным контентом',
+  'faqs.q3': 'Что включает подписка',
+  'faqs.a3': 'Получить доступ к эксклюзивному контенту',
+  'faqs.q4': 'Как отменить подписку?',
+  'faqs.a4': 'Перейти в свой профиль и выбрать ”Отменить подписку” под своим профилем',
+
+  // FIGHTER PAGE
+  'fighter.howItWorks.title': 'Как это работает?',
+  'fighter.howItWorks.item1': 'Разблокировать эксклюзивные посты',
+  'fighter.howItWorks.item2': 'Будь частью моего пути',
+  'fighter.howItWorks.item3': 'общайся со мной напрямую',
+  'fighter.videoPreview': '',
+  'fighter.know': 'Узнать спортсменов',
+  'fighter.start.title': 'Начать в течение 2 минут ',
+  'fighter.start.item1': 'Выбрать план подписки',
+  'fighter.start.item2': 'Создать аккаунт',
+  'fighter.start.item3': 'Добавить способ платежа',
+  'fighter.start.item4': 'Получить бонусы',
+  'fighter.videos.title': 'Смотреть рекомендованное видео',
+  'fighter.videos.noVideos': 'Этот спортсмен пока не добавил новое видео',
+  'fighter.videos.subscribe': 'Подписаться и Разблокировать все видео',
+  'fighter.announcements.title': 'Афиша спортсменов',
+  'fighter.announcements.subTitle': 'Вдохновлять спортсменов и развлекать фанатов',
+
+  // HOME
+  'home.fighters.title': 'Узнать Атлеты',
+  'home.exclusive.title': 'Будь эксклюзивным фанатом',
+  'home.exclusive.subTitle': 'Свяжись напрямую со своим фаворитом. Наслаждайся закулисным видео.',
+  'home.preview.text': 'Предпросмотр видео',
+  'home.subscribe.text': 'Подписаться чтобы увидеть все видео',
+  'home.info.title': 'Эксклюзивный контент',
+  'home.info.subTitle':
+    'Мы с удовольствием поддерживаем наших спортсменов и создаём эксклюзивный контент и продукты, которые полюбят их фанаты.',
+  'home.paralax.title': 'Измени способ связаться со своим кумиром.',
+  'home.paralax.subTitle':
+    'Будь эксклюзивным пользователем. Наслаждайся видео,закулисьем и различными товарами.',
+  'home.paralax.subscribe': 'Подписаться на спортсменов',
+
+  'user.home.supporting': 'Поддержка',
+  'user.home.supporting.nothing': 'На данный момент вы не подписаны ни на одного спортсмена',
+  'user.home.posts': 'Все посты',
+  'user.home.showing': 'Все атлеты',
+  'user.home.find': 'Найти своего фаворита',
+  'user.home.findSimple': 'Найти атлетов',
+  'user.home.find.text': 'Искать своего фаворита и получить доступ ко всем видео и новостям',
+  'user.home.subscribe': 'Подписаться на любимого спортсмена и видеть посты в своей ленте'
 };
