@@ -63,15 +63,15 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active text-right">
-                <a className="nav-link" href="" onClick={() => history.push('/fighters')}>
+                <Link to="/fighters" className="nav-link">
                   {intl.formatMessage({ id: 'header.stars' })}{' '}
                   <span className="sr-only">(current)</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item text-right">
-                <a className="nav-link" href="" onClick={() => history.push('/watch')}>
+                <Link to="/watch" className="nav-link">
                   {intl.formatMessage({ id: 'header.watch' })}
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="nav-actions flex justify-content-end">

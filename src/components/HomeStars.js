@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { getFighters } from '../state/actions/fighterActions';
 
@@ -23,7 +23,7 @@ const HomeStars = ({ title }) => {
         <Slider>
           {fighters.length > 0 &&
             fighters.map(f => (
-              <a
+              <Link
                 key={f.id}
                 className="fighter-card-link"
                 href=""
@@ -40,7 +40,7 @@ const HomeStars = ({ title }) => {
                     <span className="fighter-card-text">{f.organization} </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
         </Slider>
       </div>
