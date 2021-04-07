@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import includes from 'lodash/includes';
+import useDispatch from 'hooks/useDispatch';
 import { node } from 'prop-types';
+
+import { setBrowserLanguage } from 'state/actions/appActions';
 
 import locales from 'locales';
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from 'constants/constants';
-
-import LanguageContext from '../Contexts/LanguageContext';
 
 // Fix for browsers that don't implement Intl by default e.g.: Safari)
 if (!window.Intl) {
@@ -31,15 +33,19 @@ const supportedUserLocale = includes(SUPPORTED_LANGUAGES, usersLocale);
 const locale = supportedUserLocale ? usersLocale : DEFAULT_LANGUAGE;
 
 const IntlWrapper = ({ children }) => {
-  const [currentLocal, setCurrentLocal] = useState(locale);
-  const messages = locales[currentLocal];
+  const setLanguageRequest = useDispatch(setBrowserLanguage);
+  const language = useSelector(({ language: { language } }) => language);
+
+  const messages = locales[language];
+
+  useEffect(() => {
+    setLanguageRequest(locale);
+  }, [setLanguageRequest]);
 
   return (
-    <LanguageContext.Provider value={setCurrentLocal}>
-      <IntlProvider locale={currentLocal} messages={messages} defaultLocale="en">
-        {children}
-      </IntlProvider>
-    </LanguageContext.Provider>
+    <IntlProvider locale={locale} messages={messages} defaultLocale="en">
+      {children}
+    </IntlProvider>
   );
 };
 

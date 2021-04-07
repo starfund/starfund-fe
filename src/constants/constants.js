@@ -1,6 +1,6 @@
 // App common constants
 
-export const SUPPORTED_LANGUAGES = ['en', 'es'];
+export const SUPPORTED_LANGUAGES = ['en', 'es', 'ru'];
 export const DEFAULT_LANGUAGE = 'en';
 export const LANGUAGE_OPTIONS = [
   { label: 'English', value: 'en' },

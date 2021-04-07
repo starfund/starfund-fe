@@ -8,11 +8,19 @@ import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
 import subscriptions from './subscriptionReducer';
+import language from './languageReducer';
 
 const sessionPersistConfig = {
   key: 'session',
   storage: localForage,
   whitelist: ['authenticated', 'info', 'user', 'subscriptions'],
+  stateReconciler: autoMergeLevel2
+};
+
+const languagePersistConfig = {
+  key: 'language',
+  storage: localForage,
+  whitelist: ['language', 'languageWasSet'],
   stateReconciler: autoMergeLevel2
 };
 
@@ -22,7 +30,8 @@ const rootReducer = () =>
     statusReducer,
     payments,
     fighters,
-    subscriptions
+    subscriptions,
+    language: persistReducer(languagePersistConfig, language)
   });
 
 export default rootReducer;

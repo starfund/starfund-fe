@@ -3,7 +3,7 @@ import { arrayOf, string, object, func } from 'prop-types';
 
 import '../../../styles/components/_dropdown.scss';
 
-const DropDown = ({ name, options = [], onChange }) => (
+const DropDown = ({ name, options = [], onChange, value }) => (
   <select
     className="dropdown-container"
     name={name}
@@ -11,6 +11,7 @@ const DropDown = ({ name, options = [], onChange }) => (
       e.persist();
       onChange(e.target.value);
     }}
+    value={value}
   >
     {options.map(({ label, value }, index) => (
       <option key={index} value={value}>
@@ -23,7 +24,8 @@ const DropDown = ({ name, options = [], onChange }) => (
 DropDown.propTypes = {
   options: arrayOf(object),
   name: string,
-  onChange: func.isRequired
+  onChange: func.isRequired,
+  value: string.isRequired
 };
 
 export default DropDown;
