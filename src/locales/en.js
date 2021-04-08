@@ -110,6 +110,7 @@ export default {
     'Just go to your profile and choose "Cancel" button under your subscription information',
 
   // FIGHTER PAGE
+  'fighter.discoverMore': 'Discover Other Athletes',
   'fighter.howItWorks.title': 'How does it work?',
   'fighter.howItWorks.item1': 'Unlock exclusive posts',
   'fighter.howItWorks.item2': 'Be part of my journey',

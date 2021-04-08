@@ -109,6 +109,7 @@ export default {
   'faqs.a4': 'Перейти в свой профиль и выбрать ”Отменить подписку” под своим профилем',
 
   // FIGHTER PAGE
+  'fighter.discoverMore': 'обнаружить Другие Атлеты',
   'fighter.howItWorks.title': 'Как это работает?',
   'fighter.howItWorks.item1': 'Разблокировать эксклюзивные посты',
   'fighter.howItWorks.item2': 'Будь частью моего пути',
