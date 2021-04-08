@@ -21,7 +21,7 @@ const HomeAnnouncements = () => {
               <div className="col-sm-6 col-md-6">
                 <img src={ContentMock2} alt="Mock" />
               </div>
-              <div className="col-sm-6 col-md-6">
+              <div className="col-sm-6 col-md-6 col-lg-3">
                 <img src={ContentMock3} alt="Mock" />
                 <img src={ContentMock1} alt="Mock" />
               </div>

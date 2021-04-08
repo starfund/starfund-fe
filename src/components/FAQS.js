@@ -30,7 +30,6 @@ const FAQS = () => {
                     <p> {intl.formatMessage({ id: 'faqs.q1' })} </p>
                   </h5>
                 </div>
-                <br />
                 <div
                   id="collapseOne"
                   className="collapse show"

@@ -517,7 +517,7 @@ h2 {
 
   .fighter-cover {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 100px);
   }
 
   .stars-container {
