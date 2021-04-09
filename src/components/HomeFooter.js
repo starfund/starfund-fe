@@ -99,7 +99,6 @@ const HomeFooter = () => {
           <div className="">
             <br />
           </div>
-
           <div className=" d-flex align-items-center">
             <LanguageDropdown />
           </div>
