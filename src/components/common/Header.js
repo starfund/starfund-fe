@@ -89,6 +89,7 @@ const Header = () => {
                     {intl.formatMessage({ id: 'header.actions' })}
                   </span>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    {' '}
                     <Link to="/profile" className="dropdown-item" type="button">
                       {intl.formatMessage({ id: 'header.profile' })}
                     </Link>

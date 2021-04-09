@@ -20,6 +20,14 @@ body { overflow-x: hidden }
   min-height: 750px;
 }
 
+.btn {
+  -webkit-appearance: none !important;
+}
+
+video {
+  object-fit: cover;
+}
+
 video:focus {
   outline: none;
 }
@@ -244,6 +252,10 @@ h2 {
     color: white;
   }
 
+  p {
+    text-decoration: underline;
+  }
+
   .row-1 {
 
     a:hover {
@@ -254,6 +266,8 @@ h2 {
       color: #f5f6f6;
       font-weight: 300;
     }
+
+    a { color: white !important }
 
     a.btn {
       background-color: #3b414a;
@@ -377,6 +391,7 @@ h2 {
 
 .faqs-container {
   padding: 100px 0;
+  background-color: #191c21;
 
   .card-body {
     padding: 5px 35px !important;

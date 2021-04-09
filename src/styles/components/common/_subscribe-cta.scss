@@ -7,7 +7,7 @@
   padding: 50px 25px;
   font-size: 20px;
   z-index: 999999;
-  top: 80%;
+  top: 65%;
   left: 80%;
   margin: 0 !important;
   max-width: 300px;
@@ -58,7 +58,8 @@
   left: 50px;
   bottom: -23px;
   color: white;
-  background-color: red;
+  background-color: #ea0a0a;
+  -webkit-appearance: none !important;
 
   transition: 0.25s;
   box-shadow: 0.2em 0.2em 0 0 white, inset 0.2em 0.2em 0 0 white;

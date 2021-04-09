@@ -139,15 +139,14 @@ export default {
 
   // HOME
   'home.fighters.title': 'Descubre Atletas',
-  'home.exclusive.title': 'Conviertete en un Fan Exclusivo',
+  'home.exclusive.title': 'ENCUENTRA TU ATLETA',
   'home.exclusive.subTitle':
     'Interactua directamente con tus atletas. Disfruta su contendio, detras de escenas y productos.',
   'home.preview.text': 'Videos gratuitos',
   'home.subscribe.text': 'Subscribete para ver todos los videos',
   'home.info.title': 'Contendio Exclusivo',
-  'home.info.subTitle':
-    'Apoyar a los atletas es nuestra pasion, creando contendio exclusivo y prodcutos que sus fans aman.',
-  'home.paralax.title': 'Cambia la forma en que interactuas con tus ESTRELLAS',
+  'home.info.subTitle': 'Se parte del trayecto de tus Atletas a travez de su contenido exclusivo',
+  'home.paralax.title': 'Cambia la forma en que interactuas con tus ATLETAS',
   'home.paralax.subTitle':
     'Conviertete en un fan exclusivo, disfruta de vidos, detras de camaras y productos. Ten contacto directo con tus atletas!.',
   'home.paralax.subscribe': 'SUBSCRIBETE A ATLETAS',

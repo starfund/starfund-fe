@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory, Link } from 'react-router-dom';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 
 import SubscribeCallToAction from '../components/SubscribeCallToAction';
 import HomeStars from '../components/HomeStars';
+import HomeFooter from '../components/HomeFooter';
 
 import { getFighters } from '../state/actions/fighterActions';
 
@@ -15,6 +17,7 @@ const WatchPage = () => {
   const intl = useIntl();
   const [ctaVisible, setCtaVisible] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     dispatch(getFighters());
   }, [dispatch]);
@@ -38,8 +41,14 @@ const WatchPage = () => {
       {url && (
         <div className="fighter-video-overlay">
           <div className="avatar-container">
-            <img className="fighter-avatar" src={currentFighter.coverPhoto} alt="fighter avatar" />
-            <span>{`${currentFighter.firstName} ${currentFighter.lastName}`}</span>
+            <Link onClick={() => history.push(`/fighter/${currentFighter.id}`)}>
+              <img
+                className="fighter-avatar"
+                src={currentFighter.coverPhoto}
+                alt="fighter avatar"
+              />
+              <span>{`${currentFighter.firstName} ${currentFighter.lastName}`}</span>
+            </Link>
           </div>
           <ReactPlayer url={url} width="100%" height="380" controls />
         </div>
@@ -63,12 +72,14 @@ const WatchPage = () => {
                       <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
                       {f.publicVideos[0]?.url && (
                         <div className="avatar-container">
-                          <img
-                            className="fighter-avatar small"
-                            src={f.coverPhoto}
-                            alt="fighter avatar"
-                          />
-                          <span>{`${f.firstName} ${f.lastName}`}</span>
+                          <Link onClick={() => history.push(`/fighter/${f.id}`)}>
+                            <img
+                              className="fighter-avatar small"
+                              src={f.coverPhoto}
+                              alt="fighter avatar"
+                            />
+                            <span>{`${f.firstName} ${f.lastName}`}</span>
+                          </Link>
                         </div>
                       )}
                     </div>
@@ -80,6 +91,7 @@ const WatchPage = () => {
       <br />
       <br />
       <HomeStars title={intl.formatMessage({ id: 'fighter.know' })} />
+      <HomeFooter />
     </div>
   );
 };

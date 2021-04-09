@@ -130,15 +130,14 @@ export default {
 
   // HOME
   'home.fighters.title': 'Explore Athletes',
-  'home.exclusive.title': 'Be an Exclusive Fan',
+  'home.exclusive.title': 'FIND YOUR ATHLETE',
   'home.exclusive.subTitle':
     'Connect directly with your athlete. Enjoy videos, behind the scenes and products.',
   'home.preview.text': 'Preview Video',
   'home.subscribe.text': 'Subscribe to see all videos',
   'home.info.title': 'Exclusive Contents',
-  'home.info.subTitle':
-    'We love supporting athletes to create amazing exclusive content and products their fans will love.',
-  'home.paralax.title': 'Change the way to connect with your STAR',
+  'home.info.subTitle': 'Be a part of the Journey from the Beginning Experience exclusive access',
+  'home.paralax.title': 'Change the way to connect with your ATHLETE',
   'home.paralax.subTitle':
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your athlete.',
   'home.paralax.subscribe': 'SUBSCRIBE TO ATHLETES',
