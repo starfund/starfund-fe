@@ -41,13 +41,16 @@ const WatchPage = () => {
       {url && (
         <div className="fighter-video-overlay">
           <div className="avatar-container">
-            <Link onClick={() => history.push(`/fighter/${currentFighter.id}`)}>
+            <Link
+              className="fighter-link"
+              onClick={() => history.push(`/fighter/${currentFighter.id}`)}
+            >
               <img
                 className="fighter-avatar"
                 src={currentFighter.coverPhoto}
                 alt="fighter avatar"
               />
-              <span>{`${currentFighter.firstName} ${currentFighter.lastName}`}</span>
+              {`${currentFighter.firstName} ${currentFighter.lastName}`}
             </Link>
           </div>
           <ReactPlayer url={url} width="100%" height="380" controls />
@@ -72,7 +75,10 @@ const WatchPage = () => {
                       <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
                       {f.publicVideos[0]?.url && (
                         <div className="avatar-container">
-                          <Link onClick={() => history.push(`/fighter/${f.id}`)}>
+                          <Link
+                            className="fighter-link"
+                            onClick={() => history.push(`/fighter/${f.id}`)}
+                          >
                             <img
                               className="fighter-avatar small"
                               src={f.coverPhoto}

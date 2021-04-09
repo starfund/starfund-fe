@@ -46,7 +46,7 @@ const HomeFooter = () => {
             <p>{intl.formatMessage({ id: 'header.social' })}</p>
           </div>
           <div>
-            <div className="flex">
+            <div className="flex center">
               <img src={Instagram} alt="Instagram" />
               <a
                 className="social"
@@ -58,7 +58,7 @@ const HomeFooter = () => {
             </div>
           </div>
           <div>
-            <div className="flex">
+            <div className="flex center">
               <img src={Youtube} alt="Youtube" />
               <a
                 className="social"
@@ -72,7 +72,7 @@ const HomeFooter = () => {
             </div>
           </div>
           <div>
-            <div className="flex">
+            <div className="flex center">
               <img src={Facebook} alt="Facebook" />
               <a
                 className="social"

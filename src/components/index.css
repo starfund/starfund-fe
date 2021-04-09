@@ -844,11 +844,15 @@ h2 {
   background-color: #020612;
   padding: 20px;
   align-content: center;
-  text-align: center;
   overflow-wrap: anywhere;
 
   .stars-container {
     background: none;
+  }
+
+  .fighter-link {
+    color: white;
+    display: contents;
   }
 }
 
