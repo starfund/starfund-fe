@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import { useParams, useHistory } from 'react-router-dom';
 import ReactPlayer from 'react-player';
@@ -17,6 +18,7 @@ import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 
+import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
 import VideoCamera from '../assets/VideoCamera.svg';
@@ -45,6 +47,9 @@ const FighterStar = () => {
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
   const currentUser = useSelector(state => state.session.user);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
 
   return (
     <div className="fighter-container">
@@ -102,29 +107,94 @@ const FighterStar = () => {
       {!videos && (
         <div className="container">
           <div className="main-content row">
+            {isMobile && (
+              <div className="col-sm-12 col-md-8">
+                {fighter && (
+                  <ReactPlayer
+                    title="preview"
+                    width="100%"
+                    height="80%"
+                    url={fighter.publicVideos[0]?.url}
+                    controls
+                  />
+                )}
+                <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
+              </div>
+            )}
             <div className="how-it-works offset-lg-1 col-sm-12 col-md-4 col-lg-3">
               <div className="content">
-                <p className="bold"> {intl.formatMessage({ id: 'fighter.howItWorks.title' })} </p>
-                <br />
-                <br />
-                <div className="text">
-                  <img src={VideoCamera} alt="bcm" />
-                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
-                </div>
-                <br />
-                <br />
-                <div className="text">
-                  <img src={Pin} alt="bpj" />
-                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
-                </div>
-                <br />
-                <br />
-                <div className="text">
-                  <img src={Email} alt="cwm" />
-                  <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
-                </div>
+                {!isMobile && (
+                  <React.Fragment>
+                    <p className="bold">{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</p>
+                    <br />
+                    <br />
+                    <div className="text">
+                      <img src={VideoCamera} alt="bcm" />
+                      <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
+                    </div>
+                    <br />
+                    <br />
+                    <div className="text">
+                      <img src={Pin} alt="bpj" />
+                      <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
+                    </div>
+                    <br />
+                    <br />
+                    <div className="text">
+                      <img src={Email} alt="cwm" />
+                      <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
+                    </div>
+                  </React.Fragment>
+                )}
+                {isMobile && (
+                  <div id="accordion">
+                    <div className="card text-white bg-dark">
+                      <div className="card-header" id="headingOne">
+                        <h5 className="mb-0 flex">
+                          <p className="bold width-90">
+                            {intl.formatMessage({ id: 'fighter.howItWorks.title' })}
+                          </p>
+                          <img
+                            alt="drop"
+                            src={ArrowDown}
+                            data-toggle="collapse"
+                            data-target="#collapseOne"
+                            aria-expanded="true"
+                            aria-controls="collapseOne"
+                          />
+                        </h5>
+                      </div>
+                      <div
+                        id="collapseOne"
+                        className="collapse"
+                        aria-labelledby="headingOne"
+                        data-parent="#accordion"
+                      >
+                        <div className="card-body">
+                          <div className="text">
+                            <img src={VideoCamera} alt="bcm" />
+                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
+                          </div>
+                          <br />
+                          <br />
+                          <div className="text">
+                            <img src={Pin} alt="bpj" />
+                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
+                          </div>
+                          <br />
+                          <br />
+                          <div className="text">
+                            <img src={Email} alt="cwm" />
+                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                  </div>
+                )}
               </div>
-              <br />
               {authenticated &&
                 supporting &&
                 fighter &&
@@ -147,18 +217,20 @@ const FighterStar = () => {
                 </button>
               )}
             </div>
-            <div className="col-sm-12 col-md-8">
-              {fighter && (
-                <ReactPlayer
-                  title="preview"
-                  width="100%"
-                  height="80%"
-                  url={fighter.publicVideos[0]?.url}
-                  controls
-                />
-              )}
-              <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
-            </div>
+            {!isMobile && (
+              <div className="col-sm-12 col-md-8">
+                {fighter && (
+                  <ReactPlayer
+                    title="preview"
+                    width="100%"
+                    height="80%"
+                    url={fighter.publicVideos[0]?.url}
+                    controls
+                  />
+                )}
+                <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
+              </div>
+            )}
           </div>
           {authenticated &&
             supporting &&

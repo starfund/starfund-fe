@@ -61,8 +61,19 @@ h2 {
   padding-left: 19px;
 }
 
+.width-90 {
+  min-width: 90%;
+}
+
 .email-pad {
   padding-top: 23px;
+}
+
+#accordion {
+  img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .navbar-collapse {
@@ -582,11 +593,24 @@ h2 {
 
     button { width: 100% }
 
+    @media (max-width: 389px) {
+      margin-bottom: 40px;
+    }
+
     .content {
-      background-color: #191c21;
-      padding: 30px 50px 50px 50px;
+      padding: 20px;
       width: 100%;
       height: 80%;
+      
+      @media (min-width: 768px) {
+        background-color: #191c21;
+        margin-bottom: 30px;
+        padding: 30px 50px 50px 50px;
+      }
+
+      @media (max-width: 389px) {
+        margin-top: 40px;
+      }
     }
 
 
