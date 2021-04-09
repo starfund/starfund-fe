@@ -524,7 +524,7 @@ h2 {
 
   .centered {
     position: absolute;
-    top: 75%;
+    top: 65%;
     left: 50%;
     font-size: 60px;
     font-weight: bold;
@@ -539,8 +539,12 @@ h2 {
       font-weight: bold !important;
       color: white;
       
-      @media (max-width: 610px) {
+      @media (max-width: 680px) {
         font-size: 30px !important;
+      }
+
+      @media (min-width: 778px) {
+        font-size: 40px !important;
       }
     }
   }
