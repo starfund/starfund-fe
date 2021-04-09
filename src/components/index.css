@@ -22,6 +22,8 @@ body { overflow-x: hidden }
 
 .btn {
   -webkit-appearance: none !important;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 video {
@@ -304,6 +306,8 @@ h2 {
     color: white;
     font-weight: bold;
     white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
     -webkit-appearance: none;
 
     @media only screen and (max-width : 576px) {
