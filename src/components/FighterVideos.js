@@ -12,7 +12,7 @@ const FighterVideos = ({ fighter, supporting }) => {
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <br />
       <br />
-      <ReactPlayer url={url} width="90%" height="100%" controls style={{ margin: 'auto' }} />
+      <ReactPlayer url={url} width="90%" controls style={{ margin: 'auto', minHeight: '400px' }} />
       <div className="blank-line" />
       <div className="container">
         <div className="row flex">

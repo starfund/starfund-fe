@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
@@ -34,12 +35,17 @@ const WatchPage = () => {
     setTimeout(() => setCtaVisible(true), 5000);
   }, []);
 
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
+
   return (
     <div className="watch-container">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
       {url && (
         <div className="fighter-video-overlay">
+          {isMobile && <ReactPlayer url={url} width="100%" height="380" controls />}
           <div className="avatar-container">
             <Link
               className="fighter-link"
@@ -53,7 +59,7 @@ const WatchPage = () => {
               {`${currentFighter.firstName} ${currentFighter.lastName}`}
             </Link>
           </div>
-          <ReactPlayer url={url} width="100%" height="380" controls />
+          {!isMobile && <ReactPlayer url={url} width="100%" height="380" controls />}
         </div>
       )}
       <div className="blank-line" />
