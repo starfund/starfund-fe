@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import cn from 'classnames';
 
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
@@ -90,13 +91,13 @@ const FighterStar = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
+            <li className={cn('nav-item', { active: !videos })}>
               <Link className="nav-link" href="" onClick={() => setVideos(false)}>
                 {intl.formatMessage({ id: 'header.home' })}{' '}
                 <span className="sr-only">(current)</span>
               </Link>
             </li>
-            <li className="nav-item">
+            <li className={cn('nav-item', { active: videos })}>
               <Link className="nav-link" onClick={() => setVideos(true)}>
                 {intl.formatMessage({ id: 'header.videos' })}
               </Link>

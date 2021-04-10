@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useSession, useDispatch } from 'hooks';
 import { useIntl } from 'react-intl';
+import cn from 'classnames';
 
 import { signUp, login } from 'state/actions/userActions';
 import { SUCCESS, useStatus } from '@rootstrap/redux-tools';
 
+import routePaths from 'constants/routesPaths';
 import LogoWhite from 'assets/LogoWhite.svg';
 import CommonModal from './CommonModal';
 import LoginForm from '../user/LoginForm';
@@ -18,6 +20,7 @@ const Header = () => {
   const history = useHistory();
   const { authenticated } = useSession();
   const dispatch = useDispatch();
+  const pathname = history.location?.pathname;
 
   const { status } = useStatus(login);
   const status2 = useStatus(signUp);
@@ -62,13 +65,15 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active text-right">
+              <li
+                className={cn('nav-item text-right', { active: pathname === routePaths.fighters })}
+              >
                 <Link to="/fighters" className="nav-link">
                   {intl.formatMessage({ id: 'header.stars' })}{' '}
                   <span className="sr-only">(current)</span>
                 </Link>
               </li>
-              <li className="nav-item text-right">
+              <li className={cn('nav-item text-right', { active: pathname === routePaths.watch })}>
                 <Link to="/watch" className="nav-link">
                   {intl.formatMessage({ id: 'header.watch' })}
                 </Link>

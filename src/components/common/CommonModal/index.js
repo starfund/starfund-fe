@@ -29,7 +29,17 @@ const CommonModal = ({ children, title, isOpen, setIsOpen }) => {
       onRequestClose={() => setIsOpen(false)}
     >
       <div className="change-name-modal__container">
-        <div className="modal_title">{title}</div>
+        <div className="modal_title">
+          {title}
+          <button
+            type="button"
+            aria-label="Close"
+            className="modal_close close"
+            onClick={() => setIsOpen(false)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         {children}
       </div>
     </Modal>

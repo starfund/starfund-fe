@@ -50,3 +50,19 @@
 .modal_content_column {
   display: flex;
 }
+
+.modal_close {
+  cursor: pointer;
+  outline:  none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  > span { 
+    color: white;
+  }
+}
