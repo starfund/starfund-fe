@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import { useSession } from 'hooks';
 import { getFighters } from '../state/actions/fighterActions';
@@ -91,15 +91,15 @@ const FighterStar = () => {
         <div className="navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="" onClick={() => setVideos(false)}>
+              <Link className="nav-link" href="" onClick={() => setVideos(false)}>
                 {intl.formatMessage({ id: 'header.home' })}{' '}
                 <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick={() => setVideos(true)}>
+              <Link className="nav-link" onClick={() => setVideos(true)}>
                 {intl.formatMessage({ id: 'header.videos' })}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
