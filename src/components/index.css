@@ -530,8 +530,8 @@ h2 {
     font-weight: bold;
     transform: translate(-50%, -50%);
 
-    @media (max-width: 512px) {
-      top: 70%;
+    @media (max-width: 603px) {
+      top: 40%;
     }
 
     p {
@@ -551,7 +551,7 @@ h2 {
 
   .fighter-cover {
     width: 100%;
-    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
   }
 
   .stars-container {
