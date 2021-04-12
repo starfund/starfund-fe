@@ -114,8 +114,7 @@ export default {
   'fighter.howItWorks.item1': 'Разблокировать эксклюзивные посты',
   'fighter.howItWorks.item2': 'Будь частью моего пути',
   'fighter.howItWorks.item3': 'общайся со мной напрямую',
-  'fighter.videoPreview':
-    'Ознакомьтесь с материалами для предварительного просмотра вашего первого истребителя',
+  'fighter.videoPreview': 'Чтобы посмотреть полное видео, подпишитесь ниже',
   'fighter.know': 'Узнать спортсменов',
   'fighter.start.title': 'Начать в течение 2 минут ',
   'fighter.start.item1': 'Выбрать план подписки',

@@ -115,7 +115,7 @@ export default {
   'fighter.howItWorks.item1': 'Unlock exclusive posts',
   'fighter.howItWorks.item2': 'Be part of my journey',
   'fighter.howItWorks.item3': 'Chat with me Directly',
-  'fighter.videoPreview': 'Checkout your first fighter preview content',
+  'fighter.videoPreview': 'To watch the full video please subscribe below',
   'fighter.know': 'Know The Athletes',
   'fighter.start.title': 'Get started in 2 minutes',
   'fighter.start.item1': 'Choose Membership',

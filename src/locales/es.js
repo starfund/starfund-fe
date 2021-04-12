@@ -123,8 +123,7 @@ export default {
   'fighter.howItWorks.item1': 'Desbloquea todo el contendio',
   'fighter.howItWorks.item2': 'Se parte de su viaje',
   'fighter.howItWorks.item3': 'Interactua directamente',
-  'fighter.videoPreview':
-    'Disfruta de parte de nuestro contendio de forma gratuita, esperamos que te guste!',
+  'fighter.videoPreview': 'Para ver todo el contenido subscribete!',
   'fighter.know': 'Conoce a los Atletas',
   'fighter.start.title': 'Comienza en tan solo 2 minutos',
   'fighter.start.item1': 'Selecciona tu Membresia',
