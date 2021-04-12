@@ -45,7 +45,7 @@ const ParalaxHome = () => {
             <a href="/terms" target="_blank">
               {intl.formatMessage({ id: 'legal.terms' })}
             </a>
-            <p> & </p>
+            &
             <a href="/privacy" target="_blank">
               {intl.formatMessage({ id: 'legal.privacy' })}
             </a>

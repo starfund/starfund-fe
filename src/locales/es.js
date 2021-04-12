@@ -74,10 +74,10 @@ export default {
   'header.join': 'Se una estrella',
 
   // Legal
-  'legal.terms': 'Terminos de Servicio',
-  'legal.conditions': 'Terminos & Condiciones',
+  'legal.terms': ' Terminos de Servicio ',
+  'legal.conditions': ' Terminos & Condiciones ',
   'legal.help': 'Soporte & Ayuda',
-  'legal.privacy': 'Politicas de Privacidad',
+  'legal.privacy': ' Politicas de Privacidad ',
   'legal.login': 'Logueandote, estas de acuerdo con nuestras ',
   'legal.signup': 'Registrandote, estas de acuerdo con nuestras ',
   'legal.share': 'Compartiendo tu email, estas de acuerdo con nuestras ',

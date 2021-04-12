@@ -68,10 +68,10 @@ export default {
   'header.join': 'Присоединиться',
 
   // Legal
-  'legal.terms': 'Условия пользования',
-  'legal.conditions': 'Условия и положения',
+  'legal.terms': ' Условия пользования ',
+  'legal.conditions': ' Условия и положения ',
   'legal.help': 'Поддержка',
-  'legal.privacy': 'Политика конфиденциальности',
+  'legal.privacy': ' Политика конфиденциальности ',
   'legal.login': 'Войдя вы соглашаетесь',
   'legal.signup': 'Регистрируясь вы соглашаетесь',
   'legal.share': 'Предоставляя email вы соглашаетесь',

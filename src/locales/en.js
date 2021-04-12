@@ -67,10 +67,10 @@ export default {
   'header.join': 'Join Us',
 
   // Legal
-  'legal.terms': 'Terms of Service',
-  'legal.conditions': 'Terms & Conditions',
+  'legal.terms': ' Terms of Service ',
+  'legal.conditions': ' Terms & Conditions ',
   'legal.help': 'Help & Support',
-  'legal.privacy': 'Privacy Policy',
+  'legal.privacy': ' Privacy Policy ',
   'legal.login': 'By logging in, you agree to our',
   'legal.signup': 'By signing up, you agree to our',
   'legal.share': 'By sharing your email, you agree to our ',
