@@ -123,8 +123,8 @@ const FighterStar = () => {
               </div>
             )}
             <div className="how-it-works offset-lg-1 col-sm-12 col-md-4 col-lg-3">
-              <div className="content">
-                {!isMobile && (
+              {!isMobile && (
+                <div className="content">
                   <React.Fragment>
                     <p className="bold">{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</p>
                     <br />
@@ -146,56 +146,8 @@ const FighterStar = () => {
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
                     </div>
                   </React.Fragment>
-                )}
-                {isMobile && (
-                  <div id="accordion">
-                    <div className="card text-white bg-dark">
-                      <div className="card-header" id="headingOne">
-                        <h5 className="mb-0 flex">
-                          <p className="bold width-90">
-                            {intl.formatMessage({ id: 'fighter.howItWorks.title' })}
-                          </p>
-                          <img
-                            alt="drop"
-                            src={ArrowDown}
-                            data-toggle="collapse"
-                            data-target="#collapseOne"
-                            aria-expanded="true"
-                            aria-controls="collapseOne"
-                          />
-                        </h5>
-                      </div>
-                      <div
-                        id="collapseOne"
-                        className="collapse"
-                        aria-labelledby="headingOne"
-                        data-parent="#accordion"
-                      >
-                        <div className="card-body">
-                          <div className="text">
-                            <img src={VideoCamera} alt="bcm" />
-                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
-                          </div>
-                          <br />
-                          <br />
-                          <div className="text">
-                            <img src={Pin} alt="bpj" />
-                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
-                          </div>
-                          <br />
-                          <br />
-                          <div className="text">
-                            <img src={Email} alt="cwm" />
-                            <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <br />
-                    <br />
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
               {authenticated &&
                 supporting &&
                 fighter &&
@@ -233,6 +185,56 @@ const FighterStar = () => {
               </div>
             )}
           </div>
+          {isMobile && (
+            <div className="content">
+              <div id="accordion">
+                <div className="card text-white bg-dark">
+                  <div className="card-header" id="headingOne">
+                    <h5 className="mb-0 flex">
+                      <p className="bold width-90">
+                        {intl.formatMessage({ id: 'fighter.howItWorks.title' })}
+                      </p>
+                      <img
+                        alt="drop"
+                        src={ArrowDown}
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      />
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseOne"
+                    className="collapse"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordion"
+                  >
+                    <div className="card-body">
+                      <div className="text">
+                        <img src={VideoCamera} alt="bcm" />
+                        <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
+                      </div>
+                      <br />
+                      <br />
+                      <div className="text">
+                        <img src={Pin} alt="bpj" />
+                        <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
+                      </div>
+                      <br />
+                      <br />
+                      <div className="text">
+                        <img src={Email} alt="cwm" />
+                        <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br />
+                <br />
+              </div>
+            </div>
+          )}
           {authenticated &&
             supporting &&
             fighter &&
