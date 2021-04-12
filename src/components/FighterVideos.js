@@ -2,17 +2,27 @@ import React, { useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
+import { useMediaQuery } from 'react-responsive';
 
 const FighterVideos = ({ fighter, supporting }) => {
   const intl = useIntl();
   const [url, setUrl] = useState(fighter.previewUrl);
   const payedFighter = supporting.map(sub => sub.fighter.id);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
+
   return (
     <div className="fighter-videos">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <br />
       <br />
-      <ReactPlayer url={url} width="90%" controls style={{ margin: 'auto', minHeight: '400px' }} />
+      <ReactPlayer
+        url={url}
+        width={isMobile ? '90%' : '60%'}
+        controls
+        style={{ margin: 'auto', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+      />
       <div className="blank-line" />
       <div className="container">
         <div className="row flex">
