@@ -42,10 +42,10 @@ const WatchPage = () => {
   return (
     <div className="watch-container">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
-      <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
+      <br />
       {url && (
         <div className="fighter-video-overlay">
-          {isMobile && <ReactPlayer url={url} width="100%" height="380" controls />}
+          {isMobile && <ReactPlayer url={url} width="100%" height="380px" controls />}
           <div className="avatar-container">
             <Link
               className="fighter-link"
@@ -59,7 +59,7 @@ const WatchPage = () => {
               {`${currentFighter.firstName} ${currentFighter.lastName}`}
             </Link>
           </div>
-          {!isMobile && <ReactPlayer url={url} width="100%" height="380" controls />}
+          {!isMobile && <ReactPlayer url={url} width="100%" height="580px" controls />}
         </div>
       )}
       <div className="blank-line" />
@@ -103,6 +103,7 @@ const WatchPage = () => {
       <br />
       <br />
       <HomeStars title={intl.formatMessage({ id: 'fighter.know' })} />
+      <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
       <HomeFooter />
     </div>
   );
