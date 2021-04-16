@@ -897,6 +897,17 @@ h2 {
 .fighter-videos {
   padding: 50px;
 
+  .center {
+    margin: 0 auto;
+  }
+
+  .btn-sub { 
+    margin-bottom: 20px;
+
+    button {
+      margin-left: 30%;
+    }
+  }
 }
 
 .home-exclusive-image {

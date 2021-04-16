@@ -252,7 +252,13 @@ const FighterStar = () => {
           )}
         </div>
       )}
-      {videos && <FighterVideos fighter={fighter} supporting={supporting} />}
+      {videos && (
+        <FighterVideos
+          fighter={fighter}
+          supporting={supporting}
+          subscribeAction={() => setModalIsOpen(true)}
+        />
+      )}
       <div className="stars-container">
         <h2>{intl.formatMessage({ id: 'fighter.discoverMore' })}</h2>
         <div className="fighters-container fighters-slider-wrapper">
