@@ -59,7 +59,9 @@ const WatchPage = () => {
               {`${currentFighter.firstName} ${currentFighter.lastName}`}
             </Link>
           </div>
-          {!isMobile && <ReactPlayer url={url} width="100%" height="580px" controls />}
+          {!isMobile && (
+            <ReactPlayer url={url} width="60%" height="60%" controls style={{ margin: '0 auto' }} />
+          )}
         </div>
       )}
       <div className="blank-line" />
