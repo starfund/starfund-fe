@@ -7,11 +7,12 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import CompressionPlugin from 'compression-webpack-plugin';
 import dotenv from 'dotenv';
+import fs from 'fs';
 
 import resolve from './shared/resolve';
 
 const envPath = path.resolve(__dirname, `../.env.${process.env.ENV || 'prod'}`);
-dotenv.config({ path: envPath });
+fs.existsSync(envPath) ? dotenv.config({ path: envPath }) : dotenv.config();
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -73,8 +74,7 @@ export default {
         threshold: 0,
         minRatio: 2
       }),
-
-    new Dotenv({ path: envPath })
+    fs.existsSync(envPath) ? new Dotenv({ path: envPath }) : new Dotenv()
   ].filter(Boolean),
   module: {
     rules: [
