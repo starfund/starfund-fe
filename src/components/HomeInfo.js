@@ -56,24 +56,25 @@ const HomeInfo = () => {
           </div>
           <div className="row">
             <ul className="info-container-fighters row">
-              {fighters?.slice(0, 4).map(f => (
-                <li key={f.id} className="col-12 col-sm-6 col-lg-3">
-                  <button
-                    type="button"
-                    onClick={() => setActiveFighter(f.id)}
-                    className={`${activeFighter === f.id ? 'active' : ''} info-fighter-wrapper`}
-                  >
-                    <img
-                      src={f?.profilePicture}
-                      className="info-fighter-avatar"
-                      alt="fighter-avatar"
-                    />
-                    <span className="" aria-current="page">
-                      {`${f.firstName} ${f.lastName}`}
-                    </span>
-                  </button>
-                </li>
-              ))}
+              {fighters &&
+                fighters?.slice(0, 4).map(f => (
+                  <li key={f.id} className="col-12 col-sm-6 col-lg-3">
+                    <button
+                      type="button"
+                      onClick={() => setActiveFighter(f.id)}
+                      className={`${activeFighter === f.id ? 'active' : ''} info-fighter-wrapper`}
+                    >
+                      <img
+                        src={f?.profilePicture}
+                        className="info-fighter-avatar"
+                        alt="fighter-avatar"
+                      />
+                      <span className="" aria-current="page">
+                        {`${f.firstName} ${f.lastName}`}
+                      </span>
+                    </button>
+                  </li>
+                ))}
             </ul>
           </div>
         </div>
