@@ -78,28 +78,31 @@ const HomeInfo = () => {
           </div>
         </div>
         <SecondarySlider>
-          {fighters[activeFighter] &&
-            fighters[activeFighter].publicVideos.map((v, index) => (
-              <div className="homeinfo-slider-card slide-left" key={index}>
-                <ReactPlayer
-                  title="fighter-video"
-                  className="homeinfo-slider-video"
-                  controls
-                  autoPlay
-                  url={v.url}
-                  width={dimensions.width}
-                  height={dimensions.height}
-                />
-                <div>
-                  <div className="homeinfo-slider-card-overlay">
-                    <span className="no-wrap">
-                      {intl.formatMessage({ id: 'home.preview.text' })}
-                    </span>
-                    <span>{intl.formatMessage({ id: 'home.subscribe.text' })}</span>
+          {fighters &&
+            activeFighter &&
+            fighters
+              .filter(f => f.id == activeFighter)[0]
+              .publicVideos.map((v, index) => (
+                <div className="homeinfo-slider-card slide-left" key={index}>
+                  <ReactPlayer
+                    title="fighter-video"
+                    className="homeinfo-slider-video"
+                    controls
+                    autoPlay
+                    url={v.url}
+                    width={dimensions.width}
+                    height={dimensions.height}
+                  />
+                  <div>
+                    <div className="homeinfo-slider-card-overlay">
+                      <span className="no-wrap">
+                        {intl.formatMessage({ id: 'home.preview.text' })}
+                      </span>
+                      <span>{intl.formatMessage({ id: 'home.subscribe.text' })}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
         </SecondarySlider>
       </div>
     </div>
