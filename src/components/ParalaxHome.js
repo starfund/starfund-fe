@@ -29,6 +29,8 @@ const ParalaxHome = () => {
                 width="760"
                 height="515"
                 playing
+                muted
+                playsInline
                 url={require('../assets/HomeVideoBig.mp4')}
               />
             </div>
@@ -58,6 +60,8 @@ const ParalaxHome = () => {
               width="760"
               height="515"
               playing
+              muted
+              playsInline
               url={require('../assets/HomeVideoBig.mp4')}
             />
           </div>
