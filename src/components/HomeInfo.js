@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import SecondarySlider from './common/SecondarySlider';
+import ConfirmationModal from './common/ConfirmationModal';
+import BillingForm from './BillingForm';
 
 import { smBreakpoint } from '../styles/_variables.scss';
 
@@ -13,6 +15,7 @@ const initialDimensions = { width: 950, height: 501 };
 
 const HomeInfo = () => {
   const intl = useIntl();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const fighters = useSelector(state => state.fighters.fighters);
   const [activeFighter, setActiveFighter] = useState();
   const [dimensions, setDimensions] = useState(initialDimensions);
@@ -29,7 +32,7 @@ const HomeInfo = () => {
   };
 
   useEffect(() => {
-    setActiveFighter(fighters[0]?.id);
+    setActiveFighter(fighters[0]);
   }, [fighters]);
 
   useEffect(() => {
@@ -61,8 +64,10 @@ const HomeInfo = () => {
                   <li key={f.id} className="col-12 col-sm-6 col-lg-3">
                     <button
                       type="button"
-                      onClick={() => setActiveFighter(f.id)}
-                      className={`${activeFighter === f.id ? 'active' : ''} info-fighter-wrapper`}
+                      onClick={() => setActiveFighter(f)}
+                      className={`${
+                        activeFighter?.id === f.id ? 'active' : ''
+                      } info-fighter-wrapper`}
                     >
                       <img
                         src={f?.profilePicture}
@@ -82,7 +87,7 @@ const HomeInfo = () => {
           {fighters &&
             activeFighter &&
             fighters
-              .filter(f => f.id == activeFighter)[0]
+              .filter(f => f.id == activeFighter.id)[0]
               .publicVideos.map((v, index) => (
                 <div className="homeinfo-slider-card slide-left" key={index}>
                   <ReactPlayer
@@ -94,7 +99,7 @@ const HomeInfo = () => {
                     width={dimensions.width}
                     height={dimensions.height}
                   />
-                  <div>
+                  <div onClick={() => setModalIsOpen(true)}>
                     <div className="homeinfo-slider-card-overlay">
                       <span className="no-wrap">
                         {intl.formatMessage({ id: 'home.preview.text' })}
@@ -106,6 +111,16 @@ const HomeInfo = () => {
               ))}
         </SecondarySlider>
       </div>
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.title' })}
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        isDelete={false}
+        price={activeFighter?.subPrice}
+        fighter={activeFighter?.id}
+      >
+        <BillingForm fighter={activeFighter?.id} />
+      </ConfirmationModal>
     </div>
   );
 };
