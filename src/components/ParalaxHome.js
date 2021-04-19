@@ -30,6 +30,7 @@ const ParalaxHome = () => {
                 height="515"
                 playing
                 muted
+                loop
                 playsInline
                 url={require('../assets/HomeVideoBig.mp4')}
               />
@@ -61,6 +62,7 @@ const ParalaxHome = () => {
               height="515"
               playing
               muted
+              loop
               playsInline
               url={require('../assets/HomeVideoBig.mp4')}
             />
