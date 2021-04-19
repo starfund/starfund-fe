@@ -923,5 +923,30 @@ h2 {
     margin: auto;
     width: 90%
   }
+}
 
+.contact-container {
+  min-height: 100vh;
+  background-color: #020612;
+  padding: 10px;
+  align-content: center;
+
+  .center {
+    margin: auto;
+    width: 60%;
+
+    @media(max-width: 768px) {
+      width: 70%;
+    }
+  }
+
+  h2 {
+    padding: 15px;
+    word-break: break-all;
+
+    @media(max-width: 768px) {
+      font-size: 16px !important;
+      padding: 0;
+    }
+  }
 }
