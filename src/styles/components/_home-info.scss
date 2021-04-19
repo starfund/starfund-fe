@@ -22,8 +22,8 @@
   padding: 0 10%;
   left: 7%;
   bottom: -19%;
-  height: 100px;
   width: 500px;
+  height: 100px;
 
   -webkit-box-shadow: 5px 5px 15px 5px #000000; 
   box-shadow: 5px 5px 15px 5px #000000;
@@ -46,8 +46,8 @@
 
   @media (max-width: $sm-breakpoint + 'px') {
     width: 260px;
-    height: 40px;
-    bottom: -8%;
+    height: 60px;
+    bottom: -18%;
 
     :first-child {
       font-size: 16px;
@@ -100,14 +100,15 @@ h2.info-container-title {
 }
 
 button.info-fighter-wrapper {
+  background-color: transparent;
+  color: #f5f6f6;
   cursor: pointer;
   display: flex;
   font-size: 21px;
-  color: #f5f6f6;
-  white-space: nowrap;
-  margin-bottom: 5px;
-  background-color: transparent;
   height: 40px;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  width: inherit;
 
   outline: none !important;
 
@@ -115,9 +116,18 @@ button.info-fighter-wrapper {
     border-bottom: 1px solid grey;
   }
 
+  span {
+    display: block !important;
+    width: 85%;
+    word-wrap: break-word !important;
+    overflow: hidden;
+    
+    @media (min-width: $sm-breakpoint + 'px') {
+      white-space: break-spaces;
+    }
+  }
+
   @media (max-width: $md-breakpoint + 'px') {
     margin: auto;
   }
-  
-
 }
