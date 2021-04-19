@@ -87,6 +87,12 @@ const routes = [
     private: false
   },
   {
+    path: routesPaths.help,
+    component: <BecomeStarPage />,
+    exact: true,
+    private: false
+  },
+  {
     path: routesPaths.userHome,
     component: <UserHomePage />,
     exact: true,
