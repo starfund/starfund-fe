@@ -97,6 +97,10 @@ h2 {
   }
 }
 
+.dropdown-item {
+  -webkit-appearance: none !important;
+}
+
 .dropdown-menu {
   left: -65px !important;
 }
@@ -829,7 +833,10 @@ h2 {
 }
 
 .dropdown {
-  span {color: rgba(255, 255, 255, 0.5);}
+  span {
+    -webkit-appearance: none !important;
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 .profile-container {
