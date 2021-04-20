@@ -91,6 +91,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-intl": "4.2.2",
+    "react-lazy-load-image-component": "1.5.1",
     "react-loaders": "3.0.1",
     "react-modal": "3.12.1",
     "react-player": "2.9.0",
