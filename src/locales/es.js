@@ -1,7 +1,7 @@
 export default {
   // Auth
   'login.title': 'INICIAR SESIÓN',
-  'login.signup': 'Registrarse',
+  'login.signup': ' Registrarse',
   'login.form.email': 'Email',
   'login.form.password': 'Contraseña',
   'login.form.submit': 'Confirmar',
@@ -11,7 +11,7 @@ export default {
   'registration.haveAccount': 'Ya tienes una cuenta? ',
 
   'signup.title': 'REGISTRARSE',
-  'signup.signin': 'Iniciar Sesión',
+  'signup.signin': ' Iniciar Sesión',
   'signup.form.passconfirmation': 'Confirmación de Contraseña',
   'signup.form.confirmation.presence': 'Debe confirmar su contraseña para continuar',
   'signup.form.confirmation.equality':

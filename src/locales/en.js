@@ -1,14 +1,14 @@
 export default {
   // Auth
   'login.title': 'LOGIN',
-  'login.signup': 'Sign up',
+  'login.signup': ' Sign up',
   'login.form.email': 'Email',
   'login.form.password': 'Password',
   'login.form.submit': 'Submit',
   'login.forgot_password': 'Forgot your password?',
 
   'signup.title': 'SIGN UP',
-  'signup.signin': 'Sign in',
+  'signup.signin': ' Sign in',
   'signup.form.passconfirmation': 'Password confirmation',
   'registration.needAccount': 'Need an account?',
   'registration.haveAccount': 'Already have an account?',

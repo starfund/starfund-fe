@@ -1,14 +1,14 @@
 export default {
   // Auth
   'login.title': 'Войти',
-  'login.signup': 'Зарегистрироваться',
+  'login.signup': ' Зарегистрироваться',
   'login.form.email': 'Email',
   'login.form.password': 'Пароль',
   'login.form.submit': 'Разместить',
   'login.forgot_password': 'Забыли пароль?',
 
   'signup.title': 'Зарегистрироваться',
-  'signup.signin': 'Войти',
+  'signup.signin': ' Войти',
   'signup.form.passconfirmation': 'Подтверждение пароля',
   'registration.needAccount': 'Создать аккаунт?',
   'registration.haveAccount': 'Уже имеется аккаунт?',

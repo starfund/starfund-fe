@@ -83,6 +83,14 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
               </p>
             </React.Fragment>
           )}
+          <button
+            type="button"
+            aria-label="Close"
+            className="modal_close close"
+            onClick={() => setIsOpen(false)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         {children}
         {!newUser && (
