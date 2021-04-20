@@ -4,6 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import { useIntl } from 'react-intl';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player';
 
 import SubscribeCallToAction from '../components/SubscribeCallToAction';
@@ -46,7 +47,11 @@ const WatchPage = () => {
       <br />
       {url && (
         <div className="fighter-video-overlay main-video">
-          {isMobile && <ReactPlayer url={url} width="100%" height="380px" controls />}
+          {isMobile && (
+            <LazyLoadComponent>
+              <ReactPlayer url={url} width="100%" height="380px" controls />
+            </LazyLoadComponent>
+          )}
           <div className="avatar-container">
             <Link
               className="fighter-link"
@@ -61,7 +66,15 @@ const WatchPage = () => {
             </Link>
           </div>
           {!isMobile && (
-            <ReactPlayer url={url} width="60%" height="60%" controls style={{ margin: '0 auto' }} />
+            <LazyLoadComponent>
+              <ReactPlayer
+                url={url}
+                width="60%"
+                height="60%"
+                controls
+                style={{ margin: '0 auto' }}
+              />
+            </LazyLoadComponent>
           )}
         </div>
       )}
@@ -81,7 +94,9 @@ const WatchPage = () => {
                     }}
                   >
                     <div className="fighter-video-overlay">
-                      <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
+                      <LazyLoadComponent>
+                        <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
+                      </LazyLoadComponent>
                       {f.publicVideos[0]?.url && (
                         <div className="avatar-container">
                           <Link

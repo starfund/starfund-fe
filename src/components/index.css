@@ -910,10 +910,22 @@ h2 {
 
   .btn-sub { 
     margin-bottom: 20px;
+  }
 
-    button {
-      margin-left: 30%;
+  .sub-cta-title {
+    border-bottom: solid;
+    border-top: solid;
+  }
+
+  .sub-cta {
+    div {
+      cursor: pointer;
+      margin: 20px 0 0 10%;
     }
+  }
+
+  .fighter-watch {
+    margin-bottom: 10px;
   }
 }
 

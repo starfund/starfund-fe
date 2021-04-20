@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
+import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import { useParams, useHistory, Link } from 'react-router-dom';
@@ -55,7 +56,7 @@ const FighterStar = () => {
   return (
     <div className="fighter-container">
       <div className="cover-container">
-        <img className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
+        <LazyLoadImage className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
         {fighter && (
           <div className="centered">
             <br />
@@ -111,13 +112,15 @@ const FighterStar = () => {
             {isMobile && (
               <div className="col-sm-12 col-md-8">
                 {fighter && (
-                  <ReactPlayer
-                    title="preview"
-                    width="100%"
-                    height="80%"
-                    url={fighter.publicVideos[0]?.url}
-                    controls
-                  />
+                  <LazyLoadComponent>
+                    <ReactPlayer
+                      title="preview"
+                      width="100%"
+                      height="80%"
+                      url={fighter.publicVideos[0]?.url}
+                      controls
+                    />
+                  </LazyLoadComponent>
                 )}
                 <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
               </div>
@@ -130,19 +133,19 @@ const FighterStar = () => {
                     <br />
                     <br />
                     <div className="text">
-                      <img src={VideoCamera} alt="bcm" />
+                      <LazyLoadImage src={VideoCamera} alt="bcm" />
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
                     </div>
                     <br />
                     <br />
                     <div className="text">
-                      <img src={Pin} alt="bpj" />
+                      <LazyLoadImage src={Pin} alt="bpj" />
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
                     </div>
                     <br />
                     <br />
                     <div className="text">
-                      <img src={Email} alt="cwm" />
+                      <LazyLoadImage src={Email} alt="cwm" />
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
                     </div>
                   </React.Fragment>
@@ -173,13 +176,15 @@ const FighterStar = () => {
             {!isMobile && (
               <div className="col-sm-12 col-md-8">
                 {fighter && (
-                  <ReactPlayer
-                    title="preview"
-                    width="100%"
-                    height="80%"
-                    url={fighter.publicVideos[0]?.url}
-                    controls
-                  />
+                  <LazyLoadComponent>
+                    <ReactPlayer
+                      title="preview"
+                      width="100%"
+                      height="80%"
+                      url={fighter.publicVideos[0]?.url}
+                      controls
+                    />
+                  </LazyLoadComponent>
                 )}
                 <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
               </div>
@@ -194,7 +199,7 @@ const FighterStar = () => {
                       <p className="bold width-90">
                         {intl.formatMessage({ id: 'fighter.howItWorks.title' })}
                       </p>
-                      <img
+                      <LazyLoadImage
                         alt="drop"
                         src={ArrowDown}
                         data-toggle="collapse"
@@ -212,19 +217,19 @@ const FighterStar = () => {
                   >
                     <div className="card-body">
                       <div className="text">
-                        <img src={VideoCamera} alt="bcm" />
+                        <LazyLoadImage src={VideoCamera} alt="bcm" />
                         <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
                       </div>
                       <br />
                       <br />
                       <div className="text">
-                        <img src={Pin} alt="bpj" />
+                        <LazyLoadImage src={Pin} alt="bpj" />
                         <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
                       </div>
                       <br />
                       <br />
                       <div className="text">
-                        <img src={Email} alt="cwm" />
+                        <LazyLoadImage src={Email} alt="cwm" />
                         <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
                       </div>
                     </div>
@@ -274,7 +279,11 @@ const FighterStar = () => {
                     onClick={() => history.push(`/fighter/${f.id}`)}
                   >
                     <div key={f.id} className="fighter-card">
-                      <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
+                      <LazyLoadImage
+                        className="fighter-card-image"
+                        src={f?.profilePicture}
+                        alt="Card cap"
+                      />
                       <div className="fighter-card-overlay">
                         <div className="fighter-card-name-wrapper">
                           <span className="fighter-card-text">{f.firstName} </span>
