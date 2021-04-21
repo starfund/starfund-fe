@@ -13,6 +13,12 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     query: '(max-width: 765px)'
   });
 
+  const endFreeVideo = () => {
+    if (!payedFighter.includes(fighter.id)) {
+      subscribeAction();
+    }
+  };
+
   return (
     <div className="fighter-videos">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
@@ -24,6 +30,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           width={isMobile ? '90%' : '60%'}
           controls
           style={{ margin: 'auto', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+          onEnded={endFreeVideo}
         />
       </LazyLoadComponent>
       <div className="blank-line" />
