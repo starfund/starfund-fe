@@ -10754,6 +10754,11 @@ react-hot-loader@4.6.5:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
+react-idle-timer@4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/react-idle-timer/-/react-idle-timer-4.6.1.tgz#961ec0f816cda0e3899db43d6145b9de65ba93a6"
+  integrity sha512-3TNDR+fdYEZo9Fxa9vQFeP4FYLzklVc8kqE4gusKHGP/SFaVoeltefC/ngwsJ1C65PxEHNmEa11bUcsPUtev3A==
+
 react-intl@4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-4.2.2.tgz#54b4065c74d777c46d9d44590124aa926dfd9c21"

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import { useMediaQuery } from 'react-responsive';
+import { useIdleTimer } from 'react-idle-timer';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
@@ -18,6 +19,16 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
       subscribeAction();
     }
   };
+
+  const handleOnIdle = () => {
+    subscribeAction();
+  };
+
+  useIdleTimer({
+    timeout: 1000 * 20,
+    onIdle: handleOnIdle,
+    debounce: 500 * 1000
+  });
 
   return (
     <div className="fighter-videos">
