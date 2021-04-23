@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import ReactGA from 'react-ga';
 
 import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
@@ -34,6 +35,9 @@ const WatchPage = () => {
 
   useEffect(() => {
     setTimeout(() => setCtaVisible(true), 5000);
+  }, []);
+  useEffect(() => {
+    ReactGA.pageview(`/watch`);
   }, []);
 
   const isMobile = useMediaQuery({

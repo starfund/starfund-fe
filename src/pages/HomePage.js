@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSession } from 'hooks';
 import { useIntl } from 'react-intl';
+import ReactGA from 'react-ga';
 
 import UserHomePage from './UserHomePage';
 import ParalaxHome from '../components/ParalaxHome';
@@ -17,6 +18,9 @@ const HomePage = () => {
   const intl = useIntl();
   const newUser = useSelector(state => state.subscriptions.newUser);
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
+  useEffect(() => {
+    ReactGA.pageview('/homepage');
+  }, []);
 
   if (!newUser && !shouldUpdatePassword && authenticated) {
     return <UserHomePage />;

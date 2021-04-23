@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
+import ReactGA from 'react-ga';
 
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
@@ -43,6 +44,9 @@ const FighterStar = () => {
       dispatch(getSubscriptions());
     }
   }, [authenticated, dispatch]);
+  useEffect(() => {
+    ReactGA.pageview(`/fighter/${id}`);
+  }, [id]);
   const fighters = useSelector(state => state.fighters.fighters);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const fighter = useSelector(
