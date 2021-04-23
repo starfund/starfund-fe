@@ -4,6 +4,7 @@ import Cards from 'react-credit-cards';
 import { object, string } from 'prop-types';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
 import { useIntl } from 'react-intl';
+import ReactGA from 'react-ga';
 
 import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
@@ -19,6 +20,7 @@ import { subscribe, updatePassword } from '../state/actions/subscriptionActions'
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email, fighter }) => {
+  ReactGA.modalview('/billing');
   const { status: subStatus, error } = useStatus(subscribe);
   const { status: updateStatus } = useStatus(updatePassword);
   const dispatch = useDispatch();

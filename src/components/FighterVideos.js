@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
@@ -31,9 +31,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     debounce: 500 * 1000
   });
 
-  useEffect(() => {
-    ReactGA.pageview(`/fighter/${fighter.id}/videos`);
-  }, [fighter.id]);
+  ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
     <div className="fighter-videos">

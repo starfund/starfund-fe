@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { func } from 'prop-types';
 import { useIntl, defineMessages, FormattedMessage } from 'react-intl';
 import { useStatus, ERROR, LOADING } from '@rootstrap/redux-tools';
+import ReactGA from 'react-ga';
 
 import Loading from 'components/common/Loading';
 import Input from 'components/common/Input';
@@ -31,6 +32,7 @@ export const LoginForm = ({ onSubmit }) => {
     },
     [onSubmit]
   );
+  ReactGA.modalview('/login');
 
   const inputProps = useTextInputProps({ handleValueChange, handleBlur, values, errors });
 
