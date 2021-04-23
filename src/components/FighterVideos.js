@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import { useMediaQuery } from 'react-responsive';
 import { useIdleTimer } from 'react-idle-timer';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import ReactGA from 'react-ga';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
@@ -29,6 +30,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     onIdle: handleOnIdle,
     debounce: 500 * 1000
   });
+
+  useEffect(() => {
+    ReactGA.pageview(`/fighter/${fighter.id}/videos`);
+  }, [fighter.id]);
 
   return (
     <div className="fighter-videos">
