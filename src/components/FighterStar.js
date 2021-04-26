@@ -250,13 +250,13 @@ const FighterStar = () => {
             !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
               <div className="container">
                 <HowItWorks />
-                <HomeExclusive />
+                <HomeExclusive fighter={fighter} />
               </div>
             )}
           {!authenticated && (
             <div className="container">
               <HowItWorks />
-              <HomeExclusive />
+              <HomeExclusive fighter={fighter} />
             </div>
           )}
         </div>

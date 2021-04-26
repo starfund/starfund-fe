@@ -11,7 +11,7 @@ import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import './index.css';
 
-const HomeExclusive = () => {
+const HomeExclusive = ({ fighter }) => {
   const intl = useIntl();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const isFighter = window.location.href.indexOf('fighter') > -1;
@@ -19,7 +19,7 @@ const HomeExclusive = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 512px)'
   });
-  const fighter =
+  const fighterId =
     isFighter && window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
 
   return (
@@ -63,10 +63,11 @@ const HomeExclusive = () => {
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
-        fighter={fighter}
+        price={fighter?.subPrice}
+        fighter={fighterId}
         email={currentUser?.email}
       >
-        <BillingForm email={currentUser?.email} fighter={fighter} />
+        <BillingForm email={currentUser?.email} fighter={fighterId} />
       </ConfirmationModal>
     </div>
   );
