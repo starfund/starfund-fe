@@ -16,6 +16,7 @@ import UserHomePage from 'pages/UserHomePage';
 import ProfilePage from 'pages/ProfilePage';
 import WatchPage from 'pages/WatchPage';
 import BecomeStarPage from 'pages/BecomeStarPage';
+import ResetPasswordPage from 'pages/ResetPasswordPage';
 
 const routes = [
   {
@@ -103,6 +104,12 @@ const routes = [
     component: <ProfilePage />,
     exact: true,
     private: true
+  },
+  {
+    path: routesPaths.password,
+    component: <ResetPasswordPage />,
+    exact: true,
+    private: false
   },
   {
     component: <NotFoundPage />

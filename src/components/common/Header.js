@@ -4,13 +4,14 @@ import { useSession, useDispatch } from 'hooks';
 import { useIntl } from 'react-intl';
 import cn from 'classnames';
 
-import { signUp, login } from 'state/actions/userActions';
+import { signUp, login, forgotPass } from 'state/actions/userActions';
 import { SUCCESS, useStatus } from '@rootstrap/redux-tools';
 
 import routePaths from 'constants/routesPaths';
 import LogoWhite from 'assets/LogoWhite.svg';
 import CommonModal from './CommonModal';
 import LoginForm from '../user/LoginForm';
+import ForgotPassForm from '../user/ForgotPassForm';
 import SignUpForm from '../user/SignUpForm';
 import LogoutButton from '../user/LogoutButton';
 import ProfileUser from '../../assets/ProfileUser.svg';
@@ -24,6 +25,8 @@ const Header = () => {
 
   const { status } = useStatus(login);
   const status2 = useStatus(signUp);
+  const status3 = useStatus(forgotPass);
+  const [forgotPassword, setForgotPassword] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
@@ -38,11 +41,15 @@ const Header = () => {
     if (status2.status === SUCCESS) {
       setModalIsOpen(false);
     }
-  }, [dispatch, status, status2.status]);
+    if (status3.status === SUCCESS) {
+      setModalIsOpen(false);
+    }
+  }, [dispatch, status, status2.status, status3.status]);
 
   const intl = useIntl();
   const signUpRequest = useDispatch(signUp);
   const loginRequest = useDispatch(login);
+  const forgotPassRequest = useDispatch(forgotPass);
   const [signIn, setSignIn] = useState(true);
 
   return (
@@ -123,7 +130,8 @@ const Header = () => {
           <div className="registration-container">
             {signIn ? (
               <React.Fragment>
-                <LoginForm onSubmit={loginRequest} />
+                {!forgotPassword && <LoginForm onSubmit={loginRequest} />}
+                {forgotPassword && <ForgotPassForm onSubmit={forgotPassRequest} />}
                 <br />
                 <br />
                 <p>
@@ -139,6 +147,11 @@ const Header = () => {
                     {intl.formatMessage({ id: 'login.signup' })}
                   </a>
                 </p>
+                {!forgotPassword && (
+                  <Link onClick={() => setForgotPassword(true)}>
+                    {intl.formatMessage({ id: 'login.forgot_password' })}
+                  </Link>
+                )}
                 <br />
                 <p className="small-copy">
                   {intl.formatMessage({ id: 'legal.login' })}
@@ -158,7 +171,7 @@ const Header = () => {
                 <br />
                 <p className="small-copy">
                   {intl.formatMessage({ id: 'legal.signup' })}
-                  <a href="/privacy">{intl.formatMessage({ id: 'legal.policy' })}</a> &
+                  <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a> &
                   <a href="/terms">{intl.formatMessage({ id: 'legal.terms' })}</a>.
                 </p>
               </React.Fragment>

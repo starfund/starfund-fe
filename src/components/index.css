@@ -969,3 +969,20 @@ h2 {
     }
   }
 }
+
+.reset-password-container {
+  background-color: #020612;
+  min-height: 100vh;
+
+  .reset-form {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+
+    form {
+      div { padding: 5px 0 };
+    }
+
+    input { width:  100% }
+  }
+}

@@ -13,6 +13,7 @@ const routes = {
   userHome: '/dashboard',
   becomeStar: '/join-us',
   help: '/help',
+  password: '/reset_password',
   profile: '/profile'
 };
 
