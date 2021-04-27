@@ -10948,6 +10948,11 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-use-hotjar@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-use-hotjar/-/react-use-hotjar-1.1.1.tgz#0c89d533e8c592cd567f1f0fd4062a949ecfa199"
+  integrity sha512-aJbabwWFMBUSGRmqY0GO7cpvRnNcSSohzqtQLXgP8rq+/ISm6Xz36bxzlAAcyTTOTdUhJsvL87n6Cv9wvbUuzg==
+
 react@16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

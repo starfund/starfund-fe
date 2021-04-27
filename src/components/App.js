@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import ReactGA from 'react-ga';
+import useHotjar from 'react-use-hotjar';
 import '@fontsource/poppins';
 
 import { useSession } from 'hooks';
@@ -11,10 +12,19 @@ import routes from '../routes';
 import Header from './common/Header';
 
 const App = () => {
+  const myCustomLogger = console.info;
   const { authenticated } = useSession();
+  const { initHotjar } = useHotjar();
+
   useEffect(() => {
+    if (true) {
+    }
     ReactGA.initialize(process.env.GA_KEY);
   });
+
+  useEffect(() => {
+    initHotjar(2372649, 6, myCustomLogger);
+  }, [initHotjar, myCustomLogger]);
 
   return (
     <React.Fragment>
