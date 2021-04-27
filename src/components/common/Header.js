@@ -122,7 +122,7 @@ const Header = () => {
         </nav>
       </header>
       <CommonModal
-        title={intl.formatMessage({ id: 'signup.title' })}
+        title={intl.formatMessage({ id: 'login.title' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
       >
@@ -150,6 +150,11 @@ const Header = () => {
                 {!forgotPassword && (
                   <Link onClick={() => setForgotPassword(true)}>
                     {intl.formatMessage({ id: 'login.forgot_password' })}
+                  </Link>
+                )}
+                {forgotPassword && (
+                  <Link onClick={() => setForgotPassword(false)}>
+                    {intl.formatMessage({ id: 'signup.signin' })}
                   </Link>
                 )}
                 <br />

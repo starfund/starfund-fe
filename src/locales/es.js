@@ -18,7 +18,7 @@ export default {
     'Su confirmación de contraseña debe ser igual a la contraseña',
 
   'logout.button': 'SALIR',
-  'home.welcome': 'Bienvenido a React Redux Base {username}',
+  'home.welcome': 'Bienvenido a Starfund',
 
   'login.form.email.presence': 'Debe ingresar un email para continuar',
   'login.form.email.invalid': 'Debe ingresar un email válido',

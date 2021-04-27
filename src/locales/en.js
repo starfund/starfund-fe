@@ -14,7 +14,7 @@ export default {
   'registration.haveAccount': 'Already have an account?',
 
   'logout.button': 'LOGOUT',
-  'home.welcome': 'Welcome to React Redux Base {email}',
+  'home.welcome': 'Welcome to Starfund',
 
   // General
   'button.subscribe': 'SUBSCRIBE',

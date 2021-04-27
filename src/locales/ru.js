@@ -14,7 +14,7 @@ export default {
   'registration.haveAccount': 'Уже имеется аккаунт?',
 
   'logout.button': 'Выйти',
-  'home.welcome': 'Добро пожаловать в Starfund',
+  'home.welcome': 'Starfund',
 
   // General
   'button.subscribe': 'Подписаться',
