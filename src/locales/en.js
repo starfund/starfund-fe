@@ -51,14 +51,14 @@ export default {
   'modal.footer.question': 'Have any question?',
 
   // Header
-  'header.watch': 'Watch',
-  'header.shop': 'Shop',
-  'header.stars': 'Stars',
+  'header.watch': 'WATCH',
+  'header.shop': 'SHOP',
+  'header.stars': 'STARS',
   'header.home': 'Home',
   'header.videos': 'Videos',
   'header.actions': 'MENU',
   'header.profile': 'PROFILE',
-  'header.login': 'Login',
+  'header.login': 'LOGIN',
   'header.explore': 'Explore',
   'header.athletes': 'Athletes',
   'header.about': 'About',

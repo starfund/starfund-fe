@@ -1,6 +1,7 @@
 .custom-header {
   min-height: 70px;
   background-color: #020612;
+  border-bottom: solid 1px grey;
   color: #020612;
 
   nav { height: 100% }

@@ -61,6 +61,11 @@ const HomeInfo = () => {
           </div>
           <div className="row">
             <ul className="info-container-fighters row">
+              {!fighters && (
+                <SkeletonTheme color="#202020" highlightColor="#444">
+                  <Skeleton height="90vh" />
+                </SkeletonTheme>
+              )}
               {fighters &&
                 fighters?.slice(0, 4).map(f => (
                   <li key={f.id} className="col-12 col-sm-6 col-lg-3">
@@ -82,6 +87,7 @@ const HomeInfo = () => {
                     </button>
                   </li>
                 ))}
+              }
             </ul>
           </div>
         </div>
