@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import SecondarySlider from './common/SecondarySlider';
 import ConfirmationModal from './common/ConfirmationModal';

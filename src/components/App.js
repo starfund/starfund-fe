@@ -23,7 +23,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    initHotjar(2372649, 6, myCustomLogger);
+    initHotjar(process.env.HOTJAR_KEY, 6, myCustomLogger);
   }, [initHotjar, myCustomLogger]);
 
   return (
