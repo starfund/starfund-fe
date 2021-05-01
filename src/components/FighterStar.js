@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
 import { getFighters } from '../state/actions/fighterActions';
 
@@ -60,7 +61,13 @@ const FighterStar = () => {
   return (
     <div className="fighter-container">
       <div className="cover-container">
-        <LazyLoadImage className="fighter-cover" src={fighter?.coverPhoto} alt="Cover" />
+        {fighter ? (
+          <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
+        ) : (
+          <SkeletonTheme color="#202020" highlightColor="#444">
+            <Skeleton height="90vh" />
+          </SkeletonTheme>
+        )}
         {fighter && (
           <div className="centered">
             <br />

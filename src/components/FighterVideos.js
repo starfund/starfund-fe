@@ -26,9 +26,9 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   };
 
   useIdleTimer({
-    timeout: 1000 * 20,
+    timeout: 1000 * 40,
     onIdle: handleOnIdle,
-    debounce: 500 * 1000
+    debounce: 5000 * 1000
   });
 
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);

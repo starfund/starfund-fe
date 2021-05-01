@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
+import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+
 import SecondarySlider from './common/SecondarySlider';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
@@ -69,7 +71,7 @@ const HomeInfo = () => {
                         activeFighter?.id === f.id ? 'active' : ''
                       } info-fighter-wrapper`}
                     >
-                      <img
+                      <LazyLoadImage
                         src={f?.profilePicture}
                         className="info-fighter-avatar"
                         alt="fighter-avatar"
@@ -90,15 +92,17 @@ const HomeInfo = () => {
               .filter(f => f.id == activeFighter.id)[0]
               .publicVideos.map((v, index) => (
                 <div className="homeinfo-slider-card slide-left" key={index}>
-                  <ReactPlayer
-                    title="fighter-video"
-                    className="homeinfo-slider-video"
-                    controls
-                    autoPlay
-                    url={v.url}
-                    width={dimensions.width}
-                    height={dimensions.height}
-                  />
+                  <LazyLoadComponent>
+                    <ReactPlayer
+                      title="fighter-video"
+                      className="homeinfo-slider-video"
+                      controls
+                      autoPlay
+                      url={v.url}
+                      width={dimensions.width}
+                      height={dimensions.height}
+                    />
+                  </LazyLoadComponent>
                   <div onClick={() => setModalIsOpen(true)}>
                     <div className="homeinfo-slider-card-overlay">
                       <span className="no-wrap">
