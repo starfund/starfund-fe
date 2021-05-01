@@ -72,7 +72,7 @@ const HomeInfo = () => {
                       } info-fighter-wrapper`}
                     >
                       <LazyLoadImage
-                        src={f?.profilePicture}
+                        src={f.profilePicture}
                         className="info-fighter-avatar"
                         alt="fighter-avatar"
                       />
