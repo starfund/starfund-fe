@@ -23,6 +23,7 @@ import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 
 import Subscribe from '../assets/subscribe.svg';
+import SubscribeRu from '../assets/subscribe_rus.svg';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
@@ -54,6 +55,7 @@ const FighterStar = () => {
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
+  const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const currentUser = useSelector(state => state.session.user);
   const isMobile = useMediaQuery({
@@ -259,7 +261,10 @@ const FighterStar = () => {
               !payedFighter.includes(fighter.id) &&
               fighter.privateVideos.map(v => (
                 <div key={v.url} className="col-sm-12 pay-to-see">
-                  <LazyLoadImage src={Subscribe} onClick={() => setModalIsOpen(true)} />
+                  <LazyLoadImage
+                    src={language == 'ru' ? SubscribeRu : Subscribe}
+                    onClick={() => setModalIsOpen(true)}
+                  />
                 </div>
               ))}
           </div>
