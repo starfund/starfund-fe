@@ -543,8 +543,8 @@ h2 {
     font-weight: bold;
     transform: translate(-50%, -50%);
 
-    @media (max-width: 603px) {
-      top: 40%;
+    @media (max-width: 623px) {
+      top: 35%;
     }
 
     @media (max-width: 260px) {
@@ -957,7 +957,6 @@ h2 {
 .pay-to-see {
   border: solid;
   margin: 15px 0;
-  -webkit-filter: blur(1px)
 }
 
 .home-exclusive-image {
