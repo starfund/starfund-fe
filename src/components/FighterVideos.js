@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
-import { useMediaQuery } from 'react-responsive';
 import { useIdleTimer } from 'react-idle-timer';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
@@ -11,10 +10,6 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
   const [url, setUrl] = useState(fighter.previewUrl);
   const payedFighter = supporting.map(sub => sub.fighter.id);
-  const isMobile = useMediaQuery({
-    query: '(max-width: 765px)'
-  });
-
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
       subscribeAction();
@@ -36,19 +31,19 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   return (
     <div className="fighter-videos">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
-      <br />
-      <br />
-      <LazyLoadComponent>
-        <ReactPlayer
-          url={url}
-          width={isMobile ? '90%' : '60%'}
-          controls
-          playing
-          muted
-          style={{ margin: 'auto', minHeight: `${isMobile ? 'auto' : '550px'}` }}
-          onEnded={endFreeVideo}
-        />
-      </LazyLoadComponent>
+      <div className="player-wrapper">
+        <LazyLoadComponent>
+          <ReactPlayer
+            url={url}
+            width="100%"
+            height="100%"
+            controls
+            playing
+            muted
+            onEnded={endFreeVideo}
+          />
+        </LazyLoadComponent>
+      </div>
       <div className="blank-line" />
       <div className="container">
         <div className="row flex">
