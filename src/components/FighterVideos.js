@@ -43,6 +43,8 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           url={url}
           width={isMobile ? '90%' : '60%'}
           controls
+          playing
+          muted
           style={{ margin: 'auto', minHeight: `${isMobile ? 'auto' : '550px'}` }}
           onEnded={endFreeVideo}
         />
