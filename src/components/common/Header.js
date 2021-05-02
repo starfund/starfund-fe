@@ -85,16 +85,6 @@ const Header = () => {
                   {intl.formatMessage({ id: 'header.watch' })}
                 </Link>
               </li>
-              <li className={cn('nav-item text-right', { active: pathname === routePaths.shop })}>
-                <a
-                  href="https://www.fanspace.co"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  className="nav-link"
-                >
-                  {intl.formatMessage({ id: 'header.shop' })}
-                </a>
-              </li>
             </ul>
             <div className="nav-actions flex justify-content-end">
               <img src={ProfileUser} alt="profile" />
