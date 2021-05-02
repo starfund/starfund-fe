@@ -65,6 +65,11 @@ h2 {
   min-width: 90%;
 }
 
+.center-50 {
+  width: 50%;
+  margin: auto;
+}
+
 .email-pad {
   padding-top: 23px;
 }

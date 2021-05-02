@@ -53,6 +53,7 @@ const FighterStar = () => {
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
+  const payedFighter = supporting.map(sub => sub.fighter.id);
   const currentUser = useSelector(state => state.session.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -251,6 +252,18 @@ const FighterStar = () => {
               </div>
             </div>
           )}
+          <div className="center-50">
+            {fighter &&
+              fighter.privateVideos &&
+              !payedFighter.includes(fighter.id) &&
+              fighter.privateVideos.map(v => (
+                <div key={v.url} className="col-sm-12 fighter-watch">
+                  <LazyLoadComponent>
+                    <ReactPlayer light url onClick={() => setModalIsOpen(true)} />
+                  </LazyLoadComponent>
+                </div>
+              ))}
+          </div>
           {authenticated &&
             supporting &&
             fighter &&
@@ -261,10 +274,12 @@ const FighterStar = () => {
               </div>
             )}
           {!authenticated && (
-            <div className="container">
-              <HowItWorks />
-              <HomeExclusive fighter={fighter} />
-            </div>
+            <React.Fragment>
+              <div className="container">
+                <HowItWorks />
+                <HomeExclusive fighter={fighter} />
+              </div>
+            </React.Fragment>
           )}
         </div>
       )}
