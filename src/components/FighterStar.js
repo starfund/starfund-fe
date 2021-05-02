@@ -22,6 +22,7 @@ import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 
+import Subscribe from '../assets/subscribe.svg';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
@@ -257,10 +258,8 @@ const FighterStar = () => {
               fighter.privateVideos &&
               !payedFighter.includes(fighter.id) &&
               fighter.privateVideos.map(v => (
-                <div key={v.url} className="col-sm-12 fighter-watch">
-                  <LazyLoadComponent>
-                    <ReactPlayer light url onClick={() => setModalIsOpen(true)} />
-                  </LazyLoadComponent>
+                <div key={v.url} className="col-sm-12 pay-to-see">
+                  <LazyLoadImage src={Subscribe} onClick={() => setModalIsOpen(true)} />
                 </div>
               ))}
           </div>

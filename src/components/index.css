@@ -68,6 +68,10 @@ h2 {
 .center-50 {
   width: 50%;
   margin: auto;
+
+  @media only screen and (max-width : 512px) {
+    width: 100%;
+  }
 }
 
 .email-pad {
@@ -543,6 +547,10 @@ h2 {
       top: 40%;
     }
 
+    @media (max-width: 260px) {
+      top: 25%;
+    }
+
     p {
       font-size: 60px;
       font-weight: bold !important;
@@ -932,6 +940,13 @@ h2 {
   .fighter-watch {
     margin-bottom: 10px;
   }
+
+}
+
+.pay-to-see {
+  border: solid;
+  margin: 15px 0;
+  -webkit-filter: blur(1px)
 }
 
 .home-exclusive-image {
