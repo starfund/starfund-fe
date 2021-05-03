@@ -62,6 +62,12 @@ const FighterStar = () => {
     query: '(max-width: 765px)'
   });
 
+  useEffect(() => {
+    if (payedFighter && fighter) {
+      payedFighter.includes(fighter.id) && setVideos(true);
+    }
+  }, [payedFighter, fighter]);
+
   return (
     <div className="fighter-container">
       <div className="cover-container">
@@ -107,12 +113,14 @@ const FighterStar = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-collapse" id="navbarText">
           <ul className="navbar-nav mr-auto">
-            <li className={cn('nav-item', { active: !videos })}>
-              <Link className="nav-link" href="" onClick={() => setVideos(false)}>
-                {intl.formatMessage({ id: 'header.home' })}{' '}
-                <span className="sr-only">(current)</span>
-              </Link>
-            </li>
+            {fighter && payedFighter && !payedFighter.includes(fighter.id) && (
+              <li className={cn('nav-item', { active: !videos })}>
+                <Link className="nav-link" href="" onClick={() => setVideos(false)}>
+                  {intl.formatMessage({ id: 'header.home' })}{' '}
+                  <span className="sr-only">(current)</span>
+                </Link>
+              </li>
+            )}
             <li className={cn('nav-item', { active: videos })}>
               <Link className="nav-link" onClick={() => setVideos(true)}>
                 {intl.formatMessage({ id: 'header.videos' })}
