@@ -27,3 +27,7 @@
 .navbar-collapse {
   padding-top: 8px;
 }
+
+.nav-actions {
+  cursor: pointer;
+}

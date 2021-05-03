@@ -957,6 +957,7 @@ h2 {
 .pay-to-see {
   border: solid;
   margin: 15px 0;
+  cursor: pointer;
 }
 
 .home-exclusive-image {
