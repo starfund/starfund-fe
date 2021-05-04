@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import { getFighters } from '../state/actions/fighterActions';
 
@@ -20,6 +21,11 @@ const HomeStars = ({ title }) => {
     <div className="stars-container">
       <h1 className="stars-title"> {title} </h1>
       <div className="fighters-slider-wrapper">
+        {fighters.length == 0 && (
+          <SkeletonTheme color="#202020" highlightColor="#444">
+            <Skeleton height="90vh" />
+          </SkeletonTheme>
+        )}
         <Slider>
           {fighters.length > 0 &&
             fighters.map(f => (
