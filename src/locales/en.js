@@ -149,5 +149,8 @@ export default {
   'user.home.find': 'FIND ATHLETES YOU LOVE',
   'user.home.findSimple': 'FIND ATHLETES',
   'user.home.find.text': 'Search your favorite Athletes to check out all their content and news.',
-  'user.home.subscribe': 'Subsribe to your favorite athlete to see post in your feed'
+  'user.home.subscribe': 'Subsribe to your favorite athlete to see post in your feed',
+
+  'about.title': 'Your money goes to your athlete pocket',
+  'about.subTitle': 'You are directly helping your athlete'
 };
