@@ -106,75 +106,79 @@ const UserHome = () => {
                 supporting.map(
                   sup =>
                     sup.content &&
-                    sup.content.map(content => (
-                      <React.Fragment key={content.title}>
-                        <div className="content-row">
-                          <div className="fighter-title flex">
-                            <img
-                              src={sup.fighter.profilePicture}
-                              className="fighter-img"
-                              alt="title"
-                            />
-                            <p>
-                              {' '}
-                              {sup.fighter.firstName} {sup.fighter.lastName}{' '}
-                            </p>
+                    sup.content
+                      .filter(c => c.feed === true)
+                      .map(content => (
+                        <React.Fragment key={content.title}>
+                          <div className="content-row">
+                            <div className="fighter-title flex">
+                              <img
+                                src={sup.fighter.profilePicture}
+                                className="fighter-img"
+                                alt="title"
+                              />
+                              <p>
+                                {' '}
+                                {sup.fighter.firstName} {sup.fighter.lastName}{' '}
+                              </p>
+                            </div>
+                            <br />
+                            {content.image && (
+                              <img
+                                className="content-img"
+                                src={content.image}
+                                height="300"
+                                alt="content"
+                              />
+                            )}
+                            {content.video && (
+                              <ReactPlayer url={content.video} width="200" height="200" controls />
+                            )}
+                            <h2>{content.title}</h2>
+                            <h4>
+                              {content.description} *{' '}
+                              {formatDistance(new Date(content.eventDate), new Date(), {
+                                addSuffix: true
+                              })}
+                            </h4>
                           </div>
-                          <br />
-                          {content.image && (
-                            <img
-                              className="content-img"
-                              src={content.image}
-                              height="300"
-                              alt="content"
-                            />
-                          )}
-                          {content.video && (
-                            <ReactPlayer url={content.video} width="200" height="200" controls />
-                          )}
-                          <h2>{content.title}</h2>
-                          <h4>
-                            {content.description} *{' '}
-                            {formatDistance(new Date(content.eventDate), new Date(), {
-                              addSuffix: true
-                            })}
-                          </h4>
-                        </div>
-                        <div className="blank-line" />
-                      </React.Fragment>
-                    ))
+                          <div className="blank-line" />
+                        </React.Fragment>
+                      ))
                 )}
               {publicContent &&
-                publicContent.map(content => (
-                  <React.Fragment key={content.title}>
-                    <div className="content-row">
-                      <div className="fighter-title flex">
-                        <img src={content.profilePicture} className="fighter-img" alt="title" />
-                        <p>{content.fighterName}</p>
+                publicContent
+                  .filter(c => c.feed === true)
+                  .map(content => (
+                    <React.Fragment key={content.title}>
+                      <div className="content-row">
+                        <div className="fighter-title flex">
+                          <img src={content.profilePicture} className="fighter-img" alt="title" />
+                          <p>{content.fighterName}</p>
+                        </div>
+                        <br />
+                        {content.image && (
+                          <img
+                            className="content-img"
+                            src={content.image}
+                            height="300"
+                            alt="content"
+                          />
+                        )}
+                        {content.video && (
+                          <ReactPlayer url={content.video} width="200" height="200" controls />
+                        )}
+                        <h2>{content.title}</h2>
+                        <h4>
+                          {content.description} *{' '}
+                          {formatDistance(new Date(content.eventDate), new Date(), {
+                            addSuffix: true
+                          })}{' '}
+                        </h4>
                       </div>
-                      <br />
-                      {content.image && (
-                        <img
-                          className="content-img"
-                          src={content.image}
-                          height="300"
-                          alt="content"
-                        />
-                      )}
-                      {content.video && (
-                        <ReactPlayer url={content.video} width="200" height="200" controls />
-                      )}
-                      <h2>{content.title}</h2>
-                      <h4>
-                        {content.description} *{' '}
-                        {formatDistance(new Date(content.eventDate), new Date(), {
-                          addSuffix: true
-                        })}{' '}
-                      </h4>
-                    </div>
-                    <div className="blank-line" />
-                  </React.Fragment>
-                ))}
+                      <div className="blank-line" />
+                    </React.Fragment>
+                  ))}
             </div>
           </div>
         </div>
