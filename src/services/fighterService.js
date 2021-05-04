@@ -1,8 +1,8 @@
 import httpClient from 'httpClient';
 
 class FighterService {
-  static getFighters() {
-    return httpClient.get(`/fighters`);
+  static getFighters(withContent) {
+    return httpClient.get(`/fighters?with_content=${withContent}`);
   }
 }
 

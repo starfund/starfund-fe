@@ -40,7 +40,7 @@ const FighterStar = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [videos, setVideos] = useState(false);
   useEffect(() => {
-    dispatch(getFighters());
+    dispatch(getFighters(true));
   }, [dispatch]);
   useEffect(() => {
     if (authenticated) {
@@ -140,12 +140,11 @@ const FighterStar = () => {
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.publicVideos[0]?.url}
+                      url={fighter.publicVideos?.filter(v => !!v.video)[0]?.video}
                       controls
                     />
                   </LazyLoadComponent>
                 )}
-                <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
               </div>
             )}
             <div className="how-it-works offset-lg-1 col-sm-12 col-md-4 col-lg-3">
@@ -204,12 +203,11 @@ const FighterStar = () => {
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.publicVideos[0]?.url}
+                      url={fighter.publicVideos?.filter(v => !!v.video)[0]?.video}
                       controls
                     />
                   </LazyLoadComponent>
                 )}
-                <p className="video-text">{intl.formatMessage({ id: 'fighter.videoPreview' })}</p>
               </div>
             )}
           </div>
@@ -267,14 +265,16 @@ const FighterStar = () => {
             {fighter &&
               fighter.privateVideos &&
               !payedFighter.includes(fighter.id) &&
-              fighter.privateVideos.map(v => (
-                <div key={v.url} className="col-sm-12 pay-to-see">
-                  <LazyLoadImage
-                    src={language == 'ru' ? SubscribeRu : Subscribe}
-                    onClick={() => setModalIsOpen(true)}
-                  />
-                </div>
-              ))}
+              fighter.privateVideos
+                .filter(c => !!c.video)
+                .map(v => (
+                  <div key={v.url} className="col-sm-12 pay-to-see">
+                    <LazyLoadImage
+                      src={language == 'ru' ? SubscribeRu : Subscribe}
+                      onClick={() => setModalIsOpen(true)}
+                    />
+                  </div>
+                ))}
           </div>
           {authenticated &&
             supporting &&

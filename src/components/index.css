@@ -57,6 +57,10 @@ h2 {
   font-size: 30px !important;
 }
 
+h3 {
+  font-size: 24px !important;
+}
+
 .pad-20 {
   padding-left: 19px;
 }
@@ -735,6 +739,7 @@ h2 {
     min-height: inherit;
     background-color: #020612;
     border-bottom: solid 2px grey;
+    padding: 15px 15px 10px 0;
 
     .info {
       img {
@@ -743,6 +748,10 @@ h2 {
         border-radius: 50%;
         object-fit: cover;
       }
+    }
+
+    .find-athletes-container {
+      padding-bottom: 10px;
     }
 
   }
@@ -754,6 +763,11 @@ h2 {
     margin-bottom: 20px;
 
     nav { background-color: #191c21 !important; }
+
+    @media (max-width: 576px) {
+      margin: auto;
+      width: 95%;
+    }
 
     .feed-content {
       

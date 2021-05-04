@@ -3,6 +3,7 @@ import { subscribe, updatePassword, getSubscriptions } from 'state/actions/subsc
 
 const initialState = {
   subscriptions: [],
+  public: [],
   newUser: false,
   shouldUpdatePassword: false
 };
@@ -28,7 +29,8 @@ const actionHandlers = {
     state.newbie = false;
   },
   [getSubscriptions.success]: (state, { payload }) => {
-    state.subscriptions = payload;
+    state.subscriptions = payload.subscriptions;
+    state.public = payload.publicContent;
   }
 };
 

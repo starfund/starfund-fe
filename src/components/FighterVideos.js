@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
+
 import { useMediaQuery } from 'react-responsive';
 import { useIdleTimer } from 'react-idle-timer';
+import { formatDistance } from 'date-fns';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
 
@@ -58,23 +60,44 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
         </div>
         <div className="row flex">
           {fighter.publicVideos &&
-            fighter.publicVideos.map(v => (
-              <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.url)}>
-                <LazyLoadComponent>
-                  <ReactPlayer url={v.url} width="300" height="250" />
-                </LazyLoadComponent>
-              </div>
-            ))}
+            fighter.publicVideos
+              .filter(c => !!c.video)
+              .map(v => (
+                <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.video)}>
+                  <LazyLoadComponent>
+                    <ReactPlayer url={v.video} width="300" height="250" />
+                  </LazyLoadComponent>
+                  <div>
+                    <h3> {v.title} </h3>
+                    <p>
+                      {' '}
+                      {v.description} *{' '}
+                      {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
+                    </p>
+                  </div>
+                </div>
+              ))}
           {fighter.privateVideos &&
             payedFighter.includes(fighter.id) &&
-            fighter.privateVideos.map(v => (
-              <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.url)}>
-                <LazyLoadComponent>
-                  <ReactPlayer url={v.url} width="300" height="250" />
-                </LazyLoadComponent>
-              </div>
-            ))}
+            fighter.privateVideos
+              .filter(c => !!c.video)
+              .map(v => (
+                <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.video)}>
+                  <LazyLoadComponent>
+                    <ReactPlayer url={v.video} width="300" height="250" />
+                  </LazyLoadComponent>
+                  <div>
+                    <h3> {v.title} </h3>
+                    <p>
+                      {' '}
+                      {v.description} *{' '}
+                      {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
+                    </p>
+                  </div>
+                </div>
+              ))}
         </div>
+        <br />
         <div className="row flex">
           {fighter.privateVideos.length > 0 && !payedFighter.includes(fighter.id) && (
             <div className="center">
