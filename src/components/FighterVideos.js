@@ -54,7 +54,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
       <div className="blank-line" />
       <div className="container">
         <div className="row flex">
-          {fighter.publicVideos.length == 0 && fighter.privateVideos.length == 0 && (
+          {fighter.publicVideos?.length == 0 && fighter.privateVideos.length == 0 && (
             <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
           )}
         </div>
@@ -99,7 +99,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
         </div>
         <br />
         <div className="row flex">
-          {fighter.privateVideos.length > 0 && !payedFighter.includes(fighter.id) && (
+          {fighter.privateVideos?.length > 0 && !payedFighter.includes(fighter.id) && (
             <div className="center">
               <div className="row flex">
                 <h2 className="center sub-cta-title">
