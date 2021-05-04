@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import ReactPlayer from 'react-player';
 
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -19,6 +20,7 @@ const UserHome = () => {
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
   const publicContent = useSelector(state => state.subscriptions.public);
+  const language = useSelector(state => state.language.language);
 
   return (
     <div className="user-home">
@@ -134,9 +136,9 @@ const UserHome = () => {
                             {content.video && (
                               <ReactPlayer url={content.video} width="200" height="200" controls />
                             )}
-                            <h2>{content.title}</h2>
+                            <h2>{formatTitle(content, language)}</h2>
                             <h4>
-                              {content.description} *{' '}
+                              {formatDescription(content, language)} *{' '}
                               {formatDistance(new Date(content.eventDate), new Date(), {
                                 addSuffix: true
                               })}
@@ -168,9 +170,9 @@ const UserHome = () => {
                         {content.video && (
                           <ReactPlayer url={content.video} width="200" height="200" controls />
                         )}
-                        <h2>{content.title}</h2>
+                        <h2>{formatTitle(content, language)}</h2>
                         <h4>
-                          {content.description} *{' '}
+                          {formatDescription(content, language)} *{' '}
                           {formatDistance(new Date(content.eventDate), new Date(), {
                             addSuffix: true
                           })}{' '}

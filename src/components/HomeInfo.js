@@ -88,7 +88,6 @@ const HomeInfo = () => {
                     </button>
                   </li>
                 ))}
-              }
             </ul>
           </div>
         </div>

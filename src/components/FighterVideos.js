@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 
@@ -8,6 +8,8 @@ import { useIdleTimer } from 'react-idle-timer';
 import { formatDistance } from 'date-fns';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
+
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
@@ -22,6 +24,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
       subscribeAction();
     }
   };
+  const language = useSelector(state => state.language.language);
 
   const handleOnIdle = () => {
     subscribeAction();
@@ -69,10 +72,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                     <ReactPlayer url={v.video} width="300" height="250" />
                   </LazyLoadComponent>
                   <div>
-                    <h3> {v.title} </h3>
+                    <h3> {formatTitle(v, language)} </h3>
                     <p>
                       {' '}
-                      {v.description} *{' '}
+                      {formatDescription(v, language)} *{' '}
                       {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
                     </p>
                   </div>
@@ -88,10 +91,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                     <ReactPlayer url={v.video} width="300" height="250" />
                   </LazyLoadComponent>
                   <div>
-                    <h3> {v.title} </h3>
+                    <h3> {formatTitle(v, language)} </h3>
                     <p>
                       {' '}
-                      {v.description} *{' '}
+                      {formatDescription(v, language)} *{' '}
                       {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
                     </p>
                   </div>

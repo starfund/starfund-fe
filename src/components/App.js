@@ -17,8 +17,6 @@ const App = () => {
   const { initHotjar } = useHotjar();
 
   useEffect(() => {
-    if (true) {
-    }
     ReactGA.initialize(process.env.GA_KEY);
   });
 
