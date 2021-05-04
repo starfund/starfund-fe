@@ -88,18 +88,23 @@ const WatchPage = () => {
           {fighters?.length > 0 &&
             fighters.map(
               f =>
-                f.publicVideos && (
+                f.publicVideos &&
+                f.publicVideos.filter(c => !!c.video).length > 0 && (
                   <div
                     key={f.id}
                     className="col-sm-4 fighter-watch"
                     onClick={() => {
-                      setUrl(f.publicVideos[0]?.url);
+                      setUrl(f.publicVideos.filter(c => !!c.video)[0].video);
                       setCurrentFighter(f);
                     }}
                   >
                     <div className="fighter-video-overlay">
                       <LazyLoadComponent>
-                        <ReactPlayer url={f.publicVideos[0]?.url} width="300" height="250" />
+                        <ReactPlayer
+                          url={f.publicVideos.filter(c => !!c.video)[0].video}
+                          width="300"
+                          height="250"
+                        />
                       </LazyLoadComponent>
                       {f.publicVideos[0]?.url && (
                         <div className="avatar-container">
