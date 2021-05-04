@@ -54,9 +54,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
       <div className="blank-line" />
       <div className="container">
         <div className="row flex">
-          {fighter.publicVideos?.length == 0 && fighter.privateVideos.length == 0 && (
-            <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
-          )}
+          {fighter.publicVideos?.filter(c => !!c.video)?.length == 0 &&
+            fighter.privateVideos?.filter(c => !!c.video)?.length == 0 && (
+              <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
+            )}
         </div>
         <div className="row flex">
           {fighter.publicVideos &&
@@ -99,29 +100,30 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
         </div>
         <br />
         <div className="row flex">
-          {fighter.privateVideos?.length > 0 && !payedFighter.includes(fighter.id) && (
-            <div className="center">
-              <div className="row flex">
-                <h2 className="center sub-cta-title">
-                  {intl.formatMessage({ id: 'fighter.videos.subscribe' })}
-                </h2>
+          {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
+            !payedFighter.includes(fighter.id) && (
+              <div className="center">
+                <div className="row flex">
+                  <h2 className="center sub-cta-title">
+                    {intl.formatMessage({ id: 'fighter.videos.subscribe' })}
+                  </h2>
+                </div>
+                <div className="sub-cta">
+                  <LazyLoadComponent>
+                    <ReactPlayer
+                      url={require('../assets/SubCTA.mp4')}
+                      width="80%"
+                      height="80%"
+                      playing
+                      muted
+                      loop
+                      playsInline
+                      onClick={subscribeAction}
+                    />
+                  </LazyLoadComponent>
+                </div>
               </div>
-              <div className="sub-cta">
-                <LazyLoadComponent>
-                  <ReactPlayer
-                    url={require('../assets/SubCTA.mp4')}
-                    width="80%"
-                    height="80%"
-                    playing
-                    muted
-                    loop
-                    playsInline
-                    onClick={subscribeAction}
-                  />
-                </LazyLoadComponent>
-              </div>
-            </div>
-          )}
+            )}
         </div>
       </div>
     </div>

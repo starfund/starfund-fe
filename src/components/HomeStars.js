@@ -12,7 +12,7 @@ const HomeStars = ({ title }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
-    dispatch(getFighters());
+    dispatch(getFighters(true));
   }, [dispatch]);
   const fighters = useSelector(state => state.fighters.fighters);
 

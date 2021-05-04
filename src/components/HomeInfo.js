@@ -97,7 +97,8 @@ const HomeInfo = () => {
             activeFighter &&
             fighters
               .filter(f => f.id == activeFighter.id)[0]
-              .publicVideos.map((v, index) => (
+              .publicVideos.filter(c => !!c.video)
+              .map((v, index) => (
                 <div className="homeinfo-slider-card slide-left" key={index}>
                   <LazyLoadComponent>
                     <ReactPlayer
@@ -105,7 +106,7 @@ const HomeInfo = () => {
                       className="homeinfo-slider-video"
                       controls
                       autoPlay
-                      url={v.url}
+                      url={v.video}
                       width={dimensions.width}
                       height={dimensions.height}
                     />
