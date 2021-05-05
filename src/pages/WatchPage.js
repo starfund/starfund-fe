@@ -29,7 +29,7 @@ const WatchPage = () => {
   const [url, setUrl] = useState('');
   const [currentFighter, setCurrentFighter] = useState(fighters[0] || {});
   useEffect(() => {
-    setUrl(fighters[0]?.publicVideos[0]?.url);
+    setUrl(fighters[0]?.publicVideos.filter(c => !!c.video)[0]?.video);
     setCurrentFighter(fighters[0]);
   }, [fighters]);
 
@@ -106,7 +106,7 @@ const WatchPage = () => {
                           height="250"
                         />
                       </LazyLoadComponent>
-                      {f.publicVideos[0]?.url && (
+                      {f.publicVideos?.filter(c => !!c.video)[0]?.video && (
                         <div className="avatar-container">
                           <Link
                             className="fighter-link"
