@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 
 import { useMediaQuery } from 'react-responsive';
-import { useIdleTimer } from 'react-idle-timer';
 import { formatDistance } from 'date-fns';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
@@ -25,17 +24,6 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     }
   };
   const language = useSelector(state => state.language.language);
-
-  const handleOnIdle = () => {
-    subscribeAction();
-  };
-
-  useIdleTimer({
-    timeout: 1000 * 40,
-    onIdle: handleOnIdle,
-    debounce: 5000 * 1000
-  });
-
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
