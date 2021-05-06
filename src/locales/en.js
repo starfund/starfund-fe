@@ -45,6 +45,7 @@ export default {
 
   // Modals
   'modal.header.selectPassword': 'Select your password to finish your account',
+  'modal.header.explain': 'Subscribe to become an exclusive fan and enjoy videos and surprises.',
   'modal.header.totalBilled': 'Total Billed Today: ',
   'modal.footer.guaranteed': 'GUARANTEED',
   'modal.footer.secured': 'SECURED WITH SSL',
@@ -142,7 +143,7 @@ export default {
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your athlete.',
   'home.paralax.subscribe': 'SUBSCRIBE TO ATHLETES',
 
-  'user.home.supporting': 'SUPPORTING',
+  'user.home.supporting': 'FOLLOWING',
   'user.home.supporting.nothing': 'You are not subscribed to any athletes yet.',
   'user.home.posts': 'All Posts',
   'user.home.showing': 'Showing: All Athletes',

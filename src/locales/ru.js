@@ -46,6 +46,8 @@ export default {
 
   // Modals
   'modal.header.selectPassword': 'Выбрать свой пароль для окончания регистрации',
+  'modal.header.explain':
+    'Подпишись, чтобы стать эксклюзивным фанатом и наслаждайся видео и сюрпризами.',
   'modal.header.totalBilled': 'Oбщая сумма, выставленная сегодня: ',
   'modal.footer.guaranteed': 'Безопасность данных гарантирована',
   'modal.footer.secured': 'Сайт защищен сертификатом безопасности(SSL)',
@@ -140,7 +142,7 @@ export default {
     'Подпишись на эксклюзивный контент и узнай больше о закулисной жизни своего кумира.',
   'home.paralax.subscribe': 'Подписаться на спортсменов',
 
-  'user.home.supporting': 'Поддержка',
+  'user.home.supporting': 'Cледующий',
   'user.home.supporting.nothing': 'На данный момент вы не подписаны ни на одного спортсмена',
   'user.home.posts': 'Все посты',
   'user.home.showing': 'Все атлеты',

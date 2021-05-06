@@ -52,6 +52,7 @@ export default {
 
   // Modals
   'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
+  'modal.header.explain': 'Subscribete para disfrutar los videos exclusivos y sorpresas.',
   'modal.header.totalBilled': 'Total a cobrar hoy: ',
   'modal.footer.guaranteed': 'PAGO SEGURO',
   'modal.footer.secured': 'ASEGURADO CON SSL',
@@ -150,7 +151,7 @@ export default {
     'Conviertete en un fan exclusivo, disfruta de vidos, detras de camaras y productos. Ten contacto directo con tus atletas!.',
   'home.paralax.subscribe': 'SUBSCRIBETE A ATLETAS',
 
-  'user.home.supporting': 'APOYANDO',
+  'user.home.supporting': 'SIGUIENDO',
   'user.home.supporting.nothing': 'No estas subscrito a ningun atleta todavia, encuentra uno!.',
   'user.home.posts': 'Todos los post',
   'user.home.showing': 'Mostrando: Todos los Atletas',
