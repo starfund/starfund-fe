@@ -160,5 +160,12 @@ export default {
   'user.home.find.text':
     'Encuentra tu alteta favorito para descubrir todo su contenido y noticias.',
   'user.home.subscribe':
-    'Subscribete a tu ateleta favorito para ver todas sus novedades en tu feed de noticias'
+    'Subscribete a tu ateleta favorito para ver todas sus novedades en tu feed de noticias',
+
+  'about.title': 'Tu dinero es enviado directamente al bolsillo de tus atletas',
+  'about.subTitle': 'Estas apoyando directamente a tus atletas',
+
+  'rewards.title': 'Unete para ganar premios',
+  'rewards.explain':
+    'Estare sorteando 5 remeras exclusivas entre quienes se subscriban hasta el {date}'
 };

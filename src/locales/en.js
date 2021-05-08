@@ -153,5 +153,9 @@ export default {
   'user.home.subscribe': 'Subsribe to your favorite athlete to see post in your feed',
 
   'about.title': 'Your money goes to your athlete pocket',
-  'about.subTitle': 'You are directly helping your athlete'
+  'about.subTitle': 'You are directly helping your athlete',
+
+  'rewards.title': 'Join us and earn rewards',
+  'rewards.explain':
+    'I will be giving 5 free exclusive T-Shirts to people who subscribe until {date} '
 };

@@ -32,6 +32,7 @@ const ParalaxHome = () => {
                 muted
                 loop
                 playsInline
+                defaultMuted
                 url={require('../assets/HomeVideoBig.mp4')}
               />
             </div>

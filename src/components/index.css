@@ -1006,6 +1006,10 @@ h3 {
       width: 70%;
     }
   }
+
+  .video-container {
+    margin-top: 15px; 
+  }
 }
 
 .contact-container {

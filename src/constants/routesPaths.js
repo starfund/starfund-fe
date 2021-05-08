@@ -14,6 +14,7 @@ const routes = {
   becomeStar: '/join-us',
   help: '/help',
   password: '/reset_password',
+  rewards: '/rewards',
   profile: '/profile'
 };
 

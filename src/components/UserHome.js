@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import ReactPlayer from 'react-player';
+import ReactGA from 'react-ga';
 
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -21,6 +22,10 @@ const UserHome = () => {
   const supporting = useSelector(state => state.subscriptions.subscriptions);
   const publicContent = useSelector(state => state.subscriptions.public);
   const language = useSelector(state => state.language.language);
+
+  useEffect(() => {
+    ReactGA.pageview('/user_home/');
+  }, []);
 
   return (
     <div className="user-home">

@@ -16,6 +16,7 @@ import UserHomePage from 'pages/UserHomePage';
 import ProfilePage from 'pages/ProfilePage';
 import WatchPage from 'pages/WatchPage';
 import BecomeStarPage from 'pages/BecomeStarPage';
+import RewardsPage from 'pages/RewardsPage';
 import ResetPasswordPage from 'pages/ResetPasswordPage';
 
 const routes = [
@@ -42,6 +43,12 @@ const routes = [
   {
     path: routesPaths.fighters,
     component: <FightersPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.rewards,
+    component: <RewardsPage />,
     private: false,
     exact: false
   },
