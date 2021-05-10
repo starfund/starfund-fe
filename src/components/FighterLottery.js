@@ -15,7 +15,7 @@ import './index.css';
 const FighterLottery = () => {
   const intl = useIntl();
   const { authenticated } = useSession();
-  const fighter = 2;
+  const fighter = 6;
   const subPrice = 199;
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
