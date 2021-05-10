@@ -1,17 +1,29 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
+import { format } from 'date-fns';
+import { useMediaQuery } from 'react-responsive';
 
 import FighterLottery from '../components/FighterLottery';
 import HomeFooter from '../components/HomeFooter';
 
 const RewardsPage = () => {
-  const intl = useIntl();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
+
   return (
     <React.Fragment>
       <div className="about-container">
-        <div className="center">
-          <h2> {intl.formatMessage({ id: 'rewards.title' })} </h2>
-        </div>
+        {isMobile && (
+          <div className="center">
+            <h4>
+              <FormattedMessage
+                id="rewards.title"
+                values={{ date: format(new Date(2021, 5, 14), 'dd/MM/yyyy') }}
+              />
+            </h4>
+          </div>
+        )}
         <br />
         <FighterLottery />
       </div>

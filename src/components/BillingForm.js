@@ -80,16 +80,6 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
       {!newUser && (
         <React.Fragment>
           <form className="col-12 card-form">
-            {!email && (
-              <div className="missing-email">
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder={intl.formatMessage({ id: 'billing.email' })}
-                  onChange={e => setEmailField(e.target.value)}
-                />
-              </div>
-            )}
             <div className="new-card-form col-12">
               <div className="">
                 <div className="">
@@ -136,6 +126,16 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                       </div>
                     </div>
                   </div>
+                  {!email && (
+                    <div className="missing-email">
+                      <Input
+                        name="email"
+                        type="email"
+                        placeholder={intl.formatMessage({ id: 'billing.email' })}
+                        onChange={e => setEmailField(e.target.value)}
+                      />
+                    </div>
+                  )}
                   <Button
                     onClick={() => onSubmit({ name, email: emailField, fighter })}
                     labelId="billing.createPaymentMethod"

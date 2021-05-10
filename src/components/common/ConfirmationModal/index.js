@@ -13,7 +13,7 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 import SupportedCards from '../../../assets/ccs.png';
 import './index.css';
 
-const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
+const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price }) => {
   const dispatch = useDispatch();
   const intl = useIntl();
   const history = useHistory();
@@ -77,8 +77,9 @@ const ConfirmationModal = ({ children, title, isOpen, setIsOpen, price }) => {
           {!newUser && (
             <React.Fragment>
               <h3>
-                <center>{intl.formatMessage({ id: 'modal.header.explain' })}</center>
+                <center>{explain}</center>
               </h3>
+              <br />
               <h4>{title}</h4>
               <p>
                 {' '}

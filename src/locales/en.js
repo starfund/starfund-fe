@@ -155,7 +155,7 @@ export default {
   'about.title': 'Your money goes to your athlete pocket',
   'about.subTitle': 'You are directly helping your athlete',
 
-  'rewards.title': 'Join us and earn rewards',
-  'rewards.explain':
-    'I will be giving 5 free exclusive T-Shirts to people who subscribe until {date} '
+  'rewards.title':
+    'Welcome! Now you have a chance to win this exclusive t-shirt from me, where you can’t find anywhere else. You only need to be my exclusive fan and that’s it. By becoming my exclusive fan you will have access to my behind the scene videos and more surprises. I will pick 5 winners by {date}. Good luck!',
+  'rewards.billing.title': 'Subscribe and get a chance to win Exclusive T-shirt!'
 };

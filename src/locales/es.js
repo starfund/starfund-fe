@@ -165,7 +165,7 @@ export default {
   'about.title': 'Tu dinero es enviado directamente al bolsillo de tus atletas',
   'about.subTitle': 'Estas apoyando directamente a tus atletas',
 
-  'rewards.title': 'Unete para ganar premios',
-  'rewards.explain':
-    'Estare sorteando 5 remeras exclusivas entre quienes se subscriban hasta el {date}'
+  'rewards.title':
+    'Estare sorteando 5 remeras exclusivas entre quienes se subscriban hasta el {date}',
+  'rewards.billing.title': 'Subscribete y ten una chance de ganar una remera exclusiva!'
 };

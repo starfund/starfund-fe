@@ -124,6 +124,7 @@ const HomeInfo = () => {
       </div>
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}
+        explain={intl.formatMessage({ id: 'modal.header.explain' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}

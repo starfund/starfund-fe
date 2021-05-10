@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { formatDistance } from 'date-fns';
 import ReactPlayer from 'react-player';
 import ReactGA from 'react-ga';
@@ -15,6 +15,7 @@ import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 const UserHome = () => {
   const dispatch = useDispatch();
   const intl = useIntl();
+  const history = useHistory();
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
@@ -55,7 +56,11 @@ const UserHome = () => {
                 <div className="blank-line" />
                 {supporting?.length > 0 &&
                   supporting.map(s => (
-                    <div key={s.id} className="fighter-sub flex">
+                    <div
+                      key={s.id}
+                      className="fighter-sub flex"
+                      onClick={() => history.push(`/fighter/${s.fighter.id}`)}
+                    >
                       <img src={s.fighterPicture} alt="sub" />
                       <p>{s.fighter.firstName}</p>
                     </div>
@@ -118,7 +123,10 @@ const UserHome = () => {
                       .map(content => (
                         <React.Fragment key={content.title}>
                           <div className="content-row">
-                            <div className="fighter-title flex">
+                            <div
+                              className="fighter-title flex"
+                              onClick={() => history.push(`/fighter/${sup.fighter.id}`)}
+                            >
                               <img
                                 src={sup.fighter.profilePicture}
                                 className="fighter-img"
