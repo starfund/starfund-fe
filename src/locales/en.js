@@ -157,5 +157,6 @@ export default {
 
   'rewards.title':
     'Welcome! Now you have a chance to win this exclusive t-shirt from me, where you can’t find anywhere else. You only need to be my exclusive fan and that’s it. By becoming my exclusive fan you will have access to my behind the scene videos and more surprises. I will pick 5 winners by {date}. Good luck!',
-  'rewards.billing.title': 'Subscribe and get a chance to win Exclusive T-shirt!'
+  'rewards.billing.title': 'Subscribe and get a chance to win Exclusive T-shirt!',
+  'rewards.refer': 'You are already subscribed, wait for next week lotery, meantime refer a friend!'
 };

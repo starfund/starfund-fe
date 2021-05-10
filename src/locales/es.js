@@ -167,5 +167,7 @@ export default {
 
   'rewards.title':
     'Estare sorteando 5 remeras exclusivas entre quienes se subscriban hasta el {date}',
-  'rewards.billing.title': 'Subscribete y ten una chance de ganar una remera exclusiva!'
+  'rewards.billing.title': 'Subscribete y ten una chance de ganar una remera exclusiva!',
+  'rewards.refer':
+    'Ya estas subscripto, espera al sorteo de la proxima semana, mientras tanto refiere a un amigo!'
 };

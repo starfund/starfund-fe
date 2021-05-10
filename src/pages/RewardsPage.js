@@ -3,10 +3,12 @@ import { FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
 import { useMediaQuery } from 'react-responsive';
 
+import { useSession } from 'hooks';
 import FighterLottery from '../components/FighterLottery';
 import HomeFooter from '../components/HomeFooter';
 
 const RewardsPage = () => {
+  const { authenticated } = useSession();
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -18,7 +20,7 @@ const RewardsPage = () => {
           <div className="center">
             <h4>
               <FormattedMessage
-                id="rewards.title"
+                id={authenticated ? 'rewards.refer' : 'rewards.title'}
                 values={{ date: format(new Date(2021, 5, 14), 'dd/MM/yyyy') }}
               />
             </h4>
