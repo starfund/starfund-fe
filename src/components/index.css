@@ -1,6 +1,6 @@
 html, body, .home {
 	height: 100%;
-  font-family: "Poppins" !important;
+  font-family: "Montserrat" !important;
   background-color: #020612;
   padding-top: 100px;
 
@@ -35,7 +35,7 @@ video:focus {
 }
 
 * {
-  font-family: "Poppins" !important;
+  font-family: "Montserrat" !important;
   font-weight: 600 !important;
 }
 
