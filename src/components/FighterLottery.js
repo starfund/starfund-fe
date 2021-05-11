@@ -10,6 +10,8 @@ import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 
 import WinPrizes from '../assets/WinPrizes.png';
+import Facebook from '../assets/Facebook.svg';
+import Instagram from '../assets/Instagram.svg';
 import './index.css';
 
 const FighterLottery = () => {
@@ -31,30 +33,114 @@ const FighterLottery = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-6" onClick={() => !authenticated && setModalIsOpen(true)}>
-          <img src={WinPrizes} alt="prizes" width="100%" height="100%" />
+          {!isMobile && (
+            <div>
+              <button
+                type="button"
+                disabled={authenticated}
+                className={authenticated ? 'btn btn-secondary btn-lg' : 'btn btn-danger btn-lg'}
+                onClick={() => setModalIsOpen(true)}
+              >
+                {intl.formatMessage({
+                  id: authenticated ? 'button.subscribed' : 'button.participate'
+                })}
+              </button>
+            </div>
+          )}
+          <br />
+          <img src={WinPrizes} alt="prizes" width="100%" height="90%" />
         </div>
         {!isMobile && (
-          <div className="col-md-6">
-            <h2>
-              <center>
+          <div className="col-md-5 text-container">
+            <div className="">
+              <h2>
+                {' '}
+                {intl.formatMessage({
+                  id: authenticated ? 'rewards.refer.title' : 'rewards.title'
+                })}{' '}
+              </h2>
+              <br />
+              <p>
+                {intl.formatMessage({
+                  id: authenticated ? 'rewards.refer.explain' : 'rewards.explain'
+                })}
+              </p>
+              <br />
+              <br />
+              <h2>
                 <FormattedMessage
-                  id={authenticated ? 'rewards.refer' : 'rewards.title'}
-                  values={{ date: format(new Date(2021, 5, 14), 'dd/MM/yyyy') }}
+                  id={authenticated ? 'rewards.refer.date' : 'rewards.date'}
+                  values={{ date: format(new Date(2021, 5, 14), 'MMMM do yyyy') }}
                 />
-              </center>
-            </h2>
+              </h2>
+              <br />
+              <p>{intl.formatMessage({ id: 'rewards.result' })}</p>
+              <br />
+              <br />
+              <div className="social">
+                <img src={Instagram} alt="Instagram" />
+                <a
+                  className="social"
+                  onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
+                >
+                  starfund.co
+                </a>
+                <img src={Facebook} alt="Facebook" />
+                <a
+                  className="social"
+                  onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
+                >
+                  starfundapp
+                </a>
+              </div>
+            </div>
           </div>
         )}
-        {!authenticated && (
-          <div className="center">
-            <button
-              type="button"
-              className="btn btn-danger btn-lg"
-              onClick={() => setModalIsOpen(true)}
-            >
-              {intl.formatMessage({ id: 'button.subscribeNow' })}
-            </button>
-          </div>
+        {isMobile && (
+          <React.Fragment>
+            <div className="center-text">
+              {intl.formatMessage({
+                id: authenticated ? 'rewards.refer.explain' : 'rewards.explain'
+              })}
+              <h3>
+                <FormattedMessage
+                  id={authenticated ? 'rewards.refer.date' : 'rewards.date'}
+                  values={{ date: format(new Date(2021, 5, 14), 'MMMM do yyyy') }}
+                />
+              </h3>
+              {intl.formatMessage({
+                id: authenticated ? 'rewards.refer.result' : 'rewards.result'
+              })}
+            </div>
+            <div className="center-button">
+              <button
+                type="button"
+                disabled={authenticated}
+                className={authenticated ? 'btn btn-secondary btn-lg' : 'btn btn-danger btn-lg'}
+                onClick={() => setModalIsOpen(true)}
+              >
+                {intl.formatMessage({
+                  id: authenticated ? 'button.subscribed' : 'button.participate'
+                })}
+              </button>
+            </div>
+            <div className="center-text social">
+              <img src={Instagram} alt="Instagram" />
+              <a
+                className="social"
+                onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
+              >
+                starfund.co
+              </a>
+              <img src={Facebook} alt="Facebook" />
+              <a
+                className="social"
+                onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
+              >
+                starfundapp
+              </a>
+            </div>
+          </React.Fragment>
         )}
       </div>
       <ConfirmationModal

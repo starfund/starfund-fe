@@ -25,6 +25,8 @@ export default {
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
   'button.subscribe': 'SUBSCRIBIRSE',
+  'button.subscribed': 'SUBSCRIPTO',
+  'button.participate': 'PARTICIPAR',
   'button.subscribeNow': 'SUBSCRIBIRSE AHORA',
   'button.findAthlete': 'ENCUENTRA TU ESTRELLA',
   'button.enroll': 'SE UNA ESTRELLA',
@@ -166,8 +168,15 @@ export default {
   'about.subTitle': 'Estas apoyando directamente a tus atletas',
 
   'rewards.title':
-    'Estare sorteando 5 remeras exclusivas entre quienes se subscriban hasta el {date}',
-  'rewards.billing.title': 'Subscribete y ten una chance de ganar una remera exclusiva!',
-  'rewards.refer':
-    'Ya estas subscripto, espera al sorteo de la proxima semana, mientras tanto refiere a un amigo!'
+    'Subscribete y participa por ganar una remera exclusiva, que solo podras encontrar aqui!',
+  'rewards.explain':
+    'Solo tienes que ser uno de mis fans registrados. De esta forma tendras acceso a mis detras de escena y contenido especial.',
+  'rewards.date': 'Estare seleccionando los 5 ganadores el {date}.',
+  'rewards.result': 'Los resultados seran anunciados en nuestras redes sociales',
+  'rewards.billing.title': 'Participa por ganar una remera exclusiva subscribiendote!',
+
+  'rewards.refer.title': 'Ya estas participando al estar subscripto! Solo espera los resultados',
+  'rewards.refer.date': 'Los ganadores seran anunciados el {date}',
+  'rewards.refer.explain': 'Por favor espera los resultados',
+  'rewards.refer.result': 'No te pierdas estos resultados. Subscribete a nuestras redes sociales'
 };

@@ -18,6 +18,8 @@ export default {
 
   // General
   'button.subscribe': 'SUBSCRIBE',
+  'button.subscribed': 'SUBSCRIBED',
+  'button.participate': 'JOIN TO PARTICIPATE',
   'button.subscribeNow': 'SUBSCRIBE NOW',
   'button.findAthlete': 'FIND YOUR STAR ATHLETE',
   'button.enroll': 'ENROLL AS STAR',
@@ -156,7 +158,17 @@ export default {
   'about.subTitle': 'You are directly helping your athlete',
 
   'rewards.title':
-    'Welcome! Now you have a chance to win this exclusive t-shirt from me, where you can’t find anywhere else. You only need to be my exclusive fan and that’s it. By becoming my exclusive fan you will have access to my behind the scene videos and more surprises. I will pick 5 winners by {date}. Good luck!',
+    'You have a chance to win this exclusive t-shirt from me, which you won’t find anywhere else',
+  'rewards.explain':
+    'You only need to be my exclusive fan and that’s it. By becoming my exclusive fan you will have access to my behind the scene videos and more special content.',
+  'rewards.date': 'I will pick 5 winners by {date}.',
+  'rewards.result': 'Results will be announced on our social media pages',
   'rewards.billing.title': 'Subscribe and get a chance to win Exclusive T-shirt!',
-  'rewards.refer': 'You are already subscribed, wait for next week lotery, meantime refer a friend!'
+
+  'rewards.refer.title':
+    'You are already taking part in the giveaway! Wait for the results of the lottery',
+  'rewards.refer.date': 'The winners will be announced on {date}',
+  'rewards.refer.explain': 'Please wait for the results of the lottery',
+  'rewards.refer.result':
+    'Don’t miss the results of the lottery. Subscribe to our social media pages'
 };
