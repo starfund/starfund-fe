@@ -9,7 +9,7 @@ import { useSession } from 'hooks';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 
-import WinPrizes from '../assets/WinPrizes.png';
+import WinPrizes from '../assets/WinPrizes.jpeg';
 import Facebook from '../assets/Facebook.svg';
 import Instagram from '../assets/Instagram.svg';
 import './index.css';
@@ -17,7 +17,7 @@ import './index.css';
 const FighterLottery = () => {
   const intl = useIntl();
   const { authenticated } = useSession();
-  const fighter = 6;
+  const fighter = 5;
   const subPrice = 199;
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
