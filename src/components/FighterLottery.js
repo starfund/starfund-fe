@@ -18,7 +18,7 @@ const FighterLottery = () => {
   const intl = useIntl();
   const { authenticated } = useSession();
   const fighter = 5;
-  const subPrice = 199;
+  const subPrice = 99;
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
