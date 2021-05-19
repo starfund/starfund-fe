@@ -139,12 +139,9 @@ const UserHome = () => {
                             </div>
                             <br />
                             {content.image && (
-                              <img
-                                className="content-img"
-                                src={content.image}
-                                height="300"
-                                alt="content"
-                              />
+                              <div className="content-img">
+                                <img src={content.image} height="300" alt="content" />
+                              </div>
                             )}
                             {content.video && (
                               <ReactPlayer url={content.video} width="200" height="200" controls />
@@ -173,12 +170,9 @@ const UserHome = () => {
                         </div>
                         <br />
                         {content.image && (
-                          <img
-                            className="content-img"
-                            src={content.image}
-                            height="300"
-                            alt="content"
-                          />
+                          <div className="content-img">
+                            <img src={content.image} height="300" alt="content" />
+                          </div>
                         )}
                         {content.video && (
                           <ReactPlayer url={content.video} width="200" height="200" controls />

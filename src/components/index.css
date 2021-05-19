@@ -780,7 +780,18 @@ h3 {
         p { padding: 7px 0; }
         
         .content-img {
-          width: 100%;
+          width: 60%;
+          margin: auto;
+
+          img { width: 100% }
+
+          @media (max-width: 991px) {
+            width: 80%;
+          }
+
+          @media (max-width: 768px) {
+            width: 100%;
+          }
         }
 
         .fighter-title {
