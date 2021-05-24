@@ -120,6 +120,7 @@ const UserHome = () => {
                     sup.content &&
                     sup.content
                       .filter(c => c.feed === true)
+                      .sort((a, b) => b.eventDate - a.eventDate)
                       .map(content => (
                         <React.Fragment key={content.title}>
                           <div className="content-row">
@@ -161,6 +162,7 @@ const UserHome = () => {
               {publicContent &&
                 publicContent
                   .filter(c => c.feed === true)
+                  .sort((a, b) => b.eventDate - a.eventDate)
                   .map(content => (
                     <React.Fragment key={content.title}>
                       <div className="content-row">
