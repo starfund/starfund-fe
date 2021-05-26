@@ -779,6 +779,31 @@ h3 {
 
         p { padding: 7px 0; }
         
+        .go4268192979 {
+          background-size: cover;
+          margin-top: -10px;
+          margin-bottom: 3px;
+          max-width: 70px;
+          max-height: 70px;
+        }
+
+        .go2484888251 {
+          margin: -27px 15px 20px -15px;
+          max-width: 70px;
+          max-height: 70px;
+        }
+
+        .like-count {
+          text-align: center;
+          margin-top: -30px;
+          font-size: 16px;
+        }
+
+        .content-title {
+          margin: auto;
+          margin-left: 0;
+        }
+
         .content-img {
           width: 60%;
           margin: auto;

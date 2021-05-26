@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useIntl } from 'react-intl';
 import { useHistory, Link } from 'react-router-dom';
-import { formatDistance } from 'date-fns';
-import ReactPlayer from 'react-player';
 import ReactGA from 'react-ga';
 
-import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
+import FeedContent from './FeedContent';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 const UserHome = () => {
@@ -118,43 +116,17 @@ const UserHome = () => {
                 supporting.map(
                   sup =>
                     sup.content &&
+                    sup.fighter &&
                     sup.content
                       .filter(c => c.feed === true)
                       .sort((a, b) => b.eventDate - a.eventDate)
                       .map(content => (
                         <React.Fragment key={content.title}>
-                          <div className="content-row">
-                            <div
-                              className="fighter-title flex"
-                              onClick={() => history.push(`/fighter/${sup.fighter.id}`)}
-                            >
-                              <img
-                                src={sup.fighter.profilePicture}
-                                className="fighter-img"
-                                alt="title"
-                              />
-                              <p>
-                                {' '}
-                                {sup.fighter.firstName} {sup.fighter.lastName}{' '}
-                              </p>
-                            </div>
-                            <br />
-                            {content.image && (
-                              <div className="content-img">
-                                <img src={content.image} height="300" alt="content" />
-                              </div>
-                            )}
-                            {content.video && (
-                              <ReactPlayer url={content.video} width="200" height="200" controls />
-                            )}
-                            <h2>{formatTitle(content, language)}</h2>
-                            <h4>
-                              {formatDescription(content, language)} *{' '}
-                              {formatDistance(new Date(content.eventDate), new Date(), {
-                                addSuffix: true
-                              })}
-                            </h4>
-                          </div>
+                          <FeedContent
+                            content={content}
+                            fighterInfo={sup.fighter}
+                            language={language}
+                          />
                           <div className="blank-line" />
                         </React.Fragment>
                       ))
@@ -165,28 +137,7 @@ const UserHome = () => {
                   .sort((a, b) => b.eventDate - a.eventDate)
                   .map(content => (
                     <React.Fragment key={content.title}>
-                      <div className="content-row">
-                        <div className="fighter-title flex">
-                          <img src={content.profilePicture} className="fighter-img" alt="title" />
-                          <p>{content.fighterName}</p>
-                        </div>
-                        <br />
-                        {content.image && (
-                          <div className="content-img">
-                            <img src={content.image} height="300" alt="content" />
-                          </div>
-                        )}
-                        {content.video && (
-                          <ReactPlayer url={content.video} width="200" height="200" controls />
-                        )}
-                        <h2>{formatTitle(content, language)}</h2>
-                        <h4>
-                          {formatDescription(content, language)} *{' '}
-                          {formatDistance(new Date(content.eventDate), new Date(), {
-                            addSuffix: true
-                          })}{' '}
-                        </h4>
-                      </div>
+                      <FeedContent content={content} fighterInfo={content} language={language} />
                       <div className="blank-line" />
                     </React.Fragment>
                   ))}
