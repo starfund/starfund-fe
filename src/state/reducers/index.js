@@ -7,6 +7,7 @@ import { statusReducer } from '@rootstrap/redux-tools';
 import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
+import contents from './contentReducer';
 import subscriptions from './subscriptionReducer';
 import language from './languageReducer';
 
@@ -30,6 +31,7 @@ const rootReducer = () =>
     statusReducer,
     payments,
     fighters,
+    contents,
     subscriptions,
     language: persistReducer(languagePersistConfig, language)
   });

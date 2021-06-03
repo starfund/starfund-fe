@@ -8,6 +8,14 @@ class SubscriptionService {
   static userSubs() {
     return httpClient.get('/subscriptions');
   }
+
+  static increaseLikes() {
+    return httpClient.post('');
+  }
+
+  static decreaseLikes() {
+    return httpClient.post('');
+  }
 }
 
 export default SubscriptionService;

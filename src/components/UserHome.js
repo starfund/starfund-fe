@@ -6,6 +6,7 @@ import { useHistory, Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import { getContent } from '../state/actions/contentActions';
 
 import FeedContent from './FeedContent';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -17,9 +18,13 @@ const UserHome = () => {
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getContent());
+  }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
-  const publicContent = useSelector(state => state.subscriptions.public);
+  const feedContent = useSelector(state => state.contents.content.content);
+  const likes = useSelector(state => state.contents.content.likes);
   const language = useSelector(state => state.language.language);
 
   useEffect(() => {
@@ -30,7 +35,7 @@ const UserHome = () => {
     <div className="user-home">
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col col-sm-4 col-md-4 offset-sm-0">
             <div className="user-container">
               <div className="user-avatar">
                 <div className="info">
@@ -87,7 +92,7 @@ const UserHome = () => {
               </div>
             </div>
           </div>
-          <div className="col-sm-8 col-lg-9 user-feed-container">
+          <div className="col-sm-8 col-lg-7 user-feed-container">
             <nav className="navbar navbar-expand-lg">
               <div className="container-fluid user-feed">
                 <ul className="nav nav-tabs">
@@ -112,32 +117,18 @@ const UserHome = () => {
                   </Link>
                 </div>
               )}
-              {supporting &&
-                supporting.map(
-                  sup =>
-                    sup.content &&
-                    sup.fighter &&
-                    sup.content
-                      .filter(c => c.feed === true)
-                      .sort((a, b) => b.eventDate - a.eventDate)
-                      .map(content => (
-                        <React.Fragment key={content.title}>
-                          <FeedContent
-                            content={content}
-                            fighterInfo={sup.fighter}
-                            language={language}
-                          />
-                          <div className="blank-line" />
-                        </React.Fragment>
-                      ))
-                )}
-              {publicContent &&
-                publicContent
+              {feedContent &&
+                feedContent
                   .filter(c => c.feed === true)
                   .sort((a, b) => b.eventDate - a.eventDate)
                   .map(content => (
                     <React.Fragment key={content.title}>
-                      <FeedContent content={content} fighterInfo={content} language={language} />
+                      <FeedContent
+                        content={content}
+                        fighterInfo={content}
+                        language={language}
+                        likes={likes}
+                      />
                       <div className="blank-line" />
                     </React.Fragment>
                   ))}

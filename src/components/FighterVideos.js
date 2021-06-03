@@ -64,7 +64,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                     <p>
                       {' '}
                       {formatDescription(v, language)} *{' '}
-                      {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
+                      {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
                     </p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                     <p>
                       {' '}
                       {formatDescription(v, language)} *{' '}
-                      {formatDistance(new Date(v.publishDate), new Date(), { addSuffix: true })}
+                      {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
                     </p>
                   </div>
                 </div>

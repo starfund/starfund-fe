@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import Heart from 'react-animated-heart';
@@ -7,10 +8,23 @@ import { formatDistance } from 'date-fns';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import { increaseLikes, decreaseLikes } from '../state/actions/contentActions';
 
-const FeedContent = ({ fighterInfo, content, language }) => {
+const FeedContent = ({ fighterInfo, content, language, likes }) => {
   const history = useHistory();
-  const [isClick, setClick] = useState(false);
+  const dispatch = useDispatch();
+  const isLiked = likes.some(c => c.content === content.id);
+  const [isClick, setIsClick] = useState(isLiked);
+
+  const likeContent = () => {
+    if (isClick) {
+      dispatch(decreaseLikes(content));
+      setIsClick(false);
+    } else {
+      dispatch(increaseLikes(content));
+      setIsClick(true);
+    }
+  };
 
   if (!fighterInfo || !content) {
     return (
@@ -24,7 +38,7 @@ const FeedContent = ({ fighterInfo, content, language }) => {
     <div className="content-row">
       <div
         className="fighter-title flex"
-        onClick={() => history.push(`/fighter/${fighterInfo.id}`)}
+        onClick={() => history.push(`/fighter/${fighterInfo.fighterId}`)}
       >
         <img src={fighterInfo.profilePicture} className="fighter-img" alt="title" />
         <p>
@@ -41,7 +55,7 @@ const FeedContent = ({ fighterInfo, content, language }) => {
       {content.video && <ReactPlayer url={content.video} width="200" height="200" controls />}
       <div className="flex">
         <div>
-          <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
+          <Heart isClick={isClick} onClick={() => likeContent()} />
           <p className="like-count">{content.likes}</p>
         </div>
         <div>

@@ -805,10 +805,18 @@ h3 {
         }
 
         .content-img {
-          width: 60%;
-          margin: auto;
+          width: 50%;
+          margin-left: 5%;
 
           img { width: 100% }
+
+          @media (max-width: 1294px) {
+            width: 60%;
+          }
+
+          @media (max-width: 1024px) {
+            width: 70%;
+          }
 
           @media (max-width: 991px) {
             width: 80%;
@@ -826,6 +834,11 @@ h3 {
             padding-top: 15px;
             font-size: 18px;
             font-weight: 600;
+
+            @media (max-width: 512px) {
+              overflow: auto;
+              text-align: center;
+            }
           }
         }
 
@@ -892,6 +905,12 @@ h3 {
       display: block;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    h3 {
+      @media (max-width: 768px) {
+        overflow-wrap: break-word;
+      }
     }
 
     .info { text-align: center; }
