@@ -23,6 +23,12 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
       subscribeAction();
     }
   };
+
+  const selectVideo = video => {
+    setUrl(video);
+    window.scrollTo(0, 900);
+  };
+
   const language = useSelector(state => state.language.language);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
@@ -55,7 +61,11 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             fighter.publicVideos
               .filter(c => !!c.video)
               .map(v => (
-                <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.video)}>
+                <div
+                  key={v.url}
+                  className="col-sm-4 fighter-watch"
+                  onClick={() => selectVideo(v.video)}
+                >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width="300" height="250" />
                   </LazyLoadComponent>
@@ -74,7 +84,11 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             fighter.privateVideos
               .filter(c => !!c.video)
               .map(v => (
-                <div key={v.url} className="col-sm-4 fighter-watch" onClick={() => setUrl(v.video)}>
+                <div
+                  key={v.url}
+                  className="col-sm-4 fighter-watch"
+                  onClick={() => selectVideo(v.video)}
+                >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width="300" height="250" />
                   </LazyLoadComponent>
