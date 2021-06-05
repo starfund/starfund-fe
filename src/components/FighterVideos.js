@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useIntl } from 'react-intl';
+import { useSession } from 'hooks';
 import ReactPlayer from 'react-player';
 
 import { useMediaQuery } from 'react-responsive';
@@ -9,14 +10,25 @@ import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
 
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import { getMessages } from '../state/actions/messageActions';
+
+// import MessageSection from './MessageSection';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
+  const dispatch = useDispatch();
+  const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl);
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+
+  useEffect(() => {
+    if (authenticated) {
+      dispatch(getMessages());
+    }
+  }, [authenticated, dispatch]);
 
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
@@ -30,47 +42,43 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   };
 
   const language = useSelector(state => state.language.language);
+  // const messages = useSelector(state => state.messages.comments);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
     <div className="fighter-videos">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <br />
-      <br />
-      <LazyLoadComponent>
-        <ReactPlayer
-          url={url}
-          width={isMobile ? '90%' : '80%'}
-          controls
-          playing
-          muted
-          style={{ margin: 'auto', minHeight: `${isMobile ? 'auto' : '550px'}` }}
-          onEnded={endFreeVideo}
-        />
-      </LazyLoadComponent>
-      <div className="blank-line" />
-      <div className="container">
-        <div className="row flex">
-          {fighter.publicVideos?.filter(c => !!c.video)?.length == 0 &&
-            fighter.privateVideos?.filter(c => !!c.video)?.length == 0 && (
-              <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
-            )}
+      <div className="row">
+        <div className="col-12 col-sm-8">
+          <LazyLoadComponent>
+            <ReactPlayer
+              url={url}
+              width
+              controls
+              playing
+              muted
+              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+              onEnded={endFreeVideo}
+            />
+          </LazyLoadComponent>
+          <div className="blank-line" />
         </div>
-        <div className="row flex">
+        <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
           {fighter.publicVideos &&
             fighter.publicVideos
               .filter(c => !!c.video)
               .map(v => (
                 <div
                   key={v.url}
-                  className="col-sm-4 fighter-watch"
+                  className="col-5 col-sm-12 fighter-watch"
                   onClick={() => selectVideo(v.video)}
                 >
                   <LazyLoadComponent>
-                    <ReactPlayer url={v.video} width="300" height="250" />
+                    <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
                   </LazyLoadComponent>
                   <div>
-                    <h3> {formatTitle(v, language)} </h3>
+                    <h4> {formatTitle(v, language)} </h4>
                     <p>
                       {' '}
                       {formatDescription(v, language)} *{' '}
@@ -86,14 +94,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               .map(v => (
                 <div
                   key={v.url}
-                  className="col-sm-4 fighter-watch"
+                  className="col-5 col-sm-12 fighter-watch"
                   onClick={() => selectVideo(v.video)}
                 >
                   <LazyLoadComponent>
-                    <ReactPlayer url={v.video} width="300" height="250" />
+                    <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
                   </LazyLoadComponent>
                   <div>
-                    <h3> {formatTitle(v, language)} </h3>
+                    <h4> {formatTitle(v, language)} </h4>
                     <p>
                       {' '}
                       {formatDescription(v, language)} *{' '}
@@ -103,32 +111,41 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 </div>
               ))}
         </div>
-        <br />
+      </div>
+      <div className="container">
         <div className="row flex">
-          {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
-            !payedFighter.includes(fighter.id) && (
-              <div className="center">
-                <div className="row flex">
-                  <h2 className="center sub-cta-title">
-                    {intl.formatMessage({ id: 'fighter.videos.subscribe' })}
-                  </h2>
-                </div>
-                <div className="sub-cta">
-                  <LazyLoadComponent>
-                    <ReactPlayer
-                      url={require('../assets/SubCTA.mp4')}
-                      width="80%"
-                      height="80%"
-                      playing
-                      muted
-                      loop
-                      playsInline
-                      onClick={subscribeAction}
-                    />
-                  </LazyLoadComponent>
-                </div>
-              </div>
+          {fighter.publicVideos?.filter(c => !!c.video)?.length == 0 &&
+            fighter.privateVideos?.filter(c => !!c.video)?.length == 0 && (
+              <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
+        </div>
+        <div className="row flex">
+          <div className="col-12 col-sm-4 offset-sm-8">
+            {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
+              !payedFighter.includes(fighter.id) && (
+                <div className="center">
+                  <div className="row flex">
+                    <h3 className="center">
+                      {intl.formatMessage({ id: 'fighter.videos.subscribe' })}
+                    </h3>
+                  </div>
+                  <div className="sub-cta">
+                    <LazyLoadComponent>
+                      <ReactPlayer
+                        url={require('../assets/SubCTA.mp4')}
+                        width="80%"
+                        height="80%"
+                        playing
+                        muted
+                        loop
+                        playsInline
+                        onClick={subscribeAction}
+                      />
+                    </LazyLoadComponent>
+                  </div>
+                </div>
+              )}
+          </div>
         </div>
       </div>
     </div>

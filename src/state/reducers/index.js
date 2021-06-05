@@ -8,6 +8,7 @@ import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
 import contents from './contentReducer';
+import messages from './messageReducer';
 import subscriptions from './subscriptionReducer';
 import language from './languageReducer';
 
@@ -32,6 +33,7 @@ const rootReducer = () =>
     payments,
     fighters,
     contents,
+    messages,
     subscriptions,
     language: persistReducer(languagePersistConfig, language)
   });

@@ -211,6 +211,8 @@ h3 {
 .stars-container {
   padding: 30px 0 80px;
   background-color: #191c21;
+
+  h2 { text-align: center; }
 }
 
 .newbie-form {
@@ -501,7 +503,7 @@ h3 {
 .fighter-container {
   background-color: #020612;
   
-  h2 { text-align: center }
+  h3 { text-align: center }
 
   .navbar {
     padding-left: 20%;
@@ -987,11 +989,15 @@ h3 {
 }
 
 .fighter-videos {
-  padding: 50px;
-
   .player-wrapper {
     position: relative;
     padding-top: 20px
+  }
+
+  .more-videos {
+    @media(max-width: 765px) {
+      margin: 20px auto;
+    }
   }
 
   .react-player {
@@ -1006,11 +1012,6 @@ h3 {
 
   .btn-sub { 
     margin-bottom: 20px;
-  }
-
-  .sub-cta-title {
-    border-bottom: solid;
-    border-top: solid;
   }
 
   .sub-cta {

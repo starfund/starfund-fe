@@ -167,6 +167,9 @@ export default {
   'about.title': 'Tu dinero es enviado directamente al bolsillo de tus atletas',
   'about.subTitle': 'Estas apoyando directamente a tus atletas',
 
+  'comments.none': 'Ingresa para dejar tus comentarios',
+  'comments.add': 'Añade un comentario',
+
   'rewards.title':
     'Subscribete y participa por ganar una remera exclusiva, que solo podras encontrar aqui!',
   'rewards.explain':

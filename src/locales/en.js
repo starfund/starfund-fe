@@ -157,6 +157,9 @@ export default {
   'about.title': 'Your money goes to your athlete pocket',
   'about.subTitle': 'You are directly helping your athlete',
 
+  'comments.none': 'Sign in to leave your comments',
+  'comments.add': 'Leave your comment',
+
   'rewards.title':
     'You have a chance to win this exclusive t-shirt from me, which you won’t find anywhere else',
   'rewards.explain':

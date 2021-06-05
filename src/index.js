@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { setAutoFreeze } from 'immer';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ActionCableProvider } from 'react-actioncable-provider';
 import { AppContainer, setConfig } from 'react-hot-loader';
 import { IntlProvider } from 'react-intl';
 import includes from 'lodash/includes';
@@ -62,7 +63,9 @@ const renderApp = Component => {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <AppContainer>
-            <Component />
+            <ActionCableProvider url={process.env.API_WS_ROOT}>
+              <Component />
+            </ActionCableProvider>
           </AppContainer>
         </PersistGate>
       </Provider>
