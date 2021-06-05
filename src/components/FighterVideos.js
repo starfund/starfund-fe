@@ -18,7 +18,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const { authenticated } = useSession();
-  const [url, setUrl] = useState(fighter.previewUrl);
+  const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'

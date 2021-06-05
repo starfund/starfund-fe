@@ -140,7 +140,7 @@ const FighterStar = () => {
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.publicVideos?.filter(v => !!v.video)[0]?.video}
+                      url={fighter.officialPreview}
                       controls
                     />
                   </LazyLoadComponent>
@@ -203,7 +203,7 @@ const FighterStar = () => {
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.publicVideos?.filter(v => !!v.video)[0]?.video}
+                      url={fighter.officialPreview}
                       controls
                     />
                   </LazyLoadComponent>
