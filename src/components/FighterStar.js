@@ -202,7 +202,7 @@ const FighterStar = () => {
                     <ReactPlayer
                       title="preview"
                       width="100%"
-                      height="80%"
+                      height="90%"
                       url={fighter.officialPreview}
                       controls
                     />
