@@ -23,6 +23,7 @@ const UserHome = () => {
   }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
+  const payedFighters = supporting.map(sub => sub.fighter.id);
   const feedContent = useSelector(state => state.contents.content.content);
   const likes = useSelector(state => state.contents.content.likes);
   const language = useSelector(state => state.language.language);
@@ -117,21 +118,42 @@ const UserHome = () => {
                   </Link>
                 </div>
               )}
-              {feedContent &&
-                feedContent
-                  .filter(c => c.feed === true)
-                  .sort((a, b) => b.eventDate - a.eventDate)
-                  .map(content => (
-                    <React.Fragment key={content.title}>
-                      <FeedContent
-                        content={content}
-                        fighterInfo={content}
-                        language={language}
-                        likes={likes}
-                      />
-                      <div className="blank-line" />
-                    </React.Fragment>
-                  ))}
+              {feedContent && (
+                <React.Fragment>
+                  {feedContent
+                    .filter(c => c.feed === true && payedFighters.includes(c.fighterId))
+                    .sort((a, b) => b.eventDate - a.eventDate)
+                    .map(content => (
+                      <React.Fragment key={content.title}>
+                        <FeedContent
+                          content={content}
+                          fighterInfo={content}
+                          language={language}
+                          likes={likes}
+                        />
+                        <div className="blank-line" />
+                      </React.Fragment>
+                    ))}
+                  <h2>
+                    <center> {intl.formatMessage({ id: 'user.home.other_news' })} </center>
+                  </h2>
+                  <div className="blank-line" />
+                  {feedContent
+                    .filter(c => c.feed === true && !payedFighters.includes(c.fighterId))
+                    .sort((a, b) => b.eventDate - a.eventDate)
+                    .map(content => (
+                      <React.Fragment key={content.title}>
+                        <FeedContent
+                          content={content}
+                          fighterInfo={content}
+                          language={language}
+                          likes={likes}
+                        />
+                        <div className="blank-line" />
+                      </React.Fragment>
+                    ))}
+                </React.Fragment>
+              )}
             </div>
           </div>
         </div>

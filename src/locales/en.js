@@ -153,6 +153,7 @@ export default {
   'user.home.findSimple': 'FIND ATHLETES',
   'user.home.find.text': 'Search your favorite Athletes to check out all their content and news.',
   'user.home.subscribe': 'Subsribe to your favorite athlete to see post in your feed',
+  'user.home.other_news': 'Other star news',
 
   'about.title': 'Your money goes to your athlete pocket',
   'about.subTitle': 'You are directly helping your athlete',
