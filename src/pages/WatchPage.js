@@ -29,7 +29,7 @@ const WatchPage = () => {
   const [url, setUrl] = useState('');
   const [currentFighter, setCurrentFighter] = useState(fighters[0] || {});
   useEffect(() => {
-    setUrl(fighters[0]?.officialPreview || fighters[0]?.previewUrl);
+    setUrl(fighters[0]?.officialPreview);
     setCurrentFighter(fighters[0]);
   }, [fighters]);
 
@@ -95,14 +95,10 @@ const WatchPage = () => {
                   setCurrentFighter(f);
                 }}
               >
-                {(f.officialPreview || f.previewUrl) && (
+                {f.officialPreview && (
                   <div className="fighter-video-overlay">
                     <LazyLoadComponent>
-                      <ReactPlayer
-                        url={f.officialPreview || f.previewUrl}
-                        width="300"
-                        height="250"
-                      />
+                      <ReactPlayer url={f.officialPreview} width="300" height="250" />
                     </LazyLoadComponent>
                     <div className="avatar-container">
                       <Link
