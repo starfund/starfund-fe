@@ -50,6 +50,7 @@ const FighterStar = () => {
   useEffect(() => {
     ReactGA.pageview(`/fighter/${id}`);
   }, [id]);
+
   const fighters = useSelector(state => state.fighters.fighters);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const fighter = useSelector(

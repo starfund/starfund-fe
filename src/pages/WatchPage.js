@@ -29,7 +29,7 @@ const WatchPage = () => {
   const [url, setUrl] = useState('');
   const [currentFighter, setCurrentFighter] = useState(fighters[0] || {});
   useEffect(() => {
-    setUrl(fighters[0]?.publicVideos.filter(c => !!c.video)[0]?.video);
+    setUrl(fighters[0]?.officialPreview || fighters[0]?.previewUrl);
     setCurrentFighter(fighters[0]);
   }, [fighters]);
 
@@ -86,45 +86,41 @@ const WatchPage = () => {
       <div className="container">
         <div className="row flex">
           {fighters?.length > 0 &&
-            fighters.map(
-              f =>
-                f.publicVideos &&
-                f.publicVideos.filter(c => !!c.video).length > 0 && (
-                  <div
-                    key={f.id}
-                    className="col-sm-4 fighter-watch"
-                    onClick={() => {
-                      setUrl(f.publicVideos.filter(c => !!c.video)[0].video);
-                      setCurrentFighter(f);
-                    }}
-                  >
-                    <div className="fighter-video-overlay">
-                      <LazyLoadComponent>
-                        <ReactPlayer
-                          url={f.publicVideos.filter(c => !!c.video)[0].video}
-                          width="300"
-                          height="250"
+            fighters.map(f => (
+              <div
+                key={f.id}
+                className="col-sm-4 fighter-watch"
+                onClick={() => {
+                  setUrl(f.officialPreview);
+                  setCurrentFighter(f);
+                }}
+              >
+                {(f.officialPreview || f.previewUrl) && (
+                  <div className="fighter-video-overlay">
+                    <LazyLoadComponent>
+                      <ReactPlayer
+                        url={f.officialPreview || f.previewUrl}
+                        width="300"
+                        height="250"
+                      />
+                    </LazyLoadComponent>
+                    <div className="avatar-container">
+                      <Link
+                        className="fighter-link"
+                        onClick={() => history.push(`/fighter/${f.id}`)}
+                      >
+                        <img
+                          className="fighter-avatar small"
+                          src={f.coverPhoto}
+                          alt="fighter avatar"
                         />
-                      </LazyLoadComponent>
-                      {f.publicVideos?.filter(c => !!c.video)[0]?.video && (
-                        <div className="avatar-container">
-                          <Link
-                            className="fighter-link"
-                            onClick={() => history.push(`/fighter/${f.id}`)}
-                          >
-                            <img
-                              className="fighter-avatar small"
-                              src={f.coverPhoto}
-                              alt="fighter avatar"
-                            />
-                            <span>{`${f.firstName} ${f.lastName}`}</span>
-                          </Link>
-                        </div>
-                      )}
+                        <span>{`${f.firstName} ${f.lastName}`}</span>
+                      </Link>
                     </div>
                   </div>
-                )
-            )}
+                )}
+              </div>
+            ))}
         </div>
       </div>
       <br />
