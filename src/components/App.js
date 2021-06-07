@@ -7,6 +7,7 @@ import '@fontsource/montserrat';
 
 import { useSession } from 'hooks';
 import RouteFromPath from 'components/routes/RouteFromPath';
+import ScrollToTop from 'components/hocs/ScrollToTop';
 import IntlWrapper from './IntlWrapper';
 import routes from '../routes';
 import Header from './common/Header';
@@ -32,11 +33,13 @@ const App = () => {
             <title>Supporting Fighters and Athletes | StarFund</title>
           </Helmet>
           <Header />
-          <Switch>
-            {routes.map((route, index) => (
-              <RouteFromPath key={`route${index}`} {...route} authenticated={authenticated} />
-            ))}
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              {routes.map((route, index) => (
+                <RouteFromPath key={`route${index}`} {...route} authenticated={authenticated} />
+              ))}
+            </Switch>
+          </ScrollToTop>
         </BrowserRouter>
       </IntlWrapper>
     </React.Fragment>
