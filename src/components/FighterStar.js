@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
+import { format } from 'date-fns';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -98,9 +99,9 @@ const FighterStar = () => {
                       className="btn btn-danger btn-lg"
                       onClick={() => setModalIsOpen(true)}
                     >
-                      {fighter.support
-                        ? intl.formatMessage({ id: 'button.support' })
-                        : intl.formatMessage({ id: 'button.subscribe' })}
+                      {intl.formatMessage({
+                        id: fighter.support ? 'button.support' : 'button.subscribe'
+                      })}
                     </button>
                   )}
                 {!authenticated && (
@@ -281,11 +282,33 @@ const FighterStar = () => {
               fighter.privateVideos
                 .filter(c => !!c.video)
                 .map(v => (
-                  <div key={v.url} className="col-sm-12 pay-to-see">
-                    <LazyLoadImage
-                      src={language == 'ru' ? SubscribeRu : Subscribe}
-                      onClick={() => setModalIsOpen(true)}
-                    />
+                  <div className="pay-to-see">
+                    <div key={v.url} className="card">
+                      <LazyLoadImage
+                        className="card-img-top"
+                        src={language == 'ru' ? SubscribeRu : Subscribe}
+                        onClick={() => setModalIsOpen(true)}
+                      />
+                      <div className="card-body">
+                        <p className="card-title">{format(new Date(v.eventDate), 'LLL d, yyyy')}</p>
+                        <p className="card-text">
+                          {v.title} {' - '}
+                          {v.description}
+                        </p>
+                        <center>
+                          <button
+                            type="button"
+                            className="btn btn-danger btn-lg"
+                            onClick={() => setModalIsOpen(true)}
+                          >
+                            {intl.formatMessage({
+                              id: fighter.support ? 'button.support' : 'button.subscribe'
+                            })}
+                          </button>
+                        </center>
+                        <p className="card-likes">{v.likes} Likes</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
           </div>

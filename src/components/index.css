@@ -1016,7 +1016,7 @@ h3 {
 
   .sub-cta {
     border: solid;
-    
+
     div {
       cursor: pointer;
       margin: 20px 0 0 10%;
@@ -1030,9 +1030,46 @@ h3 {
 }
 
 .pay-to-see {
-  border: solid;
-  margin: 15px 0;
+  border: solid 2px;
   cursor: pointer;
+
+  .card {
+    background: transparent;
+  }
+
+  .card-body {
+    background: white;
+    color: black;
+    width: 100%;
+
+    .card-title {
+      color: grey;
+      font-size: 1.5vh;
+      margin: 0;
+      padding-left: 10px;
+      padding-top: 5px;
+    }
+
+    .card-text {
+      color: black;
+      font-size: 3.5vh;
+      padding-left: 10px;
+      padding-bottom: 5px;
+    }
+
+    .card-likes {
+      color: grey;
+      font-size: 2vh;
+      float: right;
+      padding-right: 10px;
+    }
+
+    button {
+      border-radius: 50px;
+      font-size: 2vh;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .home-exclusive-image {
