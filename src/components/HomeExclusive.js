@@ -38,7 +38,9 @@ const HomeExclusive = ({ fighter }) => {
                   className="btn btn-danger"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {intl.formatMessage({ id: 'button.subscribeNow' })}
+                  {intl.formatMessage({
+                    id: fighter?.support ? 'button.supportNow' : 'button.subscribeNow'
+                  })}
                 </button>
               </React.Fragment>
             ) : (

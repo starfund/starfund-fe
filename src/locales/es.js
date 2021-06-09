@@ -25,9 +25,11 @@ export default {
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
   'button.subscribe': 'SUBSCRIBIRSE',
+  'button.support': 'APOYAR',
   'button.subscribed': 'SUBSCRIPTO',
   'button.participate': 'PARTICIPAR',
   'button.subscribeNow': 'SUBSCRIBIRSE AHORA',
+  'button.supportNow': 'APOYAR AHORA',
   'button.findAthlete': 'ENCUENTRA TU ESTRELLA',
   'button.enroll': 'SE UNA ESTRELLA',
   'cta.text': 'Subscribete para tener acceso a todo el contenido exclusivo',

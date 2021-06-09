@@ -18,9 +18,11 @@ export default {
 
   // General
   'button.subscribe': 'Подписаться',
+  'button.support': 'Cлужба поддержки',
   'button.subscribed': 'Подписался',
   'button.participate': 'ПРИСОЕДИНЯЙТЕСЬ К УЧАСТИЮ',
   'button.subscribeNow': 'Подписаться сейчас',
+  'button.supportNow': 'ПОДДЕРЖКА СЕЙЧАС',
   'button.findAthlete': 'Найти своего фаворита',
   'button.enroll': 'Зарегистрироваться как спортсмен',
   'cta.text':

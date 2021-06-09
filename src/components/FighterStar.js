@@ -98,7 +98,9 @@ const FighterStar = () => {
                       className="btn btn-danger btn-lg"
                       onClick={() => setModalIsOpen(true)}
                     >
-                      {intl.formatMessage({ id: 'button.subscribe' })}
+                      {fighter.support
+                        ? intl.formatMessage({ id: 'button.support' })
+                        : intl.formatMessage({ id: 'button.subscribe' })}
                     </button>
                   )}
                 {!authenticated && (
@@ -107,7 +109,9 @@ const FighterStar = () => {
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({ id: 'button.subscribe' })}
+                    {fighter.support
+                      ? intl.formatMessage({ id: 'button.support' })
+                      : intl.formatMessage({ id: 'button.subscribe' })}
                   </button>
                 )}
               </div>
@@ -187,7 +191,9 @@ const FighterStar = () => {
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({ id: 'button.subscribeNow' })}
+                    {intl.formatMessage({
+                      id: fighter?.support ? 'button.supportNow' : 'button.subscribeNow'
+                    })}
                   </button>
                 )}
               {!authenticated && (
@@ -196,7 +202,9 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {intl.formatMessage({ id: 'button.subscribeNow' })}
+                  {intl.formatMessage({
+                    id: fighter?.support ? 'button.supportNow' : 'button.subscribeNow'
+                  })}
                 </button>
               )}
             </div>
