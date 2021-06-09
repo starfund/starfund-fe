@@ -352,7 +352,9 @@ const FighterStar = () => {
       <HomeFooter />
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}
-        explain={intl.formatMessage({ id: 'modal.header.explain' })}
+        explain={intl.formatMessage({
+          id: fighter?.support ? 'modal.header.support' : 'modal.header.explain'
+        })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}

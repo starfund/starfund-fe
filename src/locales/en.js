@@ -50,6 +50,7 @@ export default {
   // Modals
   'modal.header.selectPassword': 'Select your password to finish your account',
   'modal.header.explain': 'Subscribe to become an exclusive fan and enjoy videos and surprises.',
+  'modal.header.support': 'Support your star, enjoy videos and surprises.',
   'modal.header.totalBilled': 'Total Billed Today: ',
   'modal.footer.guaranteed': 'GUARANTEED',
   'modal.footer.secured': 'SECURED WITH SSL',

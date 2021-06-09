@@ -57,6 +57,7 @@ export default {
   // Modals
   'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
   'modal.header.explain': 'Subscribete para disfrutar los videos exclusivos y sorpresas.',
+  'modal.header.support': 'Apoya a tu estrella, disfruta videos y sorpresas.',
   'modal.header.totalBilled': 'Total a cobrar hoy: ',
   'modal.footer.guaranteed': 'PAGO SEGURO',
   'modal.footer.secured': 'ASEGURADO CON SSL',
