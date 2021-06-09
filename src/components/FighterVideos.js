@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import { useSession } from 'hooks';
 import ReactPlayer from 'react-player';
 
 import { useMediaQuery } from 'react-responsive';
 import { formatDistance } from 'date-fns';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
 
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getMessages } from '../state/actions/messageActions';
+
+import Subscribe from '../assets/subscribe.svg';
+import SubscribeRu from '../assets/subscribe_rus.svg';
 
 // import MessageSection from './MessageSection';
 
@@ -110,6 +113,26 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   </div>
                 </div>
               ))}
+          <div className={!isMobile && `blank-line`} />
+          {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
+            !payedFighter.includes(fighter.id) && (
+              <div className="center">
+                <div className="row flex">
+                  <h3 className="center">
+                    <FormattedMessage
+                      id="fighter.videos.subscribe"
+                      values={{ videos: fighter.privateVideos?.filter(c => !!c.video)?.length }}
+                    />
+                  </h3>
+                </div>
+                <div className="sub-cta">
+                  <LazyLoadImage
+                    src={language == 'ru' ? SubscribeRu : Subscribe}
+                    onClick={subscribeAction}
+                  />
+                </div>
+              </div>
+            )}
         </div>
       </div>
       <div className="container">
@@ -119,34 +142,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
         </div>
-        <div className="row flex">
-          <div className="col-12 col-sm-4 offset-sm-8">
-            {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
-              !payedFighter.includes(fighter.id) && (
-                <div className="center">
-                  <div className="row flex">
-                    <h3 className="center">
-                      {intl.formatMessage({ id: 'fighter.videos.subscribe' })}
-                    </h3>
-                  </div>
-                  <div className="sub-cta">
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={require('../assets/SubCTA.mp4')}
-                        width="80%"
-                        height="80%"
-                        playing
-                        muted
-                        loop
-                        playsInline
-                        onClick={subscribeAction}
-                      />
-                    </LazyLoadComponent>
-                  </div>
-                </div>
-              )}
-          </div>
-        </div>
+        <div className="row flex" />
       </div>
     </div>
   );

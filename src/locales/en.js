@@ -127,7 +127,7 @@ export default {
   'fighter.start.item4': 'Get Benefits',
   'fighter.videos.title': 'Watch Featured Videos',
   'fighter.videos.noVideos': 'This fighter has not uploaded any videos yet',
-  'fighter.videos.subscribe': 'Subscribe to unlock all the videos',
+  'fighter.videos.subscribe': 'Subscribe to unlock {videos} videos',
   'fighter.announcements.title': 'Fighter Announcements',
   'fighter.announcements.subTitle': 'Empowering Stars and Entertaining Fans.',
 

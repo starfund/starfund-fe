@@ -71,65 +71,69 @@ const FighterStar = () => {
 
   return (
     <div className="fighter-container">
-      <div className="cover-container">
-        {fighter ? (
-          <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
-        ) : (
-          <SkeletonTheme color="#202020" highlightColor="#444">
-            <Skeleton height="90vh" />
-          </SkeletonTheme>
-        )}
-        {fighter && (
-          <div className="centered">
-            <br />
-            <br />
-            <p>
-              {' '}
-              {fighter.firstName} {fighter.lastName}{' '}
-            </p>
-            {authenticated &&
-              supporting &&
-              fighter &&
-              !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
-                <button
-                  type="button"
-                  className="btn btn-danger btn-lg"
-                  onClick={() => setModalIsOpen(true)}
-                >
-                  {intl.formatMessage({ id: 'button.subscribe' })}
-                </button>
-              )}
-            {!authenticated && (
-              <button
-                type="button"
-                className="btn btn-danger btn-lg"
-                onClick={() => setModalIsOpen(true)}
-              >
-                {intl.formatMessage({ id: 'button.subscribe' })}
-              </button>
+      {!payedFighter.includes(fighter?.id) && (
+        <React.Fragment>
+          <div className="cover-container">
+            {fighter ? (
+              <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
+            ) : (
+              <SkeletonTheme color="#202020" highlightColor="#444">
+                <Skeleton height="90vh" />
+              </SkeletonTheme>
+            )}
+            {fighter && (
+              <div className="centered">
+                <br />
+                <br />
+                <p>
+                  {' '}
+                  {fighter.firstName} {fighter.lastName}{' '}
+                </p>
+                {authenticated &&
+                  supporting &&
+                  fighter &&
+                  !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                    <button
+                      type="button"
+                      className="btn btn-danger btn-lg"
+                      onClick={() => setModalIsOpen(true)}
+                    >
+                      {intl.formatMessage({ id: 'button.subscribe' })}
+                    </button>
+                  )}
+                {!authenticated && (
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-lg"
+                    onClick={() => setModalIsOpen(true)}
+                  >
+                    {intl.formatMessage({ id: 'button.subscribe' })}
+                  </button>
+                )}
+              </div>
             )}
           </div>
-        )}
-      </div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="navbar-collapse" id="navbarText">
-          <ul className="navbar-nav mr-auto">
-            {fighter && payedFighter && !payedFighter.includes(fighter.id) && (
-              <li className={cn('nav-item', { active: !videos })}>
-                <Link className="nav-link" href="" onClick={() => setVideos(false)}>
-                  {intl.formatMessage({ id: 'header.home' })}{' '}
-                  <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-            )}
-            <li className={cn('nav-item', { active: videos })}>
-              <Link className="nav-link" onClick={() => setVideos(true)}>
-                {intl.formatMessage({ id: 'header.videos' })}
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="navbar-collapse" id="navbarText">
+              <ul className="navbar-nav mr-auto">
+                {fighter && payedFighter && !payedFighter.includes(fighter.id) && (
+                  <li className={cn('nav-item', { active: !videos })}>
+                    <Link className="nav-link" href="" onClick={() => setVideos(false)}>
+                      {intl.formatMessage({ id: 'header.home' })}{' '}
+                      <span className="sr-only">(current)</span>
+                    </Link>
+                  </li>
+                )}
+                <li className={cn('nav-item', { active: videos })}>
+                  <Link className="nav-link" onClick={() => setVideos(true)}>
+                    {intl.formatMessage({ id: 'header.videos' })}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </React.Fragment>
+      )}
       {!videos && (
         <div className="container">
           <div className="main-content row">

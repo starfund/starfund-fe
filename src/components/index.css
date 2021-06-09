@@ -1015,6 +1015,8 @@ h3 {
   }
 
   .sub-cta {
+    border: solid;
+    
     div {
       cursor: pointer;
       margin: 20px 0 0 10%;

@@ -135,7 +135,7 @@ export default {
   'fighter.start.item4': 'Recibe Beneficios',
   'fighter.videos.title': 'Mira Contenido Exclusivo',
   'fighter.videos.noVideos': 'Este Atleta no a subido contendio aun',
-  'fighter.videos.subscribe': 'Subscribete para desbloquear todo el contendio',
+  'fighter.videos.subscribe': 'Subscribete para desbloquear {videos} videos',
   'fighter.announcements.title': 'Anuncios de Atletas',
   'fighter.announcements.subTitle': 'Empoderando a los Atletas y Divirtiendo a sus Fans.',
 

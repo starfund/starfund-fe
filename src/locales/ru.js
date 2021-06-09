@@ -127,7 +127,7 @@ export default {
   'fighter.start.item4': 'Получить бонусы',
   'fighter.videos.title': 'Смотреть рекомендованное видео',
   'fighter.videos.noVideos': 'Этот спортсмен пока не добавил новое видео',
-  'fighter.videos.subscribe': 'Подписаться и Разблокировать все видео',
+  'fighter.videos.subscribe': 'Подписаться и Разблокировать {videos} видео',
   'fighter.announcements.title': 'Афиша спортсменов',
   'fighter.announcements.subTitle': 'Вдохновлять спортсменов и развлекать фанатов',
 
