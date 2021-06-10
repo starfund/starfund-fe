@@ -4,7 +4,10 @@ import Status from 'components/routes/Status';
 
 const NotFoundPage = () => {
   if (window.location.href.indexOf('product_page') > -1) {
-    window.location.replace('https://www.fanspace.co');
+    return window.location.replace('https://www.fanspace.co');
+  }
+  if (window.location.href.indexOf('product-page') > -1) {
+    return window.location.replace('https://www.fanspace.co');
   }
 
   return (
