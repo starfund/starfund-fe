@@ -1032,6 +1032,7 @@ h3 {
 .pay-to-see {
   border: solid 2px;
   cursor: pointer;
+  margin-bottom: 10px;
 
   .card {
     background: transparent;
