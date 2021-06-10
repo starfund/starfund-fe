@@ -15,13 +15,14 @@ import { getMessages } from '../state/actions/messageActions';
 import Subscribe from '../assets/subscribe.svg';
 import SubscribeRu from '../assets/subscribe_rus.svg';
 
-// import MessageSection from './MessageSection';
+import MessageSection from './MessageSection';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
+  const [diplayContent, setDisplayContent] = useState();
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -39,13 +40,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     }
   };
 
-  const selectVideo = video => {
-    setUrl(video);
+  const selectVideo = content => {
+    setUrl(content.video);
+    setDisplayContent(content);
     window.scrollTo(0, 900);
   };
 
   const language = useSelector(state => state.language.language);
-  // const messages = useSelector(state => state.messages.comments);
+  const messages = useSelector(state => state.messages.comments);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
@@ -75,7 +77,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 <div
                   key={v.url}
                   className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v.video)}
+                  onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
@@ -98,7 +100,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 <div
                   key={v.url}
                   className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v.video)}
+                  onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
@@ -116,8 +118,8 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           <div className={!isMobile && `blank-line`} />
           {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
             !payedFighter.includes(fighter.id) && (
-              <div className="center">
-                <div className="row flex">
+              <div className={`other-videos ${isMobile && 'center'}`}>
+                <div className="flex">
                   <h3 className="center">
                     <FormattedMessage
                       id="fighter.videos.subscribe"
@@ -142,7 +144,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
         </div>
-        <div className="row flex" />
+        <div className="row">
+          {diplayContent && (
+            <div className="col-12">
+              <h2>{diplayContent.title}</h2>
+            </div>
+          )}
+          <MessageSection messages={messages} authenticated={authenticated} />
+        </div>
       </div>
     </div>
   );
