@@ -989,6 +989,10 @@ h3 {
 }
 
 .fighter-videos {
+  .container {
+      margin-left: 2%;
+    }
+
   .player-wrapper {
     position: relative;
     padding-top: 20px
@@ -1025,6 +1029,23 @@ h3 {
       margin: 5px 10px 0 0;
       width: 30px;
     }
+  }
+
+  .comment-actions {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5px;
+
+    button { margin-left: 10px}
+  }
+
+  .comment-thread {
+    p {
+      padding: 0 0 0 15px;
+    }
+
+    div { margin: 5px 0 15px 0;}
+
   }
 
   .react-player {

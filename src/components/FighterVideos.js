@@ -29,10 +29,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   });
 
   useEffect(() => {
-    if (authenticated) {
-      dispatch(getMessages());
+    if (authenticated && diplayContent) {
+      dispatch(getMessages(diplayContent));
     }
-  }, [authenticated, dispatch]);
+  }, [authenticated, diplayContent, dispatch]);
 
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
@@ -47,7 +47,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   };
 
   const language = useSelector(state => state.language.language);
-  const messages = useSelector(state => state.messages.comments);
+  const messages = useSelector(state => state.messages.messages.comments);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
@@ -150,7 +150,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               <h2>{diplayContent.title}</h2>
             </div>
           )}
-          <MessageSection messages={messages} authenticated={authenticated} />
+          <MessageSection content={diplayContent} messages={messages} />
         </div>
       </div>
     </div>

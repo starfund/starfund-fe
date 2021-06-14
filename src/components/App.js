@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+
 import ReactGA from 'react-ga';
 import useHotjar from 'react-use-hotjar';
 import '@fontsource/montserrat';
