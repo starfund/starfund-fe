@@ -19,6 +19,7 @@ export default {
   // General
   'button.subscribe': 'SUBSCRIBE',
   'button.support': 'SUPPORT',
+  'button.ppv': 'PERSONAL VIDEO REQUEST',
   'button.subscribed': 'SUBSCRIBED',
   'button.participate': 'JOIN TO PARTICIPATE',
   'button.subscribeNow': 'SUBSCRIBE NOW',

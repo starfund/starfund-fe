@@ -26,6 +26,7 @@ export default {
 
   'button.subscribe': 'SUBSCRIBIRSE',
   'button.support': 'APOYAR',
+  'button.ppv': 'Video Personal',
   'button.subscribed': 'SUBSCRIPTO',
   'button.participate': 'PARTICIPAR',
   'button.subscribeNow': 'SUBSCRIBIRSE AHORA',

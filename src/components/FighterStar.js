@@ -18,6 +18,7 @@ import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
+import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
 import HowItWorks from './HowItWorks';
 import FighterVideos from './FighterVideos';
@@ -41,6 +42,7 @@ const FighterStar = () => {
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [videos, setVideos] = useState(false);
+  const [PPVOpen, setPPVOpen] = useState(false);
   useEffect(() => {
     dispatch(getFighters(true));
   }, [dispatch]);
@@ -136,6 +138,11 @@ const FighterStar = () => {
                   </Link>
                 </li>
               </ul>
+              <div className="nav-actions flex justify-content-end">
+                <button type="button" className="btn btn-danger" onClick={() => setPPVOpen(true)}>
+                  {intl.formatMessage({ id: 'button.ppv' })}
+                </button>
+              </div>
             </div>
           </nav>
         </React.Fragment>
@@ -380,6 +387,7 @@ const FighterStar = () => {
       >
         <BillingForm email={currentUser?.email} fighter={fighter?.id} />
       </ConfirmationModal>
+      <CommonModal title="asdf" isOpen={PPVOpen} setIsOpen={setPPVOpen} />
     </div>
   );
 };
