@@ -29,3 +29,7 @@ export const getSubscriptions = createThunk('GET_SUBSCRIPTIONS', async () => {
     throw parseError(data);
   }
 });
+
+export const setPPVRequest = createThunk('SET_PPV_REQUEST', async dream => {
+  return dream;
+});

@@ -24,6 +24,7 @@ import HowItWorks from './HowItWorks';
 import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
+import PPVForm from './PPVForm';
 
 import Subscribe from '../assets/subscribe.svg';
 import SubscribeRu from '../assets/subscribe_rus.svg';
@@ -60,6 +61,7 @@ const FighterStar = () => {
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
+  const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
   const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const currentUser = useSelector(state => state.session.user);
@@ -72,6 +74,14 @@ const FighterStar = () => {
       payedFighter.includes(fighter.id) && setVideos(true);
     }
   }, [payedFighter, fighter]);
+
+  const ppvClick = () => {
+    if (ppvRequest.length > 0) {
+      setModalIsOpen(true);
+    } else {
+      setPPVOpen(true);
+    }
+  };
 
   return (
     <div className="fighter-container">
@@ -139,7 +149,7 @@ const FighterStar = () => {
                 </li>
               </ul>
               <div className="nav-actions flex justify-content-end">
-                <button type="button" className="btn btn-danger" onClick={() => setPPVOpen(true)}>
+                <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
                   {intl.formatMessage({ id: 'button.ppv' })}
                 </button>
               </div>
@@ -387,7 +397,15 @@ const FighterStar = () => {
       >
         <BillingForm email={currentUser?.email} fighter={fighter?.id} />
       </ConfirmationModal>
-      <CommonModal title="asdf" isOpen={PPVOpen} setIsOpen={setPPVOpen} />
+      <CommonModal
+        title={intl.formatMessage({ id: 'ppv.title' })}
+        isOpen={PPVOpen}
+        setIsOpen={setPPVOpen}
+        customWidth="80%"
+        customHeight="80%"
+      >
+        <PPVForm onSubmit={setPPVOpen} nextStep={setModalIsOpen} />
+      </CommonModal>
     </div>
   );
 };

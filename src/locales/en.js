@@ -19,6 +19,7 @@ export default {
   // General
   'button.subscribe': 'SUBSCRIBE',
   'button.support': 'SUPPORT',
+  'button.continue': 'CONTINUE',
   'button.ppv': 'PERSONAL VIDEO REQUEST',
   'button.subscribed': 'SUBSCRIBED',
   'button.participate': 'JOIN TO PARTICIPATE',
@@ -47,6 +48,15 @@ export default {
   'form.lastName.placeholder': 'Last Name',
   'form.email': 'Email',
   'form.email.placeholder': 'email@example.com',
+
+  // PPV
+  'ppv.title': 'REQUEST YOUR PERSONAL VIDEO',
+  'ppv.description': 'Just tell us your dream, we make it happen, really simple!',
+  'ppv.receptor': 'Who you wanna send it',
+  'ppv.emailReceptor': 'Where to receive video',
+  'ppv.dream': 'Tell us your dream or video request',
+  'ppv.dontWorry':
+    'We will contact you trhough all the process and by any means, if you still want to know something else contact us at support@starfund.app',
 
   // Modals
   'modal.header.selectPassword': 'Select your password to finish your account',

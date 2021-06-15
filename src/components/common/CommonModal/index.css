@@ -1,3 +1,13 @@
+.change-name-modal__container {
+  border: solid 1px white;
+  border-bottom: solid 2px white;
+  height: fit-content;
+
+  .container {
+    height: fit-content;
+  }
+}
+
 .modal_title {
   background-color: #020612;
   border: none;
@@ -9,6 +19,10 @@
   color: white;
   height: 70px;
   padding: 20px;
+
+  @media(max-width: 272px) {
+    font-size: 20px !important;
+  }
 }
 
 .modal_datepicker {

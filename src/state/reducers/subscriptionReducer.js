@@ -1,10 +1,16 @@
 import { createReducer } from '@rootstrap/redux-tools';
-import { subscribe, updatePassword, getSubscriptions } from 'state/actions/subscriptionActions';
+import {
+  subscribe,
+  updatePassword,
+  getSubscriptions,
+  setPPVRequest
+} from 'state/actions/subscriptionActions';
 
 const initialState = {
   subscriptions: [],
   public: [],
   newUser: false,
+  ppvRequest: [],
   shouldUpdatePassword: false
 };
 
@@ -31,6 +37,9 @@ const actionHandlers = {
   [getSubscriptions.success]: (state, { payload }) => {
     state.subscriptions = payload.subscriptions;
     state.public = payload.publicContent;
+  },
+  [setPPVRequest.success]: (state, { payload }) => {
+    state.ppvRequest.push(payload);
   }
 };
 

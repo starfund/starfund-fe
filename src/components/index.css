@@ -1237,3 +1237,35 @@ h3 {
     input { width:  100% }
   }
 }
+
+.ppv-container {
+  background-color: #020612;
+
+  @media(max-width: 512px) {
+    h2 {
+      font-size: 16px !important;
+    }
+
+    p {
+      font-size: 12px !important;
+    }
+  }
+
+
+  label {
+    color: white;
+  }
+
+  input {
+    min-height: 5vh;
+    margin: 10px 0;
+    padding-left: 1.5vh;
+  }
+
+  .textarea {
+    margin: 10px 0;
+    min-height: 15vh;
+    padding-left: 1.5vh;
+    width: 100%;
+  }
+}

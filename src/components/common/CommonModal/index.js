@@ -7,10 +7,10 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 
 import './index.css';
 
-const CommonModal = ({ children, title, isOpen, setIsOpen }) => {
+const CommonModal = ({ children, title, isOpen, setIsOpen, customWidth, customHeight }) => {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const height = isMobile ? '100%' : '420';
-  const width = isMobile ? '100%' : '400px';
+  const height = isMobile ? '100%' : customHeight || '420';
+  const width = isMobile ? '100%' : customWidth || '400px';
   const styles = modalStyles(
     isMobile,
     height,

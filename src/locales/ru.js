@@ -19,6 +19,7 @@ export default {
   // General
   'button.subscribe': 'Подписаться',
   'button.support': 'Cлужба поддержки',
+  'button.continue': 'ПРОДОЛЖАТЬ',
   'button.subscribed': 'Подписался',
   'button.participate': 'ПРИСОЕДИНЯЙТЕСЬ К УЧАСТИЮ',
   'button.subscribeNow': 'Подписаться сейчас',
@@ -57,6 +58,16 @@ export default {
   'modal.footer.guaranteed': 'Безопасность данных гарантирована',
   'modal.footer.secured': 'Сайт защищен сертификатом безопасности(SSL)',
   'modal.footer.question': 'Есть вопросы?',
+
+  // PPV
+  'ppv.title': 'Запросите ваше личное видео',
+  'ppv.description':
+    'Просто расскажите нам о своей мечте, мы сделаем ее реальностью, очень просто!',
+  'ppv.receptor': 'Кому вы хотите его отправить?',
+  'ppv.emailReceptor': 'Где получать видео',
+  'ppv.dream': 'Расскажите нам свою мечту или видео-запрос',
+  'ppv.dontWorry':
+    'Мы свяжемся с вами в течение всего процесса и любыми способами, если вы все еще хотите узнать что-то еще, свяжитесь с нами по адресу support@starfund.app',
 
   // Header
   'header.watch': 'Смотреть',
