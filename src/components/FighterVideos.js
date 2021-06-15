@@ -68,6 +68,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             />
           </LazyLoadComponent>
           <div className="blank-line" />
+          <div className="container">
+            {diplayContent && (
+              <div className="col-12">
+                <h2>{diplayContent.title}</h2>
+              </div>
+            )}
+            <MessageSection content={diplayContent} messages={messages} />
+          </div>
         </div>
         <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
           {fighter.publicVideos &&
@@ -143,14 +151,6 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             fighter.privateVideos?.filter(c => !!c.video)?.length == 0 && (
               <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
-        </div>
-        <div className="row">
-          {diplayContent && (
-            <div className="col-12">
-              <h2>{diplayContent.title}</h2>
-            </div>
-          )}
-          <MessageSection content={diplayContent} messages={messages} />
         </div>
       </div>
     </div>
