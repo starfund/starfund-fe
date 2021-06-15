@@ -295,17 +295,6 @@ const FighterStar = () => {
                           {v.title} {' - '}
                           {v.description}
                         </p>
-                        <center>
-                          <button
-                            type="button"
-                            className="btn btn-danger btn-lg"
-                            onClick={() => setModalIsOpen(true)}
-                          >
-                            {intl.formatMessage({
-                              id: fighter.support ? 'button.support' : 'button.subscribe'
-                            })}
-                          </button>
-                        </center>
                         <p className="card-likes">{v.likes} Likes</p>
                       </div>
                     </div>
