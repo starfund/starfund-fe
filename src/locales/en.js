@@ -117,6 +117,7 @@ export default {
 
   // FIGHTER PAGE
   'fighter.discoverMore': 'Discover Other Athletes',
+  'fighter.likes': 'Likes',
   'fighter.howItWorks.title': 'How does it work?',
   'fighter.howItWorks.item1': 'Unlock exclusive posts',
   'fighter.howItWorks.item2': 'Be part of my journey',

@@ -117,6 +117,7 @@ export default {
 
   // FIGHTER PAGE
   'fighter.discoverMore': 'обнаружить Другие Атлеты',
+  'fighter.likes': 'Нравится',
   'fighter.howItWorks.title': 'Как это работает?',
   'fighter.howItWorks.item1': 'Разблокировать эксклюзивные посты',
   'fighter.howItWorks.item2': 'Будь частью моего пути',

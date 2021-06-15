@@ -125,6 +125,7 @@ export default {
 
   // FIGHTER PAGE
   'fighter.howItWorks.title': 'Como Funciona?',
+  'fighter.likes': 'Likes',
   'fighter.discoverMore': 'Descubre Otros Atletas',
   'fighter.howItWorks.item1': 'Desbloquea todo el contendio',
   'fighter.howItWorks.item2': 'Se parte de su viaje',

@@ -11,6 +11,7 @@ import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getFighters } from '../state/actions/fighterActions';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -292,10 +293,13 @@ const FighterStar = () => {
                       <div className="card-body">
                         <p className="card-title">{format(new Date(v.eventDate), 'LLL d, yyyy')}</p>
                         <p className="card-text">
-                          {v.title} {' - '}
-                          {v.description}
+                          {formatTitle(v, language)} {' - '}
+                          {formatDescription(v, language)}
                         </p>
-                        <p className="card-likes">{v.likes} Likes</p>
+                        <p className="card-likes">
+                          {v.likes}
+                          {intl.formatMessage({ id: 'fighter.likes' })}
+                        </p>
                       </div>
                     </div>
                   </div>
