@@ -53,6 +53,7 @@ export default {
   'modal.header.selectPassword': 'Выбрать свой пароль для окончания регистрации',
   'modal.header.explain':
     'Подпишись, чтобы стать эксклюзивным фанатом и наслаждайся видео и сюрпризами.',
+  'modal.header.ppv.explain': 'Почти готово, просто завершите оплату',
   'modal.header.support': 'Поддержите свою звезду, наслаждайтесь видеороликами и сюрпризами.',
   'modal.header.totalBilled': 'Oбщая сумма, выставленная сегодня: ',
   'modal.footer.guaranteed': 'Безопасность данных гарантирована',
@@ -99,6 +100,7 @@ export default {
   'billing.confirmPassword': 'Подтвердить пароль',
   'billing.confirmAccountPassword': 'Подтвердить',
   'billing.title': 'Ежемесячная подписка ',
+  'billing.ppv.title': 'ПЕРСОНАЛИЗИРОВАННОЕ ВИДЕО',
   'billing.email': 'Email',
   'billing.number': 'Номер',
   'billing.name': 'Имя на карте',

@@ -61,6 +61,7 @@ export default {
   // Modals
   'modal.header.selectPassword': 'Select your password to finish your account',
   'modal.header.explain': 'Subscribe to become an exclusive fan and enjoy videos and surprises.',
+  'modal.header.ppv.explain': 'Almost there, just finish your payment',
   'modal.header.support': 'Support your star, enjoy videos and surprises.',
   'modal.header.totalBilled': 'Total Billed Today: ',
   'modal.footer.guaranteed': 'GUARANTEED',
@@ -97,6 +98,7 @@ export default {
   'billing.confirmPassword': 'Confirm Password',
   'billing.confirmAccountPassword': 'Confirm',
   'billing.title': 'MONTHLY MEMBERSHIP',
+  'billing.ppv.title': 'PERSONALIZED VIDEO',
   'billing.email': 'Email',
   'billing.number': 'Number',
   'billing.name': 'Holder Name',

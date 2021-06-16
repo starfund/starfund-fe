@@ -42,6 +42,7 @@ const FighterStar = () => {
   const history = useHistory();
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
   const [videos, setVideos] = useState(false);
   const [PPVOpen, setPPVOpen] = useState(false);
   useEffect(() => {
@@ -77,7 +78,7 @@ const FighterStar = () => {
 
   const ppvClick = () => {
     if (ppvRequest.length > 0) {
-      setModalIsOpen(true);
+      setModalPPVIsOpen(true);
     } else {
       setPPVOpen(true);
     }
@@ -404,8 +405,20 @@ const FighterStar = () => {
         customWidth="80%"
         customHeight="80%"
       >
-        <PPVForm onSubmit={setPPVOpen} nextStep={setModalIsOpen} />
+        <PPVForm onSubmit={setPPVOpen} nextStep={setModalPPVIsOpen} />
       </CommonModal>
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.ppv.title' })}
+        explain={intl.formatMessage({ id: 'modal.header.ppv.explain' })}
+        isOpen={modalPPVIsOpen}
+        setIsOpen={setModalPPVIsOpen}
+        isDelete={false}
+        price={1000}
+        email={currentUser?.email}
+        fighter={fighter?.id}
+      >
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} />
+      </ConfirmationModal>
     </div>
   );
 };

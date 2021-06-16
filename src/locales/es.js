@@ -68,6 +68,7 @@ export default {
   // Modals
   'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
   'modal.header.explain': 'Subscribete para disfrutar los videos exclusivos y sorpresas.',
+  'modal.header.ppv.explain': 'Casi listo, solo confirma tu pago',
   'modal.header.support': 'Apoya a tu estrella, disfruta videos y sorpresas.',
   'modal.header.totalBilled': 'Total a cobrar hoy: ',
   'modal.footer.guaranteed': 'PAGO SEGURO',
@@ -104,6 +105,7 @@ export default {
   'billing.confirmPassword': 'Confirmar Contraseña',
   'billing.confirmAccountPassword': 'Confirmar',
   'billing.title': 'MEMBRESIA MENSUAL',
+  'billing.ppv.title': 'VIDEO PERSONALIZADO',
   'billing.email': 'Email',
   'billing.number': 'Numero',
   'billing.name': 'Nombre Completo',
