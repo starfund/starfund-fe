@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { useSession } from 'hooks';
 import ReactPlayer from 'react-player';
 
 import { useMediaQuery } from 'react-responsive';
@@ -20,7 +19,6 @@ import MessageSection from './MessageSection';
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
   const [diplayContent, setDisplayContent] = useState();
   const payedFighter = supporting.map(sub => sub.fighter.id);
@@ -29,10 +27,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   });
 
   useEffect(() => {
-    if (authenticated && diplayContent) {
+    if (diplayContent) {
       dispatch(getMessages(diplayContent));
     }
-  }, [authenticated, diplayContent, dispatch]);
+  }, [diplayContent, dispatch]);
 
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
@@ -43,7 +41,11 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const selectVideo = content => {
     setUrl(content.video);
     setDisplayContent(content);
-    window.scrollTo(0, 900);
+    if (payedFighter.includes(fighter.id)) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 900);
+    }
   };
 
   const language = useSelector(state => state.language.language);

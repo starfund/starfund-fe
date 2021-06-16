@@ -72,6 +72,16 @@ const MessageSection = ({ content, messages }) => {
           </div>
         </div>
       )}
+      {!authenticated && (
+        <React.Fragment>
+          <center>
+            <p>
+              <u>{intl.formatMessage({ id: 'comments.none' })}</u>
+            </p>
+          </center>
+          <br />
+        </React.Fragment>
+      )}
       {messages &&
         messages.map(m => (
           <div className="flex comment-thread">
@@ -90,7 +100,6 @@ const MessageSection = ({ content, messages }) => {
           onReceived={e => handleReceivedComment(e)}
         />
       )}
-      {!authenticated && <p> {intl.formatMessage({ id: 'comments.none' })}</p>}
     </div>
   );
 };
