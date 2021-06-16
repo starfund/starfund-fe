@@ -12,8 +12,8 @@ import ReactGA from 'react-ga';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getMessages } from '../state/actions/messageActions';
 
-import Subscribe from '../assets/subscribe.svg';
-import SubscribeRu from '../assets/subscribe_rus.svg';
+import Subscribe from '../assets/subscribe.png';
+import SubscribeRu from '../assets/subscribe_rus.png';
 
 // import MessageSection from './MessageSection';
 

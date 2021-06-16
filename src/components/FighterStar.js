@@ -24,8 +24,8 @@ import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 
-import Subscribe from '../assets/subscribe.svg';
-import SubscribeRu from '../assets/subscribe_rus.svg';
+import Subscribe from '../assets/subscribe.png';
+import SubscribeRu from '../assets/subscribe_rus.png';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
