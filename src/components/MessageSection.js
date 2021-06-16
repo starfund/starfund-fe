@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl } from 'react-intl';
 import { useSession } from 'hooks';
-import { ActionCableProvider, ActionCableConsumer } from 'react-actioncable-provider';
+import { ActionCableConsumer } from 'react-actioncable-provider';
 
 import Input from './common/Input';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -23,6 +23,7 @@ const MessageSection = ({ content, messages }) => {
 
   const handleReceivedComment = response => {
     const newContent = {
+      id: response.id,
       userId: response.userId,
       userName: response.userName,
       contentId: response.contentId,
@@ -84,12 +85,10 @@ const MessageSection = ({ content, messages }) => {
           </div>
         ))}
       {content && (
-        <ActionCableProvider url={`${process.env.API_WS_ROOT}?user=${currentUser?.id}`}>
-          <ActionCableConsumer
-            channel={{ channel: 'CommentChannel', content_id: content?.id }}
-            onReceived={handleReceivedComment}
-          />
-        </ActionCableProvider>
+        <ActionCableConsumer
+          channel={{ channel: 'CommentChannel', content_id: content?.id }}
+          onReceived={e => handleReceivedComment(e)}
+        />
       )}
       {!authenticated && <p> {intl.formatMessage({ id: 'comments.none' })}</p>}
     </div>
