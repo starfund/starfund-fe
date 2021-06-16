@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { useSession } from 'hooks';
 import ReactPlayer from 'react-player';
 
 import { useMediaQuery } from 'react-responsive';
@@ -12,26 +11,26 @@ import ReactGA from 'react-ga';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getMessages } from '../state/actions/messageActions';
 
-import Subscribe from '../assets/subscribe.svg';
-import SubscribeRu from '../assets/subscribe_rus.svg';
+import Subscribe from '../assets/subscribe.png';
+import SubscribeRu from '../assets/subscribe_rus.png';
 
-// import MessageSection from './MessageSection';
+import MessageSection from './MessageSection';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
+  const [diplayContent, setDisplayContent] = useState();
   const payedFighter = supporting.map(sub => sub.fighter.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
 
   useEffect(() => {
-    if (authenticated) {
-      dispatch(getMessages());
+    if (diplayContent) {
+      dispatch(getMessages(diplayContent));
     }
-  }, [authenticated, dispatch]);
+  }, [diplayContent, dispatch]);
 
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
@@ -39,13 +38,18 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     }
   };
 
-  const selectVideo = video => {
-    setUrl(video);
-    window.scrollTo(0, 900);
+  const selectVideo = content => {
+    setUrl(content.video);
+    setDisplayContent(content);
+    if (payedFighter.includes(fighter.id)) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 900);
+    }
   };
 
   const language = useSelector(state => state.language.language);
-  // const messages = useSelector(state => state.messages.comments);
+  const messages = useSelector(state => state.messages.messages.comments);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
@@ -66,6 +70,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             />
           </LazyLoadComponent>
           <div className="blank-line" />
+          <div className="container">
+            {diplayContent && (
+              <div className="col-12">
+                <h2>{diplayContent.title}</h2>
+              </div>
+            )}
+            <MessageSection content={diplayContent} messages={messages} />
+          </div>
         </div>
         <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
           {fighter.publicVideos &&
@@ -75,7 +87,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 <div
                   key={v.url}
                   className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v.video)}
+                  onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
@@ -98,7 +110,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 <div
                   key={v.url}
                   className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v.video)}
+                  onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
                     <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
@@ -116,8 +128,8 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           <div className={!isMobile && `blank-line`} />
           {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
             !payedFighter.includes(fighter.id) && (
-              <div className="center">
-                <div className="row flex">
+              <div className={`other-videos ${isMobile && 'center'}`}>
+                <div className="flex">
                   <h3 className="center">
                     <FormattedMessage
                       id="fighter.videos.subscribe"
@@ -142,7 +154,6 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
         </div>
-        <div className="row flex" />
       </div>
     </div>
   );
