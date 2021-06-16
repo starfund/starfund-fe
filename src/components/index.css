@@ -694,7 +694,7 @@ h3 {
 
 .blank-line {
   border: solid 1px grey;
-  margin: 20px 0;
+  margin: 20px 3% 20px 3%;
 }
 
 .small-blank-line {
@@ -989,6 +989,10 @@ h3 {
 }
 
 .fighter-videos {
+  .container {
+      margin-left: 2%;
+    }
+
   .player-wrapper {
     position: relative;
     padding-top: 20px
@@ -998,6 +1002,50 @@ h3 {
     @media(max-width: 765px) {
       margin: 20px auto;
     }
+  }
+
+  .other-videos {
+    margin-right: 3%;
+  }
+
+  .comment-input {
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px white;
+    width: 95%;
+    color: white;
+  }
+
+  .comment-input:focus {
+    outline: none;
+    color: white;
+  }
+
+  .comment-section {
+    img {
+      border-radius: 65px;
+      height: 30px;
+      object-fit: fill;
+      margin: 5px 10px 0 0;
+      width: 30px;
+    }
+  }
+
+  .comment-actions {
+    float: right;
+    margin-right: 5%;
+    margin-top: 5px;
+
+    button { margin-left: 10px}
+  }
+
+  .comment-thread {
+    p {
+      padding: 0 0 0 15px;
+    }
+
+    div { margin: 5px 0 15px 0;}
+
   }
 
   .react-player {
