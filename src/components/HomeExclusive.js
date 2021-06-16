@@ -72,7 +72,7 @@ const HomeExclusive = ({ fighter }) => {
         fighter={fighterId}
         email={currentUser?.email}
       >
-        <BillingForm email={currentUser?.email} fighter={fighterId} />
+        <BillingForm email={currentUser?.email} fighter={fighterId} type="subscription" />
       </ConfirmationModal>
     </div>
   );

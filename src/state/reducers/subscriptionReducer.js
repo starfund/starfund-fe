@@ -3,7 +3,8 @@ import {
   subscribe,
   updatePassword,
   getSubscriptions,
-  setPPVRequest
+  setPPVRequest,
+  charge
 } from 'state/actions/subscriptionActions';
 
 const initialState = {
@@ -40,6 +41,18 @@ const actionHandlers = {
   },
   [setPPVRequest.success]: (state, { payload }) => {
     state.ppvRequest.push(payload);
+  },
+  [charge.request]: state => {
+    state.newUser = true;
+  },
+  [charge.success]: (state, { payload }) => {
+    // See how to store used requested a video if exp is a winner
+    state.newUser = payload.newbie;
+    state.shouldUpdatePassword = payload.shouldUpdatePassword;
+  },
+  [charge.error]: state => {
+    state.newUser = false;
+    state.shouldUpdatePassword = false;
   }
 };
 

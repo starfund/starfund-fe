@@ -19,7 +19,7 @@ import { subscribe, updatePassword } from '../state/actions/subscriptionActions'
 
 import 'react-credit-cards/lib/styles.scss';
 
-const BillingForm = ({ stripe, elements, email, fighter }) => {
+const BillingForm = ({ stripe, elements, email, fighter, type }) => {
   ReactGA.modalview('/billing');
   const { status: subStatus, error } = useStatus(subscribe);
   const { status: updateStatus } = useStatus(updatePassword);
@@ -137,7 +137,7 @@ const BillingForm = ({ stripe, elements, email, fighter }) => {
                     </div>
                   )}
                   <Button
-                    onClick={() => onSubmit({ name, email: emailField, fighter })}
+                    onClick={() => onSubmit({ name, email: emailField, fighter, type })}
                     labelId="billing.createPaymentMethod"
                     type="submit"
                     className="btn btn-primary pay-button"

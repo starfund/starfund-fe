@@ -33,3 +33,12 @@ export const getSubscriptions = createThunk('GET_SUBSCRIPTIONS', async () => {
 export const setPPVRequest = createThunk('SET_PPV_REQUEST', async dream => {
   return dream;
 });
+
+export const charge = createThunk('CHARGE', async sub => {
+  try {
+    const { data } = await subscriptionService.charge(sub);
+    return data.charge;
+  } catch ({ response: data }) {
+    throw parseError(data);
+  }
+});

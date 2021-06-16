@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import humps from 'humps';
 import { useToast } from 'hooks';
 
-import { subscribe } from 'state/actions/subscriptionActions';
+import { subscribe, charge } from 'state/actions/subscriptionActions';
 import { getBilling } from 'state/actions/billingActions';
 
 export default stripe => {
@@ -12,7 +12,7 @@ export default stripe => {
   const { showErrorToast } = useToast();
 
   const createCreditCard = async billing => {
-    const { name, email, fighter } = billing;
+    const { name, email, fighter, type } = billing;
 
     setLoading(true);
 
@@ -36,7 +36,11 @@ export default stripe => {
         expMonth,
         expYear
       };
-      await dispatch(subscribe({ token: data.token, name, email, fighter, card_data: data }));
+      if (type === 'subscription') {
+        await dispatch(subscribe({ token: data.token, name, email, fighter, card_data: data }));
+      } else {
+        await dispatch(charge({ token: data.token, name, email, fighter, card_data: data }));
+      }
     }
 
     setLoading(false);

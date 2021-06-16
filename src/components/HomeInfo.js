@@ -131,7 +131,7 @@ const HomeInfo = () => {
         price={activeFighter?.subPrice}
         fighter={activeFighter?.id}
       >
-        <BillingForm fighter={activeFighter?.id} />
+        <BillingForm fighter={activeFighter?.id} type="subscription" />
       </ConfirmationModal>
     </div>
   );

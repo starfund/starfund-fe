@@ -151,7 +151,7 @@ const FighterLottery = () => {
         isDelete={false}
         price={subPrice}
       >
-        <BillingForm fighter={fighter} />
+        <BillingForm fighter={fighter} type="subscription" />
       </ConfirmationModal>
     </div>
   );

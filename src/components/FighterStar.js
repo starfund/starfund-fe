@@ -396,7 +396,7 @@ const FighterStar = () => {
         email={currentUser?.email}
         fighter={fighter?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={fighter?.id} />
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="subscription" />
       </ConfirmationModal>
       <CommonModal
         title={intl.formatMessage({ id: 'ppv.title' })}
@@ -417,7 +417,7 @@ const FighterStar = () => {
         email={currentUser?.email}
         fighter={fighter?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={fighter?.id} />
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="ppv" />
       </ConfirmationModal>
     </div>
   );

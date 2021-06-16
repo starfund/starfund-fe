@@ -5,6 +5,10 @@ class SubscriptionService {
     return httpClient.post('/subscriptions', sub);
   }
 
+  static charge(sub) {
+    return httpClient.post('/subscriptions/ppv', sub);
+  }
+
   static userSubs() {
     return httpClient.get('/subscriptions');
   }
