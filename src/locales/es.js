@@ -71,6 +71,7 @@ export default {
   'modal.header.ppv.explain': 'Casi listo, solo confirma tu pago',
   'modal.header.support': 'Apoya a tu estrella, disfruta videos y sorpresas.',
   'modal.header.totalBilled': 'Total a cobrar hoy: ',
+  'modal.header.processing': 'PROCESANDO SU PAGO',
   'modal.footer.guaranteed': 'PAGO SEGURO',
   'modal.footer.secured': 'ASEGURADO CON SSL',
   'modal.footer.question': 'Necesitas ayuda?',

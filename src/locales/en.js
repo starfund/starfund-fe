@@ -64,6 +64,7 @@ export default {
   'modal.header.ppv.explain': 'Almost there, just finish your payment',
   'modal.header.support': 'Support your star, enjoy videos and surprises.',
   'modal.header.totalBilled': 'Total Billed Today: ',
+  'modal.header.processing': 'PROCESSING YOUR PAYMENT',
   'modal.footer.guaranteed': 'GUARANTEED',
   'modal.footer.secured': 'SECURED WITH SSL',
   'modal.footer.question': 'Have any question?',

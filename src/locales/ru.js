@@ -56,6 +56,7 @@ export default {
   'modal.header.ppv.explain': 'Почти готово, просто завершите оплату',
   'modal.header.support': 'Поддержите свою звезду, наслаждайтесь видеороликами и сюрпризами.',
   'modal.header.totalBilled': 'Oбщая сумма, выставленная сегодня: ',
+  'modal.header.processing': 'ОБРАБОТКА ВАШЕГО ПЛАТЕЖА',
   'modal.footer.guaranteed': 'Безопасность данных гарантирована',
   'modal.footer.secured': 'Сайт защищен сертификатом безопасности(SSL)',
   'modal.footer.question': 'Есть вопросы?',

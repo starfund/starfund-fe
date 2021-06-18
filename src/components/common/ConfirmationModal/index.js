@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
-import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
+import { useStatus, SUCCESS, LOADING } from '@rootstrap/redux-tools';
 
 import { subscribe, updatePassword, charge } from 'state/actions/subscriptionActions';
 import { modalStyles } from './styles';
@@ -76,6 +76,11 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
     >
       <div className="confirmation_modal_container">
         <div className="confirm_modal_title">
+          {(subStatus === LOADING || chargeStatus === LOADING) && (
+            <React.Fragment>
+              <h2> {intl.formatMessage({ id: 'modal.header.processing' })} </h2>
+            </React.Fragment>
+          )}
           {newUser && shouldUpdatePassword && (
             <React.Fragment>
               <h2> {intl.formatMessage({ id: 'modal.header.selectPassword' })} </h2>
