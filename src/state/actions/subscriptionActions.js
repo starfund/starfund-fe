@@ -1,5 +1,6 @@
 import { createThunk } from '@rootstrap/redux-tools';
 import subscriptionService from 'services/subscriptionService';
+import transactionService from 'services/transactionService';
 import parseError from 'utils/parseError';
 import userService from '../../services/userService';
 
@@ -38,6 +39,15 @@ export const charge = createThunk('CHARGE', async sub => {
   try {
     const { data } = await subscriptionService.charge(sub);
     return data.charge;
+  } catch ({ response: data }) {
+    throw parseError(data);
+  }
+});
+
+export const requestDream = createThunk('REQUEST_DREAM', async dream => {
+  try {
+    const { data } = await transactionService.requestDream(dream);
+    return data;
   } catch ({ response: data }) {
     throw parseError(data);
   }

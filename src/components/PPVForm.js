@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useIntl } from 'react-intl';
+import ReactGA from 'react-ga';
 
 import { setPPVRequest } from 'state/actions/subscriptionActions';
 import Input from './common/Input';
@@ -11,6 +12,8 @@ const PPVForm = ({ onSubmit, nextStep }) => {
   const [receptor, setReceptor] = useState();
   const [emailReceptor, setReceptorEmail] = useState();
   const [dream, setDream] = useState();
+
+  ReactGA.modalview('/ppv');
 
   const sendDream = () => {
     const request = {

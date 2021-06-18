@@ -4,7 +4,8 @@ import {
   updatePassword,
   getSubscriptions,
   setPPVRequest,
-  charge
+  charge,
+  requestDream
 } from 'state/actions/subscriptionActions';
 
 const initialState = {
@@ -53,6 +54,9 @@ const actionHandlers = {
   [charge.error]: state => {
     state.newUser = false;
     state.shouldUpdatePassword = false;
+  },
+  [requestDream.success]: state => {
+    state.ppvRequest = [];
   }
 };
 

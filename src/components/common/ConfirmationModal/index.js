@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
 
-import { subscribe, updatePassword } from 'state/actions/subscriptionActions';
+import { subscribe, updatePassword, charge } from 'state/actions/subscriptionActions';
 import { modalStyles } from './styles';
 import { useMediaQuery } from '../../../utils/mediaHoc';
 
@@ -30,6 +30,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
   );
   const { status: subStatus } = useStatus(subscribe);
   const { status: updateStatus } = useStatus(updatePassword);
+  const { status: chargeStatus } = useStatus(charge);
   const authenticated = useSelector(state => state.session.authenticated);
 
   const subPrice = price ? `$${price / 100}` : '$5';
@@ -49,6 +50,11 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       setIsOpen(false);
       window.location.href = '/dashboard';
     }
+
+    if (chargeStatus === SUCCESS) {
+      dispatch(charge.reset());
+      setIsOpen(false);
+    }
   }, [
     authenticated,
     dispatch,
@@ -57,6 +63,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
     newUser,
     updateStatus,
     subStatus,
+    chargeStatus,
     history
   ]);
 

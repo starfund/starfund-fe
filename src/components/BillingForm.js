@@ -15,13 +15,19 @@ import { useStatus, LOADING, ERROR } from '@rootstrap/redux-tools';
 import Button from './common/Button';
 import Input from './common/Input';
 
-import { subscribe, updatePassword } from '../state/actions/subscriptionActions';
+import {
+  subscribe,
+  updatePassword,
+  requestDream,
+  charge
+} from '../state/actions/subscriptionActions';
 
 import 'react-credit-cards/lib/styles.scss';
 
 const BillingForm = ({ stripe, elements, email, fighter, type }) => {
-  ReactGA.modalview('/billing');
+  ReactGA.modalview(`/${type}`);
   const { status: subStatus, error } = useStatus(subscribe);
+  const { status: chargeStatus, error: chargeError } = useStatus(charge);
   const { status: updateStatus } = useStatus(updatePassword);
   const dispatch = useDispatch();
   const intl = useIntl();
@@ -39,14 +45,24 @@ const BillingForm = ({ stripe, elements, email, fighter, type }) => {
   const { createCreditCard: onSubmit } = usePayments(stripe, elements);
 
   const newUser = useSelector(state => state.subscriptions.newUser);
+  const dream = useSelector(state => state.subscriptions.ppvRequest);
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
+
+  const pay = () => {
+    if (type === 'ppv') {
+      dispatch(requestDream(dream));
+    }
+    onSubmit({ name, email: emailField, fighter, type });
+  };
 
   return (
     <div className="row no-gutters checkout-container">
       {subStatus === ERROR && <strong>{error}</strong>}
+      {chargeStatus === ERROR && <strong>{chargeError}</strong>}
       {(subStatus === LOADING || updateStatus === LOADING) && (
         <Loading className="align-self-center justify-content-center" />
       )}
+      {chargeStatus === LOADING && <Loading className="align-self-center justify-content-center" />}
       {newUser && shouldUpdatePassword && updateStatus !== LOADING && (
         <div className="col-12">
           <form className="newbie-form">
@@ -137,7 +153,7 @@ const BillingForm = ({ stripe, elements, email, fighter, type }) => {
                     </div>
                   )}
                   <Button
-                    onClick={() => onSubmit({ name, email: emailField, fighter, type })}
+                    onClick={() => pay()}
                     labelId="billing.createPaymentMethod"
                     type="submit"
                     className="btn btn-primary pay-button"
