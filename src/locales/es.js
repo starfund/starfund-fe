@@ -61,7 +61,7 @@ export default {
   'ppv.description': 'Solo cuentanos tu pedido, nosotros lo hacemos realidad, asi de simple!',
   'ppv.receptor': 'A quien deseas enviarle el video',
   'ppv.emailReceptor': 'Donde deseas recibir el video',
-  'ppv.dream': 'Cuentanos tu sueño o pedido',
+  'ppv.dream': 'Mis instrucciones para {fighter} son',
   'ppv.dontWorry':
     'Nosotros te contactaremos durante todo el proceso, si tienes alguna duda puedes contactarnos a support@starfund.app',
 

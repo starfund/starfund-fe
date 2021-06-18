@@ -405,7 +405,11 @@ const FighterStar = () => {
         customWidth="80%"
         customHeight="80%"
       >
-        <PPVForm onSubmit={setPPVOpen} nextStep={setModalPPVIsOpen} />
+        <PPVForm
+          onSubmit={setPPVOpen}
+          nextStep={setModalPPVIsOpen}
+          fighterName={`${fighter?.firstName} ${fighter?.lastName}`}
+        />
       </CommonModal>
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.ppv.title' })}

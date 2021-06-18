@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import ReactGA from 'react-ga';
 
 import { setPPVRequest } from 'state/actions/subscriptionActions';
 import Input from './common/Input';
 
-const PPVForm = ({ onSubmit, nextStep }) => {
+const PPVForm = ({ onSubmit, nextStep, fighterName }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const [receptor, setReceptor] = useState();
@@ -51,7 +51,9 @@ const PPVForm = ({ onSubmit, nextStep }) => {
         <br />
         <div className="col-12">
           <br />
-          <p>{intl.formatMessage({ id: 'ppv.dream' })}</p>
+          <p>
+            <FormattedMessage id="ppv.dream" values={{ fighter: fighterName }} />
+          </p>
           <textarea
             name="explanation"
             type="textarea"
