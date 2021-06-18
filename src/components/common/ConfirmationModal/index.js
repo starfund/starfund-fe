@@ -72,7 +72,11 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       isOpen={isOpen}
       style={styles}
       ariaHideApp={false}
-      onRequestClose={() => setIsOpen(false)}
+      onRequestClose={() => {
+        setIsOpen(false);
+        dispatch(subscribe.reset());
+        dispatch(charge.reset());
+      }}
     >
       <div className="confirmation_modal_container">
         <div className="confirm_modal_title">
@@ -103,7 +107,11 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
             type="button"
             aria-label="Close"
             className="modal_close close"
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              dispatch(subscribe.reset());
+              dispatch(charge.reset());
+            }}
           >
             <span aria-hidden="true">&times;</span>
           </button>
