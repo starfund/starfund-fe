@@ -17,8 +17,8 @@ import './index.css';
 const FighterLottery = () => {
   const intl = useIntl();
   const { authenticated } = useSession();
-  const fighter = 5;
-  const subPrice = 99;
+  const fighter = 6;
+  const subPrice = 199;
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const FighterLottery = () => {
               <h2>
                 <FormattedMessage
                   id={authenticated ? 'rewards.refer.date' : 'rewards.date'}
-                  values={{ date: format(new Date(2021, 5, 14), 'MMMM do yyyy') }}
+                  values={{ date: format(new Date(2021, 5, 27), 'MMMM do yyyy') }}
                 />
               </h2>
               <br />
