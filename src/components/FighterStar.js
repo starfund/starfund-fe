@@ -87,53 +87,55 @@ const FighterStar = () => {
   return (
     <div className="fighter-container">
       {!payedFighter.includes(fighter?.id) && (
-        <React.Fragment>
-          <div className="cover-container">
-            {fighter ? (
-              <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
-            ) : (
-              <SkeletonTheme color="#202020" highlightColor="#444">
-                <Skeleton height="90vh" />
-              </SkeletonTheme>
-            )}
-            {fighter && (
-              <div className="centered">
-                <br />
-                <br />
-                <p>
-                  {' '}
-                  {fighter.firstName} {fighter.lastName}{' '}
-                </p>
-                {authenticated &&
-                  supporting &&
-                  fighter &&
-                  !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
-                    <button
-                      type="button"
-                      className="btn btn-danger btn-lg"
-                      onClick={() => setModalIsOpen(true)}
-                    >
-                      {intl.formatMessage({
-                        id: fighter.support ? 'button.support' : 'button.subscribe'
-                      })}
-                    </button>
-                  )}
-                {!authenticated && (
+        <div className="cover-container">
+          {fighter ? (
+            <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
+          ) : (
+            <SkeletonTheme color="#202020" highlightColor="#444">
+              <Skeleton height="90vh" />
+            </SkeletonTheme>
+          )}
+          {fighter && (
+            <div className="centered">
+              <br />
+              <br />
+              <p>
+                {' '}
+                {fighter.firstName} {fighter.lastName}{' '}
+              </p>
+              {authenticated &&
+                supporting &&
+                fighter &&
+                !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {fighter.support
-                      ? intl.formatMessage({ id: 'button.support' })
-                      : intl.formatMessage({ id: 'button.subscribe' })}
+                    {intl.formatMessage({
+                      id: fighter.support ? 'button.support' : 'button.subscribe'
+                    })}
                   </button>
                 )}
-              </div>
-            )}
-          </div>
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="navbar-collapse" id="navbarText">
+              {!authenticated && (
+                <button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  onClick={() => setModalIsOpen(true)}
+                >
+                  {fighter.support
+                    ? intl.formatMessage({ id: 'button.support' })
+                    : intl.formatMessage({ id: 'button.subscribe' })}
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="navbar-collapse" id="navbarText">
+          {!payedFighter.includes(fighter?.id) && (
+            <React.Fragment>
               <ul className="navbar-nav mr-auto">
                 {fighter && payedFighter && !payedFighter.includes(fighter.id) && (
                   <li className={cn('nav-item', { active: !videos })}>
@@ -149,15 +151,15 @@ const FighterStar = () => {
                   </Link>
                 </li>
               </ul>
-              <div className="nav-actions flex justify-content-end">
-                <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
-                  {intl.formatMessage({ id: 'button.ppv' })}
-                </button>
-              </div>
-            </div>
-          </nav>
-        </React.Fragment>
-      )}
+            </React.Fragment>
+          )}
+          <div className="nav-actions flex justify-content-end">
+            <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
+              {intl.formatMessage({ id: 'button.ppv' })}
+            </button>
+          </div>
+        </div>
+      </nav>
       {!videos && (
         <div className="container">
           <div className="main-content row">
