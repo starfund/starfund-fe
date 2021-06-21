@@ -4,7 +4,7 @@ const routes = {
   signUp: '/sign-up',
   billing: '/billing',
   fighters: '/fighters',
-  fightersPpv: '/personal_videos',
+  fightersPpv: '/fighters/personal_videos',
   // shop: '/shop',
   about: '/about-us',
   watch: '/watch',

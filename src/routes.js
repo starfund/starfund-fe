@@ -42,14 +42,14 @@ const routes = [
     exact: false
   },
   {
-    path: routesPaths.fighters,
-    component: <FightersPage />,
-    private: false,
-    exact: false
-  },
-  {
     path: routesPaths.fightersPpv,
     component: <FightersPPVPage />,
+    private: false,
+    exact: true
+  },
+  {
+    path: routesPaths.fighters,
+    component: <FightersPage />,
     private: false,
     exact: false
   },

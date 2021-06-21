@@ -32,7 +32,7 @@ export default {
   commingSoon: 'Скоро на сайте',
   emailUs: 'Написать нам на почту',
   findFighter: 'Найти своего бойца',
-  ppvTitle: 'Заказать персональное сообщение бойца',
+  ppvTitle: 'Запросите личное видео для своего бойца',
 
   // errors
   'email.presence': 'Для продолжения введите email',
