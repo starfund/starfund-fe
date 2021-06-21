@@ -31,6 +31,7 @@ export default {
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
   findFighter: 'Find your fighter',
+  ppvTitle: 'Order personalized videos to your fighter',
 
   // errors
   'email.presence': 'You must enter an email to continue',

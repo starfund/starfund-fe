@@ -8,6 +8,7 @@ import NotFoundPage from 'pages/NotFoundPage';
 import BillingPage from 'pages/BillingPage';
 import FighterPage from 'pages/FighterPage';
 import FightersPage from 'pages/FightersPage';
+import FightersPPVPage from 'pages/FightersPPVPage';
 import AboutPage from 'pages/AboutPage';
 // import ShopPage from 'pages/ShopPage';
 import TermsPage from 'pages/TermsPage';
@@ -43,6 +44,12 @@ const routes = [
   {
     path: routesPaths.fighters,
     component: <FightersPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.fightersPpv,
+    component: <FightersPPVPage />,
     private: false,
     exact: false
   },
