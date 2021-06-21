@@ -22,7 +22,7 @@ export default {
   'button.continue': 'ПРОДОЛЖАТЬ',
   'button.subscribed': 'Подписался',
   'button.ppv': 'Заказать персональное видеосообщение',
-  'button.participate': 'ПРИСОЕДИНЯЙТЕСЬ К УЧАСТИЮ',
+  'button.participate': 'ОПЛАТИТЬ УЧАСТИЕ',
   'button.subscribeNow': 'Подписаться сейчас',
   'button.supportNow': 'ПОДДЕРЖКА СЕЙЧАС',
   'button.findAthlete': 'Найти своего фаворита',

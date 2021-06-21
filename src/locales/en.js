@@ -22,7 +22,7 @@ export default {
   'button.continue': 'CONTINUE',
   'button.ppv': 'PERSONAL VIDEO REQUEST',
   'button.subscribed': 'SUBSCRIBED',
-  'button.participate': 'JOIN TO PARTICIPATE',
+  'button.participate': 'PAY TO PARTICIPATE',
   'button.subscribeNow': 'SUBSCRIBE NOW',
   'button.supportNow': 'SUPPORT NOW',
   'button.findAthlete': 'FIND YOUR STAR ATHLETE',
