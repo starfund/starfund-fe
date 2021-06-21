@@ -50,6 +50,7 @@ export default {
   'form.email.placeholder': 'email@example.com',
 
   // PPV
+  'ppv.login': 'Please sign in first',
   'ppv.title': 'REQUEST YOUR PERSONAL VIDEO',
   'ppv.description': 'Just tell us your dream, we make it happen, really simple!',
   'ppv.receptor': 'Who you wanna send it',

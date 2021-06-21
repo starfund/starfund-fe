@@ -57,6 +57,7 @@ export default {
   'form.email.placeholder': 'email@example.com',
 
   // PPV
+  'ppv.login': 'Debes estar logueado primero',
   'ppv.title': 'Solicita tu video personal',
   'ppv.description': 'Solo cuentanos tu pedido, nosotros lo hacemos realidad, asi de simple!',
   'ppv.receptor': 'A quien deseas enviarle el video',

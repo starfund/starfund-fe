@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import ReactGA from 'react-ga';
+import $ from 'jquery';
 
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
@@ -77,10 +78,15 @@ const FighterStar = () => {
   }, [payedFighter, fighter]);
 
   const ppvClick = () => {
-    if (ppvRequest.length > 0) {
-      setModalPPVIsOpen(true);
+    if (authenticated) {
+      if (ppvRequest.length > 0) {
+        setModalPPVIsOpen(true);
+      } else {
+        setPPVOpen(true);
+      }
     } else {
-      setPPVOpen(true);
+      window.alert(intl.formatMessage({ id: 'ppv.login' }));
+      $('.navbar-text').click();
     }
   };
 

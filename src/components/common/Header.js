@@ -144,7 +144,7 @@ const Header = () => {
                       e.preventDefault();
                     }}
                   >
-                    {intl.formatMessage({ id: 'login.signup' })}
+                    <u>{intl.formatMessage({ id: 'login.signup' })}</u>
                   </a>
                 </p>
                 {!forgotPassword && (
@@ -170,7 +170,7 @@ const Header = () => {
                 <p>
                   {intl.formatMessage({ id: 'registration.haveAccount' })}
                   <a onClick={() => setSignIn(true)}>
-                    {intl.formatMessage({ id: 'signup.signin' })}
+                    <u>{intl.formatMessage({ id: 'signup.signin' })}</u>
                   </a>
                 </p>
                 <br />
