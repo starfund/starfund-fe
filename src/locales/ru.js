@@ -21,7 +21,7 @@ export default {
   'button.support': 'Cлужба поддержки',
   'button.continue': 'ПРОДОЛЖАТЬ',
   'button.subscribed': 'Подписался',
-  'button.ppv': 'Персональный видео запрос',
+  'button.ppv': 'Заказать персональное видеосообщение',
   'button.participate': 'ПРИСОЕДИНЯЙТЕСЬ К УЧАСТИЮ',
   'button.subscribeNow': 'Подписаться сейчас',
   'button.supportNow': 'ПОДДЕРЖКА СЕЙЧАС',
