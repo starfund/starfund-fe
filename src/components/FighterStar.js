@@ -159,7 +159,7 @@ const FighterStar = () => {
               </ul>
             </React.Fragment>
           )}
-          <div className="nav-actions flex justify-content-end">
+          <div className={`nav-actions flex ppv-button ${!isMobile && 'justify-content-end'}`}>
             <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
               {intl.formatMessage({ id: 'button.ppv' })}
             </button>
