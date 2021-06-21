@@ -51,6 +51,7 @@ export default {
 
   // PPV
   'ppv.login': 'Please sign in first',
+  'ppv.success': 'You will receive an email in the following hours',
   'ppv.title': 'REQUEST YOUR PERSONAL VIDEO',
   'ppv.description': 'Just tell us your dream, we make it happen, really simple!',
   'ppv.receptor': 'Who you wanna send it',

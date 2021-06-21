@@ -58,6 +58,7 @@ export default {
 
   // PPV
   'ppv.login': 'Debes estar logueado primero',
+  'ppv.success': 'Recibiras un mail en las proximas horas',
   'ppv.title': 'Solicita tu video personal',
   'ppv.description': 'Solo cuentanos tu pedido, nosotros lo hacemos realidad, asi de simple!',
   'ppv.receptor': 'A quien deseas enviarle el video',
