@@ -13,9 +13,9 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getFighters } from '../state/actions/fighterActions';
-
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
+import Auth from './common/Auth';
 import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
 import CommonModal from './common/CommonModal';
@@ -42,6 +42,7 @@ const FighterStar = () => {
   const history = useHistory();
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [authModal, setAuthModal] = useState(false);
   const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
   const [videos, setVideos] = useState(false);
   const [PPVOpen, setPPVOpen] = useState(false);
@@ -65,7 +66,7 @@ const FighterStar = () => {
   const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
   const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter.id);
-  const currentUser = useSelector(state => state.session.user);
+  const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -84,8 +85,7 @@ const FighterStar = () => {
         setPPVOpen(true);
       }
     } else {
-      window.alert(intl.formatMessage({ id: 'ppv.login' }));
-      $('.navbar-text').click();
+      setAuthModal(true);
     }
   };
 
@@ -430,6 +430,7 @@ const FighterStar = () => {
       >
         <BillingForm email={currentUser?.email} fighter={fighter?.id} type="ppv" />
       </ConfirmationModal>
+      <Auth modalIsOpen={authModal} setModalIsOpen={setAuthModal} />
     </div>
   );
 };
