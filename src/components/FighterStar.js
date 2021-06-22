@@ -78,6 +78,7 @@ const FighterStar = () => {
   }, [payedFighter, fighter]);
 
   const ppvClick = () => {
+    ReactGA.pageview('/ppvClick');
     if (authenticated) {
       if (ppvRequest.length > 0) {
         setModalPPVIsOpen(true);
