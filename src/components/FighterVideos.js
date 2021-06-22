@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, FormattedMessage } from 'react-intl';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/lazy';
 
 import { useMediaQuery } from 'react-responsive';
 import { formatDistance } from 'date-fns';
@@ -90,7 +90,12 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
-                    <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
+                    <ReactPlayer
+                      url={v.video}
+                      width={isMobile ? '100%' : '80%'}
+                      height="20vh"
+                      light={v.thumbnail}
+                    />
                   </LazyLoadComponent>
                   <div>
                     <h4> {formatTitle(v, language)} </h4>
@@ -113,7 +118,12 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   onClick={() => selectVideo(v)}
                 >
                   <LazyLoadComponent>
-                    <ReactPlayer url={v.video} width={isMobile ? '100%' : '80%'} height="200" />
+                    <ReactPlayer
+                      url={v.video}
+                      width={isMobile ? '100%' : '80%'}
+                      height="20vh"
+                      light={v.thumbnail}
+                    />
                   </LazyLoadComponent>
                   <div>
                     <h4> {formatTitle(v, language)} </h4>
