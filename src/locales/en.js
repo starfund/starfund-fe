@@ -31,6 +31,7 @@ export default {
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
   findFighter: 'Find your fighter',
+  findBusiness: 'Find your Fitness Center',
   ppvTitle: 'Request a personal video to your fighter',
 
   // errors

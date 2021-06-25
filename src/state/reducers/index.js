@@ -7,6 +7,7 @@ import { statusReducer } from '@rootstrap/redux-tools';
 import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
+import businesses from './businessReducer';
 import contents from './contentReducer';
 import messages from './messageReducer';
 import subscriptions from './subscriptionReducer';
@@ -32,6 +33,7 @@ const rootReducer = () =>
     statusReducer,
     payments,
     fighters,
+    businesses,
     contents,
     messages,
     subscriptions,

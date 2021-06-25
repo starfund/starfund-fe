@@ -32,6 +32,7 @@ export default {
   commingSoon: 'Скоро на сайте',
   emailUs: 'Написать нам на почту',
   findFighter: 'Найти своего бойца',
+  findBusiness: 'Найди свой фитнес-центр',
   ppvTitle: 'Заказать персональное видеосообщение',
 
   // errors
