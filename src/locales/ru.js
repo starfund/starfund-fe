@@ -91,6 +91,7 @@ export default {
   'header.who': 'Кто мы?',
   'header.social': 'Соц сети',
   'header.join': 'Присоединиться',
+  'header.programs': 'Программы',
 
   // Legal
   'legal.terms': ' Условия пользования ',

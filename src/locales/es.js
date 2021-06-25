@@ -95,6 +95,7 @@ export default {
   'header.who': 'Quienes somos',
   'header.social': 'Redes',
   'header.join': 'Se una estrella',
+  'header.programs': 'Programas',
 
   // Legal
   'legal.terms': ' Terminos de Servicio ',

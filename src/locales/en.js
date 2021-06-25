@@ -88,6 +88,7 @@ export default {
   'header.who': 'Who we are',
   'header.social': 'Social',
   'header.join': 'Join Us',
+  'header.programs': 'Programs',
 
   // Legal
   'legal.terms': ' Terms of Service ',
