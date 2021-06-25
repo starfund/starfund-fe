@@ -167,6 +167,8 @@ const BusinessStar = () => {
         </div>
       )}
       {videos && <p> Upcoming videos soon </p>}
+      {courses && <p> Upcoming courses details soon </p>}
+      <div className="blank-line" />
       <HomeFooter />
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}
