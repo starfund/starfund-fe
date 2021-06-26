@@ -128,7 +128,27 @@ const BusinessStar = () => {
         </div>
       </nav>
       {!videos && !courses && (
-        <div className="container">
+        <div className="container business-home">
+          <center>
+            <h1> {business?.slogan} </h1>
+          </center>
+          <div className="col-sm-10 video">
+            {business && (
+              <LazyLoadComponent>
+                <ReactPlayer
+                  title="preview"
+                  width="100%"
+                  height="50vh"
+                  url={business.officialPreview}
+                  controls
+                />
+              </LazyLoadComponent>
+            )}
+          </div>
+          <div className="blank-line" />
+          <center>
+            <h2> Know our Programs </h2>
+          </center>
           <div className="main-content row business-courses">
             {business &&
               business.courses.map(c => (
@@ -157,20 +177,11 @@ const BusinessStar = () => {
                   </div>
                 </div>
               ))}
-            <div className="col-sm-12 col-md-8">
-              {business && (
-                <LazyLoadComponent>
-                  <ReactPlayer
-                    title="preview"
-                    width="100%"
-                    height="80%"
-                    url={business.officialPreview}
-                    controls
-                  />
-                </LazyLoadComponent>
-              )}
-            </div>
           </div>
+          <div className="blank-line" />
+          <center>
+            <h2> Schedule </h2>
+          </center>
         </div>
       )}
       {videos && <p> Upcoming videos soon </p>}

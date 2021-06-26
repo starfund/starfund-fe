@@ -1345,6 +1345,13 @@ h3 {
   }
 }
 
+.business-home {
+  .video {
+    margin: auto;
+    margin-top: 20px;
+  }
+}
+
 .business-courses {
   p, h2 {
     color: black;
