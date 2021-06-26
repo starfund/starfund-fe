@@ -1344,3 +1344,18 @@ h3 {
     width: 100%;
   }
 }
+
+.business-courses {
+  p, h2 {
+    color: black;
+    font-weight: bold;
+  }
+
+  .list-group {
+    text-align: center;
+  }
+
+  img {
+    height: 300px;
+  }
+}

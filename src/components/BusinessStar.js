@@ -4,7 +4,7 @@ import cn from 'classnames';
 import ReactGA from 'react-ga';
 
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -44,9 +44,6 @@ const BusinessStar = () => {
   );
   const subscribed = subscriptions.filter(sub => sub.business?.id);
   const currentUser = useSelector(state => state.session.user?.user);
-  const isMobile = useMediaQuery({
-    query: '(max-width: 765px)'
-  });
 
   const setHeader = header => {
     switch (header) {
@@ -132,37 +129,47 @@ const BusinessStar = () => {
       </nav>
       {!videos && !courses && (
         <div className="container">
-          <div className="main-content row">
-            {isMobile && (
-              <div className="col-sm-12 col-md-8">
-                {business && (
-                  <LazyLoadComponent>
-                    <ReactPlayer
-                      title="preview"
-                      width="100%"
-                      height="80%"
-                      url={business.officialPreview}
-                      controls
-                    />
-                  </LazyLoadComponent>
-                )}
-              </div>
-            )}
-            {!isMobile && (
-              <div className="col-sm-12 col-md-8">
-                {business && (
-                  <LazyLoadComponent>
-                    <ReactPlayer
-                      title="preview"
-                      width="100%"
-                      height="90%"
-                      url={business.officialPreview}
-                      controls
-                    />
-                  </LazyLoadComponent>
-                )}
-              </div>
-            )}
+          <div className="main-content row business-courses">
+            {business &&
+              business.courses.map(c => (
+                <div className="col-4">
+                  <div className="card" style={{ width: '18rem' }}>
+                    <img className="card-img-top" src={c.cover} alt="asdf" />
+                    <div className="card-body">
+                      <h2 className="card-title">{c.name.toUpperCase()}</h2>
+                      <p className="card-text">
+                        <center>{c.courseGoal}</center>
+                      </p>
+                    </div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        <b>Level:</b> {c.level}
+                      </li>
+                    </ul>
+                    <div className="card-body">
+                      <a href="#" className="card-link">
+                        Contact
+                      </a>
+                      <a href="#" className="card-link">
+                        See More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            <div className="col-sm-12 col-md-8">
+              {business && (
+                <LazyLoadComponent>
+                  <ReactPlayer
+                    title="preview"
+                    width="100%"
+                    height="80%"
+                    url={business.officialPreview}
+                    controls
+                  />
+                </LazyLoadComponent>
+              )}
+            </div>
           </div>
         </div>
       )}
