@@ -77,7 +77,7 @@ const BusinessStar = () => {
           <div className="centered">
             <br />
             <br />
-            <p>{business.name}</p>
+            <p className="business-name">{business.name}</p>
             {authenticated &&
               subscribed.length === 0 &&
               business &&

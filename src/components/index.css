@@ -545,7 +545,7 @@ h3 {
 
   .centered {
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
     font-size: 60px;
     font-weight: bold;
@@ -1338,6 +1338,12 @@ h3 {
   }
 }
 
+.business-name {
+  background-color: #020612;
+  width: 118vh;
+  border-radius: 55px;
+}
+
 .business-home {
   .video {
     margin: auto;
@@ -1374,6 +1380,19 @@ h3 {
     @media (max-width: 512px) {
       margin: auto;
       margin-bottom: 20px;
+    }
+  }
+}
+
+.schedule {
+  thead {
+    tr th {
+      text-align: center;
+    }
+  }
+  tbody {
+    tr td {
+      text-align: center;
     }
   }
 }
