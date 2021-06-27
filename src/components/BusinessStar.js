@@ -16,6 +16,7 @@ import { getSubscriptions } from '../state/actions/subscriptionActions';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import HomeFooter from './HomeFooter';
+import Schedule from './common/Schedule';
 
 const BusinessStar = () => {
   const { id } = useParams();
@@ -66,10 +67,10 @@ const BusinessStar = () => {
     <div className="fighter-container">
       <div className="cover-container">
         {business ? (
-          <LazyLoadImage className="fighter-cover" src={business.coverPhoto} alt="Cover" />
+          <LazyLoadImage className="business-cover" src={business.coverPhoto} alt="Cover" />
         ) : (
           <SkeletonTheme color="#202020" highlightColor="#444">
-            <Skeleton height="90vh" />
+            <Skeleton height="40vh" />
           </SkeletonTheme>
         )}
         {business && (
@@ -138,7 +139,7 @@ const BusinessStar = () => {
                 <ReactPlayer
                   title="preview"
                   width="100%"
-                  height="60vh"
+                  height="50vh"
                   url={business.officialPreview}
                   controls
                 />
@@ -180,7 +181,7 @@ const BusinessStar = () => {
           </div>
           <div className="blank-line" />
           <center>
-            <h2> Schedule </h2>
+            <Schedule title="Schedule" />
           </center>
         </div>
       )}
