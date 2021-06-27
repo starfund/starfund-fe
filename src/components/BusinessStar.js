@@ -138,7 +138,7 @@ const BusinessStar = () => {
                 <ReactPlayer
                   title="preview"
                   width="100%"
-                  height="50vh"
+                  height="60vh"
                   url={business.officialPreview}
                   controls
                 />
@@ -149,11 +149,11 @@ const BusinessStar = () => {
           <center>
             <h2> Know our Programs </h2>
           </center>
-          <div className="main-content row business-courses">
+          <div className="main-content row business-courses offset-md-1 offset-lg-0 offset-xl-1">
             {business &&
               business.courses.map(c => (
-                <div className="col-4">
-                  <div className="card" style={{ width: '18rem' }}>
+                <div className="card-container col-12 col-sm-6 col-md-5 col-lg-4">
+                  <div className="card" style={{ width: '100%' }}>
                     <img className="card-img-top" src={c.cover} alt="asdf" />
                     <div className="card-body">
                       <h2 className="card-title">{c.name.toUpperCase()}</h2>

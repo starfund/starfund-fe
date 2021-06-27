@@ -1365,4 +1365,22 @@ h3 {
   img {
     height: 300px;
   }
+
+  @media (max-width: 512px) {
+    .main-content {
+      margin: auto;
+    }    
+  }
+
+  .card-container {
+    @media (max-width: 768px) {
+      margin-left: 30px;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 512px) {
+      margin: auto;
+      margin-bottom: 20px;
+    }
+  }
 }
