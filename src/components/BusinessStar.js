@@ -150,7 +150,7 @@ const BusinessStar = () => {
           <center>
             <h2> Know our Programs </h2>
           </center>
-          <div className="main-content row business-courses offset-md-1 offset-lg-0 offset-xl-1">
+          <div className="main-content row business-courses offset-md-1 offset-lg-0">
             {business &&
               business.courses.map(c => (
                 <div className="card-container col-12 col-sm-6 col-md-5 col-lg-4">
