@@ -425,7 +425,7 @@ const FighterStar = () => {
         isOpen={modalPPVIsOpen}
         setIsOpen={setModalPPVIsOpen}
         isDelete={false}
-        price={1000}
+        price={500}
         email={currentUser?.email}
         fighter={fighter?.id}
       >
