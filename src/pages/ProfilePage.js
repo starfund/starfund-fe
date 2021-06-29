@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import { getReport } from '../state/actions/fighterActions';
 import { update } from '../state/actions/userActions';
 
 import Input from '../components/common/Input';
@@ -15,12 +16,20 @@ const ProfilePage = () => {
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
+
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
   const [phone, setPhone] = useState(currentUser?.phone);
   const [birthdate, setBirthdate] = useState(currentUser.birthdate);
+
+  useEffect(() => {
+    if (currentUser.isFighter) {
+      dispatch(getReport());
+    }
+  }, [currentUser.isFighter, dispatch]);
+  const report = useSelector(state => state.fighters.report);
 
   return (
     <div className="profile-container">
@@ -30,19 +39,19 @@ const ProfilePage = () => {
             <div className="dashboard row col-12">
               <div className="col-4">
                 <h2>{intl.formatMessage({ id: 'dashboard.pageVisits' })}</h2>
-                <h4> 80 </h4>
+                <h4> {report.pageVisits} </h4>
               </div>
               <div className="col-4">
                 <h2>{intl.formatMessage({ id: 'dashboard.newSubs' })}</h2>
-                <h4> 80 </h4>
+                <h4> {report.subscriptors} </h4>
               </div>
               <div className="col-4">
                 <h2>{intl.formatMessage({ id: 'dashboard.percentageVisitsPerSub' })}</h2>
-                <h4> 80 </h4>
+                <h4> {report.subscribersPerVisitors} </h4>
               </div>
               <div className="col-4">
                 <h2>{intl.formatMessage({ id: 'dashboard.income' })}</h2>
-                <h4> 80 </h4>
+                <h4> {report.monthlyIncome} </h4>
               </div>
             </div>
           )}
