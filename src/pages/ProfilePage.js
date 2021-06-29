@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -11,6 +11,7 @@ import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
@@ -25,6 +26,29 @@ const ProfilePage = () => {
     <div className="profile-container">
       <div className="container">
         <div className="row">
+          {currentUser && currentUser.isFighter && (
+            <div className="dashboard row col-12">
+              <div className="col-4">
+                <h2>{intl.formatMessage({ id: 'dashboard.pageVisits' })}</h2>
+                <h4> 80 </h4>
+              </div>
+              <div className="col-4">
+                <h2>{intl.formatMessage({ id: 'dashboard.newSubs' })}</h2>
+                <h4> 80 </h4>
+              </div>
+              <div className="col-4">
+                <h2>{intl.formatMessage({ id: 'dashboard.percentageVisitsPerSub' })}</h2>
+                <h4> 80 </h4>
+              </div>
+              <div className="col-4">
+                <h2>{intl.formatMessage({ id: 'dashboard.income' })}</h2>
+                <h4> 80 </h4>
+              </div>
+            </div>
+          )}
+          <div className="col-12">
+            <div className="blank-line" />
+          </div>
           <div className="col-sm-3 col-lg-4 user-container">
             <div className="user-avatar">
               <div className="info">

@@ -88,6 +88,12 @@ export default {
   'header.social': 'Social',
   'header.join': 'Join Us',
 
+  // Dashboard
+  'dashboard.pageVisits': 'Page Visits',
+  'dashboard.newSubs': 'New Subscribers',
+  'dashboard.percentageVisitsPerSub': '% Visitors per Subscriptors',
+  'dashboard.income': 'Monthly Income',
+
   // Legal
   'legal.terms': ' Terms of Service ',
   'legal.conditions': ' Terms & Conditions ',

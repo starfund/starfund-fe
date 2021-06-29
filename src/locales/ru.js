@@ -91,6 +91,12 @@ export default {
   'header.social': 'Соц сети',
   'header.join': 'Присоединиться',
 
+  // Dashboard
+  'dashboard.pageVisits': 'Посещения страницы',
+  'dashboard.newSubs': 'Новые подписчики',
+  'dashboard.percentageVisitsPerSub': '% посетителей на подписчиков',
+  'dashboard.income': 'Ежемесячный доход',
+
   // Legal
   'legal.terms': ' Условия пользования ',
   'legal.conditions': ' Условия и положения ',

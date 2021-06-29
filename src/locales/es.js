@@ -95,6 +95,12 @@ export default {
   'header.social': 'Redes',
   'header.join': 'Se una estrella',
 
+  // Dashboard
+  'dashboard.pageVisits': 'Visitas a la pagina',
+  'dashboard.newSubs': 'Subscriptores Nuevos',
+  'dashboard.percentageVisitsPerSub': '% Visitantes por Subscriptores',
+  'dashboard.income': 'Ingreso Mensual',
+
   // Legal
   'legal.terms': ' Terminos de Servicio ',
   'legal.conditions': ' Terminos & Condiciones ',

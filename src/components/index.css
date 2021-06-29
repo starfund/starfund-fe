@@ -954,6 +954,23 @@ h3 {
   border-bottom: solid 2px grey;
   padding: 50px;
 
+  .dashboard {
+    div {
+      border: solid 1px white;
+      padding: 10px 0;
+    }
+
+    h2 {
+      font-size: 24px !important;
+    }
+
+    h4 {
+      font-size: 48px;
+      color: darkred;
+      text-align: center;
+      text-shadow: 2px 1px darkblue;
+    }
+  }
 
   .info {
     img {
