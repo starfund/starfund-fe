@@ -77,25 +77,29 @@ const ProfilePage = () => {
                 )}
               </div>
               <div className="blank-line" />
-              <h3> SUPPORTING </h3>
-              <div className="blank-line" />
-              {supporting?.length > 0 &&
-                supporting.map(s => (
-                  <div key={s.id} className="fighter-sub flex">
-                    <img src={s.fighterPicture} alt="sub" />
-                    <p>
-                      {' '}
-                      {s.fighter.firstName} {s.fighter.lastName}{' '}
-                    </p>
-                  </div>
-                ))}
-              {supporting.length == 0 && (
+              {!currentUser.isFighter && (
                 <React.Fragment>
-                  <p> You are not subscribed to any athletes yet. </p>
-                  <br />
-                  <Link type="button" className="btn btn-lg link-button" to="/fighters">
-                    FIND ATHLETES YOU LOVE{' '}
-                  </Link>
+                  <h3> SUPPORTING </h3>
+                  <div className="blank-line" />
+                  {supporting?.length > 0 &&
+                    supporting.map(s => (
+                      <div key={s.id} className="fighter-sub flex">
+                        <img src={s.fighterPicture} alt="sub" />
+                        <p>
+                          {' '}
+                          {s.fighter.firstName} {s.fighter.lastName}{' '}
+                        </p>
+                      </div>
+                    ))}
+                  {supporting.length == 0 && (
+                    <React.Fragment>
+                      <p> You are not subscribed to any athletes yet. </p>
+                      <br />
+                      <Link type="button" className="btn btn-lg link-button" to="/fighters">
+                        FIND ATHLETES YOU LOVE{' '}
+                      </Link>
+                    </React.Fragment>
+                  )}
                 </React.Fragment>
               )}
             </div>
