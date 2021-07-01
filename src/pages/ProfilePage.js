@@ -1,64 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
-import { getReport } from '../state/actions/fighterActions';
-import { update } from '../state/actions/userActions';
-
-import Input from '../components/common/Input';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
+
+import FighterDashboard from '../components/reports/FighterDashboard';
+import UserInfoForm from '../components/user/UserInfoForm';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
-  const intl = useIntl();
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
 
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
-  const [firstName, setFirstName] = useState(currentUser.firstName);
-  const [lastName, setLastName] = useState(currentUser.lastName);
-  const [phone, setPhone] = useState(currentUser?.phone);
-  const [birthdate, setBirthdate] = useState(currentUser.birthdate);
-
-  useEffect(() => {
-    if (currentUser.isFighter) {
-      dispatch(getReport());
-    }
-  }, [currentUser.isFighter, dispatch]);
-  const report = useSelector(state => state.fighters.report);
 
   return (
     <div className="profile-container">
       <div className="container">
         <div className="row">
-          {currentUser && currentUser.isFighter && (
-            <div className="dashboard row col-12">
-              <div className="col-4">
-                <h2>{intl.formatMessage({ id: 'dashboard.pageVisits' })}</h2>
-                <h4> {report.pageVisits} </h4>
-              </div>
-              <div className="col-4">
-                <h2>{intl.formatMessage({ id: 'dashboard.newSubs' })}</h2>
-                <h4> {report.subscriptors} </h4>
-              </div>
-              <div className="col-4">
-                <h2>{intl.formatMessage({ id: 'dashboard.percentageVisitsPerSub' })}</h2>
-                <h4> {report.subscribersPerVisitors} </h4>
-              </div>
-              <div className="col-4">
-                <h2>{intl.formatMessage({ id: 'dashboard.income' })}</h2>
-                <h4> {report.monthlyIncome} </h4>
-              </div>
-            </div>
-          )}
-          <div className="col-12">
-            <div className="blank-line" />
-          </div>
-          <div className="col-sm-3 col-lg-4 user-container">
+          <div className="col-12 col-sm-4 user-container">
             <div className="user-avatar">
               <div className="info">
                 {currentUser && (
@@ -75,6 +38,7 @@ const ProfilePage = () => {
                     </p>
                   </React.Fragment>
                 )}
+                {currentUser.isFighter && <UserInfoForm currentUser={currentUser} />}
               </div>
               <div className="blank-line" />
               {!currentUser.isFighter && (
@@ -104,43 +68,9 @@ const ProfilePage = () => {
               )}
             </div>
             <div className="credit-card-info" />
+            {!currentUser.isFighter && <UserInfoForm currentUser={currentUser} />}
           </div>
-          <div className="col-sm-4 col-lg-4 offset-sm-1">
-            <h2> YOUR INFORMATION </h2>
-            <Input
-              name="firstName"
-              placeholder="First Name"
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-            />
-            <Input
-              name="lastName"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={e => setLastName(e.target.value)}
-            />
-            <Input
-              name="phone"
-              placeholder="Phone Number"
-              value={phone}
-              onChange={e => setPhone(e.target.value)}
-            />
-            <Input
-              name="birthdate"
-              placeholder="Birthdate"
-              value={birthdate}
-              type="date"
-              onChange={e => setBirthdate(e.target.value)}
-            />
-            <button
-              type="button"
-              className="link-button update-btn"
-              onClick={() => dispatch(update({ firstName, lastName, birthdate }))}
-            >
-              UPDATE
-            </button>
-          </div>
-          <div className="col-sm-3 col-lg-3" />
+          {currentUser && currentUser.isFighter && <FighterDashboard currentUser={currentUser} />}
         </div>
         <div className="col-sm-4">
           <div className="cc-info" />

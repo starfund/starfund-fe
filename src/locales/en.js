@@ -89,6 +89,7 @@ export default {
   'header.join': 'Join Us',
 
   // Dashboard
+  'dashboard.title': 'Weekly Report',
   'dashboard.pageVisits': 'Page Visits',
   'dashboard.newSubs': 'New Subscribers',
   'dashboard.percentageVisitsPerSub': '% Visitors per Subscriptors',
