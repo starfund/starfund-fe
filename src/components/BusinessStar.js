@@ -18,6 +18,7 @@ import BillingForm from './BillingForm';
 import HomeFooter from './HomeFooter';
 import Schedule from './common/Schedule';
 import BusinessHome from './business/BusinessHome';
+import BusinessVideos from './business/BusinessVideos';
 import BusinessPrograms from './business/BusinessPrograms';
 
 const BusinessStar = () => {
@@ -159,7 +160,7 @@ const BusinessStar = () => {
           </center>
         </div>
       )}
-      {videos && <p> Upcoming videos soon </p>}
+      {videos && business && <BusinessVideos business={business} />}
       {courses && business && <BusinessPrograms business={business} />}
       <div className="blank-line" />
       <HomeFooter />
