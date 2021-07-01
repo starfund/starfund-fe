@@ -194,5 +194,8 @@ export default {
   'rewards.refer.title': 'Вы уже участвуете в розыгрыше! Дождитесь результатов лотереи.',
   'rewards.refer.date': 'Победителей объявим 27-ого июня.',
   'rewards.refer.explain': 'Не пропустите результатов розыгрыша.',
-  'rewards.refer.result': 'Подпишитесь на наши страницы в соц. сетях'
+  'rewards.refer.result': 'Подпишитесь на наши страницы в соц. сетях',
+
+  // BUSINESSES
+  'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ'
 };

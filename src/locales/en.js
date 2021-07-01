@@ -197,5 +197,8 @@ export default {
   'rewards.refer.date': 'The winners will be announced on {date}',
   'rewards.refer.explain': 'Please wait for the results of the lottery',
   'rewards.refer.result':
-    'Don’t miss the results of the lottery. Subscribe to our social media pages'
+    'Don’t miss the results of the lottery. Subscribe to our social media pages',
+
+  // BUSINESSES
+  'business.programs.title': 'KNOW OUR PROGRAMS'
 };

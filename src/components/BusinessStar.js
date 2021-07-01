@@ -17,6 +17,7 @@ import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import HomeFooter from './HomeFooter';
 import Schedule from './common/Schedule';
+import BusinessPrograms from './business/BusinessPrograms';
 
 const BusinessStar = () => {
   const { id } = useParams();
@@ -186,14 +187,7 @@ const BusinessStar = () => {
         </div>
       )}
       {videos && <p> Upcoming videos soon </p>}
-      {courses && (
-        <React.Fragment>
-          <center>
-            <h2> Know our courses </h2>
-          </center>
-          {business && business.courses.map(() => <div className="row" />)}
-        </React.Fragment>
-      )}
+      {courses && business && <BusinessPrograms business={business} />}
       <div className="blank-line" />
       <HomeFooter />
       <ConfirmationModal

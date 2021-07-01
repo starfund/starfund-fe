@@ -205,5 +205,8 @@ export default {
   'rewards.refer.title': 'Ya estas participando al estar subscripto! Solo espera los resultados',
   'rewards.refer.date': 'Los ganadores seran anunciados el {date}',
   'rewards.refer.explain': 'Por favor espera los resultados',
-  'rewards.refer.result': 'No te pierdas estos resultados. Subscribete a nuestras redes sociales'
+  'rewards.refer.result': 'No te pierdas estos resultados. Subscribete a nuestras redes sociales',
+
+  // BUSINESSES
+  'business.programs.title': 'CONOCE NUESTROS PLANES'
 };

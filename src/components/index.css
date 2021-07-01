@@ -1396,3 +1396,12 @@ h3 {
     }
   }
 }
+
+.business-program-container {
+  h2 { margin: 20px 0 }
+  img {
+    margin: 0 5vw;
+    height: 40vw;
+    width: 33vw;
+  }
+}
