@@ -95,7 +95,7 @@ export default {
   'dashboard.pageVisits': 'Посещения страницы',
   'dashboard.newSubs': 'Новые подписчики',
   'dashboard.percentageVisitsPerSub': '% посетителей на подписчиков',
-  'dashboard.income': 'Ежемесячный доход',
+  'dashboard.income': 'Еженедельный доход',
 
   // Legal
   'legal.terms': ' Условия пользования ',

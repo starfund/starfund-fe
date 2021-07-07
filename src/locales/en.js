@@ -93,7 +93,7 @@ export default {
   'dashboard.pageVisits': 'Page Visits',
   'dashboard.newSubs': 'New Subscribers',
   'dashboard.percentageVisitsPerSub': '% Visitors per Subscriptors',
-  'dashboard.income': 'Monthly Income',
+  'dashboard.income': 'Weekly Income',
 
   // Legal
   'legal.terms': ' Terms of Service ',

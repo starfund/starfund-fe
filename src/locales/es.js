@@ -99,7 +99,7 @@ export default {
   'dashboard.pageVisits': 'Visitas a la pagina',
   'dashboard.newSubs': 'Subscriptores Nuevos',
   'dashboard.percentageVisitsPerSub': '% Visitantes por Subscriptores',
-  'dashboard.income': 'Ingreso Mensual',
+  'dashboard.income': 'Ingreso Semanal',
 
   // Legal
   'legal.terms': ' Terminos de Servicio ',
