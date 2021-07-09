@@ -164,7 +164,7 @@ export default {
   'home.paralax.title': 'Changing the way we connect you with your ATHLETE',
   'home.paralax.subTitle':
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your athlete.',
-  'home.paralax.subscribe': 'SUPPORT ATHLETES',
+  'home.paralax.subscribe': 'SUBSCRIBE TO ATHLETES',
 
   'user.home.supporting': 'FOLLOWING',
   'user.home.supporting.nothing': 'You are not subscribed to any athletes yet.',
