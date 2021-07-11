@@ -19,11 +19,17 @@ const Header = () => {
 
   const intl = useIntl();
 
+  const goHome = () => {
+    if (window.location.href.indexOf('starfund-stage') === -1) {
+      history.push('/');
+    }
+  };
+
   return (
     <React.Fragment>
       <header className="custom-header">
         <nav className="navbar navbar-expand-lg navbar-dark">
-          <div className="main-logo" onClick={() => history.push('/')}>
+          <div className="main-logo" onClick={() => goHome()}>
             <img src={LogoWhite} alt="logo" />
           </div>
           <button
