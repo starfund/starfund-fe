@@ -17,22 +17,21 @@ const FighterDashboard = ({ currentUser }) => {
 
   return (
     <div className="dashboard row col-12 col-sm-7 offset-sm-1">
-      <h2 className="col-12"> {intl.formatMessage({ id: 'dashboard.title' })} </h2>
       <div className="col-12 col-sm-5">
-        <h3>{intl.formatMessage({ id: 'dashboard.pageVisits' })}</h3>
+        <h3>{intl.formatMessage({ id: 'dashboard.pageVisits' })}:</h3>
         <h4> {report.pageVisits} </h4>
       </div>
       <div className="col-12 col-sm-5">
-        <h3>{intl.formatMessage({ id: 'dashboard.newSubs' })}</h3>
+        <h3>{intl.formatMessage({ id: 'dashboard.newSubs' })}:</h3>
         <h4> {report.subscriptors} </h4>
       </div>
       <div className="col-12 col-sm-5">
-        <h3>{intl.formatMessage({ id: 'dashboard.percentageVisitsPerSub' })}</h3>
-        <h4> {report.subscribersPerVisitors} </h4>
+        <h3>{intl.formatMessage({ id: 'dashboard.percentageVisitsPerSub' })}:</h3>
+        <h4> {report.subscribersPerVisitors}%</h4>
       </div>
       <div className="col-12 col-sm-5">
-        <h3>{intl.formatMessage({ id: 'dashboard.income' })}</h3>
-        <h4> {report.monthlyIncome} </h4>
+        <h3>{intl.formatMessage({ id: 'dashboard.income' })}:</h3>
+        <h4> ${report.monthlyIncome} </h4>
       </div>
     </div>
   );

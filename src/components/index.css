@@ -956,9 +956,6 @@ h3 {
 
   .dashboard {
     div {
-      background-color: white;
-      border: solid 1px white;
-      border-radius: 20px;
       padding: 10px 0;
       height: 20vw;
       margin-left: 20px;
@@ -966,10 +963,7 @@ h3 {
 
       @media (max-width: 576px) {
         margin-left: 10px;
-      }
-
-      @media (min-width: 576px) {
-        margin-top: -150px;
+        margin-bottom: 55px;
       }
     }
 
@@ -986,27 +980,26 @@ h3 {
     }
 
     h3 {
-      border-bottom: solid 1px;
-      color: black;
-      font-size: 1.4vw !important;
+      color: white;
+      font-size: 3vw !important;
       padding-bottom: 5px;
       text-align: center;
       text-decoration: none;
 
       @media (min-width: 1024px) {
-        white-space: nowrap;
+        white-space: break-spaces;
       }
 
       @media (max-width: 575px) {
-        font-size: 2.5vw !important;
+        font-size: 5vw !important;
       }
     }
 
     h4 {
-      color: darkred;
-      font-size: 8vw;
+      color: #ea0a0a;
+      font-size: 12vw;
       text-align: center;
-      text-shadow: 2px 1px darkred;
+      //text-shadow: 2px 1px #ea0a0a;
     }
   }
 
