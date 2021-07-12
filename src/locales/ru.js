@@ -33,6 +33,7 @@ export default {
   emailUs: 'Написать нам на почту',
   findFighter: 'Найти своего бойца',
   ppvTitle: 'Заказать персональное видеосообщение',
+  team: 'Команда',
 
   // errors
   'email.presence': 'Для продолжения введите email',

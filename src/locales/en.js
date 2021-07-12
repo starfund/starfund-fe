@@ -32,6 +32,7 @@ export default {
   emailUs: 'Email Us',
   findFighter: 'Find your fighter',
   ppvTitle: 'Request a personal video to your fighter',
+  team: 'Team',
 
   // errors
   'email.presence': 'You must enter an email to continue',

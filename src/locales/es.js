@@ -39,6 +39,7 @@ export default {
   emailUs: 'Contactanos a ',
   findFighter: 'Encuentra tu peleador',
   ppvTitle: 'Solicita videos personalizados a tus atletas',
+  equipo: 'Equipo',
 
   // errors
   'email.presence': 'Debe ingresar un email para continuar',
