@@ -90,10 +90,10 @@ export default {
 
   // Dashboard
   'dashboard.title': 'Weekly Report',
-  'dashboard.pageVisits': 'PAGE VISITS',
-  'dashboard.newSubs': 'NEW SUBS',
-  'dashboard.percentageVisitsPerSub': 'VISITORS PER SUBS',
-  'dashboard.income': 'WEEKLY INCOME',
+  'dashboard.pageVisits': 'ПОСЕЩЕНИЯ СТРАНИЦ',
+  'dashboard.newSubs': 'НОВЫЕ ПОДПИСКИ',
+  'dashboard.percentageVisitsPerSub': 'ПОСЕТИТЕЛЕЙ НА ПОДПИСКИ',
+  'dashboard.income': 'ЕЖЕНЕДЕЛЬНЫЙ ДОХОД',
 
   // Legal
   'legal.terms': ' Terms of Service ',

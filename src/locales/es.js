@@ -96,10 +96,10 @@ export default {
   'header.join': 'Se una estrella',
 
   // Dashboard
-  'dashboard.pageVisits': 'Visitas a la pagina',
-  'dashboard.newSubs': 'Subscriptores Nuevos',
-  'dashboard.percentageVisitsPerSub': '% Visitantes por Subscriptores',
-  'dashboard.income': 'Ingreso Semanal',
+  'dashboard.pageVisits': 'VISITAS',
+  'dashboard.newSubs': 'SUBS NUEVOS',
+  'dashboard.percentageVisitsPerSub': 'VISITANTES POR SUBS',
+  'dashboard.income': 'INGRESO SEMANAL',
 
   // Legal
   'legal.terms': ' Terminos de Servicio ',
