@@ -7,6 +7,7 @@ import SignUpPage from 'pages/SignUpPage';
 import NotFoundPage from 'pages/NotFoundPage';
 import BillingPage from 'pages/BillingPage';
 import FighterPage from 'pages/FighterPage';
+import TeamPage from 'pages/TeamPage';
 import FightersPage from 'pages/FightersPage';
 import FightersPPVPage from 'pages/FightersPPVPage';
 import AboutPage from 'pages/AboutPage';
@@ -43,7 +44,7 @@ const routes = [
   },
   {
     path: routesPaths.team,
-    component: <FighterPage />,
+    component: <TeamPage />,
     private: false,
     exact: false
   },
