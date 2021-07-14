@@ -155,34 +155,32 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                 ))
           )}
           <div className={!isMobile && `blank-line`} />
-          {team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)?.length > 0 &&
-            !payedFighter.includes(team.id) && (
-              <div className={`other-videos ${isMobile && 'center'}`}>
-                <div className="flex">
-                  <h3 className="center">
-                    <FormattedMessage
-                      id="fighter.videos.subscribe"
-                      values={{
-                        videos: team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)
-                          ?.length
-                      }}
-                    />
-                  </h3>
-                </div>
-                <div className="sub-cta">
-                  <LazyLoadImage
-                    src={language == 'ru' ? SubscribeRu : Subscribe}
-                    onClick={subscribeAction}
+          {team.fighters.map(f => f.privateVideos)?.length > 0 && !payedFighter.includes(team.id) && (
+            <div className={`other-videos ${isMobile && 'center'}`}>
+              <div className="flex">
+                <h3 className="center">
+                  <FormattedMessage
+                    id="fighter.videos.subscribe"
+                    values={{
+                      videos: team.fighters.map(f => f.privateVideos)?.length
+                    }}
                   />
-                </div>
+                </h3>
               </div>
-            )}
+              <div className="sub-cta">
+                <LazyLoadImage
+                  src={language == 'ru' ? SubscribeRu : Subscribe}
+                  onClick={subscribeAction}
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="container">
         <div className="row flex">
-          {team.fighters.map(f => f.publicVideos)?.filter(c => !!c.video)?.length == 0 &&
-            team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)?.length == 0 && (
+          {team.fighters.map(f => f.publicVideos)?.length == 0 &&
+            team.fighters.map(f => f.privateVideos)?.length == 0 && (
               <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
             )}
         </div>
