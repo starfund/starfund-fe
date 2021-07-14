@@ -20,7 +20,7 @@ import ConfirmationModal from './common/ConfirmationModal';
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
 import HowItWorks from './HowItWorks';
-import FighterVideos from './FighterVideos';
+import TeamVideos from './TeamVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
@@ -101,8 +101,8 @@ const TeamStar = () => {
               <br />
               <br />
               <p>
-                {' '}
-                {team.firstName} {team.lastName}{' '}
+                {'Team '}
+                {team.name}{' '}
               </p>
               {authenticated &&
                 supporting &&
@@ -309,14 +309,13 @@ const TeamStar = () => {
           )}
         </div>
       )}
-      {videos &&
-        team.fighters.map(f => (
-          <FighterVideos
-            fighter={f}
-            supporting={supporting}
-            subscribeAction={() => setModalIsOpen(true)}
-          />
-        ))}
+      {videos && (
+        <TeamVideos
+          team={team}
+          supporting={supporting}
+          subscribeAction={() => setModalIsOpen(true)}
+        />
+      )}
       <HomeFooter />
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}

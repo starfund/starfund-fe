@@ -1,0 +1,181 @@
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useIntl, FormattedMessage } from 'react-intl';
+import ReactPlayer from 'react-player/lazy';
+
+import { useMediaQuery } from 'react-responsive';
+import { formatDistance } from 'date-fns';
+import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
+import ReactGA from 'react-ga';
+
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import { getMessages } from '../state/actions/messageActions';
+
+import Subscribe from '../assets/subscribe.png';
+import SubscribeRu from '../assets/subscribe_rus.png';
+
+import MessageSection from './MessageSection';
+
+const TeamVideos = ({ team, supporting, subscribeAction }) => {
+  const intl = useIntl();
+  const dispatch = useDispatch();
+  const [url, setUrl] = useState(team?.previewUrl || team?.officialPreview);
+  const [diplayContent, setDisplayContent] = useState();
+  const payedFighter = supporting.map(sub => sub.fighter.id);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
+
+  useEffect(() => {
+    if (diplayContent) {
+      dispatch(getMessages(diplayContent));
+    }
+  }, [diplayContent, dispatch]);
+
+  const endFreeVideo = () => {
+    if (!payedFighter.includes(team.id)) {
+      subscribeAction();
+    }
+  };
+
+  const selectVideo = content => {
+    setUrl(content.video);
+    setDisplayContent(content);
+    if (payedFighter.includes(team.id)) {
+      window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 900);
+    }
+  };
+
+  const language = useSelector(state => state.language.language);
+  const messages = useSelector(state => state.messages.messages.comments);
+  ReactGA.modalview(`/team/${team.id}/videos`);
+
+  return (
+    <div className="fighter-videos">
+      <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
+      <br />
+      <div className="row">
+        <div className="col-12 col-sm-8">
+          <LazyLoadComponent>
+            <ReactPlayer
+              url={url}
+              width
+              controls
+              playing
+              muted
+              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+              onEnded={endFreeVideo}
+            />
+          </LazyLoadComponent>
+          <div className="blank-line" />
+          <div className="container">
+            {diplayContent && (
+              <div className="col-12">
+                <h2>{diplayContent.title}</h2>
+              </div>
+            )}
+            <MessageSection content={diplayContent} messages={messages} />
+          </div>
+        </div>
+        <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
+          {team.fighters.map(
+            fighter =>
+              fighter.publicVideos &&
+              fighter.publicVideos
+                .filter(c => !!c.video)
+                .map(v => (
+                  <div
+                    key={v.url}
+                    className="col-5 col-sm-12 fighter-watch"
+                    onClick={() => selectVideo(v)}
+                  >
+                    <LazyLoadComponent>
+                      <ReactPlayer
+                        url={v.video}
+                        width={isMobile ? '100%' : '80%'}
+                        height="20vh"
+                        light={v.thumbnail}
+                      />
+                    </LazyLoadComponent>
+                    <div>
+                      <h4> {formatTitle(v, language)} </h4>
+                      <p>
+                        {' '}
+                        {formatDescription(v, language)} *{' '}
+                        {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
+                      </p>
+                    </div>
+                  </div>
+                ))
+          )}
+          {team.fighters.map(
+            fighter =>
+              fighter.privateVideos &&
+              payedFighter.includes(fighter.id) &&
+              fighter.privateVideos
+                .filter(c => !!c.video)
+                .map(v => (
+                  <div
+                    key={v.url}
+                    className="col-5 col-sm-12 fighter-watch"
+                    onClick={() => selectVideo(v)}
+                  >
+                    <LazyLoadComponent>
+                      <ReactPlayer
+                        url={v.video}
+                        width={isMobile ? '100%' : '80%'}
+                        height="20vh"
+                        light={v.thumbnail}
+                      />
+                    </LazyLoadComponent>
+                    <div>
+                      <h4> {formatTitle(v, language)} </h4>
+                      <p>
+                        {' '}
+                        {formatDescription(v, language)} *{' '}
+                        {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
+                      </p>
+                    </div>
+                  </div>
+                ))
+          )}
+          <div className={!isMobile && `blank-line`} />
+          {team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)?.length > 0 &&
+            !payedFighter.includes(team.id) && (
+              <div className={`other-videos ${isMobile && 'center'}`}>
+                <div className="flex">
+                  <h3 className="center">
+                    <FormattedMessage
+                      id="fighter.videos.subscribe"
+                      values={{
+                        videos: team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)
+                          ?.length
+                      }}
+                    />
+                  </h3>
+                </div>
+                <div className="sub-cta">
+                  <LazyLoadImage
+                    src={language == 'ru' ? SubscribeRu : Subscribe}
+                    onClick={subscribeAction}
+                  />
+                </div>
+              </div>
+            )}
+        </div>
+      </div>
+      <div className="container">
+        <div className="row flex">
+          {team.fighters.map(f => f.publicVideos)?.filter(c => !!c.video)?.length == 0 &&
+            team.fighters.map(f => f.privateVideos)?.filter(c => !!c.video)?.length == 0 && (
+              <h2 className="center">{intl.formatMessage({ id: 'fighter.videos.noVideos' })}</h2>
+            )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TeamVideos;
