@@ -57,7 +57,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
       <br />
       <div className="row">
-        <div className="col-12 col-sm-8">
+        <div className="col-12 col-md-8">
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
@@ -65,7 +65,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
               controls
               playing
               muted
-              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '40vw'}` }}
               onEnded={endFreeVideo}
             />
           </LazyLoadComponent>
@@ -79,33 +79,39 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
             <MessageSection content={diplayContent} messages={messages} />
           </div>
         </div>
-        <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
+        <div className={`more-videos col-12 col-md-4 ${isMobile && 'row'}`}>
           {team.fighters.map(
             fighter =>
               fighter.publicVideos &&
               fighter.publicVideos
                 .filter(c => !!c.video)
                 .map(v => (
-                  <div
-                    key={v.url}
-                    className="col-5 col-sm-12 fighter-watch"
-                    onClick={() => selectVideo(v)}
-                  >
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={v.video}
-                        width={isMobile ? '100%' : '80%'}
-                        height="20vh"
-                        light={v.thumbnail}
-                      />
-                    </LazyLoadComponent>
-                    <div>
+                  <div className="row col-12">
+                    <div
+                      key={v.url}
+                      className="col-7 col-sm-5 col-md-7 fighter-watch"
+                      onClick={() => selectVideo(v)}
+                    >
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          url={v.video}
+                          width="100%"
+                          height={isMobile ? '100%' : '10vw'}
+                          light={v.thumbnail}
+                        />
+                      </LazyLoadComponent>
+                    </div>
+                    <div className="col-5 video-desc">
                       <h4> {formatTitle(v, language)} </h4>
                       <p>
-                        {' '}
                         {formatDescription(v, language)} *{' '}
                         {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
                       </p>
+                      <span>
+                        {fighter.firstName}
+                        {''}
+                        {fighter.lastName}
+                      </span>
                     </div>
                   </div>
                 ))
@@ -117,26 +123,33 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
               fighter.privateVideos
                 .filter(c => !!c.video)
                 .map(v => (
-                  <div
-                    key={v.url}
-                    className="col-5 col-sm-12 fighter-watch"
-                    onClick={() => selectVideo(v)}
-                  >
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={v.video}
-                        width={isMobile ? '100%' : '80%'}
-                        height="20vh"
-                        light={v.thumbnail}
-                      />
-                    </LazyLoadComponent>
-                    <div>
+                  <div className="row col-12">
+                    <div
+                      key={v.url}
+                      className="col-7 col-sm-5 col-md-7 fighter-watch"
+                      onClick={() => selectVideo(v)}
+                    >
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          url={v.video}
+                          width="100%"
+                          height={isMobile ? '100%' : '10vw'}
+                          light={v.thumbnail}
+                        />
+                      </LazyLoadComponent>
+                    </div>
+                    <div className="col-5 video-desc">
                       <h4> {formatTitle(v, language)} </h4>
                       <p>
                         {' '}
                         {formatDescription(v, language)} *{' '}
                         {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
                       </p>
+                      <span>
+                        {fighter.firstName}
+                        {''}
+                        {fighter.lastName}
+                      </span>
                     </div>
                   </div>
                 ))

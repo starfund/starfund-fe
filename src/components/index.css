@@ -1090,6 +1090,24 @@ h3 {
     color: white;
   }
 
+  .video-desc {
+    padding: 0;
+
+    p {
+      word-break: break-all;
+    }
+
+    span {
+      color: rgb(170, 170, 170);
+      font-size: 1vw;
+      word-break: break-all;
+
+      @media (max-width: 768px) {
+        font-size: 1.5vh;
+      }
+    }
+  }
+
   .comment-input:focus {
     outline: none;
     color: white;
