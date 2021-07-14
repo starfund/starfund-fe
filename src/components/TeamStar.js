@@ -6,12 +6,12 @@ import ReactGA from 'react-ga';
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
-// import { format } from 'date-fns';
+import { format } from 'date-fns';
 import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
-// import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getTeams } from '../state/actions/teamActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
@@ -25,8 +25,8 @@ import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
 
-// import Subscribe from '../assets/subscribe.png';
-// import SubscribeRu from '../assets/subscribe_rus.png';
+import Subscribe from '../assets/subscribe.png';
+import SubscribeRu from '../assets/subscribe_rus.png';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
@@ -58,8 +58,7 @@ const TeamStar = () => {
 
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const team = useSelector(state => state.teams.teams.filter(t => t.name == name)[0]);
-  const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
-  // const language = useSelector(state => state.language.language);
+  const language = useSelector(state => state.language.language);
   const payedTeam = supporting.map(sub => sub.fighter.name);
   const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
@@ -71,19 +70,6 @@ const TeamStar = () => {
       payedTeam.includes(team.name) && setVideos(true);
     }
   }, [payedTeam, team]);
-
-  const ppvClick = () => {
-    ReactGA.pageview('/ppvClick');
-    if (authenticated) {
-      if (ppvRequest.length > 0) {
-        setModalPPVIsOpen(true);
-      } else {
-        setPPVOpen(true);
-      }
-    } else {
-      setAuthModal(true);
-    }
-  };
 
   return (
     <div className="fighter-container">
@@ -150,11 +136,6 @@ const TeamStar = () => {
               </ul>
             </React.Fragment>
           )}
-          <div className={`nav-actions flex ppv-button ${!isMobile && 'justify-content-end'}`}>
-            <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
-              {intl.formatMessage({ id: 'button.ppv' })}
-            </button>
-          </div>
         </div>
       </nav>
       {!videos && (
@@ -289,7 +270,34 @@ const TeamStar = () => {
               </div>
             </div>
           )}
-
+          <div className="center-50">
+            {team &&
+              !payedTeam.includes(team.id) &&
+              team.fighters.map(fighter =>
+                fighter.privateVideos.map(v => (
+                  <div className="pay-to-see">
+                    <div key={v.url} className="card">
+                      <LazyLoadImage
+                        className="card-img-top"
+                        src={language == 'ru' ? SubscribeRu : Subscribe}
+                        onClick={() => setModalIsOpen(true)}
+                      />
+                      <div className="card-body">
+                        <p className="card-title">{format(new Date(v.eventDate), 'LLL d, yyyy')}</p>
+                        <p className="card-text">
+                          {formatTitle(v, language)} {' - '}
+                          {formatDescription(v, language)}
+                        </p>
+                        <p className="card-likes">
+                          {v.likes}
+                          {intl.formatMessage({ id: 'fighter.likes' })}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+          </div>
           {authenticated &&
             supporting &&
             team &&

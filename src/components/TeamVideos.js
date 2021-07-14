@@ -155,26 +155,28 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                 ))
           )}
           <div className={!isMobile && `blank-line`} />
-          {team.fighters.map(f => f.privateVideos)?.length > 0 && !payedFighter.includes(team.id) && (
-            <div className={`other-videos ${isMobile && 'center'}`}>
-              <div className="flex">
-                <h3 className="center">
-                  <FormattedMessage
-                    id="fighter.videos.subscribe"
-                    values={{
-                      videos: team.fighters.map(f => f.privateVideos)?.length
-                    }}
+          {team.fighters.map(f => f.privateVideos)?.filter((_, v) => v != []).length > 0 &&
+            !payedFighter.includes(team.id) && (
+              <div className={`other-videos ${isMobile && 'center'}`}>
+                <div className="flex">
+                  <h3 className="center">
+                    <FormattedMessage
+                      id="fighter.videos.subscribe"
+                      values={{
+                        videos: team.fighters.map(f => f.privateVideos)?.filter((_, v) => v != [])
+                          .length
+                      }}
+                    />
+                  </h3>
+                </div>
+                <div className="sub-cta">
+                  <LazyLoadImage
+                    src={language == 'ru' ? SubscribeRu : Subscribe}
+                    onClick={subscribeAction}
                   />
-                </h3>
+                </div>
               </div>
-              <div className="sub-cta">
-                <LazyLoadImage
-                  src={language == 'ru' ? SubscribeRu : Subscribe}
-                  onClick={subscribeAction}
-                />
-              </div>
-            </div>
-          )}
+            )}
         </div>
       </div>
       <div className="container">
