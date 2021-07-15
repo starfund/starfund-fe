@@ -59,7 +59,7 @@ const TeamStar = () => {
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const team = useSelector(state => state.teams.teams.filter(t => t.name == name)[0]);
   const language = useSelector(state => state.language.language);
-  const payedTeam = supporting.map(sub => sub.team.name);
+  const payedTeam = supporting.map(sub => sub.team?.name);
   const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -93,7 +93,7 @@ const TeamStar = () => {
               {authenticated &&
                 supporting &&
                 team &&
-                !supporting.filter(s => s.team.id === team.id).length > 0 && (
+                !supporting.filter(s => s.team?.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -115,29 +115,27 @@ const TeamStar = () => {
           )}
         </div>
       )}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="navbar-collapse" id="navbarText">
-          {!payedTeam.includes(team?.name) && (
-            <React.Fragment>
-              <ul className="navbar-nav mr-auto">
-                {team && payedTeam && !payedTeam.includes(team.id) && (
-                  <li className={cn('nav-item', { active: !videos })}>
-                    <Link className="nav-link" href="" onClick={() => setVideos(false)}>
-                      {intl.formatMessage({ id: 'header.home' })}{' '}
-                      <span className="sr-only">(current)</span>
-                    </Link>
-                  </li>
-                )}
-                <li className={cn('nav-item', { active: videos })}>
-                  <Link className="nav-link" onClick={() => setVideos(true)}>
-                    {intl.formatMessage({ id: 'header.videos' })}
+      {!payedTeam.includes(team?.name) && (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="navbar-collapse" id="navbarText">
+            <ul className="navbar-nav mr-auto">
+              {team && payedTeam && !payedTeam.includes(team.id) && (
+                <li className={cn('nav-item', { active: !videos })}>
+                  <Link className="nav-link" href="" onClick={() => setVideos(false)}>
+                    {intl.formatMessage({ id: 'header.home' })}{' '}
+                    <span className="sr-only">(current)</span>
                   </Link>
                 </li>
-              </ul>
-            </React.Fragment>
-          )}
-        </div>
-      </nav>
+              )}
+              <li className={cn('nav-item', { active: videos })}>
+                <Link className="nav-link" onClick={() => setVideos(true)}>
+                  {intl.formatMessage({ id: 'header.videos' })}
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      )}
       {!videos && (
         <div className="container">
           <div className="main-content row">
@@ -185,7 +183,7 @@ const TeamStar = () => {
               {authenticated &&
                 supporting &&
                 team &&
-                !supporting.filter(s => s.team.id === team.id).length > 0 && (
+                !supporting.filter(s => s.team?.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -301,7 +299,7 @@ const TeamStar = () => {
           {authenticated &&
             supporting &&
             team &&
-            !supporting.filter(s => s.team.id === team.id).length > 0 && (
+            !supporting.filter(s => s.team?.id === team.id).length > 0 && (
               <div className="container">
                 <HowItWorks />
                 <HomeExclusive fighter={team} />

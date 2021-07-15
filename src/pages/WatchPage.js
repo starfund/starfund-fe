@@ -44,6 +44,13 @@ const WatchPage = () => {
     query: '(max-width: 765px)'
   });
 
+  const fighterLink = fighter => {
+    if (fighter.team) {
+      return history.push(`/team/${fighter.team.name}`);
+    }
+    return history.push(`/fighter/${fighter.id}`);
+  };
+
   return (
     <div className="watch-container">
       <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
@@ -57,10 +64,7 @@ const WatchPage = () => {
             </LazyLoadComponent>
           )}
           <div className="avatar-container">
-            <Link
-              className="fighter-link"
-              onClick={() => history.push(`/fighter/${currentFighter.id}`)}
-            >
+            <Link className="fighter-link" onClick={() => fighterLink(currentFighter)}>
               <img
                 className="fighter-avatar"
                 src={currentFighter.coverPhoto}
@@ -101,10 +105,7 @@ const WatchPage = () => {
                       <ReactPlayer url={f.officialPreview} width="300" height="250" />
                     </LazyLoadComponent>
                     <div className="avatar-container">
-                      <Link
-                        className="fighter-link"
-                        onClick={() => history.push(`/fighter/${f.id}`)}
-                      >
+                      <Link className="fighter-link" onClick={() => fighterLink(f)}>
                         <img
                           className="fighter-avatar small"
                           src={f.coverPhoto}

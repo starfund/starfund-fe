@@ -21,7 +21,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const dispatch = useDispatch();
   const [url, setUrl] = useState(team?.previewUrl || team?.officialPreview);
   const [diplayContent, setDisplayContent] = useState();
-  const payedTeam = supporting.map(sub => sub.team.id);
+  const payedTeam = supporting.map(sub => sub.team?.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });

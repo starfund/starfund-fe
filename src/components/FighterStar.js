@@ -66,7 +66,7 @@ const FighterStar = () => {
   const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
   const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter?.id);
-  const currentUser = useSelector(state => state.session.user?.user);
+  const currentUser = useSelector(state => state.session.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -113,7 +113,7 @@ const FighterStar = () => {
                 supporting &&
                 supporting.length > 0 &&
                 fighter &&
-                !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -215,7 +215,7 @@ const FighterStar = () => {
                 supporting &&
                 supporting.length > 0 &&
                 fighter &&
-                !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+                !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -337,7 +337,7 @@ const FighterStar = () => {
             supporting &&
             supporting.length > 0 &&
             fighter &&
-            !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
+            !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
               <div className="container">
                 <HowItWorks />
                 <HomeExclusive fighter={fighter} />
