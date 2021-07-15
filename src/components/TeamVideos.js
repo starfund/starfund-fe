@@ -155,7 +155,10 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                 ))
           )}
           <div className={!isMobile && `blank-line`} />
-          {team.fighters.map(f => f.privateVideos)?.filter((_, v) => v != []).length > 0 &&
+          {team.fighters
+            .map(f => f.privateVideos)
+            ?.filter((_, v) => v != [])
+            .filter(c => !!c.video).length > 0 &&
             !payedTeam.includes(team.id) && (
               <div className={`other-videos ${isMobile && 'center'}`}>
                 <div className="flex">
@@ -163,8 +166,10 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                     <FormattedMessage
                       id="fighter.videos.subscribe"
                       values={{
-                        videos: team.fighters.map(f => f.privateVideos)?.filter((_, v) => v != [])
-                          .length
+                        videos: team.fighters
+                          .map(f => f.privateVideos)
+                          ?.filter((_, v) => v != [])
+                          .filter(c => !!c.video).length
                       }}
                     />
                   </h3>
