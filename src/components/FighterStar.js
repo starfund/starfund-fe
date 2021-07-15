@@ -65,7 +65,7 @@ const FighterStar = () => {
   );
   const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
   const language = useSelector(state => state.language.language);
-  const payedFighter = supporting.map(sub => sub.fighter.id);
+  const payedFighter = supporting.map(sub => sub.fighter?.id);
   const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -111,6 +111,7 @@ const FighterStar = () => {
               </p>
               {authenticated &&
                 supporting &&
+                supporting.length > 0 &&
                 fighter &&
                 !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
                   <button
@@ -212,6 +213,7 @@ const FighterStar = () => {
               )}
               {authenticated &&
                 supporting &&
+                supporting.length > 0 &&
                 fighter &&
                 !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
                   <button
@@ -333,6 +335,7 @@ const FighterStar = () => {
           </div>
           {authenticated &&
             supporting &&
+            supporting.length > 0 &&
             fighter &&
             !supporting.filter(s => s.fighter.id === fighter.id).length > 0 && (
               <div className="container">

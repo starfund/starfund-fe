@@ -21,7 +21,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const dispatch = useDispatch();
   const [url, setUrl] = useState(team?.previewUrl || team?.officialPreview);
   const [diplayContent, setDisplayContent] = useState();
-  const payedFighter = supporting.map(sub => sub.fighter.id);
+  const payedTeam = supporting.map(sub => sub.team.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -33,7 +33,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   }, [diplayContent, dispatch]);
 
   const endFreeVideo = () => {
-    if (!payedFighter.includes(team.id)) {
+    if (!payedTeam.includes(team.id)) {
       subscribeAction();
     }
   };
@@ -41,7 +41,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const selectVideo = content => {
     setUrl(content.video);
     setDisplayContent(content);
-    if (payedFighter.includes(team.id)) {
+    if (payedTeam.includes(team.id)) {
       window.scrollTo(0, 0);
     } else {
       window.scrollTo(0, 900);
@@ -119,7 +119,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           {team.fighters.map(
             fighter =>
               fighter.privateVideos &&
-              payedFighter.includes(fighter.id) &&
+              payedTeam.includes(fighter.id) &&
               fighter.privateVideos
                 .filter(c => !!c.video)
                 .map(v => (
@@ -156,7 +156,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           )}
           <div className={!isMobile && `blank-line`} />
           {team.fighters.map(f => f.privateVideos)?.filter((_, v) => v != []).length > 0 &&
-            !payedFighter.includes(team.id) && (
+            !payedTeam.includes(team.id) && (
               <div className={`other-videos ${isMobile && 'center'}`}>
                 <div className="flex">
                   <h3 className="center">

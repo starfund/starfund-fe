@@ -59,7 +59,7 @@ const TeamStar = () => {
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const team = useSelector(state => state.teams.teams.filter(t => t.name == name)[0]);
   const language = useSelector(state => state.language.language);
-  const payedTeam = supporting.map(sub => sub.fighter.name);
+  const payedTeam = supporting.map(sub => sub.team.name);
   const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -93,7 +93,7 @@ const TeamStar = () => {
               {authenticated &&
                 supporting &&
                 team &&
-                !supporting.filter(s => s.fighter.id === team.id).length > 0 && (
+                !supporting.filter(s => s.team.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -185,7 +185,7 @@ const TeamStar = () => {
               {authenticated &&
                 supporting &&
                 team &&
-                !supporting.filter(s => s.fighter.id === team.id).length > 0 && (
+                !supporting.filter(s => s.team.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
@@ -301,7 +301,7 @@ const TeamStar = () => {
           {authenticated &&
             supporting &&
             team &&
-            !supporting.filter(s => s.fighter.id === team.id).length > 0 && (
+            !supporting.filter(s => s.team.id === team.id).length > 0 && (
               <div className="container">
                 <HowItWorks />
                 <HomeExclusive fighter={team} />
@@ -333,9 +333,8 @@ const TeamStar = () => {
         isDelete={false}
         price={team?.subPrice}
         email={currentUser?.email}
-        fighter={team?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={team?.id} type="subscription" />
+        <BillingForm email={currentUser?.email} team={team?.id} type="subscription" />
       </ConfirmationModal>
       <CommonModal
         title={intl.formatMessage({ id: 'ppv.title' })}
