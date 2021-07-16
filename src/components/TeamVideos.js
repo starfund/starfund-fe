@@ -19,7 +19,7 @@ import MessageSection from './MessageSection';
 const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const [url, setUrl] = useState(team?.previewUrl || team?.officialPreview);
+  const [url, setUrl] = useState(team?.officialPreview || team?.previewUrl);
   const [diplayContent, setDisplayContent] = useState();
   const payedTeam = supporting.map(sub => sub.team?.id);
   const isMobile = useMediaQuery({
