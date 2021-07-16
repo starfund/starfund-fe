@@ -17,6 +17,14 @@ const HomeStars = ({ title }) => {
   }, [dispatch]);
   const fighters = useSelector(state => state.fighters.fighters);
 
+  const fighterLink = fighter => {
+    if (fighter.team) {
+      history.push(`/team/${fighter.team.name}`);
+    } else {
+      history.push(`/fighter/${fighter.id}`);
+    }
+  };
+
   return (
     <div className="stars-container">
       <h1 className="stars-title"> {title} </h1>
@@ -29,12 +37,7 @@ const HomeStars = ({ title }) => {
         <Slider>
           {fighters.length > 0 &&
             fighters.map(f => (
-              <Link
-                key={f.id}
-                className="fighter-card-link"
-                href=""
-                onClick={() => history.push(`/fighter/${f.id}`)}
-              >
+              <Link key={f.id} className="fighter-card-link" href="" onClick={() => fighterLink(f)}>
                 <div key={f.id} className="fighter-card">
                   <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
                   <div className="fighter-card-overlay">

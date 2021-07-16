@@ -34,12 +34,16 @@ const FeedContent = ({ fighterInfo, content, language, likes }) => {
     );
   }
 
+  const fighterLink = fighter => {
+    if (fighter.teamName) {
+      return history.push(`/team/${fighter.teamName}`);
+    }
+    return history.push(`/fighter/${fighter.fighterId}`);
+  };
+
   return (
     <div className="content-row">
-      <div
-        className="fighter-title flex"
-        onClick={() => history.push(`/fighter/${fighterInfo.fighterId}`)}
-      >
+      <div className="fighter-title flex" onClick={() => fighterLink(fighterInfo)}>
         <img src={fighterInfo.profilePicture} className="fighter-img" alt="title" />
         <p>
           {' '}

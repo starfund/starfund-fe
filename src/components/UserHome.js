@@ -23,7 +23,9 @@ const UserHome = () => {
   }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
-  const payedFighters = supporting.map(sub => sub.fighter.id);
+  const fighterIds = supporting.map(sub => sub.fighter && sub.fighter.id);
+  const payedTeamFighterIds = supporting.map(sub => sub.team && sub.team.fighters.map(f => f.id));
+  const payedFighters = fighterIds + payedTeamFighterIds;
   const feedContent = useSelector(state => state.contents.content.content);
   const likes = useSelector(state => state.contents.content.likes);
   const language = useSelector(state => state.language.language);
@@ -60,14 +62,28 @@ const UserHome = () => {
                 <div className="blank-line" />
                 {supporting?.length > 0 &&
                   supporting.map(s => (
-                    <div
-                      key={s.id}
-                      className="fighter-sub flex"
-                      onClick={() => history.push(`/fighter/${s.fighter.id}`)}
-                    >
-                      <img src={s.fighterPicture} alt="sub" />
-                      <p>{s.fighter.firstName}</p>
-                    </div>
+                    <React.Fragment key={s.id}>
+                      {s.fighter && (
+                        <div
+                          className="fighter-sub flex"
+                          onClick={() => history.push(`/fighter/${s.fighter.id}`)}
+                        >
+                          <img src={s.fighterPicture} alt="sub" />
+                          <p>{s.fighter?.firstName}</p>
+                        </div>
+                      )}
+                      {s.team &&
+                        s.team.fighters.map(f => (
+                          <div
+                            key={f.id}
+                            className="fighter-sub flex"
+                            onClick={() => history.push(`/team/${s.team.name}`)}
+                          >
+                            <img src={f.profilePicture} alt="sub" />
+                            <p>{f?.firstName}</p>
+                          </div>
+                        ))}
+                    </React.Fragment>
                   ))}
                 {supporting.length == 0 && (
                   <div className="no-support">

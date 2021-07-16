@@ -34,6 +34,7 @@ export default {
   findFighter: 'Найти своего бойца',
   findBusiness: 'Найди свой фитнес-центр',
   ppvTitle: 'Заказать персональное видеосообщение',
+  team: 'Команда',
 
   // errors
   'email.presence': 'Для продолжения введите email',
@@ -92,6 +93,12 @@ export default {
   'header.social': 'Соц сети',
   'header.join': 'Присоединиться',
   'header.programs': 'Программы',
+
+  // Dashboard
+  'dashboard.pageVisits': 'Посещения страницы',
+  'dashboard.newSubs': 'Новые подписчики',
+  'dashboard.percentageVisitsPerSub': '% посетителей на подписчиков',
+  'dashboard.income': 'Еженедельный доход',
 
   // Legal
   'legal.terms': ' Условия пользования ',

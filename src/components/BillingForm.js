@@ -24,7 +24,7 @@ import {
 
 import 'react-credit-cards/lib/styles.scss';
 
-const BillingForm = ({ stripe, elements, email, fighter, type }) => {
+const BillingForm = ({ stripe, elements, email, fighter, team, type }) => {
   ReactGA.modalview(`/${type}`);
   const { status: subStatus, error } = useStatus(subscribe);
   const { status: chargeStatus, error: chargeError } = useStatus(charge);
@@ -52,7 +52,7 @@ const BillingForm = ({ stripe, elements, email, fighter, type }) => {
     if (type === 'ppv') {
       dispatch(requestDream(dream));
     }
-    onSubmit({ name, email: emailField, fighter, type });
+    onSubmit({ name, email: emailField, fighter, team, type });
   };
 
   return (

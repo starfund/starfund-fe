@@ -40,6 +40,7 @@ export default {
   findFighter: 'Encuentra tu peleador',
   findBusiness: 'Encuentra tu centro deportivo',
   ppvTitle: 'Solicita videos personalizados a tus atletas',
+  equipo: 'Equipo',
 
   // errors
   'email.presence': 'Debe ingresar un email para continuar',
@@ -96,6 +97,12 @@ export default {
   'header.social': 'Redes',
   'header.join': 'Se una estrella',
   'header.programs': 'Programas',
+
+  // Dashboard
+  'dashboard.pageVisits': 'VISITAS',
+  'dashboard.newSubs': 'SUBS NUEVOS',
+  'dashboard.percentageVisitsPerSub': 'VISITANTES POR SUBS',
+  'dashboard.income': 'INGRESO SEMANAL',
 
   // Legal
   'legal.terms': ' Terminos de Servicio ',

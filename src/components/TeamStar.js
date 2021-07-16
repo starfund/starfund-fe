@@ -7,21 +7,20 @@ import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-componen
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import { format } from 'date-fns';
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
-import { getFighters } from '../state/actions/fighterActions';
+import { getTeams } from '../state/actions/teamActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import Auth from './common/Auth';
-import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
 import HowItWorks from './HowItWorks';
-import FighterVideos from './FighterVideos';
+import TeamVideos from './TeamVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
@@ -35,11 +34,10 @@ import VideoCamera from '../assets/VideoCamera.svg';
 
 import '../styles/components/_home-starts.scss';
 
-const FighterStar = () => {
-  const { id } = useParams();
+const TeamStar = () => {
+  const { name } = useParams();
   const intl = useIntl();
   const dispatch = useDispatch();
-  const history = useHistory();
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [authModal, setAuthModal] = useState(false);
@@ -47,7 +45,7 @@ const FighterStar = () => {
   const [videos, setVideos] = useState(false);
   const [PPVOpen, setPPVOpen] = useState(false);
   useEffect(() => {
-    dispatch(getFighters(true));
+    dispatch(getTeams(true));
   }, [dispatch]);
   useEffect(() => {
     if (authenticated) {
@@ -55,73 +53,53 @@ const FighterStar = () => {
     }
   }, [authenticated, dispatch]);
   useEffect(() => {
-    ReactGA.pageview(`/fighter/${id}`);
-  }, [id]);
+    ReactGA.pageview(`/teams/${name}`);
+  }, [name]);
 
-  const fighters = useSelector(state => state.fighters.fighters);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
-  const fighter = useSelector(
-    state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
-  );
-  const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
+  const team = useSelector(state => state.teams.teams.filter(t => t.name == name)[0]);
   const language = useSelector(state => state.language.language);
-  const payedFighter = supporting.map(sub => sub.fighter?.id);
-  const currentUser = useSelector(state => state.session.user);
+  const payedTeam = supporting.map(sub => sub.team?.name);
+  const currentUser = useSelector(state => state.session.user?.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
 
   useEffect(() => {
-    if (payedFighter && fighter) {
-      payedFighter.includes(fighter.id) && setVideos(true);
+    if (payedTeam && team) {
+      payedTeam.includes(team.name) && setVideos(true);
     }
-  }, [payedFighter, fighter]);
-
-  const ppvClick = () => {
-    ReactGA.pageview('/ppvClick');
-    if (authenticated) {
-      if (ppvRequest.length > 0) {
-        setModalPPVIsOpen(true);
-      } else {
-        setPPVOpen(true);
-      }
-    } else {
-      setAuthModal(true);
-    }
-  };
+  }, [payedTeam, team]);
 
   return (
     <div className="fighter-container">
-      {!payedFighter.includes(fighter?.id) && (
+      {!payedTeam.includes(team?.name) && (
         <div className="cover-container">
-          {fighter ? (
-            <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
+          {team ? (
+            <LazyLoadImage className="fighter-cover" src={team.coverPhoto} alt="Cover" />
           ) : (
             <SkeletonTheme color="#202020" highlightColor="#444">
               <Skeleton height="90vh" />
             </SkeletonTheme>
           )}
-          {fighter && (
+          {team && (
             <div className="centered">
               <br />
               <br />
               <p>
-                {' '}
-                {fighter.firstName} {fighter.lastName}{' '}
+                {'Team '}
+                {team.name}{' '}
               </p>
               {authenticated &&
                 supporting &&
-                supporting.length > 0 &&
-                fighter &&
-                !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
+                team &&
+                !supporting.filter(s => s.team?.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({
-                      id: fighter.support ? 'button.support' : 'button.subscribe'
-                    })}
+                    {intl.formatMessage({ id: 'button.subscribe' })}
                   </button>
                 )}
               {!authenticated && (
@@ -130,55 +108,46 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {fighter.support
-                    ? intl.formatMessage({ id: 'button.support' })
-                    : intl.formatMessage({ id: 'button.subscribe' })}
+                  {intl.formatMessage({ id: 'button.subscribe' })}
                 </button>
               )}
             </div>
           )}
         </div>
       )}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="navbar-collapse" id="navbarText">
-          {!payedFighter.includes(fighter?.id) && (
-            <React.Fragment>
-              <ul className="navbar-nav mr-auto">
-                {fighter && payedFighter && !payedFighter.includes(fighter.id) && (
-                  <li className={cn('nav-item', { active: !videos })}>
-                    <Link className="nav-link" href="" onClick={() => setVideos(false)}>
-                      {intl.formatMessage({ id: 'header.home' })}{' '}
-                      <span className="sr-only">(current)</span>
-                    </Link>
-                  </li>
-                )}
-                <li className={cn('nav-item', { active: videos })}>
-                  <Link className="nav-link" onClick={() => setVideos(true)}>
-                    {intl.formatMessage({ id: 'header.videos' })}
+      {!payedTeam.includes(team?.name) && (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="navbar-collapse" id="navbarText">
+            <ul className="navbar-nav mr-auto">
+              {team && payedTeam && !payedTeam.includes(team.id) && (
+                <li className={cn('nav-item', { active: !videos })}>
+                  <Link className="nav-link" href="" onClick={() => setVideos(false)}>
+                    {intl.formatMessage({ id: 'header.home' })}{' '}
+                    <span className="sr-only">(current)</span>
                   </Link>
                 </li>
-              </ul>
-            </React.Fragment>
-          )}
-          <div className={`nav-actions flex ppv-button ${!isMobile && 'justify-content-end'}`}>
-            <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
-              {intl.formatMessage({ id: 'button.ppv' })}
-            </button>
+              )}
+              <li className={cn('nav-item', { active: videos })}>
+                <Link className="nav-link" onClick={() => setVideos(true)}>
+                  {intl.formatMessage({ id: 'header.videos' })}
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      )}
       {!videos && (
         <div className="container">
           <div className="main-content row">
             {isMobile && (
               <div className="col-sm-12 col-md-8">
-                {fighter && (
+                {team && (
                   <LazyLoadComponent>
                     <ReactPlayer
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.officialPreview}
+                      url={team.officialPreview}
                       controls
                     />
                   </LazyLoadComponent>
@@ -213,17 +182,14 @@ const FighterStar = () => {
               )}
               {authenticated &&
                 supporting &&
-                supporting.length > 0 &&
-                fighter &&
-                !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
+                team &&
+                !supporting.filter(s => s.team?.id === team.id).length > 0 && (
                   <button
                     type="button"
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({
-                      id: fighter?.support ? 'button.supportNow' : 'button.subscribeNow'
-                    })}
+                    {intl.formatMessage({ id: 'button.subscribeNow' })}
                   </button>
                 )}
               {!authenticated && (
@@ -232,21 +198,19 @@ const FighterStar = () => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setModalIsOpen(true)}
                 >
-                  {intl.formatMessage({
-                    id: fighter?.support ? 'button.supportNow' : 'button.subscribeNow'
-                  })}
+                  {intl.formatMessage({ id: 'button.subscribeNow' })}
                 </button>
               )}
             </div>
             {!isMobile && (
               <div className="col-sm-12 col-md-8">
-                {fighter && (
+                {team && (
                   <LazyLoadComponent>
                     <ReactPlayer
                       title="preview"
                       width="100%"
                       height="90%"
-                      url={fighter.officialPreview}
+                      url={team.officialPreview}
                       controls
                     />
                   </LazyLoadComponent>
@@ -305,12 +269,10 @@ const FighterStar = () => {
             </div>
           )}
           <div className="center-50">
-            {fighter &&
-              fighter.privateVideos &&
-              !payedFighter.includes(fighter.id) &&
-              fighter.privateVideos
-                .filter(c => !!c.video)
-                .map(v => (
+            {team &&
+              !payedTeam.includes(team.id) &&
+              team.fighters.map(fighter =>
+                fighter.privateVideos.map(v => (
                   <div className="pay-to-see">
                     <div key={v.url} className="card">
                       <LazyLoadImage
@@ -331,83 +293,46 @@ const FighterStar = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))
+              )}
           </div>
           {authenticated &&
             supporting &&
-            supporting.length > 0 &&
-            fighter &&
-            !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
+            team &&
+            !supporting.filter(s => s.team?.id === team.id).length > 0 && (
               <div className="container">
                 <HowItWorks />
-                <HomeExclusive fighter={fighter} />
+                <HomeExclusive fighter={team} />
               </div>
             )}
           {!authenticated && (
             <React.Fragment>
               <div className="container">
                 <HowItWorks />
-                <HomeExclusive fighter={fighter} />
+                <HomeExclusive fighter={team} />
               </div>
             </React.Fragment>
           )}
         </div>
       )}
       {videos && (
-        <FighterVideos
-          fighter={fighter}
+        <TeamVideos
+          team={team}
           supporting={supporting}
           subscribeAction={() => setModalIsOpen(true)}
         />
       )}
-      <div className="stars-container">
-        <h2>{intl.formatMessage({ id: 'fighter.discoverMore' })}</h2>
-        <div className="fighters-container fighters-slider-wrapper">
-          <Slider>
-            {fighters.length > 0 &&
-              fighters
-                .filter(f => f.id !== fighter.id)
-                .map(f => (
-                  <a
-                    key={f.id}
-                    className="fighter-card-link"
-                    href=""
-                    onClick={() => history.push(`/fighter/${f.id}`)}
-                  >
-                    <div key={f.id} className="fighter-card">
-                      <LazyLoadImage
-                        className="fighter-card-image"
-                        src={f?.profilePicture}
-                        alt="Card cap"
-                      />
-                      <div className="fighter-card-overlay">
-                        <div className="fighter-card-name-wrapper">
-                          <span className="fighter-card-text">{f.firstName} </span>
-                          <span className="fighter-card-text secondary">{f.lastName} </span>
-                        </div>
-                        <div className="fighter-card-separator" />
-                        <span className="fighter-card-text">{f.organization} </span>
-                      </div>
-                    </div>
-                  </a>
-                ))}
-          </Slider>
-        </div>
-      </div>
       <HomeFooter />
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}
-        explain={intl.formatMessage({
-          id: fighter?.support ? 'modal.header.support' : 'modal.header.explain'
-        })}
+        explain={intl.formatMessage({ id: 'modal.header.explain' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
-        price={fighter?.subPrice}
+        price={team?.subPrice}
         email={currentUser?.email}
-        fighter={fighter?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="subscription" />
+        <BillingForm email={currentUser?.email} team={team?.id} type="subscription" />
       </ConfirmationModal>
       <CommonModal
         title={intl.formatMessage({ id: 'ppv.title' })}
@@ -419,7 +344,7 @@ const FighterStar = () => {
         <PPVForm
           onSubmit={setPPVOpen}
           nextStep={setModalPPVIsOpen}
-          fighterName={`${fighter?.firstName} ${fighter?.lastName}`}
+          fighterName={`Team ${team?.name}`}
         />
       </CommonModal>
       <ConfirmationModal
@@ -430,13 +355,13 @@ const FighterStar = () => {
         isDelete={false}
         price={500}
         email={currentUser?.email}
-        fighter={fighter?.id}
+        fighter={team?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="ppv" />
+        <BillingForm email={currentUser?.email} fighter={team?.id} type="ppv" />
       </ConfirmationModal>
       <Auth modalIsOpen={authModal} setModalIsOpen={setAuthModal} />
     </div>
   );
 };
 
-export default FighterStar;
+export default TeamStar;

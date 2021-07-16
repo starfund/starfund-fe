@@ -33,6 +33,7 @@ export default {
   findFighter: 'Find your fighter',
   findBusiness: 'Find your Fitness Center',
   ppvTitle: 'Request a personal video to your fighter',
+  team: 'Team',
 
   // errors
   'email.presence': 'You must enter an email to continue',
@@ -89,6 +90,13 @@ export default {
   'header.social': 'Social',
   'header.join': 'Join Us',
   'header.programs': 'Programs',
+
+  // Dashboard
+  'dashboard.title': 'Weekly Report',
+  'dashboard.pageVisits': 'ПОСЕЩЕНИЯ СТРАНИЦ',
+  'dashboard.newSubs': 'НОВЫЕ ПОДПИСКИ',
+  'dashboard.percentageVisitsPerSub': 'ПОСЕТИТЕЛЕЙ НА ПОДПИСКИ',
+  'dashboard.income': 'ЕЖЕНЕДЕЛЬНЫЙ ДОХОД',
 
   // Legal
   'legal.terms': ' Terms of Service ',
@@ -166,7 +174,7 @@ export default {
   'home.paralax.title': 'Changing the way we connect you with your ATHLETE',
   'home.paralax.subTitle':
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your athlete.',
-  'home.paralax.subscribe': 'SUPPORT ATHLETES',
+  'home.paralax.subscribe': 'SUBSCRIBE TO ATHLETES',
 
   'user.home.supporting': 'FOLLOWING',
   'user.home.supporting.nothing': 'You are not subscribed to any athletes yet.',
