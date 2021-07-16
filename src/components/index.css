@@ -589,7 +589,7 @@ h3 {
 
   .business-cover {
     width: 100%;
-    max-height: calc(50vh);
+    height: calc(60vh);
   }
 
   .stars-container {
