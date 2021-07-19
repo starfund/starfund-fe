@@ -119,7 +119,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           {team.fighters.map(
             fighter =>
               fighter.privateVideos &&
-              payedTeam.includes(fighter.id) &&
+              payedTeam.includes(team.id) &&
               fighter.privateVideos
                 .filter(c => !!c.video)
                 .map(v => (
