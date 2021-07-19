@@ -158,6 +158,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           {team.fighters
             .map(f => f.privateVideos)
             ?.filter((_, v) => v != [])
+            .flat()
             .filter(c => !!c.video).length > 0 &&
             !payedTeam.includes(team.id) && (
               <div className={`other-videos ${isMobile && 'center'}`}>
@@ -169,6 +170,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                         videos: team.fighters
                           .map(f => f.privateVideos)
                           ?.filter((_, v) => v != [])
+                          .flat()
                           .filter(c => !!c.video).length
                       }}
                     />
