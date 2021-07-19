@@ -90,6 +90,14 @@ const FighterStar = () => {
     }
   };
 
+  const fighterLink = fighter => {
+    if (fighter.team) {
+      history.push(`/team/${fighter.team.name}`);
+    } else {
+      history.push(`/fighter/${fighter.id}`);
+    }
+  };
+
   return (
     <div className="fighter-container">
       {!payedFighter.includes(fighter?.id) && (
@@ -372,7 +380,7 @@ const FighterStar = () => {
                     key={f.id}
                     className="fighter-card-link"
                     href=""
-                    onClick={() => history.push(`/fighter/${f.id}`)}
+                    onClick={() => fighterLink(f)}
                   >
                     <div key={f.id} className="fighter-card">
                       <LazyLoadImage
