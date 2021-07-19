@@ -19,7 +19,7 @@ import MessageSection from './MessageSection';
 const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const [url, setUrl] = useState(team?.previewUrl || team?.officialPreview);
+  const [url, setUrl] = useState(team?.officialPreview || team?.previewUrl);
   const [diplayContent, setDisplayContent] = useState();
   const payedTeam = supporting.map(sub => sub.team?.id);
   const isMobile = useMediaQuery({
@@ -119,7 +119,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           {team.fighters.map(
             fighter =>
               fighter.privateVideos &&
-              payedTeam.includes(fighter.id) &&
+              payedTeam.includes(team.id) &&
               fighter.privateVideos
                 .filter(c => !!c.video)
                 .map(v => (
@@ -158,6 +158,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           {team.fighters
             .map(f => f.privateVideos)
             ?.filter((_, v) => v != [])
+            .flat()
             .filter(c => !!c.video).length > 0 &&
             !payedTeam.includes(team.id) && (
               <div className={`other-videos ${isMobile && 'center'}`}>
@@ -169,6 +170,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                         videos: team.fighters
                           .map(f => f.privateVideos)
                           ?.filter((_, v) => v != [])
+                          .flat()
                           .filter(c => !!c.video).length
                       }}
                     />

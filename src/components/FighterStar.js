@@ -44,7 +44,7 @@ const FighterStar = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [authModal, setAuthModal] = useState(false);
   const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
-  const [videos, setVideos] = useState(false);
+  const [videos, setVideos] = useState(!!authenticated);
   const [PPVOpen, setPPVOpen] = useState(false);
   useEffect(() => {
     dispatch(getFighters(true));
@@ -87,6 +87,14 @@ const FighterStar = () => {
       }
     } else {
       setAuthModal(true);
+    }
+  };
+
+  const fighterLink = fighter => {
+    if (fighter.team) {
+      history.push(`/team/${fighter.team.name}`);
+    } else {
+      history.push(`/fighter/${fighter.id}`);
     }
   };
 
@@ -178,7 +186,7 @@ const FighterStar = () => {
                       title="preview"
                       width="100%"
                       height="80%"
-                      url={fighter.officialPreview}
+                      url={fighter?.officialPreview}
                       controls
                     />
                   </LazyLoadComponent>
@@ -353,7 +361,7 @@ const FighterStar = () => {
           )}
         </div>
       )}
-      {videos && (
+      {fighter && videos && (
         <FighterVideos
           fighter={fighter}
           supporting={supporting}
@@ -372,7 +380,7 @@ const FighterStar = () => {
                     key={f.id}
                     className="fighter-card-link"
                     href=""
-                    onClick={() => history.push(`/fighter/${f.id}`)}
+                    onClick={() => fighterLink(f)}
                   >
                     <div key={f.id} className="fighter-card">
                       <LazyLoadImage
