@@ -16,11 +16,10 @@ const BusinessPrograms = ({ business }) => {
               <img src={c.cover} alt="cover" />
               <div>
                 <h2>
-                  <u>
-                    {c.name.toUpperCase()}
-                    {' - '} {c.level}
-                  </u>
+                  <u> {c.name.toUpperCase()} </u>
                 </h2>
+                <h4> Level: {c.level} </h4>
+                <br />
                 <div className="row">
                   <h3>{c.courseGoal}</h3>
                 </div>

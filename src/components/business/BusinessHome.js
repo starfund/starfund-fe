@@ -1,4 +1,5 @@
 import React from 'react';
+import Facebook from '../../assets/FacebookColor.png';
 
 const BusinessHome = ({ business }) => {
   return (
@@ -19,13 +20,16 @@ const BusinessHome = ({ business }) => {
                   <b>Level:</b> {c.level}
                 </li>
               </ul>
-              <div className="card-body">
-                <a href="#" className="card-link">
-                  Contact
-                </a>
-                <a href="#" className="card-link">
-                  See More
-                </a>
+              <div className="card-body flex">
+                <img src={Facebook} alt="Facebook" />
+                <div>
+                  <a
+                    className="social"
+                    onClick={() => window.open(business.facebookLink, '_blank')}
+                  >
+                    Facebook
+                  </a>
+                </div>
               </div>
             </div>
           </div>

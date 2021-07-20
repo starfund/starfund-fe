@@ -1459,6 +1459,18 @@ h3 {
       margin-bottom: 20px;
     }
   }
+
+  .card-body {
+    img {
+      height: 35px;
+      margin: 10px;
+    }
+
+    div {
+      margin: 15px 0;
+      cursor: pointer;
+    }
+  }
 }
 
 .schedule {
@@ -1498,7 +1510,7 @@ h3 {
 }
 
 .business-program-container {
-  h2 { margin: 20px 0 }
+  h2 { margin: 10px 0 }
   img {
     margin: 0 5vw;
     height: 40vw;
