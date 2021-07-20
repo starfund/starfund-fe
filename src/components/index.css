@@ -1458,9 +1458,14 @@ h3 {
       margin: auto;
       margin-bottom: 20px;
     }
+
+    .card {
+      margin-bottom: 10px;
+    }
   }
 
   .card-body {
+    text-align: center;
     img {
       height: 35px;
       margin: 10px;
