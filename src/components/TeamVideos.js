@@ -21,6 +21,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const dispatch = useDispatch();
   const [url, setUrl] = useState(team?.officialPreview || team?.previewUrl);
   const [diplayContent, setDisplayContent] = useState();
+  const [thumbnail, setThumnail] = useState();
   const payedTeam = supporting.map(sub => sub.team?.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -41,6 +42,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   const selectVideo = content => {
     setUrl(content.video);
     setDisplayContent(content);
+    setThumnail(content.thumbnail);
     if (payedTeam.includes(team.id)) {
       window.scrollTo(0, 0);
     } else {
@@ -67,6 +69,13 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
               muted
               style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '40vw'}` }}
               onEnded={endFreeVideo}
+              config={{
+                file: {
+                  attributes: {
+                    poster: thumbnail
+                  }
+                }
+              }}
             />
           </LazyLoadComponent>
           <div className="blank-line" />
@@ -98,6 +107,13 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                           width="100%"
                           height={isMobile ? '100%' : '10vw'}
                           light={v.thumbnail}
+                          config={{
+                            file: {
+                              attributes: {
+                                poster: v.thumbnail
+                              }
+                            }
+                          }}
                         />
                       </LazyLoadComponent>
                     </div>
@@ -135,6 +151,13 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                           width="100%"
                           height={isMobile ? '100%' : '10vw'}
                           light={v.thumbnail}
+                          config={{
+                            file: {
+                              attributes: {
+                                poster: v.thumbnail
+                              }
+                            }
+                          }}
                         />
                       </LazyLoadComponent>
                     </div>
