@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useIntl, FormattedMessage } from 'react-intl';
+import { useSession } from 'hooks';
 import ReactPlayer from 'react-player/lazy';
 
 import { useMediaQuery } from 'react-responsive';
@@ -13,12 +14,15 @@ import { getMessages } from '../state/actions/messageActions';
 
 import Subscribe from '../assets/subscribe.png';
 import SubscribeRu from '../assets/subscribe_rus.png';
+import Watch from '../assets/watch.png';
+import WatchRu from '../assets/watch_rus.png';
 
 import MessageSection from './MessageSection';
 
-const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
+const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
+  const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
   const [diplayContent, setDisplayContent] = useState();
   const payedFighter = supporting.map(sub => sub.fighter?.id);
@@ -148,10 +152,15 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   </h3>
                 </div>
                 <div className="sub-cta">
-                  <LazyLoadImage
-                    src={language == 'ru' ? SubscribeRu : Subscribe}
-                    onClick={subscribeAction}
-                  />
+                  {authenticated && (
+                    <LazyLoadImage
+                      src={language == 'ru' ? SubscribeRu : Subscribe}
+                      onClick={subscribeAction}
+                    />
+                  )}
+                  {!authenticated && (
+                    <LazyLoadImage src={language == 'ru' ? WatchRu : Watch} onClick={watchAction} />
+                  )}
                 </div>
               </div>
             )}
