@@ -72,7 +72,8 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
               config={{
                 file: {
                   attributes: {
-                    poster: thumbnail
+                    poster: thumbnail,
+                    forceHLS: true
                   }
                 }
               }}
