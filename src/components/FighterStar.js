@@ -10,7 +10,7 @@ import { format } from 'date-fns';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import { useSession } from 'hooks';
+import { useSession, usePrevious } from 'hooks';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { getFighters } from '../state/actions/fighterActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -28,6 +28,8 @@ import PPVForm from './PPVForm';
 
 import Subscribe from '../assets/subscribe.png';
 import SubscribeRu from '../assets/subscribe_rus.png';
+import Watch from '../assets/watch.png';
+import WatchRu from '../assets/watch_rus.png';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
@@ -46,6 +48,8 @@ const FighterStar = () => {
   const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
   const [videos, setVideos] = useState(!!authenticated);
   const [PPVOpen, setPPVOpen] = useState(false);
+  const prevAuth = usePrevious(authenticated);
+
   useEffect(() => {
     dispatch(getFighters(true));
   }, [dispatch]);
@@ -53,7 +57,10 @@ const FighterStar = () => {
     if (authenticated) {
       dispatch(getSubscriptions());
     }
-  }, [authenticated, dispatch]);
+    if (!prevAuth && authenticated) {
+      setVideos(true);
+    }
+  }, [authenticated, dispatch, prevAuth]);
   useEffect(() => {
     ReactGA.pageview(`/fighter/${id}`);
   }, [id]);
@@ -321,11 +328,20 @@ const FighterStar = () => {
                 .map(v => (
                   <div className="pay-to-see">
                     <div key={v.url} className="card">
-                      <LazyLoadImage
-                        className="card-img-top"
-                        src={language == 'ru' ? SubscribeRu : Subscribe}
-                        onClick={() => setModalIsOpen(true)}
-                      />
+                      {authenticated && (
+                        <LazyLoadImage
+                          className="card-img-top"
+                          src={language == 'ru' ? SubscribeRu : Subscribe}
+                          onClick={() => setModalIsOpen(true)}
+                        />
+                      )}
+                      {!authenticated && (
+                        <LazyLoadImage
+                          className="card-img-top"
+                          src={language == 'ru' ? WatchRu : Watch}
+                          onClick={() => setAuthModal(true)}
+                        />
+                      )}
                       <div className="card-body">
                         <p className="card-title">{format(new Date(v.eventDate), 'LLL d, yyyy')}</p>
                         <p className="card-text">
@@ -366,6 +382,7 @@ const FighterStar = () => {
           fighter={fighter}
           supporting={supporting}
           subscribeAction={() => setModalIsOpen(true)}
+          watchAction={() => setAuthModal(true)}
         />
       )}
       <div className="stars-container">
