@@ -9,11 +9,11 @@ const Schedule = ({ title }) => {
       <table className="table">
         <tbody className="table-light">
           <tr>
-            <td> Musculacion </td>
+            <td />
             <td className="table-warning"> Lun a Vie 8:00 - 12:00 </td>
           </tr>
           <tr>
-            <td />
+            <td> Musculacion </td>
             <td className="table-warning"> Lun a Vie 15:00 - 21:00 </td>
           </tr>
           <tr>
