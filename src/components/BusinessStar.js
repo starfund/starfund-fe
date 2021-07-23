@@ -153,7 +153,7 @@ const BusinessStar = () => {
           <center>
             <h2> Know our Programs </h2>
           </center>
-          <BusinessHome business={business} />
+          <BusinessHome business={business} setPrograms={setCourses} />
           <div className="blank-line" />
           <center>
             <Schedule title="Schedule" />
@@ -161,7 +161,9 @@ const BusinessStar = () => {
         </div>
       )}
       {videos && business && <BusinessVideos business={business} />}
-      {courses && business && <BusinessPrograms business={business} />}
+      {!videos && courses && business && (
+        <BusinessPrograms business={business} setVideos={setVideos} />
+      )}
       <div className="blank-line" />
       <HomeFooter />
       <ConfirmationModal

@@ -26,6 +26,14 @@ body { overflow-x: hidden }
   white-space: normal;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
+.center-text {
+  text-align: center;
+}
+
 video {
   object-fit: cover;
 }
@@ -55,10 +63,18 @@ h1 {
 
 h2 {
   font-size: 30px !important;
+
+  @media only screen and (max-width : 512px) {
+    font-size: 8vw !important;
+  }
 }
 
 h3 {
   font-size: 24px !important;
+
+  @media only screen and (max-width : 512px) {
+    font-size: 5vw !important;
+  }
 }
 
 .pad-20 {
@@ -67,6 +83,15 @@ h3 {
 
 .width-90 {
   min-width: 90%;
+}
+
+.center-70 {
+  margin: auto !important;
+  width: 70%;
+
+  @media only screen and (max-width : 512px) {
+    width: 50%;
+  }
 }
 
 .center-50 {
@@ -1520,5 +1545,9 @@ h3 {
     margin: 0 5vw;
     height: 40vw;
     width: 33vw;
+  }
+
+  button {
+    background-color: rgb(234, 10, 10);
   }
 }
