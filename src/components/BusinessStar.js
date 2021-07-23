@@ -176,7 +176,7 @@ const BusinessStar = () => {
         email={currentUser?.email}
         fighter={business?.id}
       >
-        <BillingForm email={currentUser?.email} business={business?.id} type="business" />
+        <BillingForm email={currentUser?.email} business={business?.id} type="subscription" />
       </ConfirmationModal>
     </div>
   );
