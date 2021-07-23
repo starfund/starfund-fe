@@ -13,7 +13,7 @@ import SubscribeRu from '../../assets/subscribe_rus.png';
 import Watch from '../../assets/watch.png';
 import WatchRu from '../../assets/watch_rus.png';
 
-const BusinessVideos = ({ business, subscribeAction, watchAction }) => {
+const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) => {
   const intl = useIntl();
   const [url, setUrl] = useState(business.previewUrl || business.officialPreview);
   const isMobile = useMediaQuery({
@@ -73,6 +73,35 @@ const BusinessVideos = ({ business, subscribeAction, watchAction }) => {
                 </div>
               ))}
           {business &&
+            supporting.includes(business.id) &&
+            business.content
+              .filter(c => !c.public)
+              .map(v => (
+                <div
+                  key={v.url}
+                  className="col-5 col-sm-12 fighter-watch"
+                  onClick={() => selectVideo(v)}
+                >
+                  <LazyLoadComponent>
+                    <ReactPlayer
+                      url={v.video}
+                      width={isMobile ? '100%' : '80%'}
+                      height="20vh"
+                      light={v.thumbnail}
+                    />
+                  </LazyLoadComponent>
+                  <div>
+                    <h4> {formatTitle(v, language)} </h4>
+                    <p>
+                      {' '}
+                      {formatDescription(v, language)} *{' '}
+                      {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          {business &&
+            !supporting.includes(business.id) &&
             business.content
               .filter(c => !c.public)
               .map(() => (

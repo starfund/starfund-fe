@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   subscriptions: [],
+  gymSubscriptions: [],
   public: [],
   newUser: false,
   ppvRequest: [],
@@ -38,6 +39,7 @@ const actionHandlers = {
   },
   [getSubscriptions.success]: (state, { payload }) => {
     state.subscriptions = payload.subscriptions;
+    state.gymSubscriptions = payload.businessSubscription;
     state.public = payload.publicContent;
   },
   [setPPVRequest.success]: (state, { payload }) => {

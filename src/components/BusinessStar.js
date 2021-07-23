@@ -27,7 +27,7 @@ const BusinessStar = () => {
   const dispatch = useDispatch();
   const { authenticated } = useSession();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [videos, setVideos] = useState(false);
+  const [videos, setVideos] = useState(!!authenticated);
   const [courses, setCourses] = useState(false);
 
   useEffect(() => {
@@ -42,12 +42,18 @@ const BusinessStar = () => {
     ReactGA.pageview(`/business/${id}`);
   }, [id]);
 
-  const subscriptions = useSelector(state => state.subscriptions?.subscriptions);
+  const subscriptions = useSelector(state => state.subscriptions?.gymSubscriptions);
   const business = useSelector(
     state => state.businesses.businesses.filter(b => b.id == parseInt(id))[0]
   );
-  const subscribed = subscriptions.filter(sub => sub.business?.id);
+  const subscribed = subscriptions.map(sub => sub.businessId);
   const currentUser = useSelector(state => state.session.user);
+
+  useEffect(() => {
+    if (subscribed && business) {
+      subscribed.includes(business.id) && setVideos(true);
+    }
+  }, [subscribed, id, business]);
 
   const setHeader = header => {
     switch (header) {
@@ -160,7 +166,9 @@ const BusinessStar = () => {
           </center>
         </div>
       )}
-      {videos && business && <BusinessVideos business={business} />}
+      {videos && business && subscribed && (
+        <BusinessVideos business={business} supporting={subscribed} />
+      )}
       {!videos && courses && business && (
         <BusinessPrograms business={business} setVideos={setVideos} />
       )}
