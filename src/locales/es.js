@@ -73,6 +73,7 @@ export default {
   // Modals
   'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
   'modal.header.explain': 'Subscribete para disfrutar los videos exclusivos y sorpresas.',
+  'modal.header.explainGym': 'Subscribete para disfrutar los videos exclusivos e info del gym.',
   'modal.header.ppv.explain': 'Casi listo, solo confirma tu pago',
   'modal.header.support': 'Apoya a tu estrella, disfruta videos y sorpresas.',
   'modal.header.totalBilled': 'Total a cobrar hoy: ',

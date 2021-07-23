@@ -60,7 +60,7 @@ const TeamStar = () => {
   const team = useSelector(state => state.teams.teams.filter(t => t.name == name)[0]);
   const language = useSelector(state => state.language.language);
   const payedTeam = supporting.map(sub => sub.team?.name);
-  const currentUser = useSelector(state => state.session.user?.user);
+  const currentUser = useSelector(state => state.session.user);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });

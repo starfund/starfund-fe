@@ -47,7 +47,7 @@ const BusinessStar = () => {
     state => state.businesses.businesses.filter(b => b.id == parseInt(id))[0]
   );
   const subscribed = subscriptions.filter(sub => sub.business?.id);
-  const currentUser = useSelector(state => state.session.user?.user);
+  const currentUser = useSelector(state => state.session.user);
 
   const setHeader = header => {
     switch (header) {
@@ -168,7 +168,7 @@ const BusinessStar = () => {
       <HomeFooter />
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}
-        explain={intl.formatMessage({ id: 'modal.header.explain' })}
+        explain={intl.formatMessage({ id: 'modal.header.explainGym' })}
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         isDelete={false}
@@ -176,7 +176,7 @@ const BusinessStar = () => {
         email={currentUser?.email}
         fighter={business?.id}
       >
-        <BillingForm email={currentUser?.email} fighter={business?.id} type="business" />
+        <BillingForm email={currentUser?.email} business={business?.id} type="business" />
       </ConfirmationModal>
     </div>
   );
