@@ -24,7 +24,7 @@ const UserHome = () => {
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
   const fighterIds = supporting.map(sub => sub.fighter && sub.fighter.id);
-  const payedTeamFighterIds = supporting.map(sub => sub.team && sub.team.fighters.map(f => f.id));
+  const payedTeamFighterIds = supporting.map(sub => sub.team && sub.team.fighters?.map(f => f.id));
   const payedFighters = fighterIds + payedTeamFighterIds;
   const feedContent = useSelector(state => state.contents.content.content);
   const likes = useSelector(state => state.contents.content.likes);
@@ -73,6 +73,7 @@ const UserHome = () => {
                         </div>
                       )}
                       {s.team &&
+                        s.team.fighters &&
                         s.team.fighters.map(f => (
                           <div
                             key={f.id}
