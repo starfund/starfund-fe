@@ -40,7 +40,7 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
               controls
               playing
               muted
-              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+              style={{ margin: '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
             />
           </LazyLoadComponent>
         </div>

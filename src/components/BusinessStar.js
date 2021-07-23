@@ -49,12 +49,6 @@ const BusinessStar = () => {
   const subscribed = subscriptions.map(sub => sub.businessId);
   const currentUser = useSelector(state => state.session.user);
 
-  useEffect(() => {
-    if (subscribed && business) {
-      subscribed.includes(business.id) && setVideos(true);
-    }
-  }, [subscribed, id, business]);
-
   const setHeader = header => {
     switch (header) {
       case 'videos':
@@ -86,7 +80,6 @@ const BusinessStar = () => {
           <div className="centered">
             <br />
             <br />
-            <p className="business-name">{business.name}</p>
             {authenticated &&
               subscribed.length === 0 &&
               business &&
@@ -113,28 +106,24 @@ const BusinessStar = () => {
       </div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="navbar-collapse" id="navbarText">
-          {!subscribed.includes(business?.id) && (
-            <React.Fragment>
-              <ul className="navbar-nav mr-auto">
-                <li className={cn('nav-item', { active: !videos && !courses })}>
-                  <Link className="nav-link" href="" onClick={() => setHeader('home')}>
-                    {intl.formatMessage({ id: 'header.home' })}{' '}
-                    <span className="sr-only">(current)</span>
-                  </Link>
-                </li>
-                <li className={cn('nav-item', { active: videos })}>
-                  <Link className="nav-link" onClick={() => setHeader('videos')}>
-                    {intl.formatMessage({ id: 'header.videos' })}
-                  </Link>
-                </li>
-                <li className={cn('nav-item', { active: courses })}>
-                  <Link className="nav-link" onClick={() => setHeader('programs')}>
-                    {intl.formatMessage({ id: 'header.programs' })}
-                  </Link>
-                </li>
-              </ul>
-            </React.Fragment>
-          )}
+          <ul className="navbar-nav mr-auto">
+            <li className={cn('nav-item', { active: !videos && !courses })}>
+              <Link className="nav-link" href="" onClick={() => setHeader('home')}>
+                {intl.formatMessage({ id: 'header.home' })}{' '}
+                <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className={cn('nav-item', { active: videos })}>
+              <Link className="nav-link" onClick={() => setHeader('videos')}>
+                {intl.formatMessage({ id: 'header.videos' })}
+              </Link>
+            </li>
+            <li className={cn('nav-item', { active: courses })}>
+              <Link className="nav-link" onClick={() => setHeader('programs')}>
+                {intl.formatMessage({ id: 'header.programs' })}
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
       {!videos && !courses && (

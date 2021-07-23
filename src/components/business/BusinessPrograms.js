@@ -13,9 +13,11 @@ const BusinessPrograms = ({ business, setVideos }) => {
         business.courses.map(c => (
           <React.Fragment key={c.id}>
             <div className="blank-line" />
-            <div className="row center-70">
-              <img src={c.cover} alt="cover" />
-              <div className="center-text">
+            <div className="row">
+              <div className="col-6 col-md-4 offset-2 offset-md-2">
+                <img src={c.cover} alt="cover" />
+              </div>
+              <div className="center-text col-12 col-md-4 offset-md-1">
                 <h2>
                   <u> {c.name.toUpperCase()} </u>
                 </h2>

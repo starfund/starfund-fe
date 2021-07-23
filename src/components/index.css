@@ -1544,7 +1544,7 @@ h3 {
   img {
     margin: 0 5vw;
     height: 40vw;
-    width: 33vw;
+    width: inherit;
   }
 
   button {
