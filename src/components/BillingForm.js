@@ -113,13 +113,15 @@ const BillingForm = ({ stripe, elements, email, fighter, team, business, type })
                           placeholder={intl.formatMessage({ id: 'billing.number' })}
                           width={16}
                         />
-                        <Input
-                          name="name"
-                          placeholder={intl.formatMessage({ id: 'billing.name' })}
-                          onFocus={e => setFocus(e.target.name)}
-                          onChange={e => setName(e.target.value)}
-                          className="stripe-name"
-                        />
+                        {!email && (
+                          <Input
+                            name="name"
+                            placeholder={intl.formatMessage({ id: 'billing.name' })}
+                            onFocus={e => setFocus(e.target.name)}
+                            onChange={e => setName(e.target.value)}
+                            className="stripe-name"
+                          />
+                        )}
                         <div className="flex">
                           <Field
                             onChange={setExpiryStripe}
