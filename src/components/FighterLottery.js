@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { useIntl, FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
@@ -17,9 +18,12 @@ import './index.css';
 const FighterLottery = () => {
   const intl = useIntl();
   const { authenticated } = useSession();
+  const WHATSAPPBUSINESS =
+    'https://api.whatsapp.com/send?phone=+12029826896&text=Здравствуйте, я хочу оплатить за бойца';
   const fighter = 8;
   const subPrice = 299;
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const language = useSelector(state => state.language.language);
 
   useEffect(() => {
     ReactGA.pageview('/rewards/');
@@ -29,17 +33,25 @@ const FighterLottery = () => {
     query: '(max-width: 765px)'
   });
 
+  const subAction = () => {
+    if (language == 'ru') {
+      window.open(WHATSAPPBUSINESS, '_blank');
+    } else {
+      setModalIsOpen(true);
+    }
+  };
+
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-6" onClick={() => !authenticated && setModalIsOpen(true)}>
+        <div className="col-md-6" onClick={() => !authenticated && subAction()}>
           {!isMobile && (
             <div>
               <button
                 type="button"
                 disabled={authenticated}
                 className={authenticated ? 'btn btn-secondary btn-lg' : 'btn btn-danger btn-lg'}
-                onClick={() => setModalIsOpen(true)}
+                onClick={() => subAction()}
               >
                 {intl.formatMessage({
                   id: authenticated ? 'button.subscribed' : 'button.participate'
@@ -117,7 +129,7 @@ const FighterLottery = () => {
                 type="button"
                 disabled={authenticated}
                 className={authenticated ? 'btn btn-secondary btn-lg' : 'btn btn-danger btn-lg'}
-                onClick={() => setModalIsOpen(true)}
+                onClick={() => subAction()}
               >
                 {intl.formatMessage({
                   id: authenticated ? 'button.subscribed' : 'button.participate'
