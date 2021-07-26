@@ -13,6 +13,7 @@ import { useSession } from 'hooks';
 import { getBusinesses } from '../state/actions/businessActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
+import LocationMap from './common/LocationMap';
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import HomeFooter from './HomeFooter';
@@ -161,6 +162,8 @@ const BusinessStar = () => {
       {!videos && courses && business && (
         <BusinessPrograms business={business} setVideos={setVideos} />
       )}
+      <div className="blank-line" />
+      <LocationMap />
       <div className="blank-line" />
       <HomeFooter />
       <ConfirmationModal

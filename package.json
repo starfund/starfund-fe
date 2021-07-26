@@ -85,6 +85,7 @@
     "localforage": "1.7.3",
     "lodash": "4.17.15",
     "node-sass": "4.14.1",
+    "pigeon-maps": "0.19.7",
     "popper.js": "1.16.1",
     "prop-types": "15.7.2",
     "query-string": "5.1.1",
