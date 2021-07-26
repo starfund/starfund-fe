@@ -58,6 +58,15 @@ const Header = () => {
                   {intl.formatMessage({ id: 'header.watch' })}
                 </Link>
               </li>
+              <li
+                className={cn('nav-item text-right', {
+                  active: pathname === routePaths.businesses
+                })}
+              >
+                <Link to={routePaths.businesses} className="nav-link">
+                  {intl.formatMessage({ id: 'header.business' })}
+                </Link>
+              </li>
             </ul>
             <div className="nav-actions flex justify-content-end">
               <img src={ProfileUser} alt="profile" />

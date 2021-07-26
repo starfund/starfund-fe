@@ -83,6 +83,7 @@ export default {
   'modal.footer.question': 'Necesitas ayuda?',
 
   // Header
+  'header.business': 'Gimnasios',
   'header.watch': 'Contenido',
   'header.shop': 'Tienda',
   'header.stars': 'Estrellas',

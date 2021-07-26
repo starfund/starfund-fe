@@ -76,6 +76,7 @@ export default {
   'modal.footer.question': 'Have any question?',
 
   // Header
+  'header.business': 'GYMS',
   'header.watch': 'WATCH',
   'header.shop': 'SHOP',
   'header.stars': 'STARS',
