@@ -30,7 +30,7 @@ const BusinessPrograms = ({ business, setVideos }) => {
                   className="btn btn-danger btn-lg"
                   onClick={() => setVideos(true)}
                 >
-                  Watch Videos
+                  {intl.formatMessage({ id: 'business.watch' })}
                 </button>
               </div>
             </div>

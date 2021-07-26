@@ -207,5 +207,7 @@ export default {
   'rewards.refer.result': 'Подпишитесь на наши страницы в соц. сетях',
 
   // BUSINESSES
-  'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ'
+  'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',
+  'business.schedule': 'РАСПИСАНИЯ',
+  'business.watch': 'Просмотр видео'
 };

@@ -217,5 +217,7 @@ export default {
   'rewards.refer.result': 'No te pierdas estos resultados. Subscribete a nuestras redes sociales',
 
   // BUSINESSES
-  'business.programs.title': 'CONOCE NUESTROS PLANES'
+  'business.programs.title': 'CONOCE NUESTROS CURSOS',
+  'business.schedule': 'HORARIOS',
+  'business.watch': 'Ver Videos'
 };

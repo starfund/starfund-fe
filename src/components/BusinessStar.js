@@ -146,12 +146,12 @@ const BusinessStar = () => {
           </div>
           <div className="blank-line" />
           <center>
-            <h2> Know our Programs </h2>
+            <h2> {intl.formatMessage({ id: 'business.programs.title' })} </h2>
           </center>
           <BusinessHome business={business} setPrograms={setCourses} />
           <div className="blank-line" />
           <center>
-            <Schedule title="Schedule" />
+            <Schedule title={intl.formatMessage({ id: 'business.schedule' })} />
           </center>
         </div>
       )}

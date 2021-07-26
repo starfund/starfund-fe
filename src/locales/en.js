@@ -210,5 +210,7 @@ export default {
     'Don’t miss the results of the lottery. Subscribe to our social media pages',
 
   // BUSINESSES
-  'business.programs.title': 'KNOW OUR PROGRAMS'
+  'business.programs.title': 'KNOW OUR PROGRAMS',
+  'business.schedule': 'SCHEDULE',
+  'business.watch': 'Watch Videos'
 };
