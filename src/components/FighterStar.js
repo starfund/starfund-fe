@@ -25,6 +25,7 @@ import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
+import WhatsappCallToAction from './WhatsappCallToAction';
 
 import Subscribe from '../assets/subscribe.png';
 import SubscribeRu from '../assets/subscribe_rus.png';
@@ -182,6 +183,7 @@ const FighterStar = () => {
           </div>
         </div>
       </nav>
+      <WhatsappCallToAction />
       {!videos && (
         <div className="container">
           <div className="main-content row">

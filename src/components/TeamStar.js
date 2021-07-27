@@ -24,6 +24,7 @@ import TeamVideos from './TeamVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
+import WhatsappCallToAction from './WhatsappCallToAction';
 
 import Subscribe from '../assets/subscribe.png';
 import SubscribeRu from '../assets/subscribe_rus.png';
@@ -136,6 +137,7 @@ const TeamStar = () => {
           </div>
         </nav>
       )}
+      <WhatsappCallToAction />
       {!videos && (
         <div className="container">
           <div className="main-content row">
