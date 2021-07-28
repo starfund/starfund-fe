@@ -102,34 +102,29 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
               ))}
           {business &&
             !supporting.includes(business.id) &&
-            business.content
-              .filter(c => !c.public)
-              .map(() => (
-                <div className={`other-videos col-11 ${isMobile && 'center'}`}>
-                  <div className="flex">
-                    <h3 className="center">
-                      <FormattedMessage
-                        id="fighter.videos.subscribe"
-                        values={{ videos: business.content.filter(c => !c.public).length }}
-                      />
-                    </h3>
-                  </div>
-                  <div className="sub-cta">
-                    {authenticated && (
-                      <LazyLoadImage
-                        src={language == 'ru' ? SubscribeRu : Subscribe}
-                        onClick={subscribeAction}
-                      />
-                    )}
-                    {!authenticated && (
-                      <LazyLoadImage
-                        src={language == 'ru' ? WatchRu : Watch}
-                        onClick={watchAction}
-                      />
-                    )}
-                  </div>
+            business.content.filter(c => !c.public).length > 0 && (
+              <div className={`other-videos col-11 ${isMobile && 'center'}`}>
+                <div className="flex">
+                  <h3 className="center">
+                    <FormattedMessage
+                      id="fighter.videos.subscribe"
+                      values={{ videos: business.content.filter(c => !c.public).length }}
+                    />
+                  </h3>
                 </div>
-              ))}
+                <div className="sub-cta">
+                  {authenticated && (
+                    <LazyLoadImage
+                      src={language == 'ru' ? SubscribeRu : Subscribe}
+                      onClick={subscribeAction}
+                    />
+                  )}
+                  {!authenticated && (
+                    <LazyLoadImage src={language == 'ru' ? WatchRu : Watch} onClick={watchAction} />
+                  )}
+                </div>
+              </div>
+            )}
         </div>
       </div>
     </div>
