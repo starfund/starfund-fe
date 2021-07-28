@@ -157,7 +157,12 @@ const BusinessStar = () => {
         </div>
       )}
       {videos && business && subscribed && (
-        <BusinessVideos business={business} supporting={subscribed} />
+        <BusinessVideos
+          business={business}
+          supporting={subscribed}
+          subscribeAction={() => setModalIsOpen(true)}
+          watchAction={() => setModalIsOpen(true)}
+        />
       )}
       {!videos && courses && business && (
         <BusinessPrograms business={business} setVideos={setVideos} />
