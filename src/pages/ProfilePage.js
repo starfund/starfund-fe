@@ -48,7 +48,9 @@ const ProfilePage = () => {
               <div className="blank-line" />
               {!currentUser.isFighter && (
                 <React.Fragment>
-                  <h3> SUPPORTING </h3>
+                  <h3>
+                    <center> SUPPORTING </center>
+                  </h3>
                   <div className="blank-line" />
                   {supporting?.length > 0 &&
                     supporting
