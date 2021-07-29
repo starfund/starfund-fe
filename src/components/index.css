@@ -1520,22 +1520,12 @@ h3 {
   }
 
   td {
-    border-right: solid 1px grey;
     word-break: break-all;
   }
 
   th {
-    border-bottom: solid 1px black !important;
     text-align: center;
     word-break: break-all;
-  }
-
-  .table-orange {
-    background-color: #ff6f61;
-  }
-
-  .table-violet {
-    background-color: #ff7bb1;
   }
 }
 
