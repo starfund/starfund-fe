@@ -38,7 +38,12 @@ const ProfilePage = () => {
                     </p>
                   </React.Fragment>
                 )}
-                {currentUser.isFighter && <UserInfoForm currentUser={currentUser} />}
+                {currentUser.isFighter && (
+                  <React.Fragment>
+                    <div className="blank-line" />
+                    <UserInfoForm currentUser={currentUser} />
+                  </React.Fragment>
+                )}
               </div>
               <div className="blank-line" />
               {!currentUser.isFighter && (
@@ -80,8 +85,12 @@ const ProfilePage = () => {
               )}
             </div>
             <div className="credit-card-info" />
-            {!currentUser.isFighter && <UserInfoForm currentUser={currentUser} />}
           </div>
+          {!currentUser.isFighter && (
+            <div className="col-12 col-sm-6 offset-sm-2 offset-md-1">
+              <UserInfoForm currentUser={currentUser} />
+            </div>
+          )}
           {currentUser && currentUser.isFighter && <FighterDashboard currentUser={currentUser} />}
         </div>
         <div className="col-sm-4">

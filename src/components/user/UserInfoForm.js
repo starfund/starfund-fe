@@ -15,7 +15,6 @@ const UserInfoForm = ({ currentUser }) => {
 
   return (
     <div className="personal-info">
-      <div className="blank-line" />
       <h2> YOUR INFORMATION </h2>
       <Input
         name="firstName"
