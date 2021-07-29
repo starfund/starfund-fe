@@ -46,15 +46,27 @@ const ProfilePage = () => {
                   <h3> SUPPORTING </h3>
                   <div className="blank-line" />
                   {supporting?.length > 0 &&
-                    supporting.map(s => (
-                      <div key={s.id} className="fighter-sub flex">
-                        <img src={s.fighterPicture} alt="sub" />
-                        <p>
-                          {' '}
-                          {s.fighter.firstName} {s.fighter.lastName}{' '}
-                        </p>
-                      </div>
-                    ))}
+                    supporting
+                      .filter(s => s.fighter)
+                      .map(s => (
+                        <div key={s.id} className="fighter-sub flex">
+                          <img src={s.fighterPicture} alt="sub" />
+                          <p>
+                            {' '}
+                            {s.fighter?.firstName} {s.fighter?.lastName}{' '}
+                          </p>
+                        </div>
+                      ))}
+                  {supporting?.length > 0 &&
+                    supporting.filter(s => s.team).length > 0 &&
+                    supporting
+                      .filter(s => s.team)
+                      .map(s => (
+                        <div key={s.id} className="fighter-sub flex">
+                          <img src={s.fighterPicture} alt="sub" />
+                          <p> {s.team?.name} </p>
+                        </div>
+                      ))}
                   {supporting.length == 0 && (
                     <React.Fragment>
                       <p> You are not subscribed to any athletes yet. </p>
