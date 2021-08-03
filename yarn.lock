@@ -16065,6 +16065,11 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-credit-card-display@0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/react-credit-card-display/-/react-credit-card-display-0.5.7.tgz#984ef01cbcfb3248a564c28a7df52ff1b9c29b0f"
+  integrity sha512-Rhbo6aMywFj3Ugfd+vgAs0UV0K40iqRbNTjLcWK3eXiOK6svUyy0GqZ7awMyRg0pvHuxW2YXKp1EHFpYB8jDXQ==
+
 react-credit-cards@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-credit-cards/-/react-credit-cards-0.8.3.tgz#608a8ee8bf3a88857fc83023ffba1ad536ba8c7e"

@@ -1541,3 +1541,9 @@ h3 {
     background-color: rgb(234, 10, 10);
   }
 }
+
+.billing-info {
+  .card-info {
+    p { margin-left: 10px; }
+  }
+}

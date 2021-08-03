@@ -92,6 +92,7 @@
     "react": "16.13.1",
     "react-actioncable-provider": "2.0.0",
     "react-animated-heart": "0.0.7-alpha.1",
+    "react-credit-card-display": "0.5.7",
     "react-credit-cards": "0.8.3",
     "react-dom": "16.13.1",
     "react-ga": "3.3.0",

@@ -7,6 +7,7 @@ import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 import FighterDashboard from '../components/reports/FighterDashboard';
 import UserInfoForm from '../components/user/UserInfoForm';
+import BillingInfo from '../components/user/BillingInfo';
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -48,10 +49,10 @@ const ProfilePage = () => {
               <div className="blank-line" />
               {!currentUser.isFighter && (
                 <React.Fragment>
+                  <BillingInfo currentUser={currentUser} />
                   <h3>
                     <center> SUPPORTING </center>
                   </h3>
-                  <div className="blank-line" />
                   {supporting?.length > 0 &&
                     supporting
                       .filter(s => s.fighter)
@@ -83,6 +84,7 @@ const ProfilePage = () => {
                       </Link>
                     </React.Fragment>
                   )}
+                  <div className="blank-line" />
                 </React.Fragment>
               )}
             </div>
