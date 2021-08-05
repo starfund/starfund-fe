@@ -42,6 +42,9 @@ export default {
   ppvTitle: 'Solicita videos personalizados a tus atletas',
   equipo: 'Equipo',
 
+  'mailchimp.sub': 'Subscribite a nuestras noticias',
+  'mailchimp.email': 'Correo Electronico',
+
   // errors
   'email.presence': 'Debe ingresar un email para continuar',
   'email.invalid': 'Debe ingresar un email válido',

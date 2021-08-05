@@ -36,6 +36,9 @@ export default {
   ppvTitle: 'Заказать персональное видеосообщение',
   team: 'Команда',
 
+  'mailchimp.sub': 'Подпишитесь на новости',
+  'mailchimp.email': 'Адрес электронной почты',
+
   // errors
   'email.presence': 'Для продолжения введите email',
   'email.invalid': 'Введите верный email',
