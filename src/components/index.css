@@ -289,9 +289,10 @@ h3 {
 }
 
 .footer {
+  border-top: solid 2px #7b7e83;
   height: 60px;
-  padding-top: 10px;
   line-height: 60px;
+  padding-top: 10px;
   width: 100%;
 
   img {
@@ -418,8 +419,6 @@ h3 {
 
 .exclusive-container {
   background-color: #191c21;
-  border-top: solid 2px #7b7e83;
-  border-bottom: solid 2px #7b7e83;
   padding: 39px 0;
 }
 

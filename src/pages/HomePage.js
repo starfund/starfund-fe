@@ -34,6 +34,7 @@ const HomePage = () => {
       <HomeInfo />
       <FAQS />
       <HomeExclusive />
+      <MailchimpForm />
       <HomeFooter />
     </div>
   );
