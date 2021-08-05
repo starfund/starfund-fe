@@ -42,13 +42,16 @@ const Auth = ({ modalIsOpen, setModalIsOpen }) => {
     }
   }, [dispatch, setModalIsOpen, status, status2.status, status3.status]);
 
+  const formatTitle = () => {
+    if (signIn) {
+      return intl.formatMessage({ id: forgotPassword ? 'login.forgot_password' : 'login.title' });
+    }
+    return intl.formatMessage({ id: 'login.signup' });
+  };
+
   return (
     <React.Fragment>
-      <CommonModal
-        title={intl.formatMessage({ id: 'login.title' })}
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-      >
+      <CommonModal title={formatTitle()} isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
         {!authenticated && (
           <div className="registration-container">
             {signIn ? (

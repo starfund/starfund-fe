@@ -8,7 +8,7 @@ export default {
   'login.forgot_password': 'Forgot your password?',
 
   'signup.title': 'SIGN UP',
-  'signup.signin': ' Sign in',
+  'signup.signin': ' Login',
   'signup.form.passconfirmation': 'Password confirmation',
   'registration.needAccount': 'Need an account?',
   'registration.haveAccount': 'Already have an account?',
