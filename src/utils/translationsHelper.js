@@ -45,3 +45,14 @@ export const formatGoal = (course, language) => {
       return course.courseGoal;
   }
 };
+
+export const formatSlogan = (business, language) => {
+  switch (language) {
+    case 'es':
+      return business.sloganEs;
+    case 'ru':
+      return business.sloganRu;
+    default:
+      return business.slogan;
+  }
+};
