@@ -23,3 +23,25 @@ export const formatDescription = (content, language) => {
       return content.description;
   }
 };
+
+export const formatName = (course, language) => {
+  switch (language) {
+    case 'es':
+      return course.nameEs;
+    case 'ru':
+      return course.nameRu;
+    default:
+      return course.name;
+  }
+};
+
+export const formatGoal = (course, language) => {
+  switch (language) {
+    case 'es':
+      return course.courseGoalEs;
+    case 'ru':
+      return course.courseGoalRu;
+    default:
+      return course.courseGoal;
+  }
+};

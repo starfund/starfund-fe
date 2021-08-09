@@ -1,8 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useIntl } from 'react-intl';
+
+import { formatName, formatGoal } from 'utils/translationsHelper';
 
 const BusinessPrograms = ({ business, setVideos }) => {
   const intl = useIntl();
+  const language = useSelector(state => state.language.language);
 
   return (
     <div className="business-program-container">
@@ -19,11 +23,11 @@ const BusinessPrograms = ({ business, setVideos }) => {
               </div>
               <div className="center-text col-12 col-md-4 offset-md-1">
                 <h2>
-                  <u> {c.name.toUpperCase()} </u>
+                  <u> {formatName(c, language)?.toUpperCase()} </u>
                 </h2>
                 <h4> Level: {c.level} </h4>
                 <br />
-                <h3>{c.courseGoal}</h3>
+                <h3>{formatGoal(c, language)}</h3>
                 <br />
                 <button
                   type="button"
