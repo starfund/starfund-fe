@@ -44,7 +44,7 @@ export const LoginForm = ({ onSubmit }) => {
           <Input
             name="email"
             type="email"
-            label={intl.formatMessage(messages.email)}
+            placeholder={intl.formatMessage(messages.email)}
             {...inputProps(fields.email)}
           />
         </div>
@@ -52,11 +52,11 @@ export const LoginForm = ({ onSubmit }) => {
           <Input
             name="password"
             type="password"
-            label={intl.formatMessage(messages.password)}
+            placeholder={intl.formatMessage(messages.password)}
             {...inputProps(fields.password)}
           />
         </div>
-        <button className="btn btn-danger" type="submit">
+        <button className="btn btn-lg btn-danger" type="submit">
           <FormattedMessage id="login.form.submit" />
         </button>
         {status === LOADING && <Loading />}
