@@ -1,6 +1,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import CardDisplay from 'react-credit-card-display';
+import { cardBrand } from 'utils/paymentHelper';
 
 const BillingInfo = ({ currentUser }) => {
   return (
@@ -10,8 +11,8 @@ const BillingInfo = ({ currentUser }) => {
       </h3>
       <br />
       <div className="card-info flex">
-        <CardDisplay expand square={false} active="visa" />
-        <p> xxxx xxxx xxxx {currentUser.last4} </p>
+        <CardDisplay expand square={false} active={cardBrand(currentUser.brand)} />
+        <p> xxxx xxxx xxxx {currentUser.last4 || '----'} </p>
       </div>
       <div className="blank-line" />
     </div>
