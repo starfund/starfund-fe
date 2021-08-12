@@ -38,7 +38,7 @@ export const ForgotPassForm = ({ onSubmit }) => {
           <Input
             name="email"
             type="email"
-            label={intl.formatMessage(messages.email)}
+            placeholder={intl.formatMessage(messages.email)}
             {...inputProps(fields.email)}
           />
         </div>

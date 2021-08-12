@@ -8,7 +8,7 @@ export default {
   'login.forgot_password': 'Forgot your password?',
 
   'signup.title': 'SIGN UP',
-  'signup.signin': ' Sign in',
+  'signup.signin': ' Login',
   'signup.form.passconfirmation': 'Password confirmation',
   'registration.needAccount': 'Need an account?',
   'registration.haveAccount': 'Already have an account?',
@@ -34,6 +34,9 @@ export default {
   findBusiness: 'Find your Fitness Center',
   ppvTitle: 'Request a personal video to your fighter',
   team: 'Team',
+
+  'mailchimp.sub': 'Subscribe for news',
+  'mailchimp.email': 'Email Address',
 
   // errors
   'email.presence': 'You must enter an email to continue',

@@ -9,6 +9,7 @@ import ParalaxHome from '../components/ParalaxHome';
 import HomeStars from '../components/HomeStars';
 import HomeInfo from '../components/HomeInfo';
 import HomeFooter from '../components/HomeFooter';
+import MailchimpForm from '../components/MailchimpForm';
 // import HomeAnnouncements from '../components/HomeAnnouncements';
 import FAQS from '../components/FAQS';
 import HomeExclusive from '../components/HomeExclusive';
@@ -29,9 +30,11 @@ const HomePage = () => {
     <div className="home">
       <ParalaxHome />
       <HomeStars title={intl.formatMessage({ id: 'home.fighters.title' })} />
+      <MailchimpForm />
       <HomeInfo />
       <FAQS />
       <HomeExclusive />
+      <MailchimpForm />
       <HomeFooter />
     </div>
   );

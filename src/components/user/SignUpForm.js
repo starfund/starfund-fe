@@ -45,7 +45,7 @@ export const SignUpForm = ({ onSubmit }) => {
       <div>
         <Input
           name="email"
-          label={intl.formatMessage(messages.email)}
+          placeholder={intl.formatMessage(messages.email)}
           type="email"
           {...inputProps(fields.email)}
         />
@@ -53,7 +53,7 @@ export const SignUpForm = ({ onSubmit }) => {
       <div>
         <Input
           name="password"
-          label={intl.formatMessage(messages.password)}
+          placeholder={intl.formatMessage(messages.password)}
           type="password"
           {...inputProps(fields.password)}
         />
@@ -61,7 +61,7 @@ export const SignUpForm = ({ onSubmit }) => {
       <div>
         <Input
           name="passwordConfirmation"
-          label={intl.formatMessage(messages.passConfirmation)}
+          placeholder={intl.formatMessage(messages.passConfirmation)}
           type="password"
           {...inputProps(fields.passwordConfirmation)}
         />

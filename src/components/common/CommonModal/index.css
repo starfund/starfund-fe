@@ -1,6 +1,4 @@
-.change-name-modal__container {
-  border: solid 1px white;
-  border-bottom: solid 2px white;
+.change-name-modal__container {  
   height: fit-content;
 
   .container {

@@ -42,19 +42,27 @@ const Auth = ({ modalIsOpen, setModalIsOpen }) => {
     }
   }, [dispatch, setModalIsOpen, status, status2.status, status3.status]);
 
+  const formatTitle = () => {
+    if (signIn) {
+      return intl.formatMessage({ id: forgotPassword ? 'login.forgot_password' : 'login.title' });
+    }
+    return intl.formatMessage({ id: 'login.signup' });
+  };
+
   return (
     <React.Fragment>
-      <CommonModal
-        title={intl.formatMessage({ id: 'login.title' })}
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-      >
+      <CommonModal title={formatTitle()} isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
         {!authenticated && (
           <div className="registration-container">
             {signIn ? (
               <React.Fragment>
                 {!forgotPassword && <LoginForm onSubmit={loginRequest} />}
                 {forgotPassword && <ForgotPassForm onSubmit={forgotPassRequest} />}
+                {!forgotPassword && (
+                  <Link onClick={() => setForgotPassword(true)}>
+                    {intl.formatMessage({ id: 'login.forgot_password' })}
+                  </Link>
+                )}
                 <br />
                 <br />
                 <p>
@@ -70,17 +78,11 @@ const Auth = ({ modalIsOpen, setModalIsOpen }) => {
                     <u>{intl.formatMessage({ id: 'login.signup' })}</u>
                   </a>
                 </p>
-                {!forgotPassword && (
-                  <Link onClick={() => setForgotPassword(true)}>
-                    {intl.formatMessage({ id: 'login.forgot_password' })}
-                  </Link>
-                )}
                 {forgotPassword && (
                   <Link onClick={() => setForgotPassword(false)}>
                     {intl.formatMessage({ id: 'signup.signin' })}
                   </Link>
                 )}
-                <br />
                 <p className="small-copy">
                   {intl.formatMessage({ id: 'legal.login' })}
                   <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a> &

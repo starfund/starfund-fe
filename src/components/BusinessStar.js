@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useParams, Link } from 'react-router-dom';
+import { formatSlogan } from 'utils/translationsHelper';
 import { useSession } from 'hooks';
 import { getBusinesses } from '../state/actions/businessActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -47,6 +48,7 @@ const BusinessStar = () => {
   const business = useSelector(
     state => state.businesses.businesses.filter(b => b.id == parseInt(id))[0]
   );
+  const language = useSelector(state => state.language.language);
   const subscribed = subscriptions.map(sub => sub.businessId);
   const currentUser = useSelector(state => state.session.user);
 
@@ -127,10 +129,10 @@ const BusinessStar = () => {
           </ul>
         </div>
       </nav>
-      {!videos && !courses && (
+      {!videos && !courses && business && (
         <div className="container business-home">
           <center>
-            <h1> {business?.slogan} </h1>
+            <h1> {formatSlogan(business, language)} </h1>
           </center>
           <div className="col-sm-10 video">
             {business && (

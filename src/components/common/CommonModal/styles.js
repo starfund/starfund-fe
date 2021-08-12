@@ -8,9 +8,8 @@ export const modalStyles = (isMobile, height, width, padding, top, left) => ({
     transform: isMobile ? 'none' : 'translate(-50%, -50%)',
     width,
     height,
-    minHeight: '420px',
     marginTop: isMobile ? 0 : '65px',
-    borderRadius: isMobile ? 0 : '8px',
+    borderRadius: isMobile ? 0 : '10px',
     padding,
     overflow: 'initial'
   },
