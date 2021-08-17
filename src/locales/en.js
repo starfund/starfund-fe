@@ -35,7 +35,7 @@ export default {
   ppvTitle: 'Request a personal video to your fighter',
   team: 'Team',
 
-  'mailchimp.sub': 'Subscribe for news',
+  'mailchimp.sub': 'Keep yourself up to date',
   'mailchimp.email': 'Email Address',
 
   // errors
