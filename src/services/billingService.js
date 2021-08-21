@@ -9,8 +9,8 @@ class BillingService {
     return httpClient.put(`/credit_cards`, data);
   }
 
-  static deleteBilling(user) {
-    return httpClient.delete('/credit_cards', user);
+  static deleteCard() {
+    return httpClient.delete('/credit_cards');
   }
 
   static saveBilling(token) {

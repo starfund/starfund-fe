@@ -33,9 +33,9 @@ export const donate = createThunk('DONATE', async amount => {
   }
 });
 
-export const deleteCard = createThunk('DELETE_CC', async user => {
+export const deleteCard = createThunk('DELETE_CC', async () => {
   try {
-    const { data } = await billingService.deleteCard(user);
+    const { data } = await billingService.deleteCard();
     return data;
   } catch ({ response: { data } }) {
     throw parseError(data);

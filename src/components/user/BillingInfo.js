@@ -37,7 +37,7 @@ const BillingInfo = ({ currentUser }) => {
             <button
               type="button"
               className={`btn btn-danger ${isMobile && 'btn-sm'}`}
-              onClick={() => dispatch(deleteCard(currentUser))}
+              onClick={() => dispatch(deleteCard())}
             >
               REMOVE
             </button>
