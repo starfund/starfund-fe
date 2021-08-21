@@ -1,6 +1,7 @@
 import { createReducer } from '@rootstrap/redux-tools';
 import { login, signUp, logout, updateSession, update } from 'state/actions/userActions';
 import { subscribe } from 'state/actions/subscriptionActions';
+import { deleteCard } from 'state/actions/billingActions';
 
 const initialState = {
   authenticated: false,
@@ -24,6 +25,9 @@ const actionHandlers = {
   },
   [update.success]: (state, { payload }) => {
     state.user = payload;
+  },
+  [deleteCard.success]: state => {
+    state.user.cardId = null;
   },
   [logout.success]: () => initialState
 };

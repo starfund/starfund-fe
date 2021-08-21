@@ -987,7 +987,11 @@ h3 {
   min-height: 1500px;
   background-color: #020612;
   border-bottom: solid 2px grey;
-  padding: 50px;
+  padding: 25px;
+
+  @media (max-width: 320px) {
+    padding: 0;
+  }
 
   .dashboard {
     div {
@@ -1562,6 +1566,32 @@ h3 {
 .billing-info {
   .card-info {
     p { margin-left: 10px; }
+  }
+
+  .card-update {
+    button { margin: 0 5px; }
+  }
+
+  .center-50 {
+    width: 50%;
+    margin: auto;
+
+    @media only screen and (max-width : 1200px) {
+      width: 70%;
+    }
+
+    @media only screen and (max-width : 1024px) {
+      width: 100%;
+    }
+
+    @media only screen and (max-width : 576px) {
+      width: 50%;
+    }
+
+    @media only screen and (max-width : 320px) {
+      width: 70%;
+    }
+
   }
 }
 

@@ -33,6 +33,24 @@ export const donate = createThunk('DONATE', async amount => {
   }
 });
 
+export const deleteCard = createThunk('DELETE_CC', async user => {
+  try {
+    const { data } = await billingService.deleteCard(user);
+    return data;
+  } catch ({ response: { data } }) {
+    throw parseError(data);
+  }
+});
+
+export const updateCard = createThunk('UPDATE_CC', async user => {
+  try {
+    const { data } = await billingService.deleteCard(user);
+    return data;
+  } catch ({ response: { data } }) {
+    throw parseError(data);
+  }
+});
+
 export const createCard = createThunk('CREATE_CARD', async ({ token, isUpdate }) => {
   try {
     const {
