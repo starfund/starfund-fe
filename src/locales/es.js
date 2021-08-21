@@ -135,6 +135,7 @@ export default {
   'billing.copy2':
     '. Un cargo sera realizado contra tu metodo de pago el primer mes y continuara realizandose de forma mensual de igual manera. Los precios no incluyen impuestos. Puede cancelar en cualquier momento en su perfil. No se realizan devoluciones ni devoluciones parciales para periodos no utilizados ni para regalos si ya fueron reclamados',
   'billing.legal': ' Terminos de Oferta y Terminos de Servicio',
+  'billing.addCard': 'Agregar medio de pago',
 
   // FAQS
   'faqs.title': 'Preguntas Frecuentes',

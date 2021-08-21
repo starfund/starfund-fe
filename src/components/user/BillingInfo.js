@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useIntl } from 'react-intl';
 // eslint-disable-next-line import/no-unresolved
 import CardDisplay from 'react-credit-card-display';
 import { useMediaQuery } from 'react-responsive';
 import { cardBrand } from 'utils/paymentHelper';
+import CommonModal from '../common/CommonModal';
+import CCForm from '../CCForm';
 
 import { deleteCard, updateCard } from '../../state/actions/billingActions';
 
 const BillingInfo = ({ currentUser }) => {
   const dispatch = useDispatch();
+  const intl = useIntl();
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <div className="billing-info">
@@ -45,11 +51,20 @@ const BillingInfo = ({ currentUser }) => {
         </React.Fragment>
       )}
       {!currentUser.cardId && (
-        <button type="button" className="btn btn-warning">
+        <button type="button" className="btn btn-warning" onClick={setModalIsOpen}>
           Add Payment method
         </button>
       )}
       <div className="blank-line" />
+      <CommonModal
+        title={intl.formatMessage({ id: 'billing.addCard' })}
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        customWidth="80%"
+        customHeight="80%"
+      >
+        <CCForm onSubmit={setModalIsOpen} />
+      </CommonModal>
     </div>
   );
 };

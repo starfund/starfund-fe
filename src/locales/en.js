@@ -129,6 +129,7 @@ export default {
   'billing.copy2':
     '. Your payment method will be charged the price above the first month and monthly thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in Settings. No refunds for partial unused periods, or after gift is redeemed.',
   'billing.legal': ' Offer Terms and Terms of Service',
+  'billing.addCard': 'Add payment method',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',
