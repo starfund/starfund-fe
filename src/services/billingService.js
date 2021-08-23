@@ -13,8 +13,8 @@ class BillingService {
     return httpClient.delete('/credit_cards');
   }
 
-  static saveBilling(token) {
-    return httpClient.post(`/credit_cards`, token);
+  static saveBilling(token, card) {
+    return httpClient.post(`/credit_cards`, { ...token, ...card });
   }
 }
 

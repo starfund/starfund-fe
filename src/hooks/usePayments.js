@@ -4,7 +4,7 @@ import humps from 'humps';
 import { useToast } from 'hooks';
 
 import { subscribe, charge } from 'state/actions/subscriptionActions';
-import { getBilling } from 'state/actions/billingActions';
+import { getBilling, createCard } from 'state/actions/billingActions';
 
 export default stripe => {
   const dispatch = useDispatch();
@@ -48,12 +48,28 @@ export default stripe => {
     setLoading(false);
   };
 
+  const addCreditCard = async () => {
+    setLoading(true);
+
+    const { token, error } = await stripe.createToken();
+
+    if (error) {
+      const { message } = error;
+      showErrorToast(message);
+    } else {
+      await dispatch(createCard({ token, isUpdate: false }));
+    }
+
+    setLoading(false);
+  };
+
   const getCreditCard = () => {
     dispatch(getBilling());
   };
 
   return {
     createCreditCard,
+    addCreditCard,
     loading,
     stripe,
     getCreditCard,

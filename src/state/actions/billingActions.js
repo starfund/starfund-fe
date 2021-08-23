@@ -68,6 +68,7 @@ export const createCard = createThunk('CREATE_CARD', async ({ token, isUpdate })
         last4
       }
     } = token;
+
     const tokenToSend = { id, email };
     const tokenToSave = {
       email,
@@ -88,7 +89,7 @@ export const createCard = createThunk('CREATE_CARD', async ({ token, isUpdate })
       });
       return data.creditCard;
     }
-    const { data } = await billingService.saveBilling({ token: tokenToSend });
+    const { data } = await billingService.saveBilling({ token: tokenToSend, card: tokenToSave });
     return data.creditCard;
   } catch ({ errors, error }) {
     throw new SubmissionError(getErrors(error, errors));

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Modal from 'react-modal';
+
+import { useStatus, SUCCESS } from '@rootstrap/redux-tools';
+import { createCard } from 'state/actions/billingActions';
 
 import { modalStyles } from './styles';
 import { useMediaQuery } from '../../../utils/mediaHoc';
@@ -8,6 +12,7 @@ import { useMediaQuery } from '../../../utils/mediaHoc';
 import './index.css';
 
 const CommonModal = ({ children, title, isOpen, setIsOpen, customWidth, customHeight }) => {
+  const dispatch = useDispatch();
   const isMobile = useMediaQuery('(max-width: 767px)');
   const height = isMobile ? '100%' : customHeight || '420';
   const width = isMobile ? '100%' : customWidth || '400px';
@@ -19,6 +24,14 @@ const CommonModal = ({ children, title, isOpen, setIsOpen, customWidth, customHe
     isMobile ? '0' : '40%',
     isMobile ? '0' : '50%'
   );
+  const { status: cardStatus } = useStatus(createCard);
+
+  useEffect(() => {
+    if (cardStatus === SUCCESS) {
+      dispatch(createCard.reset());
+      setIsOpen(false);
+    }
+  }, [cardStatus, dispatch, setIsOpen]);
 
   return (
     <Modal

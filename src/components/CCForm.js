@@ -13,13 +13,13 @@ import { useStatus, LOADING, ERROR } from '@rootstrap/redux-tools';
 
 import Button from './common/Button';
 
-import { subscribe } from '../state/actions/subscriptionActions';
+import { createCard } from '../state/actions/billingActions';
 
 import 'react-credit-cards/lib/styles.scss';
 
 const CCForm = ({ stripe, elements }) => {
   ReactGA.modalview('/addCC');
-  const { status: subStatus, error } = useStatus(subscribe);
+  const { status: cardStatus, error } = useStatus(createCard);
   const intl = useIntl();
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
@@ -28,12 +28,12 @@ const CCForm = ({ stripe, elements }) => {
   const [numberStripe, setNumberStripe] = useState({});
   const [cvcStripe, setCvcStripe] = useState({});
   const [expiryStripe, setExpiryStripe] = useState({});
-  const { createCreditCard: onSubmit } = usePayments(stripe, elements);
+  const { addCreditCard: onSubmit } = usePayments(stripe, elements);
 
   return (
     <div className="row no-gutters checkout-container">
-      {subStatus === ERROR && <strong>{error}</strong>}
-      {subStatus === LOADING && <Loading className="align-self-center justify-content-center" />}
+      {cardStatus === ERROR && <strong>{error}</strong>}
+      {cardStatus === LOADING && <Loading className="align-self-center justify-content-center" />}
       <form className="col-12 card-form">
         <div className="new-card-form col-12">
           <div className="">
