@@ -49,7 +49,7 @@ const ProfilePage = () => {
               <div className="blank-line" />
               {!currentUser.isFighter && (
                 <React.Fragment>
-                  <BillingInfo currentUser={currentUser} />
+                  <BillingInfo />
                   <h3>
                     <center> SUPPORTING </center>
                   </h3>

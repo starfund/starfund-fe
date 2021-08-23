@@ -1569,7 +1569,10 @@ h3 {
   }
 
   .card-update {
-    button { margin: 0 5px; }
+    button {
+      margin: 0 5px;
+      width: 100%;
+    }
   }
 
   .center-50 {

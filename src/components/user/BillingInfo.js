@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useIntl } from 'react-intl';
 // eslint-disable-next-line import/no-unresolved
 import CardDisplay from 'react-credit-card-display';
@@ -8,16 +8,20 @@ import { cardBrand } from 'utils/paymentHelper';
 import CommonModal from '../common/CommonModal';
 import CCForm from '../CCForm';
 
-import { deleteCard, updateCard } from '../../state/actions/billingActions';
+import { deleteCard, getBilling } from '../../state/actions/billingActions';
 
-const BillingInfo = ({ currentUser }) => {
+const BillingInfo = () => {
   const dispatch = useDispatch();
   const intl = useIntl();
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
 
+  useEffect(() => {
+    dispatch(getBilling());
+  }, [dispatch]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const cardInfo = useSelector(state => state.payments.creditCard);
 
   return (
     <div className="billing-info">
@@ -26,20 +30,13 @@ const BillingInfo = ({ currentUser }) => {
       </h3>
       <br />
       <div className="card-info flex center-50">
-        <CardDisplay expand square={false} active={cardBrand(currentUser.brand)} />
-        <p> xxxx xxxx xxxx {currentUser.last4 || '----'} </p>
+        <CardDisplay expand square={false} active={cardBrand(cardInfo?.brand)} />
+        <p> xxxx xxxx xxxx {cardInfo?.last4 || '----'} </p>
       </div>
       <br />
-      {currentUser.cardId && (
+      {cardInfo.cardId && (
         <React.Fragment>
           <div className="card-update flex center-50">
-            <button
-              type="button"
-              className={`btn btn-warning ${isMobile && 'btn-sm'}`}
-              onClick={() => dispatch(updateCard(currentUser))}
-            >
-              UPDATE
-            </button>
             <button
               type="button"
               className={`btn btn-danger ${isMobile && 'btn-sm'}`}
@@ -50,7 +47,7 @@ const BillingInfo = ({ currentUser }) => {
           </div>
         </React.Fragment>
       )}
-      {!currentUser.cardId && (
+      {!cardInfo.cardId && (
         <button type="button" className="btn btn-warning" onClick={setModalIsOpen}>
           Add Payment method
         </button>
