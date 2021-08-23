@@ -61,7 +61,6 @@ const BillingInfo = ({ currentUser }) => {
         isOpen={modalIsOpen}
         setIsOpen={setModalIsOpen}
         customWidth="80%"
-        customHeight="80%"
       >
         <CCForm onSubmit={setModalIsOpen} />
       </CommonModal>

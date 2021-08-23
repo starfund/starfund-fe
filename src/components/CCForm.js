@@ -43,6 +43,7 @@ const CCForm = ({ stripe, elements }) => {
                   <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
                 </div>
                 <div className="col-12 col-md-6 offset-md-1">
+                  <br />
                   <div className="offset-1 offset-sm-2 offset-md-0 col-12">
                     <Field
                       onChange={setNumberStripe}
@@ -50,14 +51,15 @@ const CCForm = ({ stripe, elements }) => {
                       error={numberStripe.error}
                       onFocus={() => setFocus('number')}
                       placeholder={intl.formatMessage({ id: 'billing.number' })}
-                      width={16}
+                      width="90%"
                     />
+                    <br />
                     <div className="flex">
                       <Field
                         onChange={setExpiryStripe}
                         StripeComponent={CardExpiryElement}
                         error={expiryStripe.error}
-                        width={10}
+                        width={12}
                         placeholder={intl.formatMessage({ id: 'billing.expiry' })}
                         onFocus={() => setFocus('expiry')}
                         className="expiry"
@@ -67,7 +69,7 @@ const CCForm = ({ stripe, elements }) => {
                         StripeComponent={CardCVCElement}
                         error={cvcStripe.error}
                         placeholder={intl.formatMessage({ id: 'billing.cvc' })}
-                        width={6}
+                        width={8}
                         onFocus={() => setFocus('cvc')}
                       />
                     </div>

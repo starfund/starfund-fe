@@ -186,7 +186,7 @@ h3 {
 
 .checkout-container {
   justify-content: center;
-  height: 425px;
+  height: fit-content;
   span { color: grey; font-weight: 600; }
   background-color: white;
 
