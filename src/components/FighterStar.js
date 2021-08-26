@@ -200,6 +200,7 @@ const FighterStar = () => {
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }
@@ -275,6 +276,7 @@ const FighterStar = () => {
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }

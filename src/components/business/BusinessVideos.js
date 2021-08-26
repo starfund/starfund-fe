@@ -44,6 +44,7 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
               config={{
                 file: {
                   attributes: {
+                    onContextMenu: e => e.preventDefault(),
                     controlsList: 'nodownload'
                   }
                 }
@@ -70,6 +71,7 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }
@@ -105,6 +107,7 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }

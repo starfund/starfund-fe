@@ -154,6 +154,7 @@ const TeamStar = () => {
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }
@@ -224,6 +225,7 @@ const TeamStar = () => {
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }

@@ -74,6 +74,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                   attributes: {
                     poster: thumbnail,
                     controlsList: 'nodownload',
+                    onContextMenu: e => e.preventDefault(),
                     forceHLS: true
                   }
                 }
@@ -113,6 +114,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                             file: {
                               attributes: {
                                 poster: v.thumbnail,
+                                onContextMenu: e => e.preventDefault(),
                                 controlsList: 'nodownload'
                               }
                             }
@@ -158,6 +160,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                             file: {
                               attributes: {
                                 poster: v.thumbnail,
+                                onContextMenu: e => e.preventDefault(),
                                 controlsList: 'nodownload'
                               }
                             }

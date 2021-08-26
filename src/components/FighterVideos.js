@@ -74,6 +74,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
               config={{
                 file: {
                   attributes: {
+                    onContextMenu: e => e.preventDefault(),
                     controlsList: 'nodownload'
                   }
                 }
@@ -109,6 +110,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }
@@ -144,6 +146,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
                       config={{
                         file: {
                           attributes: {
+                            onContextMenu: e => e.preventDefault(),
                             controlsList: 'nodownload'
                           }
                         }

@@ -146,6 +146,7 @@ const BusinessStar = () => {
                   config={{
                     file: {
                       attributes: {
+                        onContextMenu: e => e.preventDefault(),
                         controlsList: 'nodownload'
                       }
                     }
