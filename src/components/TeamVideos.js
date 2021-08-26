@@ -73,6 +73,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                 file: {
                   attributes: {
                     poster: thumbnail,
+                    controlsList: 'nodownload',
                     forceHLS: true
                   }
                 }
@@ -111,7 +112,8 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                           config={{
                             file: {
                               attributes: {
-                                poster: v.thumbnail
+                                poster: v.thumbnail,
+                                controlsList: 'nodownload'
                               }
                             }
                           }}
@@ -155,7 +157,8 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                           config={{
                             file: {
                               attributes: {
-                                poster: v.thumbnail
+                                poster: v.thumbnail,
+                                controlsList: 'nodownload'
                               }
                             }
                           }}

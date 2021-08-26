@@ -151,6 +151,13 @@ const TeamStar = () => {
                       height="80%"
                       url={team.officialPreview}
                       controls
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                 )}
@@ -214,6 +221,13 @@ const TeamStar = () => {
                       height="90%"
                       url={team.officialPreview}
                       controls
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                 )}

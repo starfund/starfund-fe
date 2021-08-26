@@ -41,6 +41,13 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
               playing
               muted
               style={{ margin: '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: 'nodownload'
+                  }
+                }
+              }}
             />
           </LazyLoadComponent>
         </div>
@@ -60,6 +67,13 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
                       width={isMobile ? '100%' : '80%'}
                       height="20vh"
                       light={v.thumbnail}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                   <div>
@@ -88,6 +102,13 @@ const BusinessVideos = ({ business, supporting, subscribeAction, watchAction }) 
                       width={isMobile ? '100%' : '80%'}
                       height="20vh"
                       light={v.thumbnail}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                   <div>

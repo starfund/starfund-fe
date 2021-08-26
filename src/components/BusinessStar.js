@@ -143,6 +143,13 @@ const BusinessStar = () => {
                   height="50vh"
                   url={business.officialPreview}
                   controls
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: 'nodownload'
+                      }
+                    }
+                  }}
                 />
               </LazyLoadComponent>
             )}

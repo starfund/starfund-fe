@@ -197,6 +197,13 @@ const FighterStar = () => {
                       height="80%"
                       url={fighter?.officialPreview}
                       controls
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                 )}
@@ -265,6 +272,13 @@ const FighterStar = () => {
                       height="90%"
                       url={fighter.officialPreview}
                       controls
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                 )}

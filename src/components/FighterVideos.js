@@ -71,6 +71,13 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
               muted
               style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '550px'}` }}
               onEnded={endFreeVideo}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: 'nodownload'
+                  }
+                }
+              }}
             />
           </LazyLoadComponent>
           <div className="blank-line" />
@@ -99,6 +106,13 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
                       width={isMobile ? '100%' : '80%'}
                       height="20vh"
                       light={v.thumbnail}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                   <div>
@@ -127,6 +141,13 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
                       width={isMobile ? '100%' : '80%'}
                       height="20vh"
                       light={v.thumbnail}
+                      config={{
+                        file: {
+                          attributes: {
+                            controlsList: 'nodownload'
+                          }
+                        }
+                      }}
                     />
                   </LazyLoadComponent>
                   <div>
