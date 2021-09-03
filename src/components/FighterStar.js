@@ -135,9 +135,9 @@ const FighterStar = () => {
                     className="btn btn-danger btn-lg"
                     onClick={() => setModalIsOpen(true)}
                   >
-                    {intl.formatMessage({
+                    {`${intl.formatMessage({
                       id: fighter.support ? 'button.support' : 'button.subscribe'
-                    })}
+                    })} | $ ${fighter.subPrice / 100}`}
                   </button>
                 )}
               {!authenticated && (
@@ -147,8 +147,10 @@ const FighterStar = () => {
                   onClick={() => setModalIsOpen(true)}
                 >
                   {fighter.support
-                    ? intl.formatMessage({ id: 'button.support' })
-                    : intl.formatMessage({ id: 'button.subscribe' })}
+                    ? `${intl.formatMessage({ id: 'button.support' })} | $ ${fighter.subPrice /
+                        100}`
+                    : `${intl.formatMessage({ id: 'button.subscribe' })} | $ ${fighter.subPrice /
+                        100}`}
                 </button>
               )}
             </div>
