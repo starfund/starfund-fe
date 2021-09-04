@@ -387,14 +387,6 @@ const FighterStar = () => {
                 <HomeExclusive fighter={fighter} />
               </div>
             )}
-          {!authenticated && (
-            <React.Fragment>
-              <div className="container">
-                <HowItWorks />
-                <HomeExclusive fighter={fighter} />
-              </div>
-            </React.Fragment>
-          )}
         </div>
       )}
       {fighter && videos && (

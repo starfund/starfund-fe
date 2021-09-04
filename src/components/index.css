@@ -534,6 +534,10 @@ h3 {
   
   h3 { text-align: center }
 
+  .navbar-nav > .active > a { 
+    background: red ; 
+  }
+
   .navbar {
     margin: auto;
     margin-top: -6px;
@@ -542,11 +546,11 @@ h3 {
       padding-right: 15%;
     }
 
+
     a { width: max-content }
 
     ul {
       margin: auto;
-      width: 60%;
     }
   }
 
