@@ -115,7 +115,7 @@ h3 {
 }
 
 .navbar-collapse {
-  margin-left: 20%;
+  // margin-left: 20%;
 }
 
 .nav-actions {
@@ -617,6 +617,7 @@ h3 {
   .fighter-cover {
     object-fit: cover;
     max-height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
     width: 100%;
   }
 

@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import cn from 'classnames';
 
 import routePaths from 'constants/routesPaths';
-import LogoWhite from 'assets/LogoWhite.svg';
+import LogoWhite from 'assets/starfund-logo.png';
 import LogoutButton from '../user/LogoutButton';
 import ProfileUser from '../../assets/ProfileUser.svg';
 import Auth from './Auth';

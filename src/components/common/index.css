@@ -5,27 +5,41 @@
   color: #020612;
 
   nav { height: 100% }
-
-  img {
-    padding-right: 10px;
-  }
   
   .main-logo {
+    background: white;
     cursor: pointer;
+    min-height: inherit;
     padding-top: 10px;
+
+    img {
+      padding: 10px;
+    }
   }
 
   a { font-weight: bold; }
 
-  ul > li { margin: 0 30px }
+  ul > li {
+    padding: 15px;
+  }
 }
 
 .navbar {
   background-color: #020612;
+  padding: 0 !important;
+  min-height: 70px;
+}
+
+.navbar-nav {
+  min-height: 70px;
+
+  .nav-link {
+    color: white !important;
+  }
 }
   
 .navbar-collapse {
-  padding-top: 8px;
+  min-height: 70px;
 }
 
 .nav-actions {
