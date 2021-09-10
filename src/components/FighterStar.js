@@ -20,7 +20,6 @@ import Slider from './common/Slider';
 import ConfirmationModal from './common/ConfirmationModal';
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
-import HowItWorks from './HowItWorks';
 import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
@@ -383,7 +382,6 @@ const FighterStar = () => {
             fighter &&
             !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
               <div className="container">
-                <HowItWorks />
                 <HomeExclusive fighter={fighter} />
               </div>
             )}

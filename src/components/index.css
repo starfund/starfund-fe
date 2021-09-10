@@ -526,7 +526,7 @@ h3 {
 }
 
 .fighter-container {
-  background-color: #020612;
+  background-color: #202020;
   
   h3 { text-align: center }
 
@@ -540,6 +540,11 @@ h3 {
 
   ul > li {
     padding: 15px;
+  }
+
+  .bg-dark {
+    background-color: #202020 !important;
+    box-shadow: 0 5px 15px 0 black;
   }
 
   .navbar {
@@ -560,6 +565,10 @@ h3 {
 
   .bold {
     font-weight: bold;
+  }
+
+  .stars-container {
+    background-color: #202020;
   }
 
   .cover-container {
