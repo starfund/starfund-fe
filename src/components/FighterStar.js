@@ -70,7 +70,6 @@ const FighterStar = () => {
   const fighter = useSelector(
     state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
   );
-  const ppvRequest = useSelector(state => state.subscriptions.ppvRequest);
   const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter?.id);
   const currentUser = useSelector(state => state.session.user);
@@ -83,19 +82,6 @@ const FighterStar = () => {
       payedFighter.includes(fighter.id) && setVideos(true);
     }
   }, [payedFighter, fighter]);
-
-  const ppvClick = () => {
-    ReactGA.pageview('/ppvClick');
-    if (authenticated) {
-      if (ppvRequest.length > 0) {
-        setModalPPVIsOpen(true);
-      } else {
-        setPPVOpen(true);
-      }
-    } else {
-      setAuthModal(true);
-    }
-  };
 
   const fighterLink = fighter => {
     if (fighter.team) {
@@ -177,11 +163,6 @@ const FighterStar = () => {
               </ul>
             </React.Fragment>
           )}
-          <div className={`nav-actions flex ppv-button ${!isMobile && 'justify-content-end'}`}>
-            <button type="button" className="btn btn-danger" onClick={() => ppvClick()}>
-              {intl.formatMessage({ id: 'button.ppv' })}
-            </button>
-          </div>
         </div>
       </nav>
       <WhatsappCallToAction />
