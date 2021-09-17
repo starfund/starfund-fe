@@ -7,7 +7,6 @@ const routes = {
   businesses: '/businesses',
   teams: '/teams',
   fightersPpv: '/fighters/personal_videos',
-  // shop: '/shop',
   about: '/about-us',
   watch: '/watch',
   fighter: '/fighter/:id',
