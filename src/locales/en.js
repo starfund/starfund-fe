@@ -177,7 +177,7 @@ export default {
   'home.subscribe.text': 'Subscribe to see all videos',
   'home.info.title': 'Exclusive Contents',
   'home.info.subTitle': 'Be a part of the Journey from the Beginning Experience exclusive access',
-  'home.paralax.title': 'Change the way You connect with your STAR',
+  'home.paralax.title': 'Changing the way You connect with your STAR',
   'home.paralax.subTitle':
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your athlete.',
   'home.paralax.subscribe': 'SUBSCRIBE TO ATHLETES',
