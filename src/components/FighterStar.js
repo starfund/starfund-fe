@@ -198,25 +198,14 @@ const FighterStar = () => {
               {!isMobile && (
                 <div className="content">
                   <React.Fragment>
-                    <p className="bold">{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</p>
-                    <br />
+                    <h2 className="bold">
+                      <strong>{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</strong>
+                    </h2>
                     <br />
                     <div className="text">
-                      <LazyLoadImage src={VideoCamera} alt="bcm" />
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
                     </div>
                     <br />
-                    <br />
-                    <div className="text">
-                      <LazyLoadImage src={Pin} alt="bpj" />
-                      <p>{intl.formatMessage({ id: 'fighter.howItWorks.item2' })}</p>
-                    </div>
-                    <br />
-                    <br />
-                    <div className="text">
-                      <LazyLoadImage src={Email} alt="cwm" />
-                      <p>{intl.formatMessage({ id: 'fighter.howItWorks.item3' })}</p>
-                    </div>
                   </React.Fragment>
                 </div>
               )}
@@ -253,7 +242,7 @@ const FighterStar = () => {
                   <LazyLoadComponent>
                     <ReactPlayer
                       title="preview"
-                      width="100%"
+                      width="90%"
                       height="90%"
                       url={fighter.officialPreview}
                       controls

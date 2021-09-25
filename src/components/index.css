@@ -676,13 +676,10 @@ h3 {
     padding-top: 10px;
   }
 
-  .content {
-    text-align: center;
-  }
+
 
   .how-it-works {
     color: white;
-    text-align: center;
 
     button {
       width: 100%;
@@ -697,14 +694,10 @@ h3 {
     }
 
     .content {
-      padding: 20px;
       width: 100%;
-      height: 80%;
       
       @media (min-width: 768px) {
-        background-color: #191c21;
-        margin-bottom: 10px;
-        padding: 30px 50px 50px 50px;
+        margin: 20px 0;
       }
     }
 
@@ -720,8 +713,7 @@ h3 {
 
     button {
       max-height: 35px;
-      border: solid red 1px;
-      border-radius: 36px;
+      border: solid #eb0000 1px;
       font-weight: bold;
       padding: 5px 0;
       font-size: 16px;

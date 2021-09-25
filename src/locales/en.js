@@ -151,8 +151,9 @@ export default {
   // FIGHTER PAGE
   'fighter.discoverMore': 'Discover Other Athletes',
   'fighter.likes': 'Likes',
-  'fighter.howItWorks.title': 'How does it work?',
-  'fighter.howItWorks.item1': 'Unlock exclusive posts',
+  'fighter.howItWorks.title': 'BECOME PART OF MY JOURNEY',
+  'fighter.howItWorks.item1':
+    'Gain full access to behind the scenes of my training camp and more exclusive content right now',
   'fighter.howItWorks.item2': 'Be part of my journey',
   'fighter.howItWorks.item3': 'Chat with me Directly',
   'fighter.videoPreview': 'To watch the full video please subscribe below',
