@@ -168,6 +168,8 @@ export default {
   'fighter.videos.subscribe': 'Subscribe to unlock {videos} videos',
   'fighter.announcements.title': 'Fighter Announcements',
   'fighter.announcements.subTitle': 'Empowering Stars and Entertaining Fans.',
+  'fighter.discover.videos': "{fighterName}'s latest videos",
+  'fighter.discover.cta': 'VIEW ALL VIDEOS',
 
   // HOME
   'home.fighters.title': 'Explore Athletes',

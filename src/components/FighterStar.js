@@ -5,13 +5,11 @@ import ReactGA from 'react-ga';
 
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
-import { useIntl } from 'react-intl';
-import { format } from 'date-fns';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useParams, useHistory, Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession, usePrevious } from 'hooks';
-import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { fighterUrl } from 'utils/urlHelper';
 import { getFighters } from '../state/actions/fighterActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -27,10 +25,6 @@ import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
 import WhatsappCallToAction from './WhatsappCallToAction';
 
-import Subscribe from '../assets/subscribe.png';
-import SubscribeRu from '../assets/subscribe_rus.png';
-import Watch from '../assets/watch.png';
-import WatchRu from '../assets/watch_rus.png';
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
@@ -310,43 +304,52 @@ const FighterStar = () => {
               </div>
             </div>
           )}
-          <div className="center-50">
-            {fighter &&
-              fighter.privateVideos &&
-              !payedFighter.includes(fighter.id) &&
-              fighter.privateVideos
-                .filter(c => !!c.video)
-                .map(v => (
-                  <div className="pay-to-see">
-                    <div key={v.url} className="card">
-                      {authenticated && (
-                        <LazyLoadImage
-                          className="card-img-top"
-                          src={language == 'ru' ? SubscribeRu : Subscribe}
+          <div className="">
+            <center>
+              <h1>
+                <FormattedMessage
+                  id={'fighter.discover.videos'}
+                  values={{ fighterName: fighter?.firstName }}
+                />
+              </h1>
+              <br />
+              <div className="flex" style={{ margin: 'auto', width: '70%' }}>
+                {fighter &&
+                  fighter.privateVideos
+                    .filter(c => !!c.video)
+                    .slice(0, 2)
+                    .map(v => (
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          title="preview"
+                          height="250px"
+                          width="500px"
+                          url={v.video}
+                          style={{ margin: '0 20px' }}
                           onClick={() => setModalIsOpen(true)}
+                          config={{
+                            file: {
+                              attributes: {
+                                onContextMenu: e => e.preventDefault(),
+                                controlsList: 'nodownload'
+                              }
+                            }
+                          }}
                         />
-                      )}
-                      {!authenticated && (
-                        <LazyLoadImage
-                          className="card-img-top"
-                          src={language == 'ru' ? WatchRu : Watch}
-                          onClick={() => setAuthModal(true)}
-                        />
-                      )}
-                      <div className="card-body">
-                        <p className="card-title">{format(new Date(v.eventDate), 'LLL d, yyyy')}</p>
-                        <p className="card-text">
-                          {formatTitle(v, language)} {' - '}
-                          {formatDescription(v, language)}
-                        </p>
-                        <p className="card-likes">
-                          {v.likes}
-                          {intl.formatMessage({ id: 'fighter.likes' })}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                      </LazyLoadComponent>
+                    ))}
+              </div>
+              <br />
+              <button
+                type="button"
+                className="btn btn-danger btn-lg"
+                onClick={() => setModalIsOpen(true)}
+                style={{ width: '15vw' }}
+              >
+                {intl.formatMessage({ id: 'fighter.discover.cta' })}
+              </button>
+            </center>
+            <br />
           </div>
           {authenticated &&
             supporting &&

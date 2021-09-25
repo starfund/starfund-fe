@@ -291,10 +291,16 @@ h3 {
 
 .footer {
   border-top: solid 2px #7b7e83;
+  background-color: #373737;
   height: 60px;
   line-height: 60px;
   padding-top: 10px;
   width: 100%;
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
 
   img {
     margin-right: 12px !important;
@@ -345,7 +351,12 @@ h3 {
   }
 
   .last-row {
-    a { padding: 0 20px }
+    a {
+      color: white;
+      padding: 0 20px 
+    }
+
+    display: flex;
     padding-left: 15px;
   }
 
@@ -359,7 +370,7 @@ h3 {
   }
 
   .enroll-as-a-star-btn {
-    background-color: #3b414a;
+    background-color: #eb0000;
     color: white;
     font-weight: bold;
     white-space: nowrap;
@@ -523,10 +534,20 @@ h3 {
 
 .fighters-container {
   padding-top: 20px;
+
 }
 
 .fighter-container {
   background-color: #202020;
+
+  button {
+    max-height: 35px;
+    border: solid #eb0000 1px;
+    font-weight: bold;
+    padding: 5px 0;
+    font-size: 16px;
+    background-color: #ea0a0a;
+  }
   
   h3 { text-align: center }
 
@@ -1604,7 +1625,6 @@ h3 {
     @media only screen and (max-width : 320px) {
       width: 70%;
     }
-
   }
 }
 

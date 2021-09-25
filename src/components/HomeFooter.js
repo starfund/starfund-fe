@@ -103,18 +103,15 @@ const HomeFooter = () => {
             <LanguageDropdown />
           </div>
         </div>
-        <div className="row last-row">
-          <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
-          <p>
-            {' '}
-            <span className="dot" />{' '}
-          </p>
-          <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
-          <p>
-            <span className="dot" />
-          </p>
-          <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
-        </div>
+        <center>
+          <div className="row last-row">
+            <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
+            <p>|</p>
+            <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
+            <p>|</p>
+            <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
+          </div>
+        </center>
       </div>
     </footer>
   );
