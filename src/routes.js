@@ -45,6 +45,12 @@ const routes = [
     exact: false
   },
   {
+    path: routesPaths.athlete,
+    component: <FighterPage />,
+    private: false,
+    exact: false
+  },
+  {
     path: routesPaths.business,
     component: <BusinessPage />,
     private: false,
@@ -61,6 +67,12 @@ const routes = [
     component: <FightersPPVPage />,
     private: false,
     exact: true
+  },
+  {
+    path: routesPaths.athletes,
+    component: <FightersPage />,
+    private: false,
+    exact: false
   },
   {
     path: routesPaths.fighters,

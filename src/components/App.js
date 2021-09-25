@@ -32,7 +32,7 @@ const App = () => {
       <IntlWrapper>
         <BrowserRouter>
           <Helmet>
-            <title>Supporting Fighters and Athletes | StarFund</title>
+            <title>Offering exclusivity from your Stars | StarFund</title>
           </Helmet>
           <Header />
           <ScrollToTop>

@@ -12,6 +12,7 @@ import ReactPlayer from 'react-player';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession, usePrevious } from 'hooks';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import { fighterUrl } from 'utils/urlHelper';
 import { getFighters } from '../state/actions/fighterActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
@@ -67,9 +68,10 @@ const FighterStar = () => {
 
   const fighters = useSelector(state => state.fighters.fighters);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
-  const fighter = useSelector(
-    state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0]
-  );
+  /* eslint-disable */
+  const fighter = !isNaN(id)
+    ? useSelector(state => state.fighters.fighters.filter(f => f.id == parseInt(id))[0])
+    : useSelector(state => state.fighters.fighters.filter(f => f.urlName == id)[0]);
   const language = useSelector(state => state.language.language);
   const payedFighter = supporting.map(sub => sub.fighter?.id);
   const currentUser = useSelector(state => state.session.user);
@@ -87,7 +89,7 @@ const FighterStar = () => {
     if (fighter.team) {
       history.push(`/team/${fighter.team.name}`);
     } else {
-      history.push(`/fighter/${fighter.id}`);
+      history.push(`/fighter/${fighterUrl(fighter, id)}`);
     }
   };
 

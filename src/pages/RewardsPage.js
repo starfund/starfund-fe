@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
@@ -12,6 +13,10 @@ const RewardsPage = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+
+  if (true) {
+    return <Redirect to="/fighter/5" />;
+  }
 
   return (
     <React.Fragment>
