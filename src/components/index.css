@@ -615,9 +615,9 @@ h3 {
     color: white;
 
     button {
-      height: 50px;
-      padding: 9px 84px 18px 83px;
       background-color: #ea0a0a;
+      padding: 10px 0 30px 0 !important;
+      width: 15vw;
 
       @media (max-width: 610px) {
         height: 35px;
@@ -650,6 +650,10 @@ h3 {
       top: 10%;
     }
 
+    h1 {
+      margin-bottom: -25px;
+    }
+
     p {
       font-size: 60px;
       font-weight: bold !important;
@@ -667,8 +671,8 @@ h3 {
 
   .fighter-cover {
     object-fit: cover;
-    max-height: calc(100vh - 100px);
-    min-height: calc(100vh - 100px);
+    max-height: calc(100vh - 300px);
+    min-height: calc(100vh - 300px);
     width: 100%;
   }
 
@@ -733,6 +737,11 @@ h3 {
 
     .content {
       width: 100%;
+
+      h1 {
+        font-size: 2.2vw !important;
+        text-align: left !important;
+      }
       
       @media (min-width: 768px) {
         margin: 20px 0;

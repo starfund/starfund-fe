@@ -102,10 +102,10 @@ const FighterStar = () => {
             <div className="centered">
               <br />
               <br />
-              <p>
+              <h1>
                 {' '}
                 {fighter.firstName} {fighter.lastName}{' '}
-              </p>
+              </h1>
               {authenticated &&
                 supporting &&
                 supporting.length > 0 &&
