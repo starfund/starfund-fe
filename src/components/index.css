@@ -116,6 +116,14 @@ h3 {
 
 .nav-actions {
   margin-right: 56px;
+  
+  span {
+    color: white !important;
+  }
+
+  img {
+    margin-right: 10px;
+  }
 
   @media only screen and (max-width : 992px) {
     margin: 0;
