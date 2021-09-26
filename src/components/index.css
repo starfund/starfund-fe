@@ -295,11 +295,17 @@ h3 {
   height: 60px;
   line-height: 60px;
   padding-top: 10px;
+  min-width: 100%;
   width: 100%;
 
   .container {
     margin: 0;
     padding: 0;
+    background-color: #373737;
+  }
+
+  .center-50 {
+    text-align: center;
   }
 
   img {
@@ -313,15 +319,19 @@ h3 {
     }
   }
 
+  .social-container {
+    img { margin-left: 20px; }
+  }
+
   .social {
     color: white;
   }
 
-  p {
-    text-decoration: underline;
-  }
-
   .row-1 {
+
+    div {
+      height: 40px;
+    }
 
     a:hover {
       cursor:pointer !important;
@@ -357,6 +367,8 @@ h3 {
     }
 
     display: flex;
+    margin: auto;
+    width: 40%;
     padding-left: 15px;
   }
 
@@ -369,8 +381,13 @@ h3 {
     color: white;
   }
 
+  .contact {
+    margin-bottom: 20px;
+  }
+
   .enroll-as-a-star-btn {
     background-color: #eb0000;
+    border-radius: 0 !important;
     color: white;
     font-weight: bold;
     white-space: nowrap;

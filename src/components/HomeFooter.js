@@ -15,79 +15,66 @@ const HomeFooter = () => {
   return (
     <footer className="footer">
       <div className="container row">
-        <div className="col-lg-3 col-6 row-1">
+        <div className="col-lg-4 col-6 row-1">
           <div className="">
-            <p>{intl.formatMessage({ id: 'header.explore' })}</p>
+            <h3>{intl.formatMessage({ id: 'header.explore' })}</h3>
           </div>
-          <div className="">
-            <a onClick={() => window.open('/fighters', '_self')}>
+          <div className="center-50">
+            <a onClick={() => window.open('/about-us', '_self')}>
+              {intl.formatMessage({ id: 'header.about' })}
+            </a>
+          </div>
+          <div className="center-50">
+            <a onClick={() => window.open('/athletes', '_self')}>
               {intl.formatMessage({ id: 'header.athletes' })}
             </a>
           </div>
-          <div className="">
+          <div className="center-50">
             <a onClick={() => window.open('/watch', '_self')}>
               {intl.formatMessage({ id: 'header.watch' })}
             </a>
           </div>
         </div>
-        <div className="col-lg-3 col-6 row-1">
-          <div className="">
-            <p>{intl.formatMessage({ id: 'header.about' })}</p>
+        <div className="col-lg-4 col-6 row-1">
+          <div className="contact">
+            <h3>{intl.formatMessage({ id: 'header.contact' })}</h3>
           </div>
-          <div className="">
-            <a onClick={() => window.open('/about-us', '_self')}>
-              {intl.formatMessage({ id: 'header.who' })}
+          <div className="center-50">
+            <p> info@starfun.app </p>
+          </div>
+          <div className="flex center social-container">
+            <img src={Instagram} alt="Instagram" />
+            <a
+              className="social"
+              onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
+            >
+              {' '}
+              Instagram{' '}
+            </a>
+            <img src={Youtube} alt="Youtube" />
+            <a
+              className="social"
+              onClick={() =>
+                window.open('https://www.youtube.com/channel/UCocOwXWltbLzvtyDBu9Y5tA', '_blank')
+              }
+            >
+              {' '}
+              Youtube{' '}
+            </a>
+            <img src={Facebook} alt="Facebook" />
+            <a
+              className="social"
+              onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
+            >
+              Facebook
             </a>
           </div>
-          <div className="" />
         </div>
-        <div className="col-lg-3 col-6 row-1">
-          <div className="">
-            <p>{intl.formatMessage({ id: 'header.social' })}</p>
-          </div>
-          <div>
-            <div className="flex center">
-              <img src={Instagram} alt="Instagram" />
-              <a
-                className="social"
-                onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
-              >
-                {' '}
-                Instagram{' '}
-              </a>
-            </div>
-          </div>
-          <div>
-            <div className="flex center">
-              <img src={Youtube} alt="Youtube" />
-              <a
-                className="social"
-                onClick={() =>
-                  window.open('https://www.youtube.com/channel/UCocOwXWltbLzvtyDBu9Y5tA', '_blank')
-                }
-              >
-                {' '}
-                Youtube{' '}
-              </a>
-            </div>
-          </div>
-          <div>
-            <div className="flex center">
-              <img src={Facebook} alt="Facebook" />
-              <a
-                className="social"
-                onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
-              >
-                Facebook
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="col-sm-3 col-6">
+        <div className="col-sm-4 col-6">
           <div className="col">
-            <p>{intl.formatMessage({ id: 'header.join' })}</p>
+            <h3>{intl.formatMessage({ id: 'header.join' })}</h3>
           </div>
-          <div className="">
+          <div className="center-50">
             <Link
               to="/join-us"
               type="button"
@@ -99,19 +86,17 @@ const HomeFooter = () => {
           <div className="">
             <br />
           </div>
-          <div className=" d-flex align-items-center">
+          <div className="center-50 d-flex align-items-center">
             <LanguageDropdown />
           </div>
         </div>
-        <center>
-          <div className="row last-row">
-            <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
-            <p>|</p>
-            <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
-            <p>|</p>
-            <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
-          </div>
-        </center>
+        <div className="row last-row">
+          <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
+          <p>|</p>
+          <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
+          <p>|</p>
+          <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
+        </div>
       </div>
     </footer>
   );

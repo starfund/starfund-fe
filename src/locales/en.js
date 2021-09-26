@@ -95,6 +95,7 @@ export default {
   'header.social': 'Social',
   'header.join': 'Join Us',
   'header.programs': 'Programs',
+  'header.contact': 'Contact Us',
 
   // Dashboard
   'dashboard.title': 'Weekly Report',

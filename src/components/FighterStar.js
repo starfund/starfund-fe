@@ -192,9 +192,9 @@ const FighterStar = () => {
               {!isMobile && (
                 <div className="content">
                   <React.Fragment>
-                    <h2 className="bold">
+                    <h1 className="bold">
                       <strong>{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</strong>
-                    </h2>
+                    </h1>
                     <br />
                     <div className="text">
                       <p>{intl.formatMessage({ id: 'fighter.howItWorks.item1' })}</p>
