@@ -131,6 +131,10 @@ h3 {
   }
 }
 
+.navbar-nav > .active { 
+  background: red ; 
+}
+
 .dropdown-item {
   -webkit-appearance: none !important;
 }
@@ -567,10 +571,6 @@ h3 {
   }
   
   h3 { text-align: center }
-
-  .navbar-nav > .active { 
-    background: red ; 
-  }
 
   .navbar-collapse {
     margin-left: 20%;

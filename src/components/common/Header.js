@@ -46,7 +46,9 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto">
               <li
-                className={cn('nav-item text-right', { active: pathname === routePaths.fighters })}
+                className={cn('nav-item text-right', {
+                  active: pathname === routePaths.fighters || pathname === routePaths.athletes
+                })}
               >
                 <Link to="/fighters" className="nav-link">
                   {intl.formatMessage({ id: 'header.stars' })}{' '}
