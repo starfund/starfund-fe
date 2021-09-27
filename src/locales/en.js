@@ -30,8 +30,8 @@ export default {
   'cta.text': 'Subscribe to get access to all athletes videos and exclusive content',
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
-  findFighter: 'Find your fighter',
-  findBusiness: 'Find your Fitness Center',
+  findFighter: 'FIND YOUR ATHLETE',
+  findBusiness: 'FIND YOUR BUSINESS',
   ppvTitle: 'Request a personal video to your fighter',
   team: 'Team',
 

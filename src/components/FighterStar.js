@@ -395,8 +395,6 @@ const FighterStar = () => {
                           <span className="fighter-card-text">{f.firstName} </span>
                           <span className="fighter-card-text secondary">{f.lastName} </span>
                         </div>
-                        <div className="fighter-card-separator" />
-                        <span className="fighter-card-text">{f.organization} </span>
                       </div>
                     </div>
                   </a>

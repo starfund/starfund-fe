@@ -15,9 +15,13 @@
   img { 
     height: 100%;
     width: 100%;
-    border-radius: 10px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
+  }
+
+  img:hover {
+    -webkit-filter: none !important;
+    filter: none !important;
   }
 
   &:hover {
@@ -28,7 +32,7 @@
 
 .fighter-card-overlay {
   position: relative;
-  bottom: 36%;
+  bottom: 20%;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   text-decoration: none;
@@ -93,4 +97,9 @@
 
 .fighter-card-image {
   object-fit: cover;
+}
+
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before{
+  color: white;
 }
