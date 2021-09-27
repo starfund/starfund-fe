@@ -313,7 +313,7 @@ const FighterStar = () => {
                 />
               </h1>
               <br />
-              <div className="flex" style={{ margin: 'auto', width: '70%' }}>
+              <div className="discover-videos flex" style={{ margin: 'auto', width: '70%' }}>
                 {fighter &&
                   fighter.privateVideos
                     .filter(c => !!c.video)
