@@ -43,31 +43,23 @@ const HomeFooter = () => {
             <p> info@starfun.app </p>
           </div>
           <div className="flex center-50 social-container">
-            <img src={Instagram} alt="Instagram" />
-            <a
-              className="social"
+            <img
+              src={Instagram}
+              alt="Instagram"
               onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
-            >
-              {' '}
-              Instagram{' '}
-            </a>
-            <img src={Youtube} alt="Youtube" />
-            <a
-              className="social"
+            />
+            <img
+              src={Youtube}
+              alt="Youtube"
               onClick={() =>
                 window.open('https://www.youtube.com/channel/UCocOwXWltbLzvtyDBu9Y5tA', '_blank')
               }
-            >
-              {' '}
-              Youtube{' '}
-            </a>
-            <img src={Facebook} alt="Facebook" />
-            <a
-              className="social"
+            />
+            <img
+              src={Facebook}
+              alt="Facebook"
               onClick={() => window.open('http://facebook.com/starfundapp', '_blank')}
-            >
-              Facebook
-            </a>
+            />
           </div>
         </div>
         <div className="col-sm-4 col-6">

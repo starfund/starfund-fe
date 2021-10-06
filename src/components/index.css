@@ -368,8 +368,9 @@ h3 {
 
     img {
       padding-right: 10px;
-      width: 25px;
-      height: 60px;
+      width: 45px;
+      height: 80px;
+      cursor: pointer;
     }
   }
 
