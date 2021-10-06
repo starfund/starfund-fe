@@ -164,7 +164,7 @@ export default {
   'fighter.start.item2': 'Create Account',
   'fighter.start.item3': 'Add Payment Method',
   'fighter.start.item4': 'Get Benefits',
-  'fighter.videos.title': 'Watch Featured Videos',
+  'fighter.videos.title': "{fighterName}'s uploads",
   'fighter.videos.noVideos': 'This fighter has not uploaded any videos yet',
   'fighter.videos.subscribe': 'Subscribe to unlock {videos} videos',
   'fighter.announcements.title': 'Fighter Announcements',

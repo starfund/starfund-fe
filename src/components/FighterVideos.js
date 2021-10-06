@@ -1,40 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useIntl, FormattedMessage } from 'react-intl';
-import { useSession } from 'hooks';
+// import { useSession } from 'hooks';
 import ReactPlayer from 'react-player/lazy';
 
 import { useMediaQuery } from 'react-responsive';
 import { formatDistance } from 'date-fns';
-import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
 
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
-import { getMessages } from '../state/actions/messageActions';
 
-import Subscribe from '../assets/subscribe.png';
-import SubscribeRu from '../assets/subscribe_rus.png';
-import Watch from '../assets/watch.png';
-import WatchRu from '../assets/watch_rus.png';
-
-import MessageSection from './MessageSection';
-
-const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) => {
+const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
-  const dispatch = useDispatch();
-  const { authenticated } = useSession();
+  // const { authenticated } = useSession();
   const [url, setUrl] = useState(fighter.previewUrl || fighter.officialPreview);
-  const [diplayContent, setDisplayContent] = useState();
+  const [displayContent, setDisplayContent] = useState();
   const payedFighter = supporting.map(sub => sub.fighter?.id);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
-
-  useEffect(() => {
-    if (diplayContent) {
-      dispatch(getMessages(diplayContent));
-    }
-  }, [diplayContent, dispatch]);
 
   const endFreeVideo = () => {
     if (!payedFighter.includes(fighter.id)) {
@@ -53,12 +38,15 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
   };
 
   const language = useSelector(state => state.language.language);
-  const messages = useSelector(state => state.messages.messages.comments);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
   return (
     <div className="fighter-videos">
-      <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
+      <br />
+      <h1>
+        <FormattedMessage id="fighter.videos.title" values={{ fighterName: fighter?.firstName }} />
+      </h1>
+      <br />
       <br />
       <div className="row">
         <div className="col-12 col-sm-8">
@@ -81,114 +69,91 @@ const FighterVideos = ({ fighter, supporting, subscribeAction, watchAction }) =>
               }}
             />
           </LazyLoadComponent>
-          <div className="blank-line" />
-          <div className="container">
-            {diplayContent && (
-              <div className="col-12">
-                <h2>{diplayContent.title}</h2>
-              </div>
-            )}
-            <MessageSection content={diplayContent} messages={messages} />
+        </div>
+        {displayContent && (
+          <div className="video-description col-12 col-sm-4">
+            <h1>{displayContent.title?.toUpperCase()}</h1>
+            <h3>{displayContent.description}</h3>
+            <br />
+            <p>
+              {' '}
+              Uploaded{' '}
+              {formatDistance(new Date(displayContent.eventDate), new Date(), {
+                addSuffix: true
+              })}{' '}
+            </p>
           </div>
-        </div>
-        <div className={`more-videos col-12 col-sm-4 ${isMobile && 'row'}`}>
-          {fighter.publicVideos &&
-            fighter.publicVideos
-              .filter(c => !!c.video)
-              .map(v => (
-                <div
-                  key={v.url}
-                  className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v)}
-                >
-                  <LazyLoadComponent>
-                    <ReactPlayer
-                      url={v.video}
-                      width={isMobile ? '100%' : '80%'}
-                      height="20vh"
-                      light={v.thumbnail}
-                      config={{
-                        file: {
-                          attributes: {
-                            onContextMenu: e => e.preventDefault(),
-                            controlsList: 'nodownload'
-                          }
+        )}
+      </div>
+      <div className="more-videos col-12">
+        {fighter.publicVideos &&
+          fighter.publicVideos
+            .filter(c => !!c.video)
+            .map(v => (
+              <div
+                key={v.url}
+                className="col-12 col-sm-6 col-md-4 fighter-watch"
+                onClick={() => selectVideo(v)}
+              >
+                <LazyLoadComponent>
+                  <ReactPlayer
+                    url={v.video}
+                    width="100%"
+                    height="25vh"
+                    light={v.thumbnail}
+                    config={{
+                      file: {
+                        attributes: {
+                          onContextMenu: e => e.preventDefault(),
+                          controlsList: 'nodownload'
                         }
-                      }}
-                    />
-                  </LazyLoadComponent>
-                  <div>
-                    <h4> {formatTitle(v, language)} </h4>
-                    <p>
-                      {' '}
-                      {formatDescription(v, language)} *{' '}
-                      {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
-                    </p>
-                  </div>
-                </div>
-              ))}
-          {fighter.privateVideos &&
-            payedFighter.includes(fighter.id) &&
-            fighter.privateVideos
-              .filter(c => !!c.video)
-              .map(v => (
-                <div
-                  key={v.url}
-                  className="col-5 col-sm-12 fighter-watch"
-                  onClick={() => selectVideo(v)}
-                >
-                  <LazyLoadComponent>
-                    <ReactPlayer
-                      url={v.video}
-                      width={isMobile ? '100%' : '80%'}
-                      height="20vh"
-                      light={v.thumbnail}
-                      config={{
-                        file: {
-                          attributes: {
-                            onContextMenu: e => e.preventDefault(),
-                            controlsList: 'nodownload'
-                          }
-                        }
-                      }}
-                    />
-                  </LazyLoadComponent>
-                  <div>
-                    <h4> {formatTitle(v, language)} </h4>
-                    <p>
-                      {' '}
-                      {formatDescription(v, language)} *{' '}
-                      {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
-                    </p>
-                  </div>
-                </div>
-              ))}
-          <div className={!isMobile && `blank-line`} />
-          {fighter.privateVideos?.filter(c => !!c.video)?.length > 0 &&
-            !payedFighter.includes(fighter.id) && (
-              <div className={`other-videos ${isMobile && 'center'}`}>
-                <div className="flex">
-                  <h3 className="center">
-                    <FormattedMessage
-                      id="fighter.videos.subscribe"
-                      values={{ videos: fighter.privateVideos?.filter(c => !!c.video)?.length }}
-                    />
-                  </h3>
-                </div>
-                <div className="sub-cta">
-                  {authenticated && (
-                    <LazyLoadImage
-                      src={language == 'ru' ? SubscribeRu : Subscribe}
-                      onClick={subscribeAction}
-                    />
-                  )}
-                  {!authenticated && (
-                    <LazyLoadImage src={language == 'ru' ? WatchRu : Watch} onClick={watchAction} />
-                  )}
+                      }
+                    }}
+                  />
+                </LazyLoadComponent>
+                <div className="video-description">
+                  <h4>
+                    {formatTitle(v, language)} {formatDescription(v, language)}
+                  </h4>
                 </div>
               </div>
-            )}
-        </div>
+            ))}
+        {fighter.privateVideos &&
+          payedFighter.includes(fighter.id) &&
+          fighter.privateVideos
+            .filter(c => !!c.video)
+            .map(v => (
+              <div
+                key={v.url}
+                className="col-5 col-sm-12 fighter-watch"
+                onClick={() => selectVideo(v)}
+              >
+                <LazyLoadComponent>
+                  <ReactPlayer
+                    url={v.video}
+                    width={isMobile ? '100%' : '80%'}
+                    height="20vh"
+                    light={v.thumbnail}
+                    config={{
+                      file: {
+                        attributes: {
+                          onContextMenu: e => e.preventDefault(),
+                          controlsList: 'nodownload'
+                        }
+                      }
+                    }}
+                  />
+                </LazyLoadComponent>
+                <div>
+                  <h4> {formatTitle(v, language)} </h4>
+                  <p>
+                    {' '}
+                    {formatDescription(v, language)} *{' '}
+                    {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
+                  </p>
+                </div>
+              </div>
+            ))}
       </div>
       <div className="container">
         <div className="row flex">

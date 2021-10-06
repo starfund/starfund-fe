@@ -1197,9 +1197,25 @@ h3 {
     padding-top: 20px
   }
 
-  .more-videos {
+  .video-description {
+    * { text-align: left; }
+
     @media(max-width: 765px) {
       margin: 20px auto;
+    }
+  }
+
+  .more-videos {
+    margin-top: 20px;
+    display: flex;
+
+    .video-description {
+      background-color: #373737;
+      padding: 15px;
+    }
+
+    .video-description:hover {
+      background-color: #EB0000;
     }
   }
 
