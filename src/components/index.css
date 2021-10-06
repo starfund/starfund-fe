@@ -302,7 +302,6 @@ h3 {
 }
 
 .footer {
-  border-top: solid 2px #7b7e83;
   background-color: #373737;
   height: 60px;
   line-height: 60px;
@@ -713,10 +712,6 @@ h3 {
   .business-cover {
     width: 100%;
     height: calc(60vh);
-  }
-
-  .stars-container {
-    border-bottom: solid 2px #7b7e83;
   }
 
   .presentation-card {
