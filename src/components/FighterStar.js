@@ -311,30 +311,32 @@ const FighterStar = () => {
                 />
               </h1>
               <br />
-              <div className="discover-videos flex" style={{ margin: 'auto', width: '70%' }}>
+              <div className="discover-videos row">
                 {fighter &&
                   fighter.privateVideos
                     .filter(c => !!c.video)
                     .slice(0, 2)
                     .map(v => (
-                      <LazyLoadComponent>
-                        <ReactPlayer
-                          title="preview"
-                          height="250px"
-                          width="500px"
-                          url={v.video}
-                          style={{ margin: '0 20px' }}
-                          onClick={() => setModalIsOpen(true)}
-                          config={{
-                            file: {
-                              attributes: {
-                                onContextMenu: e => e.preventDefault(),
-                                controlsList: 'nodownload'
+                      <div className="col-12 col-md-6 d-video">
+                        <LazyLoadComponent>
+                          <ReactPlayer
+                            title="preview"
+                            height="250px"
+                            width="inherit"
+                            url={v.video}
+                            style={{ margin: '0 20px' }}
+                            onClick={() => setModalIsOpen(true)}
+                            config={{
+                              file: {
+                                attributes: {
+                                  onContextMenu: e => e.preventDefault(),
+                                  controlsList: 'nodownload'
+                                }
                               }
-                            }
-                          }}
-                        />
-                      </LazyLoadComponent>
+                            }}
+                          />
+                        </LazyLoadComponent>
+                      </div>
                     ))}
               </div>
               <br />
@@ -342,7 +344,7 @@ const FighterStar = () => {
                 type="button"
                 className="btn btn-danger btn-lg"
                 onClick={() => setModalIsOpen(true)}
-                style={{ width: '15vw' }}
+                style={{ width: 'fit-content', padding: '5px 15px' }}
               >
                 {intl.formatMessage({ id: 'fighter.discover.cta' })}
               </button>

@@ -311,9 +311,10 @@ h3 {
   width: 100%;
 
   .container {
-    margin: 0;
-    padding: 0;
     background-color: #373737;
+    margin: 0;
+    max-width: none !important;
+    padding: 0;
   }
 
   .center-50 {
@@ -568,15 +569,6 @@ h3 {
 
 .fighter-container {
   background-color: #202020;
-
-  button {
-    max-height: 35px;
-    border: solid #eb0000 1px;
-    font-weight: bold;
-    padding: 5px 0;
-    font-size: 16px;
-    background-color: #ea0a0a;
-  }
   
   h3 { text-align: center }
 
@@ -621,8 +613,28 @@ h3 {
 
     button {
       background-color: #ea0a0a;
-      padding: 10px 0 30px 0 !important;
-      width: 15vw;
+      border: solid #eb0000 1px;
+      font-weight: bold;
+      font-size: 16px;
+      max-height: 35px;
+      padding: 5px 15px;
+
+      @media (max-width: 610px) {
+        height: 35px;
+        padding: 0 24px 18px 24px;
+      }
+    }
+  }
+
+  .container {
+    button {
+      background-color: #ea0a0a;
+      border: solid #eb0000 1px;
+      font-weight: bold;
+      font-size: 16px;
+      min-height: fit-content !important;
+      max-height: 35px;
+      padding: 5px 0;
 
       @media (max-width: 610px) {
         height: 35px;
@@ -632,6 +644,12 @@ h3 {
   }
 
   .discover-videos {
+    margin: 0 5%;
+
+    .d-video {
+      margin-bottom: 20px;
+    }
+
     video:hover {
       border: solid 6px white;
     } 

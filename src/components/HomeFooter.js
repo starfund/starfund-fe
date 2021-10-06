@@ -42,7 +42,7 @@ const HomeFooter = () => {
           <div className="center-50">
             <p> info@starfun.app </p>
           </div>
-          <div className="flex center social-container">
+          <div className="flex center-50 social-container">
             <img src={Instagram} alt="Instagram" />
             <a
               className="social"
