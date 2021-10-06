@@ -380,6 +380,10 @@ h3 {
       padding: 0 20px 
     }
 
+    p {
+      margin: auto;
+    }
+
     display: flex;
     margin: auto;
     width: 40%;

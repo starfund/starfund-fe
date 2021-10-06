@@ -88,6 +88,7 @@ const HomeFooter = () => {
           <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
           <p>|</p>
           <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
+          <p> Copyright © {new Date().getFullYear()} STARFUND All rights reserved </p>
         </div>
       </div>
     </footer>
