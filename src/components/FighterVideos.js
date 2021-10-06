@@ -85,7 +85,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           </div>
         )}
       </div>
-      <div className="more-videos col-12">
+      <div className="row more-videos col-12">
         {fighter.publicVideos &&
           fighter.publicVideos
             .filter(c => !!c.video)
@@ -119,20 +119,19 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               </div>
             ))}
         {fighter.privateVideos &&
-          payedFighter.includes(fighter.id) &&
           fighter.privateVideos
             .filter(c => !!c.video)
             .map(v => (
               <div
                 key={v.url}
-                className="col-5 col-sm-12 fighter-watch"
+                className="col-12 col-sm-6 col-md-4 fighter-watch"
                 onClick={() => selectVideo(v)}
               >
                 <LazyLoadComponent>
                   <ReactPlayer
                     url={v.video}
-                    width={isMobile ? '100%' : '80%'}
-                    height="20vh"
+                    width="100%"
+                    height="25vh"
                     light={v.thumbnail}
                     config={{
                       file: {
@@ -144,13 +143,10 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                     }}
                   />
                 </LazyLoadComponent>
-                <div>
-                  <h4> {formatTitle(v, language)} </h4>
-                  <p>
-                    {' '}
-                    {formatDescription(v, language)} *{' '}
-                    {formatDistance(new Date(v.eventDate), new Date(), { addSuffix: true })}
-                  </p>
+                <div className="video-description">
+                  <h4>
+                    {formatTitle(v, language)} {formatDescription(v, language)}
+                  </h4>
                 </div>
               </div>
             ))}
