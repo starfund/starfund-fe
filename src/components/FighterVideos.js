@@ -127,6 +127,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 className="col-12 col-sm-6 col-md-4 fighter-watch"
                 onClick={() => selectVideo(v)}
               >
+                <div className="exclusive">EXCLUSIVE</div>
                 <LazyLoadComponent>
                   <ReactPlayer
                     url={v.video}
