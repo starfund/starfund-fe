@@ -80,7 +80,7 @@ export default {
 
   // Header
   'header.business': 'BUSINESS',
-  'header.watch': 'WATCH',
+  'header.watch': 'DISCOVER',
   'header.shop': 'SHOP',
   'header.stars': 'STARS',
   'header.home': 'HOME',
