@@ -23,7 +23,6 @@ import FighterVideos from './FighterVideos';
 import HomeExclusive from './HomeExclusive';
 import HomeFooter from './HomeFooter';
 import PPVForm from './PPVForm';
-import WhatsappCallToAction from './WhatsappCallToAction';
 
 import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
@@ -161,7 +160,6 @@ const FighterStar = () => {
           )}
         </div>
       </nav>
-      <WhatsappCallToAction />
       {!videos && (
         <div className="container">
           <div className="main-content row">
