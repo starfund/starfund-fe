@@ -354,15 +354,22 @@ h3 {
       font-weight: 300;
     }
 
+    h3 {
+      text-align: center;
+    }
+
     a { color: white !important }
 
     a.btn {
-      background-color: #3b414a;
       color: white;
       border: none;
       border-radius: 99px;
-      width: 215px;
-      height: 50px;
+      overflow-wrap: break-word;
+      width: 18vw;
+
+      @media only screen and (max-width : 420px) {
+        width: 35vw;
+      }
     }
 
     img {
@@ -371,6 +378,10 @@ h3 {
       height: 80px;
       cursor: pointer;
     }
+  }
+
+  .join-col {
+    margin-bottom: 20px;
   }
 
   .last-row {
@@ -403,7 +414,7 @@ h3 {
   }
 
   .enroll-as-a-star-btn {
-    background-color: #eb0000;
+    background-color: #EB0000;
     border-radius: 0 !important;
     color: white;
     font-weight: bold;

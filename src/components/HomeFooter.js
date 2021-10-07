@@ -1,7 +1,9 @@
 import React from 'react';
 
+import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'react-responsive';
 
 import LanguageDropdown from './common/LanguageDropdown';
 
@@ -12,10 +14,13 @@ import './index.css';
 
 const HomeFooter = () => {
   const intl = useIntl();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
   return (
     <footer className="footer">
       <div className="container row">
-        <div className="col-lg-4 col-6 row-1">
+        <div className="col-sm-4 col-6 row-1">
           <div className="">
             <h3>{intl.formatMessage({ id: 'header.explore' })}</h3>
           </div>
@@ -35,14 +40,14 @@ const HomeFooter = () => {
             </a>
           </div>
         </div>
-        <div className="col-lg-4 col-6 row-1">
+        <div className="col-sm-4 col-6 row-1">
           <div className="contact">
             <h3>{intl.formatMessage({ id: 'header.contact' })}</h3>
           </div>
           <div className="center-50">
             <p> info@starfun.app </p>
           </div>
-          <div className="flex center-50 social-container">
+          <div className={cn('flex social-container', !isMobile && 'center-50')}>
             <img
               src={Instagram}
               alt="Instagram"
@@ -62,8 +67,8 @@ const HomeFooter = () => {
             />
           </div>
         </div>
-        <div className="col-sm-4 col-6">
-          <div className="col">
+        <div className="col-12 col-sm-4 col-6 row-1">
+          <div className="col join-col">
             <h3>{intl.formatMessage({ id: 'header.join' })}</h3>
           </div>
           <div className="center-50">
@@ -82,12 +87,14 @@ const HomeFooter = () => {
             <LanguageDropdown />
           </div>
         </div>
-        <div className="row last-row">
+        <div className="col-12 col-sm-12 col-md-6 last-row">
           <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>
           <p>|</p>
           <a href="/privacy">{intl.formatMessage({ id: 'legal.privacy' })}</a>
           <p>|</p>
           <a href="/help">{intl.formatMessage({ id: 'legal.help' })}</a>
+        </div>
+        <div className="col-12 last-row">
           <p> Copyright © {new Date().getFullYear()} STARFUND All rights reserved </p>
         </div>
       </div>
