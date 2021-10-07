@@ -107,7 +107,6 @@ const FighterStar = () => {
               </h1>
               {authenticated &&
                 supporting &&
-                supporting.length > 0 &&
                 fighter &&
                 !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
                   <button

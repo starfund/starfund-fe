@@ -37,6 +37,13 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     }
   };
 
+  const selectPrivateVideo = content => {
+    if (payedFighter.includes(fighter.id)) {
+      selectVideo(content);
+    }
+    subscribeAction();
+  };
+
   const language = useSelector(state => state.language.language);
   ReactGA.modalview(`/fighter/${fighter.id}/videos`);
 
@@ -125,7 +132,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               <div
                 key={v.url}
                 className="col-12 col-sm-6 col-md-4 fighter-watch"
-                onClick={() => selectVideo(v)}
+                onClick={() => selectPrivateVideo(v)}
               >
                 <div className="exclusive">EXCLUSIVE</div>
                 <LazyLoadComponent>
