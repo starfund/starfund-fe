@@ -46,7 +46,6 @@ const HomeBusinesses = ({ title }) => {
                   </div>
                 </Link>
               ))}
-              )
             </React.Fragment>
           )}
         </Slider>
