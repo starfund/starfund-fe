@@ -4,7 +4,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import ReactGA from 'react-ga';
 
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player';
 
@@ -53,7 +53,12 @@ const WatchPage = () => {
 
   return (
     <div className="watch-container">
-      <h1>{intl.formatMessage({ id: 'fighter.videos.title' })}</h1>
+      <h1>
+        <FormattedMessage
+          id="fighter.videos.title"
+          values={{ fighterName: currentFighter?.firstName }}
+        />
+      </h1>
       <SubscribeCallToAction visible={ctaVisible} onClose={() => setCtaVisible(false)} />
       <br />
       {url && (
