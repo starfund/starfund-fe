@@ -40,8 +40,9 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const selectPrivateVideo = content => {
     if (payedFighter.includes(fighter.id)) {
       selectVideo(content);
+    } else {
+      subscribeAction();
     }
-    subscribeAction();
   };
 
   const language = useSelector(state => state.language.language);
