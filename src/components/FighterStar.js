@@ -82,7 +82,7 @@ const FighterStar = () => {
     if (fighter.team) {
       history.push(`/team/${fighter.team.name}`);
     } else {
-      history.push(`/fighter/${fighterUrl(fighter, id)}`);
+      history.push(`/fighter/${fighterUrl(fighter, parseInt(id))}`);
     }
   };
 
