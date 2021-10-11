@@ -1230,7 +1230,12 @@ h3 {
   }
 
   .video-description {
+    h1 { font-size: 3vw !important; }
+    h1, h3 { margin-right: 5px; }
+
     * { text-align: left; }
+
+    word-wrap: break-word;
 
     @media(max-width: 765px) {
       margin: 20px auto;

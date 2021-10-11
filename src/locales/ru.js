@@ -99,6 +99,7 @@ export default {
   'header.social': 'Соц сети',
   'header.join': 'Присоединиться',
   'header.programs': 'Программы',
+  'header.contact': 'Связаться с нами',
 
   // Dashboard
   'dashboard.pageVisits': 'Посещения страницы',
@@ -168,6 +169,8 @@ export default {
   'fighter.videos.subscribe': 'Подписаться и Разблокировать {videos} видео',
   'fighter.announcements.title': 'Афиша спортсменов',
   'fighter.announcements.subTitle': 'Вдохновлять спортсменов и развлекать фанатов',
+  'fighter.discover.videos': "Последние видео {fighterName}'s",
+  'fighter.discover.cta': 'СМОТРЕТЬ ВСЕ ВИДЕО',
 
   // HOME
   'home.fighters.title': 'Узнать Атлеты',
