@@ -45,7 +45,7 @@ const HomeFooter = () => {
             <h3>{intl.formatMessage({ id: 'header.contact' })}</h3>
           </div>
           <div className="center-50">
-            <p> info@starfun.app </p>
+            <p> info@starfund.app </p>
           </div>
           <div className={cn('flex social-container', !isMobile && 'center-50')}>
             <img
