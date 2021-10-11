@@ -153,8 +153,9 @@ export default {
   // FIGHTER PAGE
   'fighter.discoverMore': 'обнаружить Другие Атлеты',
   'fighter.likes': 'Нравится',
-  'fighter.howItWorks.title': 'Как это работает?',
-  'fighter.howItWorks.item1': 'Разблокировать эксклюзивные посты',
+  'fighter.howItWorks.title': 'СТАНЬТЕ ЧАСТЬЮ МОЕГО ПУТЕШЕСТВИЯ',
+  'fighter.howItWorks.item1':
+    'Получите полный доступ к закулисью моего тренировочного лагеря и более эксклюзивному контенту прямо сейчас',
   'fighter.howItWorks.item2': 'Будь частью моего пути',
   'fighter.howItWorks.item3': 'общайся со мной напрямую',
   'fighter.videoPreview': 'Чтобы посмотреть полное видео, подпишитесь ниже',

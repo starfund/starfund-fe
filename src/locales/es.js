@@ -87,7 +87,7 @@ export default {
 
   // Header
   'header.business': 'Gimnasios',
-  'header.watch': 'Contenido',
+  'header.watch': 'Descubrir',
   'header.shop': 'Tienda',
   'header.stars': 'Estrellas',
   'header.home': 'Principal',
@@ -100,8 +100,9 @@ export default {
   'header.about': 'Sobre nosotros',
   'header.who': 'Quienes somos',
   'header.social': 'Redes',
-  'header.join': 'Se una estrella',
+  'header.join': 'Queres ser una estrella?',
   'header.programs': 'Programas',
+  'header.contact': 'Contacto',
 
   // Dashboard
   'dashboard.pageVisits': 'VISITAS',
@@ -156,7 +157,7 @@ export default {
     'Solo ve a tu perfil y selecciona el boton de "Cancelar" debajo de la lista de tus subscriptiones',
 
   // FIGHTER PAGE
-  'fighter.howItWorks.title': 'Como Funciona?',
+  'fighter.howItWorks.title': 'ACOMPAÑAME EN MI CAMINO',
   'fighter.likes': 'Likes',
   'fighter.discoverMore': 'Descubre Otros Atletas',
   'fighter.howItWorks.item1': 'Desbloquea todo el contendio',
@@ -174,6 +175,8 @@ export default {
   'fighter.videos.subscribe': 'Subscribete para desbloquear {videos} videos',
   'fighter.announcements.title': 'Anuncios de Atletas',
   'fighter.announcements.subTitle': 'Empoderando a los Atletas y Divirtiendo a sus Fans.',
+  'fighter.discover.videos': 'Ultimos videos de {fighterName}',
+  'fighter.discover.cta': 'TODOS LOS VIDEOS',
 
   // HOME
   'home.fighters.title': 'Descubre Atletas',
