@@ -169,7 +169,12 @@ h3 {
   padding-top: 25px;
   text-align: left;
 
-  h1 { text-align: left; font-weight: 600; }
+  h1 {
+    font-size: 50px !important;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+  }
   a, button, input { 
     border-radius: 99px;
     height: 40px;
@@ -636,13 +641,15 @@ h3 {
     button {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
+      border-radius: 0;
       font-weight: bold;
       font-size: 16px;
-      max-height: 35px;
-      padding: 5px 15px;
+      max-height: 45px;
+      height: 45px;
+      padding: 5px 20px;
 
       @media (max-width: 610px) {
-        height: 35px;
+        height: 45px;
         padding: 0 24px 18px 24px;
       }
     }
@@ -652,6 +659,7 @@ h3 {
     button {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
+      border-radius: 0;
       font-weight: bold;
       font-size: 16px;
       min-height: fit-content !important;
@@ -665,8 +673,13 @@ h3 {
     }
   }
 
+  .fighter-discover {
+    margin-top: 5vw;
+    margin-bottom: 3vw;
+  }
+
   .discover-videos {
-    margin: 0 5%;
+    margin: 0 1%;
 
     .d-video {
       margin-bottom: 20px;
@@ -808,6 +821,7 @@ h3 {
     button {
       max-height: 35px;
       border: solid #eb0000 1px;
+      border-radius: 0;
       font-weight: bold;
       padding: 5px 0;
       font-size: 16px;

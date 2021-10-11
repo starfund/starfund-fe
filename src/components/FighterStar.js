@@ -301,7 +301,7 @@ const FighterStar = () => {
               </div>
             </div>
           )}
-          <div className="">
+          <div className="fighter-discover">
             <center>
               <h2>
                 <FormattedMessage
