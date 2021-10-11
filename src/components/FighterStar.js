@@ -190,7 +190,7 @@ const FighterStar = () => {
                 <div className="content">
                   <React.Fragment>
                     <h1 className="bold">
-                      <strong>{intl.formatMessage({ id: 'fighter.howItWorks.title' })}</strong>
+                      {intl.formatMessage({ id: 'fighter.howItWorks.title' })}
                     </h1>
                     <br />
                     <div className="text">
@@ -303,12 +303,12 @@ const FighterStar = () => {
           )}
           <div className="">
             <center>
-              <h1>
+              <h2>
                 <FormattedMessage
                   id={'fighter.discover.videos'}
                   values={{ fighterName: fighter?.firstName }}
                 />
-              </h1>
+              </h2>
               <br />
               <div className="discover-videos row">
                 {fighter &&
