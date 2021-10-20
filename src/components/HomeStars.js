@@ -9,7 +9,7 @@ import Slider from './common/Slider';
 
 import '../styles/components/_home-starts.scss';
 
-const HomeStars = ({ title }) => {
+const HomeStars = ({ title, selectedFighter }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
@@ -36,21 +36,28 @@ const HomeStars = ({ title }) => {
         )}
         <Slider>
           {fighters.length > 0 &&
-            fighters.map(f => (
-              <Link key={f.id} className="fighter-card-link" href="" onClick={() => fighterLink(f)}>
-                <div key={f.id} className="fighter-card">
-                  <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
-                  <div className="fighter-card-overlay">
-                    <div className="fighter-card-name-wrapper">
-                      <span className="fighter-card-text">{f.firstName} </span>
-                      <span className="fighter-card-text secondary">{f.lastName} </span>
+            (selectedFighter ? fighters.filter(f => f.id !== selectedFighter.id) : fighters).map(
+              f => (
+                <Link
+                  key={f.id}
+                  className="fighter-card-link"
+                  href=""
+                  onClick={() => fighterLink(f)}
+                >
+                  <div key={f.id} className="fighter-card">
+                    <img className="fighter-card-image" src={f?.profilePicture} alt="Card cap" />
+                    <div className="fighter-card-overlay">
+                      <div className="fighter-card-name-wrapper">
+                        <span className="fighter-card-text">{f.firstName} </span>
+                        <span className="fighter-card-text secondary">{f.lastName} </span>
+                      </div>
+                      <div className="fighter-card-separator" />
+                      <span className="fighter-card-text">{f.organization} </span>
                     </div>
-                    <div className="fighter-card-separator" />
-                    <span className="fighter-card-text">{f.organization} </span>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              )
+            )}
         </Slider>
       </div>
     </div>

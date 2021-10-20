@@ -172,6 +172,15 @@ export default {
   'fighter.discover.videos': "{fighterName}'s latest videos",
   'fighter.discover.cta': 'VIEW ALL VIDEOS',
 
+  // TEAMS PAGE
+  'team.discover.videos': "{teamName} athlete's latest videos",
+  'team.howItWorks.title': 'BECOME PART OF OUR JOURNEY',
+  'team.howItWorks.item1': 'Gain full access to behind the scenes, exclusive content right now',
+  'team.howItWorks.item2': 'Be part of their journey',
+  'team.howItWorks.item3': 'Chat with them Directly',
+  'team.discover.cta': 'VIEW ALL VIDEOS',
+  'team.videos.title': "{teamName}'s uploads",
+
   // HOME
   'home.fighters.title': 'Explore Athletes',
   'home.exclusive.title': 'FIND YOUR ATHLETE',

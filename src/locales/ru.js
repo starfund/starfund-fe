@@ -173,6 +173,15 @@ export default {
   'fighter.discover.videos': "Последние видео {fighterName}'s",
   'fighter.discover.cta': 'СМОТРЕТЬ ВСЕ ВИДЕО',
 
+  // TEAN PAGE
+  'team.discover.videos': 'Последние видео спортсмена {teamName}',
+  'team.howItWorks.title': 'ПРИСОЕДИНЯЙТЕСЬ К НАМ',
+  'team.howItWorks.item1': 'Разблокировать весь контент',
+  'team.howItWorks.item2': 'Станьте частью их путешествия',
+  'team.howItWorks.item3': 'Общайтесь с ними напрямую',
+  'team.discover.cta': 'СМОТРЕТЬ ВСЕ ВИДЕО',
+  'team.videos.title': 'Смотреть рекомендованное видео',
+
   // HOME
   'home.fighters.title': 'Узнать Атлеты',
   'home.exclusive.title': 'НАЙТИ СВОЕГО СПОРТСМЕНА',

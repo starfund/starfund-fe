@@ -178,6 +178,14 @@ export default {
   'fighter.discover.videos': 'Ultimos videos de {fighterName}',
   'fighter.discover.cta': 'TODOS LOS VIDEOS',
 
+  // TEAMS PAGE
+  'team.discover.videos': 'Ultimos videos de los atletas de {teamName}',
+  'team.howItWorks.title': 'ACOMPAÑANOS EN NUESTRO CAMINO',
+  'team.howItWorks.item1': 'Desbloquea todo el contendio',
+  'team.howItWorks.item2': 'Se parte de su viaje',
+  'team.howItWorks.item3': 'Interactua directamente',
+  'team.discover.cta': 'TODOS LOS VIDEOS',
+  'team.videos.title': 'Mira Contenido Exclusivo',
   // HOME
   'home.fighters.title': 'Descubre Atletas',
   'home.exclusive.title': 'ENCUENTRA TU ATLETA',
