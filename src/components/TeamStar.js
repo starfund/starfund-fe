@@ -8,8 +8,13 @@ import { useIntl } from 'react-intl';
 import { useParams, Link } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
+import Auth from './common/Auth';
 import { getTeams } from '../state/actions/teamActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import ConfirmationModal from './common/ConfirmationModal';
+import CommonModal from './common/CommonModal';
+import BillingForm from './BillingForm';
+import PPVForm from './PPVForm';
 
 import TeamVideos from './TeamVideos';
 import FighterTeamHome from './FighterTeamHome';
@@ -22,8 +27,12 @@ const TeamStar = () => {
   const { name } = useParams();
   const intl = useIntl();
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user);
   const { authenticated } = useSession();
-  const [setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [authModal, setAuthModal] = useState(false);
+  const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
+  const [PPVOpen, setPPVOpen] = useState(false);
   const [videos, setVideos] = useState(false);
   useEffect(() => {
     dispatch(getTeams(true));
@@ -135,6 +144,43 @@ const TeamStar = () => {
         <HomeStars title={intl.formatMessage({ id: 'fighter.discoverMore' })} />
       </div>
       <HomeFooter />
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.title' })}
+        explain={intl.formatMessage({ id: 'modal.header.explain' })}
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        isDelete={false}
+        price={team?.subPrice}
+        email={currentUser?.email}
+      >
+        <BillingForm email={currentUser?.email} team={team?.id} type="subscription" />
+      </ConfirmationModal>
+      <CommonModal
+        title={intl.formatMessage({ id: 'ppv.title' })}
+        isOpen={PPVOpen}
+        setIsOpen={setPPVOpen}
+        customWidth="80%"
+        customHeight="80%"
+      >
+        <PPVForm
+          onSubmit={setPPVOpen}
+          nextStep={setModalPPVIsOpen}
+          fighterName={`Team ${team?.name}`}
+        />
+      </CommonModal>
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.ppv.title' })}
+        explain={intl.formatMessage({ id: 'modal.header.ppv.explain' })}
+        isOpen={modalPPVIsOpen}
+        setIsOpen={setModalPPVIsOpen}
+        isDelete={false}
+        price={500}
+        email={currentUser?.email}
+        fighter={team?.id}
+      >
+        <BillingForm email={currentUser?.email} fighter={team?.id} type="ppv" />
+      </ConfirmationModal>
+      <Auth modalIsOpen={authModal} setModalIsOpen={setAuthModal} />
     </div>
   );
 };

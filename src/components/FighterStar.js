@@ -12,6 +12,10 @@ import { useSession, usePrevious } from 'hooks';
 import { fighterUrl } from 'utils/urlHelper';
 import { getFighters } from '../state/actions/fighterActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import ConfirmationModal from './common/ConfirmationModal';
+import CommonModal from './common/CommonModal';
+import BillingForm from './BillingForm';
+import PPVForm from './PPVForm';
 
 import FighterVideos from './FighterVideos';
 import HomeStars from './HomeStars';
@@ -26,7 +30,10 @@ const FighterStar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { authenticated } = useSession();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [setAuthModal] = useState(false);
+  const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
+  const [PPVOpen, setPPVOpen] = useState(false);
   const [videos, setVideos] = useState(!!authenticated);
   const prevAuth = usePrevious(authenticated);
 
@@ -168,6 +175,45 @@ const FighterStar = () => {
         />
       </div>
       <HomeFooter />
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.title' })}
+        explain={intl.formatMessage({
+          id: fighter?.support ? 'modal.header.support' : 'modal.header.explain'
+        })}
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        isDelete={false}
+        price={fighter?.subPrice}
+        email={currentUser?.email}
+        fighter={fighter?.id}
+      >
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="subscription" />
+      </ConfirmationModal>
+      <CommonModal
+        title={intl.formatMessage({ id: 'ppv.title' })}
+        isOpen={PPVOpen}
+        setIsOpen={setPPVOpen}
+        customWidth="80%"
+        customHeight="80%"
+      >
+        <PPVForm
+          onSubmit={setPPVOpen}
+          nextStep={setModalPPVIsOpen}
+          fighterName={`${fighter?.firstName} ${fighter?.lastName}`}
+        />
+      </CommonModal>
+      <ConfirmationModal
+        title={intl.formatMessage({ id: 'billing.ppv.title' })}
+        explain={intl.formatMessage({ id: 'modal.header.ppv.explain' })}
+        isOpen={modalPPVIsOpen}
+        setIsOpen={setModalPPVIsOpen}
+        isDelete={false}
+        price={500}
+        email={currentUser?.email}
+        fighter={fighter?.id}
+      >
+        <BillingForm email={currentUser?.email} fighter={fighter?.id} type="ppv" />
+      </ConfirmationModal>
     </div>
   );
 };
