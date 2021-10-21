@@ -82,8 +82,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
             supporting &&
             supporting.length > 0 &&
             (fighter || team) &&
-            (!supporting.filter(s => s.fighter?.id === fighter.id).length > 0 ||
-              !supporting.filter(s => s.team?.name === team.name).length > 0) && (
+            (!supporting.filter(s => s.fighter?.id === fighter?.id).length > 0 ||
+              !supporting.filter(s => s.team?.name === team?.name).length > 0) && (
               <button
                 type="button"
                 className="btn btn-danger btn-lg"
@@ -262,7 +262,7 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
         supporting &&
         supporting.length > 0 &&
         fighter &&
-        !supporting.filter(s => s.fighter?.id === fighter.id).length > 0 && (
+        !supporting.filter(s => s.fighter?.id === fighter?.id).length > 0 && (
           <div className="container">
             <HomeExclusive fighter={fighter} isTeam={false} />
           </div>
