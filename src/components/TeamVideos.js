@@ -46,7 +46,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
   };
 
   const selectPrivateVideo = content => {
-    if (payedTeam.includes(team.name)) {
+    if (payedTeam.includes(team.id)) {
       selectVideo(content);
     } else {
       subscribeAction();
@@ -142,7 +142,6 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
         {team.fighters.map(
           fighter =>
             fighter.privateVideos &&
-            payedTeam.includes(team.id) &&
             fighter.privateVideos
               .filter(c => !!c.video)
               .map(v => (
