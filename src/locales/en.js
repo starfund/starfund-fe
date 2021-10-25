@@ -96,6 +96,8 @@ export default {
   'header.join': 'Join Us',
   'header.programs': 'Programs',
   'header.contact': 'Contact Us',
+  'header.ppv': 'PPV',
+  'header.allevents': 'All events',
 
   // Dashboard
   'dashboard.title': 'Weekly Report',
@@ -172,7 +174,7 @@ export default {
   'fighter.discover.videos': "{fighterName}'s latest videos",
   'fighter.discover.cta': 'VIEW ALL VIDEOS',
 
-  // TEAMS PAGE
+  // TEAM PAGE
   'team.discover.videos': "{teamName} athlete's latest videos",
   'team.howItWorks.title': 'BECOME PART OF OUR JOURNEY',
   'team.howItWorks.item1': 'Gain full access to behind the scenes, exclusive content right now',
@@ -180,6 +182,35 @@ export default {
   'team.howItWorks.item3': 'Chat with them Directly',
   'team.discover.cta': 'VIEW ALL VIDEOS',
   'team.videos.title': "{teamName}'s uploads",
+
+  // ORGANIZTION
+  'organization.button.watch': 'WATCH LIVE ON PPV',
+  'organization.days': 'DAYS',
+  'organization.day': 'DAY',
+  'organization.hours': 'HOURS',
+  'organization.minutes': 'MINUTES',
+  'organization.seconds': 'SECONDS',
+  'organization.days.sun': 'SUN',
+  'organization.days.mon': 'MON',
+  'organization.days.tue': 'TUE',
+  'organization.days.wed': 'WED',
+  'organization.days.thu': 'THU',
+  'organization.days.fri': 'FRI',
+  'organization.days.sat': 'SAT',
+  'organization.months.jan': 'JAN',
+  'organization.months.feb': 'FEB',
+  'organization.months.mar': 'MAR',
+  'organization.months.apr': 'APR',
+  'organization.months.may': 'MAY',
+  'organization.months.jun': 'JUN',
+  'organization.months.jul': 'JUL',
+  'organization.months.aug': 'AUG',
+  'organization.months.sep': 'SEP',
+  'organization.months.oct': 'OCT',
+  'organization.months.nov': 'NOV',
+  'organization.months.dec': 'DEC',
+  'organization.event.ppv': 'WATCH LIVE ON PPV',
+  'organization.button.buyppv': 'BUY PPV NOW',
 
   // HOME
   'home.fighters.title': 'Explore Athletes',

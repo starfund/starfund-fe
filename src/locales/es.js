@@ -103,6 +103,8 @@ export default {
   'header.join': 'Queres ser una estrella?',
   'header.programs': 'Programas',
   'header.contact': 'Contacto',
+  'header.ppv': 'PPV',
+  'header.allevents': 'Eventos',
 
   // Dashboard
   'dashboard.pageVisits': 'VISITAS',
@@ -178,7 +180,7 @@ export default {
   'fighter.discover.videos': 'Ultimos videos de {fighterName}',
   'fighter.discover.cta': 'TODOS LOS VIDEOS',
 
-  // TEAMS PAGE
+  // TEAM PAGE
   'team.discover.videos': 'Ultimos videos de los atletas de {teamName}',
   'team.howItWorks.title': 'ACOMPAÑANOS EN NUESTRO CAMINO',
   'team.howItWorks.item1': 'Desbloquea todo el contendio',
@@ -186,6 +188,36 @@ export default {
   'team.howItWorks.item3': 'Interactua directamente',
   'team.discover.cta': 'TODOS LOS VIDEOS',
   'team.videos.title': 'Mira Contenido Exclusivo',
+
+  // ORGANIZTION
+  'organization.button.watch': 'MIRAR EN VIVO EN PPV',
+  'organization.days': 'DIAS',
+  'organization.day': 'DIA',
+  'organization.hours': 'HORAS',
+  'organization.minutes': 'MINUTOS',
+  'organization.seconds': 'SEGUNDOS',
+  'organization.days.sun': 'LU.',
+  'organization.days.mon': 'MA.',
+  'organization.days.tue': 'MI.',
+  'organization.days.wed': 'JU.',
+  'organization.days.thu': 'VI.',
+  'organization.days.fri': 'SA.',
+  'organization.days.sat': 'DO.',
+  'organization.months.jan': 'EN.',
+  'organization.months.feb': 'FEBR.',
+  'organization.months.mar': 'MZO.',
+  'organization.months.apr': 'ABR.',
+  'organization.months.may': 'MY.',
+  'organization.months.jun': 'JUN.',
+  'organization.months.jul': 'JUL.',
+  'organization.months.aug': 'AG.',
+  'organization.months.sep': 'SET.',
+  'organization.months.oct': 'OCT.',
+  'organization.months.nov': 'NOV.',
+  'organization.months.dec': 'DIC.',
+  'organization.event.ppv': 'MIRAR EN VIVO CON PPV',
+  'organization.button.buyppv': 'COMPRAR PPV AHORA',
+
   // HOME
   'home.fighters.title': 'Descubre Atletas',
   'home.exclusive.title': 'ENCUENTRA TU ATLETA',

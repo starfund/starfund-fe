@@ -21,7 +21,9 @@ const routes = {
   help: '/help',
   password: '/reset_password',
   rewards: '/rewards',
-  profile: '/profile'
+  profile: '/profile',
+  organizations: '/organization',
+  organization: '/organization/:name'
 };
 
 export default routes;

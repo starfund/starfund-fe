@@ -100,6 +100,8 @@ export default {
   'header.join': 'Присоединиться',
   'header.programs': 'Программы',
   'header.contact': 'Связаться с нами',
+  'header.ppv': 'PPV',
+  'header.allevents': 'События',
 
   // Dashboard
   'dashboard.pageVisits': 'Посещения страницы',
@@ -173,7 +175,7 @@ export default {
   'fighter.discover.videos': "Последние видео {fighterName}'s",
   'fighter.discover.cta': 'СМОТРЕТЬ ВСЕ ВИДЕО',
 
-  // TEAN PAGE
+  // TEAM PAGE
   'team.discover.videos': 'Последние видео спортсмена {teamName}',
   'team.howItWorks.title': 'ПРИСОЕДИНЯЙТЕСЬ К НАМ',
   'team.howItWorks.item1': 'Разблокировать весь контент',
@@ -181,6 +183,35 @@ export default {
   'team.howItWorks.item3': 'Общайтесь с ними напрямую',
   'team.discover.cta': 'СМОТРЕТЬ ВСЕ ВИДЕО',
   'team.videos.title': 'Смотреть рекомендованное видео',
+
+  // ORGANIZTION
+  'organization.button.watch': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
+  'organization.days': 'ДНЕЙ',
+  'organization.day': 'ДЕНЬ',
+  'organization.hours': 'ЧАСЫ',
+  'organization.minutes': 'МИНУТЫ',
+  'organization.seconds': 'СЕКУНДЫ',
+  'organization.days.sun': 'Воскресенье',
+  'organization.days.mon': 'Понедельник',
+  'organization.days.tue': 'Вторник',
+  'organization.days.wed': 'Среда',
+  'organization.days.thu': 'Четверг',
+  'organization.days.fri': 'Пятница',
+  'organization.days.sat': 'Суббота',
+  'organization.months.jan': 'Январь',
+  'organization.months.feb': 'Февраль',
+  'organization.months.mar': 'Март',
+  'organization.months.apr': 'Апрель',
+  'organization.months.may': 'Май',
+  'organization.months.jun': 'Июнь',
+  'organization.months.jul': 'Июль',
+  'organization.months.aug': 'Август',
+  'organization.months.sep': 'Сентябрь',
+  'organization.months.oct': 'Октябрь',
+  'organization.months.nov': 'Ноябрь',
+  'organization.months.dec': 'Декабрь',
+  'organization.event.ppv': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
+  'organization.button.buyppv': 'КУПИТЬ PPV СЕЙЧАС',
 
   // HOME
   'home.fighters.title': 'Узнать Атлеты',

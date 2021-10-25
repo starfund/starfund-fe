@@ -9,6 +9,7 @@ import BillingPage from 'pages/BillingPage';
 import FighterPage from 'pages/FighterPage';
 import BusinessPage from 'pages/BusinessPage';
 import TeamPage from 'pages/TeamPage';
+import OrganizationPage from 'pages/OrganizationPage';
 import FightersPage from 'pages/FightersPage';
 import BusinessesPage from 'pages/BusinessesPage';
 import FightersPPVPage from 'pages/FightersPPVPage';
@@ -63,6 +64,12 @@ const routes = [
     exact: false
   },
   {
+    path: routesPaths.organization,
+    component: <OrganizationPage />,
+    private: false,
+    exact: false
+  },
+  {
     path: routesPaths.fightersPpv,
     component: <FightersPPVPage />,
     private: false,
@@ -89,6 +96,12 @@ const routes = [
   {
     path: routesPaths.teams,
     component: <FightersPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.organizations,
+    component: <BusinessesPage />,
     private: false,
     exact: false
   },
