@@ -212,6 +212,7 @@ export default {
   'organization.months.dec': 'Декабрь',
   'organization.event.ppv': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
   'organization.button.buyppv': 'КУПИТЬ PPV СЕЙЧАС',
+  'organization.watchfight': 'СМОТРЕТЬ БОЙ',
 
   // HOME
   'home.fighters.title': 'Узнать Атлеты',

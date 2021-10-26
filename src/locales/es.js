@@ -217,6 +217,7 @@ export default {
   'organization.months.dec': 'DIC.',
   'organization.event.ppv': 'MIRAR EN VIVO CON PPV',
   'organization.button.buyppv': 'COMPRAR PPV AHORA',
+  'organization.watchfight': 'VER PELEA',
 
   // HOME
   'home.fighters.title': 'Descubre Atletas',

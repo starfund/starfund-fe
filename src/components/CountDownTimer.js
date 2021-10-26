@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'react-responsive';
 
-const CountDownTimer = ({ date, event }) => {
+const CountDownTimer = ({ date, event, subscribeAction }) => {
   const intl = useIntl();
 
   const months = [
@@ -20,6 +21,10 @@ const CountDownTimer = ({ date, event }) => {
   ];
 
   const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
 
   function formatAMPM(d) {
     let hours = d.getHours();
@@ -65,7 +70,9 @@ const CountDownTimer = ({ date, event }) => {
     if (interval == 'days') {
       timerComponents.push(
         <div className="timer-col-days">
-          <div className="timer-days-number">{timeLeft[interval]} </div>
+          <div className={isMobile ? 'timer-days-number-mobile' : 'timer-days-number'}>
+            {timeLeft[interval]}{' '}
+          </div>
           {timeLeft[interval] == 1 ? (
             <div className="timer-labels">{intl.formatMessage({ id: 'organization.day' })} </div>
           ) : (
@@ -77,14 +84,16 @@ const CountDownTimer = ({ date, event }) => {
       );
     } else if (interval == 'seconds') {
       timerComponents.push(
-        <div className="timer-col">
+        <div className={isMobile ? 'timer-col-mobile' : 'timer-col'}>
           {timeLeft[interval] < 10 ? (
-            <div className="timer-time-number">
+            <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
               {'0'}
               {timeLeft[interval]}{' '}
             </div>
           ) : (
-            <div className="timer-time-number">{timeLeft[interval]} </div>
+            <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
+              {timeLeft[interval]}{' '}
+            </div>
           )}
           <div className="timer-labels">
             {intl.formatMessage({ id: `organization.${interval}` })}{' '}
@@ -93,15 +102,15 @@ const CountDownTimer = ({ date, event }) => {
       );
     } else {
       timerComponents.push(
-        <div className="timer-col">
+        <div className={isMobile ? 'timer-col-mobile' : 'timer-col'}>
           {timeLeft[interval] < 10 ? (
-            <div className="timer-time-number">
+            <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
               {'0'}
               {timeLeft[interval]}
               {':'}
             </div>
           ) : (
-            <div className="timer-time-number">
+            <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
               {timeLeft[interval]}
               {':'}
             </div>
@@ -119,6 +128,7 @@ const CountDownTimer = ({ date, event }) => {
       <br />
       <br />
       <div className="timer-div">{timerComponents.length > 0 && timerComponents}</div>
+      <br />
       <br />
       <br />
       {timerComponents.length > 0 && (
@@ -142,7 +152,7 @@ const CountDownTimer = ({ date, event }) => {
               &nbsp;{intl.formatMessage({ id: 'organization.event.ppv' })}
             </div>
           </div>
-          <button type="button" className="btn btn-danger btn-lg">
+          <button type="button" className="btn btn-danger btn-lg" onClick={() => subscribeAction()}>
             {intl.formatMessage({ id: 'organization.button.buyppv' })}
           </button>
         </div>
