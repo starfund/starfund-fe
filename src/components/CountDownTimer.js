@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
-const CountDownTimer = ({ date, event, subscribeAction }) => {
+const CountDownTimer = ({ event, subscribeAction }) => {
   const intl = useIntl();
-
+  const date = new Date(event?.date);
   const months = [
     'jan',
     'feb',
@@ -19,9 +19,7 @@ const CountDownTimer = ({ date, event, subscribeAction }) => {
     'nov',
     'dec'
   ];
-
   const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -135,10 +133,10 @@ const CountDownTimer = ({ date, event, subscribeAction }) => {
         <div className="event-div">
           <div className="event-name">{event.name}</div>
           <div className="event-row">
-            <div className="event-fighter-name">{event.fighters.fighters[0].name}</div>
+            <div className="event-fighter-name">{event?.fighters.fightersNames[0].name}</div>
             <div className="event-vs">VS</div>
           </div>
-          <div className="event-fighter-name">{event.fighters.fighters[1].name}</div>
+          <div className="event-fighter-name">{event?.fighters.fightersNames[1].name}</div>
           <div className="event-row">
             <div className="event-date">
               {intl.formatMessage({ id: `organization.months.${months[date.getMonth()]}` })}{' '}
@@ -152,6 +150,7 @@ const CountDownTimer = ({ date, event, subscribeAction }) => {
               &nbsp;{intl.formatMessage({ id: 'organization.event.ppv' })}
             </div>
           </div>
+          <br />
           <button type="button" className="btn btn-danger btn-lg" onClick={() => subscribeAction()}>
             {intl.formatMessage({ id: 'organization.button.buyppv' })}
           </button>

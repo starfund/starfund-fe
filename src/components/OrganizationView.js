@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import ConfirmationModal from './common/ConfirmationModal';
+import { getFighters } from '../state/actions/fighterActions';
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
 import PPVForm from './PPVForm';
@@ -14,57 +15,85 @@ import PPVForm from './PPVForm';
 import HomeFooter from './HomeFooter';
 import background from '../assets/poster_ppv.png';
 import OrganizationHome from './OrganizationHome';
+import OrganizationPPV from './OrganizationPPV';
+import OrganizationEvents from './OrganizationEvents';
 
 const OrganizationView = () => {
+  const dispatch = useDispatch();
   const intl = useIntl();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user);
   const [PPVOpen, setPPVOpen] = useState(false);
+  useEffect(() => {
+    dispatch(getFighters(true));
+  }, [dispatch]);
 
-  const mainVideos = [
+  const fighters = useSelector(state => state.fighters.fighters);
+  const fightersNames = [
     {
-      name: 'Patrick Brady vs Raiden Kovacs'
+      name: 'BRADY'
     },
     {
-      name: 'Marecelus Wilkinson vs Joshua Lilley'
-    },
-    {
-      name: 'Rochelle Peebles III vs Terelle Perry'
-    },
-    {
-      name: 'Tyler Hiob vs Will Valentin'
-    },
-    {
-      name: 'Hunter Sulc vs Ryan Smith'
+      name: 'KOVACS'
     }
   ];
-  const prelimVideos = [
+  const mainVideos = fighters && fighters[3]?.publicVideos;
+  const prelimVideos = fighters && fighters[3]?.publicVideos;
+  const events = [
     {
-      name: 'Connor McFarland vs Matthew Santagelo'
+      name: 'CAGEZILLA 59',
+      date: '2021-12-20T10:00:00.133Z',
+      location: 'The Sailsburry Center, Manassas VA',
+      fighters: { fightersNames },
+      mainVideos: { mainVideos },
+      prelimVideos: { prelimVideos }
     },
     {
-      name: 'Charlie McCloskey vs James'
+      name: 'CAGEZILLA 60',
+      date: '2021-12-20T10:00:00.133Z',
+      location: 'The Sailsburry Center, Manassas VA',
+      fighters: { fightersNames },
+      mainVideos: { mainVideos },
+      prelimVideos: { prelimVideos }
     },
     {
-      name: 'Rochelle Peebles III vs Terelle Perry'
+      name: 'CAGEZILLA 61',
+      date: '2021-12-20T10:00:00.133Z',
+      location: 'The Sailsburry Center, Manassas VA',
+      fighters: { fightersNames },
+      mainVideos: { mainVideos },
+      prelimVideos: { prelimVideos }
     },
     {
-      name: 'Tyler Hiob vs Will Valentin'
+      name: 'CAGEZILLA 62',
+      date: '2021-12-20T10:00:00.133Z',
+      location: 'The Sailsburry Center, Manassas VA',
+      fighters: { fightersNames },
+      mainVideos: { mainVideos },
+      prelimVideos: { prelimVideos }
     },
     {
-      name: 'Hunter Sulc vs Ryan Smith'
+      name: 'CAGEZILLA 63',
+      date: '2021-12-20T10:00:00.133Z',
+      location: 'The Sailsburry Center, Manassas VA',
+      fighters: { fightersNames },
+      mainVideos: { mainVideos },
+      prelimVideos: { prelimVideos }
     }
   ];
+
   const organization = {
     id: '1',
     name: 'CageZilla',
-    mainVideos: { mainVideos },
-    prelimVideos: { prelimVideos }
+    events: { events }
   };
   const [home, setHome] = useState(true);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(false);
+  const [event, setEvent] = useState(
+    organization?.events.events[organization?.events.events.length - 1]
+  );
 
   return (
     <div className="fighter-container">
@@ -146,6 +175,19 @@ const OrganizationView = () => {
         <OrganizationHome
           organization={organization}
           subscribeAction={() => setModalIsOpen(true)}
+        />
+      )}
+      {allevents && (
+        <OrganizationEvents
+          organization={organization}
+          subscribeAction={() => setModalIsOpen(true)}
+        />
+      )}
+      {ppv && (
+        <OrganizationPPV
+          event={event}
+          subscribeAction={() => setModalIsOpen(true)}
+          selectEventAction={setEvent}
         />
       )}
       {organization && (

@@ -592,7 +592,6 @@ h3 {
 
 .fighters-container {
   padding-top: 20px;
-
 }
 
 .fighter-container {
@@ -642,7 +641,6 @@ h3 {
     position: relative;
     text-align: center;
     color: white;
-
     button {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
@@ -682,17 +680,15 @@ h3 {
       padding: 7px;
     }
 
+    .navbar {
+      background-color: transparent !important;
+    }
+
     nav {
       box-shadow: none;
       display: flex;
     }
 
-    .navbar-nav {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-      margin-left: 10.55vw;
-    }
   }
 
   .fighter-discover {
@@ -2083,6 +2079,221 @@ h3 {
   width: fit-content;
 }
 
-.etbmwA{
-  display: block !important;
+.video-div {
+  width: 80vw;
+  background-color: #373737;
+  margin-left: 10vw;
+  display: flex;
+  flex-direction:column;
+  justify-content:center; 
+}
+
+.organization-container{
+  background-image: url("/ppv_background.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+  color: white;
+    button {
+      background-color: #ea0a0a;
+      border: solid #eb0000 1px;
+      border-radius: 0;
+      font-weight: bold;
+      font-size: 16px;
+      max-height: 45px;
+      letter-spacing: 0.2em;
+      height: 45px;
+      padding: 5px 20px;
+
+      @media (max-width: 610px) {
+        height: 45px;
+        padding: 0 24px 18px 24px;
+      }
+  }
+
+  .video-description {
+    width: 15vw;
+    background-color: #373737;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    &:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: red;
+    }
+    h4 {
+      margin-left: 1vw;
+    }
+    p {
+      font-weight: 300 !important;
+      margin-left: 1vw;
+    }
+  }
+
+  .nav-item{
+    height: 10vh; 
+  }
+}
+
+.pagination-container {
+  display: flex;
+  list-style-type: none;
+
+  .pagination-item {
+    padding: 0 12px;
+    height: 32px;
+    text-align: center;
+    margin: auto 4px;
+    color: white;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    letter-spacing: 0.01071em;
+    border-radius: 16px;
+    line-height: 1.43;
+    font-size: 13px;
+    min-width: 32px;
+
+    &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+    &:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: red;
+    }
+
+    .arrow {
+      &::before {
+        position: relative;
+        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
+        content: '';
+        /* By using an em scale, the arrows will size with the font */
+        display: inline-block;
+        width: 0.4em;
+        height: 0.4em;
+        border-right: 0.12em solid white;
+        border-top: 0.12em solid white;
+      }
+
+      &.left {
+        transform: rotate(-135deg) translate(-50%);
+      }
+
+      &.right {
+        transform: rotate(45deg);
+      }
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      .arrow::before {
+        border-right: 0.12em solid white;
+        border-top: 0.12em solid white;
+      }
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+} 
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  .video-description {
+    width: 25vw;
+    background-color: #373737;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    &:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: red;
+    }
+    h4 {
+      margin-left: 1vw;
+    }
+    p {
+      font-weight: 300 !important;
+      margin-left: 1vw;
+    }
+  }
+  .video-description-mobile {
+    width: 100vw;
+    background-color: #373737;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    &:hover {
+      background-color: red;
+      cursor: pointer;
+    }
+
+    &.selected {
+      background-color: red;
+    }
+    h4 {
+      margin-left: 1vw;
+    }
+    p {
+      font-weight: 300 !important;
+      margin-left: 1vw;
+    }
+  }
+  .event-video-text {
+    margin-left: 1vw;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  .search-button{
+    background-color: red;
+    padding: 1.5%;
+  }
+  .bar {
+    width: 30vw;
+  }
+}
+
+.event-video-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button {
+    background-color: #ea0a0a;
+    border: solid #eb0000 1px;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 16px;
+    max-height: 45px;
+    letter-spacing: 0.2em;
+    height: 45px;
+    padding: 5px 20px;
+
+    @media (max-width: 610px) {
+      height: 45px;
+      padding: 0 24px 18px 24px;
+    }
+  }
 }

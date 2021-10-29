@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import cn from 'classnames';
 
+import { useIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player/lazy';
@@ -8,7 +10,9 @@ import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import Carousel from 'react-grid-carousel';
 
 const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) => {
+  const intl = useIntl();
   const [url, setUrl] = useState();
+  const [activeVideo, setActiveVideo] = useState();
   const [displayContent, setDisplayContent] = useState();
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -18,15 +22,38 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
   const selectVideo = content => {
     setUrl(content.video);
     setDisplayContent(content);
+    setActiveVideo(`${content.id}pub`);
   };
+  const months = [
+    'jan.long',
+    'feb.long',
+    'mar.long',
+    'apr.long',
+    'may.long',
+    'jun.long',
+    'jul.long',
+    'aug.long',
+    'sep.long',
+    'oct.long',
+    'nov.long',
+    'dec.long'
+  ];
 
   const selectPrivateVideo = content => {
     if (event?.payed) {
+      setActiveVideo(`${content.id}pri`);
       selectVideo(content);
     } else {
       subscribeAction();
     }
   };
+
+  function EventDate(d) {
+    const date = new Date(d);
+    return `${intl.formatMessage({
+      id: `organization.months.${months[date?.getMonth()]}`
+    })} ${date?.getDate()}, ${date.getFullYear()}`;
+  }
 
   return (
     <div>
@@ -60,15 +87,10 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
             <div className="event-title">{displayContent?.title}</div>
             <br />
             <div className="event-subtitle">{displayContent?.description}</div>
-
             <br />
-            <div className="event-description">
-              {event?.date}
-              <br />
-              <br />
-              <br />
-              {event?.location}
-            </div>
+            <div className="event-description">{EventDate(event?.date)}</div>
+            <br />
+            <div className="event-description">{event?.location}</div>
           </div>
         )}
       </div>
@@ -108,10 +130,14 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                         }}
                       />
                     </LazyLoadComponent>
-                    <div className="video-description">
-                      <h4>
-                        {formatTitle(v, language)} {formatDescription(v, language)}
-                      </h4>
+                    <div
+                      className={cn('video-description', {
+                        selected: activeVideo === `${v.id}pub`
+                      })}
+                    >
+                      {' '}
+                      <h4>{formatTitle(v, language)}</h4>
+                      <p>{formatDescription(v, language)}</p>
                     </div>
                   </div>
                 </Carousel.Item>
@@ -149,10 +175,13 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                         }}
                       />
                     </LazyLoadComponent>
-                    <div className="video-description">
-                      <h4>
-                        {formatTitle(v, language)} {formatDescription(v, language)}
-                      </h4>
+                    <div
+                      className={cn('video-description', {
+                        selected: activeVideo === `${v.id}pri`
+                      })}
+                    >
+                      <h4>{formatTitle(v, language)}</h4>
+                      <p>{formatDescription(v, language)}</p>
                     </div>
                   </div>
                 </Carousel.Item>
