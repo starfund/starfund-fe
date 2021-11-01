@@ -2297,3 +2297,11 @@ h3 {
     }
   }
 }
+
+.language-dropdown-container {
+  margin-right: 10vw;
+}
+
+.language-dropdown-container-mobile {
+  margin-right: 1vw;
+}

@@ -8,6 +8,7 @@ import routePaths from 'constants/routesPaths';
 import LogoWhite from 'assets/starfund-logo.png';
 import LogoutButton from '../user/LogoutButton';
 import ProfileUser from '../../assets/ProfileUser.svg';
+import LanguageSelect from './LanguageSelect';
 import Auth from './Auth';
 import './index.css';
 
@@ -70,6 +71,7 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
+            <LanguageSelect />
             <div className="nav-actions flex justify-content-end">
               <img src={ProfileUser} alt="profile" />
               {authenticated && (

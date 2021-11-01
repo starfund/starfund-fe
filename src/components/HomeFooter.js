@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
-import LanguageDropdown from './common/LanguageDropdown';
-
 import Facebook from '../assets/Facebook.svg';
 import Instagram from '../assets/Instagram.svg';
 import Youtube from '../assets/Youtube.svg';
@@ -82,9 +80,6 @@ const HomeFooter = () => {
           </div>
           <div className="">
             <br />
-          </div>
-          <div className="center-50 d-flex align-items-center">
-            <LanguageDropdown />
           </div>
         </div>
         <div className="col-12 col-sm-12 col-md-6 last-row">

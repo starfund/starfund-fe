@@ -37,7 +37,7 @@ export default {
   'cta.text': 'Subscribete para tener acceso a todo el contenido exclusivo',
   commingSoon: 'Estamos trabajando...',
   emailUs: 'Contactanos a ',
-  findFighter: 'Encuentra tu peleador',
+  findFighter: 'Encuentra tu estrella',
   findBusiness: 'Encuentra tu centro deportivo',
   ppvTitle: 'Solicita videos personalizados a tus atletas',
   equipo: 'Equipo',
@@ -146,16 +146,16 @@ export default {
   'faqs.title': 'Preguntas Frecuentes',
   'faqs.q1': 'Que es Starfund?',
   'faqs.a1':
-    'Starfund es un sitio de contendio exclusivo de atletas, sus productos y sorpresas para los fans. Los fans pueden formar parte del trabajo de sus atletas favoritos a travez de la membresia mensual ',
+    'Starfund es un sitio de contendio exclusivo de estrellas, sus productos y sorpresas para los fans. Los fans pueden formar parte del trabajo de sus estrellas favoritas a travez de la membresia mensual ',
   'faqs.q2': 'Como Funciona?',
   'faqs.a2':
-    'Starfund brinda una memresia mensual que le permite a los atletas tener acceso a una herramientas para brindarle mas y mejor contenido a sus fans, los fans pagan una membrasia mensual a sus atletas favoritos para apoyarlos a cambio de contenido exclusivo, mas contenido o un vistazo en el dia a dia de sus estrellas.',
+    'Starfund brinda una memresia mensual que le permite a las estrellas tener acceso a herramientas para brindarle mas y mejor contenido a sus fans, los fans pagan una membrasia mensual a sus estrellas favoritas para apoyarlas a cambio de contenido exclusivo, mas contenido o un vistazo en el dia a dia de sus estrellas.',
   'faqs.a2.item1': 'Selecciona tu Peleador Favorito',
   'faqs.a2.item2': 'Selecciona el Monto',
   'faqs.a2.item3': 'Disfruta del Contenido Exclusivo',
   'faqs.q3': 'Que Incluye mi Membresia de Starfund?',
   'faqs.a3':
-    'Acceso a todo el contenido exclusivo de tus atletas favoritos, videos detras de camaras y mas!.',
+    'Acceso a todo el contenido exclusivo de tus estrellas favoritas, videos detras de camaras y mas!.',
   'faqs.q4': 'Como Cancelo mi Subscripcion?',
   'faqs.a4':
     'Solo ve a tu perfil y selecciona el boton de "Cancelar" debajo de la lista de tus subscriptiones',
@@ -243,33 +243,33 @@ export default {
   'organization.watchevent': 'Ver evento completo',
 
   // HOME
-  'home.fighters.title': 'Descubre Atletas',
-  'home.exclusive.title': 'ENCUENTRA TU ATLETA',
+  'home.fighters.title': 'Descubre Estrellas',
+  'home.exclusive.title': 'ENCUENTRA TU ESTRELLA',
   'home.exclusive.subTitle':
-    'Interactua directamente con tus atletas. Disfruta su contendio, detras de escenas y productos.',
+    'Interactua directamente con tus estrellas. Disfruta su contendio, detras de escenas y productos.',
   'home.preview.text': 'Videos gratuitos',
   'home.subscribe.text': 'Subscribete para ver todos los videos',
   'home.info.title': 'Contendio Exclusivo',
-  'home.info.subTitle': 'Se parte del trayecto de tus Atletas a travez de su contenido exclusivo',
-  'home.paralax.title': 'Cambia la forma en que interactuas con tus ATLETAS',
+  'home.info.subTitle': 'Se parte del trayecto de tus Estrellas a travez de su contenido exclusivo',
+  'home.paralax.title': 'Cambia la forma en que interactuas con tus ESTRELLAS',
   'home.paralax.subTitle':
-    'Conviertete en un fan exclusivo, disfruta de vidos, detras de camaras y productos. Ten contacto directo con tus atletas!.',
-  'home.paralax.subscribe': 'SUBSCRIBETE A ATLETAS',
+    'Conviertete en un fan exclusivo, disfruta de vidos, detras de camaras y productos. Ten contacto directo con tus estrellas!.',
+  'home.paralax.subscribe': 'SUBSCRIBETE A ESTRELLAS',
 
   'user.home.supporting': 'SIGUIENDO',
-  'user.home.supporting.nothing': 'No estas subscrito a ningun atleta todavia, encuentra uno!.',
+  'user.home.supporting.nothing': 'No estas subscrito a ninguna estrella todavia, encuentra uno!.',
   'user.home.posts': 'Todos los post',
-  'user.home.showing': 'Mostrando: Todos los Atletas',
-  'user.home.find': 'ENCUENTRA TU ATLETA',
-  'user.home.findSimple': 'DESCUBRE ATLETAS',
+  'user.home.showing': 'Mostrando: Todos las Estrellas',
+  'user.home.find': 'ENCUENTRA TU ESTRELLA',
+  'user.home.findSimple': 'DESCUBRE ESTRELLA',
   'user.home.find.text':
-    'Encuentra tu alteta favorito para descubrir todo su contenido y noticias.',
+    'Encuentra tu estrella favorita para descubrir todo su contenido y noticias.',
   'user.home.subscribe':
-    'Subscribete a tu ateleta favorito para ver todas sus novedades en tu feed de noticias',
+    'Subscribete a tu estrella favorita para ver todas sus novedades en tu feed de noticias',
   'user.home.other_news': 'Noticias de otras estrellas',
 
-  'about.title': 'Tu dinero es enviado directamente al bolsillo de tus atletas',
-  'about.subTitle': 'Estas apoyando directamente a tus atletas',
+  'about.title': 'Tu dinero es enviado directamente al bolsillo de tus estrellas',
+  'about.subTitle': 'Estas apoyando directamente a tus estrellas',
 
   'comments.none': 'Ingresa para dejar tus comentarios',
   'comments.add': 'Añade un comentario',
