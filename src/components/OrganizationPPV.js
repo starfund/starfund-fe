@@ -6,10 +6,11 @@ import ReactPlayer from 'react-player/lazy';
 import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
-const OrganizationPPV = ({ event, subscribeAction }) => {
+const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
+  window.scrollTo(0, 700);
   const intl = useIntl();
   const date = new Date(event?.date);
-  const [url, setUrl] = useState();
+  const [url, setUrl] = useState(defaulturl);
   const months = [
     'jan',
     'feb',

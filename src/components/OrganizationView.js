@@ -38,8 +38,8 @@ const OrganizationView = () => {
       name: 'KOVACS'
     }
   ];
-  const mainVideos = fighters && fighters[3]?.publicVideos;
-  const prelimVideos = fighters && fighters[3]?.publicVideos;
+  const mainVideos = fighters && fighters[10]?.publicVideos;
+  const prelimVideos = fighters && fighters[10]?.publicVideos;
   const events = [
     {
       name: 'CAGEZILLA 59',
@@ -91,9 +91,16 @@ const OrganizationView = () => {
   const [home, setHome] = useState(true);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(false);
-  const [event, setEvent] = useState(
-    organization?.events.events[organization?.events.events.length - 1]
-  );
+  const [event, setEvent] = useState();
+  const [defaulturl, setDefaultUrl] = useState();
+
+  function selectEvent(e, u) {
+    setHome(false);
+    setAllEvents(false);
+    setPPV(true);
+    setDefaultUrl(u?.video);
+    setEvent(e);
+  }
 
   return (
     <div className="fighter-container">
@@ -162,6 +169,7 @@ const OrganizationView = () => {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
+                    setEvent(organization?.events?.events[organization?.events?.events.length - 1]);
                   }}
                 >
                   {intl.formatMessage({ id: 'header.ppv' })}
@@ -178,16 +186,13 @@ const OrganizationView = () => {
         />
       )}
       {allevents && (
-        <OrganizationEvents
-          organization={organization}
-          subscribeAction={() => setModalIsOpen(true)}
-        />
+        <OrganizationEvents organization={organization} selectEventAction={selectEvent} />
       )}
-      {ppv && (
+      {ppv && fighters && (
         <OrganizationPPV
           event={event}
+          defaulturl={defaulturl}
           subscribeAction={() => setModalIsOpen(true)}
-          selectEventAction={setEvent}
         />
       )}
       {organization && (

@@ -17,7 +17,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
   }, [dispatch]);
 
   const fighters = useSelector(state => state.fighters.fighters);
-  const videos = fighters && fighters[3]?.publicVideos;
+  const videos = fighters && fighters[10]?.publicVideos;
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
