@@ -78,7 +78,7 @@
     "date-fns": "2.21.1",
     "eslint-plugin-prettier": "3.1.0",
     "humps": "2.0.1",
-    "immer": "5.0.0",
+    "immer": "9.0.6",
     "intl": "1.2.5",
     "jquery": "3.6.0",
     "loaders.css": "0.1.2",
