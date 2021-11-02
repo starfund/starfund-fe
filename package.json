@@ -83,7 +83,7 @@
     "jquery": "3.6.0",
     "loaders.css": "0.1.2",
     "localforage": "1.7.3",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "node-sass": "4.14.1",
     "pigeon-maps": "0.19.7",
     "popper.js": "1.16.1",
