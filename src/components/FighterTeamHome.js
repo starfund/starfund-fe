@@ -38,6 +38,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
 
   return (
     <div className="container">
+      <br />
+      <br />
       <div className="main-content row">
         {isMobile && (
           <div className="col-sm-12 col-md-8">
@@ -72,13 +74,13 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                     : intl.formatMessage({ id: 'fighter.howItWorks.title' })}
                 </h1>
                 <br />
+                <br />
                 <div className="text">
-                  <p>
-                    {isTeam
-                      ? intl.formatMessage({ id: 'team.howItWorks.item1' })
-                      : intl.formatMessage({ id: 'fighter.howItWorks.item1' })}
-                  </p>
+                  {isTeam
+                    ? intl.formatMessage({ id: 'team.howItWorks.item1' })
+                    : intl.formatMessage({ id: 'fighter.howItWorks.item1' })}
                 </div>
+                <br />
                 <br />
               </React.Fragment>
             </div>
@@ -91,7 +93,9 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
               !supporting.filter(s => s.team?.name === team?.name).length > 0) && (
               <button
                 type="button"
-                className="btn btn-danger btn-lg"
+                className={
+                  isMobile ? 'btn-mob-big btn-danger btn-lg' : 'btn-nobold btn-danger btn-lg'
+                }
                 onClick={() => setModalIsOpen(true)}
               >
                 {isTeam
@@ -106,7 +110,9 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
           {!authenticated && (
             <button
               type="button"
-              className="btn btn-danger btn-lg"
+              className={
+                isMobile ? 'btn-mob-big btn-danger btn-lg' : 'btn-nobold btn-danger btn-lg'
+              }
               onClick={() => setModalIsOpen(true)}
             >
               {isTeam
@@ -125,8 +131,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
               <LazyLoadComponent>
                 <ReactPlayer
                   title="preview"
-                  width="100%"
-                  height="90%"
+                  width={isMobile ? '100%' : '57vw'}
+                  height={isMobile ? '90%' : '52vh'}
                   url={isTeam ? team.officialPreview : fighter.officialPreview}
                   controls
                   config={{
@@ -143,6 +149,9 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
           </div>
         )}
       </div>
+      <br />
+      <br />
+      <br />
       {isMobile && (
         <div className="content">
           <div id="accordion">
@@ -270,7 +279,7 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
           <br />
           <button
             type="button"
-            className="btn btn-danger btn-lg"
+            className={isMobile ? 'btn-mob-big btn-danger btn-lg' : 'btn btn-danger btn-lg'}
             onClick={() => setModalIsOpen(true)}
             style={{ width: 'fit-content', padding: '5px 15px' }}
           >

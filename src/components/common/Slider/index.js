@@ -8,7 +8,7 @@ import '../../../styles/components/common/_slider.scss';
 
 const settings = {
   className: 'slider',
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 4,

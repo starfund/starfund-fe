@@ -27,7 +27,7 @@ const HomeStars = ({ title, selectedFighter }) => {
 
   return (
     <div className="stars-container">
-      <h1 className="stars-title"> {title} </h1>
+      <h2 className="stars-title"> {title} </h2>
       <div className="fighters-slider-wrapper">
         {fighters.length == 0 && (
           <SkeletonTheme color="#202020" highlightColor="#444">
@@ -52,7 +52,9 @@ const HomeStars = ({ title, selectedFighter }) => {
                         <span className="fighter-card-text secondary">{f.lastName} </span>
                       </div>
                       <div className="fighter-card-separator" />
-                      <span className="fighter-card-text">{f.organization} </span>
+                      <span className="fighter-card-text">
+                        {f.organization != '' ? f.organization : '★'}{' '}
+                      </span>
                     </div>
                   </div>
                 </Link>
