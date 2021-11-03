@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import cn from 'classnames';
 
 import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import ReactPlayer from 'react-player';
 
 import Auth from './common/Auth';
@@ -17,6 +19,7 @@ import ArrowDown from '../assets/ArrowDown.svg';
 import Email from '../assets/Email.svg';
 import Pin from '../assets/Pin.svg';
 import VideoCamera from '../assets/VideoCamera.svg';
+import PlayIcon from '../assets/play_button.png';
 
 import '../styles/components/_home-starts.scss';
 
@@ -24,9 +27,11 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
   const intl = useIntl();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [authModal, setAuthModal] = useState(false);
+  const [activeVideo] = useState();
   const [modalPPVIsOpen, setModalPPVIsOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user);
   const [PPVOpen, setPPVOpen] = useState(false);
+  const language = useSelector(state => state.language.language);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -222,24 +227,43 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                 .slice(0, 2)
                 .map(v => (
                   <div className="col-12 col-md-6 d-video">
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        title="preview"
-                        height="250px"
-                        width="inherit"
-                        url={v.video}
-                        style={{ margin: '0 20px' }}
-                        onClick={() => setModalIsOpen(true)}
-                        config={{
-                          file: {
-                            attributes: {
-                              onContextMenu: e => e.preventDefault(),
-                              controlsList: 'nodownload'
+                    <div
+                      onClick={() => setModalIsOpen(true)}
+                      className={
+                        isMobile
+                          ? cn('video-description-mobile', {
+                              selected: activeVideo === v.id
+                            })
+                          : cn('video-description', {
+                              selected: activeVideo === v.id
+                            })
+                      }
+                    >
+                      <LazyLoadComponent>
+                        <img
+                          src={PlayIcon}
+                          alt=""
+                          className={isMobile ? 'play-icon-mobile' : 'play-icon'}
+                        />
+                        <ReactPlayer
+                          title="preview"
+                          height="345px"
+                          width={!isMobile ? '40vw' : '82vw'}
+                          url={v.video}
+                          onClick={() => setModalIsOpen(true)}
+                          config={{
+                            file: {
+                              attributes: {
+                                onContextMenu: e => e.preventDefault(),
+                                controlsList: 'nodownload'
+                              }
                             }
-                          }
-                        }}
-                      />
-                    </LazyLoadComponent>
+                          }}
+                        />
+                      </LazyLoadComponent>
+                      <h4>{formatTitle(v, language)}</h4>
+                      <p>{formatDescription(v, language)}</p>
+                    </div>
                   </div>
                 ))}
           </div>

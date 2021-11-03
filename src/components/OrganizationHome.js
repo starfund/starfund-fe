@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 
+import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import CountDownTimer from './CountDownTimer';
 import EventView from './EventView';
@@ -8,6 +9,9 @@ import EventView from './EventView';
 const OrganizationHome = ({ organization, subscribeAction }) => {
   const intl = useIntl();
   const [prelim, setPrelim] = useState(false);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
   return (
     <div className="organization-container">
       <div>
@@ -77,7 +81,7 @@ const OrganizationHome = ({ organization, subscribeAction }) => {
                   {v?.title}
                   <button
                     type="button"
-                    className="btn btn-danger btn-lg"
+                    className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
                     onClick={() => subscribeAction()}
                   >
                     {intl.formatMessage({ id: 'organization.watchfight' })}
@@ -94,7 +98,7 @@ const OrganizationHome = ({ organization, subscribeAction }) => {
                   {v?.title}
                   <button
                     type="button"
-                    className="btn btn-danger btn-lg"
+                    className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
                     onClick={() => subscribeAction()}
                   >
                     {intl.formatMessage({ id: 'organization.watchfight' })}

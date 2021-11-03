@@ -97,19 +97,17 @@ const OrganizationEvents = ({ organization, selectEventAction }) => {
           />
         </h2>
         <br />
-        <div className="search-bar">
+        <div className={isMobile ? 'search-bar-mobile' : 'search-bar'}>
           <div className="bar">
-            <form>
-              <input
-                id="search-bar"
-                className="form-control"
-                type="search"
-                placeholder="Search Here"
-                aria-label="Search"
-                value={searchText}
-                onChange={e => setSearchText(e.target.value)}
-              />
-            </form>
+            <input
+              id="search-bar"
+              className="form-control"
+              type="search"
+              placeholder="Search Here"
+              aria-label="Search"
+              value={searchText}
+              onChange={e => setSearchText(e.target.value)}
+            />
           </div>
           <div className="search-button">
             <svg
@@ -136,7 +134,7 @@ const OrganizationEvents = ({ organization, selectEventAction }) => {
             return (
               <tr>
                 <td>
-                  <div className="event-video-row">
+                  <div className={isMobile ? 'event-video-row-mobile' : 'event-video-row'}>
                     <div className="event-video-text">
                       <div className="event-name">{item?.name}</div>
                       <div className="event-description">{EventDate(item?.date)}</div>
@@ -162,27 +160,27 @@ const OrganizationEvents = ({ organization, selectEventAction }) => {
                             selectEventAction(item, v);
                           }}
                         >
-                          <LazyLoadComponent>
-                            <ReactPlayer
-                              url={v.video}
-                              width={isMobile ? '100%' : '25vw'}
-                              height="30vh"
-                              light={v.thumbnail}
-                              config={{
-                                file: {
-                                  attributes: {
-                                    onContextMenu: e => e.preventDefault(),
-                                    controlsList: 'nodownload'
-                                  }
-                                }
-                              }}
-                            />
-                          </LazyLoadComponent>
                           <div
                             className={cn('video-description', {
                               selected: activeVideo === v.id + item?.name
                             })}
                           >
+                            <LazyLoadComponent>
+                              <ReactPlayer
+                                url={v.video}
+                                width={isMobile ? '100%' : '25vw'}
+                                height="30vh"
+                                light={v.thumbnail}
+                                config={{
+                                  file: {
+                                    attributes: {
+                                      onContextMenu: e => e.preventDefault(),
+                                      controlsList: 'nodownload'
+                                    }
+                                  }
+                                }}
+                              />
+                            </LazyLoadComponent>
                             <h4>{formatTitle(v, language)}</h4>
                             <p>{formatDescription(v, language)}</p>
                           </div>
@@ -192,27 +190,27 @@ const OrganizationEvents = ({ organization, selectEventAction }) => {
                       videosMobile &&
                       videosMobile.map(v => (
                         <div key={v.url} className="col-12 col-sm-6 col-md-4 fighter-watch">
-                          <LazyLoadComponent>
-                            <ReactPlayer
-                              url={v.video}
-                              width={isMobile ? '100%' : '15vw'}
-                              height="25vh"
-                              light={v.thumbnail}
-                              config={{
-                                file: {
-                                  attributes: {
-                                    onContextMenu: e => e.preventDefault(),
-                                    controlsList: 'nodownload'
-                                  }
-                                }
-                              }}
-                            />
-                          </LazyLoadComponent>
                           <div
-                            className={cn('video-description', {
+                            className={cn('video-description-mobile', {
                               selected: activeVideo === v.id + item?.name
                             })}
                           >
+                            <LazyLoadComponent>
+                              <ReactPlayer
+                                url={v.video}
+                                width={isMobile ? '100%' : '15vw'}
+                                height="25vh"
+                                light={v.thumbnail}
+                                config={{
+                                  file: {
+                                    attributes: {
+                                      onContextMenu: e => e.preventDefault(),
+                                      controlsList: 'nodownload'
+                                    }
+                                  }
+                                }}
+                              />
+                            </LazyLoadComponent>
                             <h4>{formatTitle(v, language)}</h4>
                             <p>{formatDescription(v, language)}</p>
                           </div>

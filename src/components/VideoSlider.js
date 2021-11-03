@@ -113,29 +113,34 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                     className="col-12 col-sm-6 col-md-4 fighter-watch"
                     onClick={() => selectVideo(v)}
                   >
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={v.video}
-                        width={isMobile ? '100%' : '15vw'}
-                        height="25vh"
-                        light={v.thumbnail}
-                        muted
-                        config={{
-                          file: {
-                            attributes: {
-                              onContextMenu: e => e.preventDefault(),
-                              controlsList: 'nodownload'
-                            }
-                          }
-                        }}
-                      />
-                    </LazyLoadComponent>
                     <div
-                      className={cn('video-description', {
-                        selected: activeVideo === `${v.id}pub`
-                      })}
+                      className={
+                        isMobile
+                          ? cn('video-description-mobile', {
+                              selected: activeVideo === `${v.id}pub`
+                            })
+                          : cn('video-description', {
+                              selected: activeVideo === `${v.id}pub`
+                            })
+                      }
                     >
-                      {' '}
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          url={v.video}
+                          width={isMobile ? '100%' : '15vw'}
+                          height="25vh"
+                          light={v.thumbnail}
+                          muted
+                          config={{
+                            file: {
+                              attributes: {
+                                onContextMenu: e => e.preventDefault(),
+                                controlsList: 'nodownload'
+                              }
+                            }
+                          }}
+                        />
+                      </LazyLoadComponent>
                       <h4>{formatTitle(v, language)}</h4>
                       <p>{formatDescription(v, language)}</p>
                     </div>
@@ -159,27 +164,33 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                     >
                       EXCLUSIVE
                     </div>
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={v.video}
-                        width={isMobile ? '100%' : '15vw'}
-                        height="25vh"
-                        light={v.thumbnail}
-                        config={{
-                          file: {
-                            attributes: {
-                              onContextMenu: e => e.preventDefault(),
-                              controlsList: 'nodownload'
-                            }
-                          }
-                        }}
-                      />
-                    </LazyLoadComponent>
                     <div
-                      className={cn('video-description', {
-                        selected: activeVideo === `${v.id}pri`
-                      })}
+                      className={
+                        isMobile
+                          ? cn('video-description-mobile', {
+                              selected: activeVideo === `${v.id}pri`
+                            })
+                          : cn('video-description', {
+                              selected: activeVideo === `${v.id}pri`
+                            })
+                      }
                     >
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          url={v.video}
+                          width={isMobile ? '100%' : '15vw'}
+                          height="25vh"
+                          light={v.thumbnail}
+                          config={{
+                            file: {
+                              attributes: {
+                                onContextMenu: e => e.preventDefault(),
+                                controlsList: 'nodownload'
+                              }
+                            }
+                          }}
+                        />
+                      </LazyLoadComponent>
                       <h4>{formatTitle(v, language)}</h4>
                       <p>{formatDescription(v, language)}</p>
                     </div>

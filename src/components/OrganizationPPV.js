@@ -91,7 +91,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
       )}
       {payed && (
         <div className="video-div">
-          <h2>{event?.name}</h2>
+          {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
@@ -152,7 +152,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
             </React.Fragment>
           </div>
         </nav>
-        <div className="container-nav">
+        <div className={!isMobile && 'container-nav'}>
           {!prelim &&
             event?.mainVideos.mainVideos &&
             event?.mainVideos.mainVideos.map(v => (
@@ -160,7 +160,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
                 {v?.title}
                 <button
                   type="button"
-                  className="btn btn-danger btn-lg"
+                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
                   onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
@@ -174,7 +174,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
                 {v?.title}
                 <button
                   type="button"
-                  className="btn btn-danger btn-lg"
+                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
                   onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
