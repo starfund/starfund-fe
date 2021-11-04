@@ -88,6 +88,8 @@ export default {
   // Header
   'header.business': 'Gimnasios',
   'header.watch': 'Descubrir',
+  'header.business.lower': 'Gimnasios',
+  'header.watch.lower': 'Descubrir',
   'header.shop': 'Tienda',
   'header.stars': 'Estrellas',
   'header.home': 'Principal',

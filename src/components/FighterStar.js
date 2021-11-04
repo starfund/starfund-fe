@@ -82,6 +82,7 @@ const FighterStar = () => {
     <div className="fighter-container">
       {!payedFighter.includes(fighter?.id) && (
         <div className="cover-container">
+          <div className="div-fade"></div>
           {fighter ? (
             <LazyLoadImage className="fighter-cover" src={fighter.coverPhoto} alt="Cover" />
           ) : (

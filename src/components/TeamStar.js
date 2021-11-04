@@ -60,6 +60,7 @@ const TeamStar = () => {
     <div className="fighter-container">
       {!payedTeam.includes(team?.name) && (
         <div className="cover-container">
+          <div className="div-fade" />
           {team ? (
             <LazyLoadImage className="fighter-cover" src={team.coverPhoto} alt="Cover" />
           ) : (

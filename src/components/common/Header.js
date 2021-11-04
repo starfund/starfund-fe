@@ -3,6 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useSession } from 'hooks';
 import { useIntl } from 'react-intl';
 import cn from 'classnames';
+import { useMediaQuery } from 'react-responsive';
 
 import routePaths from 'constants/routesPaths';
 import LogoWhite from 'assets/starfund-logo.png';
@@ -17,6 +18,9 @@ const Header = () => {
   const { authenticated } = useSession();
   const pathname = history.location?.pathname;
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
 
   const intl = useIntl();
 
@@ -28,7 +32,7 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <header className="custom-header">
+      <header className={isMobile ? 'custom-header-mobile' : 'custom-header'}>
         <nav className="navbar navbar-expand-lg navbar-dark">
           <div className="main-logo" onClick={() => goHome()}>
             <img src={LogoWhite} alt="logo" />

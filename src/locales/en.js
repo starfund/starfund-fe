@@ -81,6 +81,8 @@ export default {
   // Header
   'header.business': 'BUSINESS',
   'header.watch': 'DISCOVER',
+  'header.business.lower': 'Business',
+  'header.watch.lower': 'Discover',
   'header.shop': 'SHOP',
   'header.stars': 'STARS',
   'header.home': 'HOME',
@@ -90,7 +92,7 @@ export default {
   'header.login': 'LOGIN',
   'header.explore': 'Explore',
   'header.athletes': 'Athletes',
-  'header.about': 'About',
+  'header.about': 'About us',
   'header.who': 'Who we are',
   'header.social': 'Social',
   'header.join': 'Join Us',

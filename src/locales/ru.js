@@ -85,6 +85,8 @@ export default {
   // Header
   'header.business': 'Спортзалы',
   'header.watch': 'Смотреть',
+  'header.business.lower': 'Спортзалы',
+  'header.watch.lower': 'Смотреть',
   'header.shop': 'Купить',
   'header.stars': 'Звезды',
   'header.home': 'Домой',
