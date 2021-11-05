@@ -238,6 +238,7 @@ export default {
   'organization.button.buyppv': 'КУПИТЬ PPV СЕЙЧАС',
   'organization.watchfight': 'СМОТРЕТЬ БОЙ',
   'organization.watchevent': 'СМОТРЕТЬ ПОЛНОЕ СОБЫТИЕ',
+  'organization.event.live': 'ЖИТЬ',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

@@ -7,8 +7,9 @@ import { useMediaQuery } from 'react-responsive';
 import { formatDistance } from 'date-fns';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
-
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import Lock from '../assets/lock.png';
+
 import { getMessages } from '../state/actions/messageActions';
 
 const TeamVideos = ({ team, supporting, subscribeAction }) => {
@@ -69,7 +70,8 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
-              width
+              width={isMobile ? '100%' : '65vw'}
+              height={isMobile ? '35vh' : '50vh'}
               controls
               playing
               muted
@@ -88,7 +90,7 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
             />
           </LazyLoadComponent>
         </div>
-        {displayContent && (
+        {!isMobile && displayContent && (
           <div className="video-description col-12 col-sm-4">
             <h1>{displayContent.title?.toUpperCase()}</h1>
             <h3>{displayContent.description}</h3>
@@ -151,12 +153,18 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
                   onClick={() => selectPrivateVideo(v)}
                 >
                   <div className="exclusive">EXCLUSIVE</div>
+                  {!v.thumbnail && !payedTeam.includes(team.id) && (
+                    <div className={isMobile ? 'lock-mobile' : 'lock'}>
+                      <img src={Lock} alt="" />
+                    </div>
+                  )}
                   <LazyLoadComponent>
                     <ReactPlayer
                       url={v.video}
                       width="100%"
                       height="25vh"
                       light={v.thumbnail}
+                      playIcon={!payedTeam.includes(team.id) && <img src={Lock} alt="" />}
                       config={{
                         file: {
                           attributes: {

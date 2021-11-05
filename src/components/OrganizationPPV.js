@@ -64,7 +64,12 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
       <br />
       {!payed && (
         <div className="event-div">
-          <div className="event-name">{event?.name}</div>
+          <div className="event-name">
+            {event?.name}
+            <div className="event-live">
+              {intl.formatMessage({ id: `organization.event.live` })}
+            </div>
+          </div>
           <div className="event-row">
             <div className="event-fighter-name">{event?.fighters.fightersNames[0].name}</div>
             <div className="event-vs">VS</div>

@@ -8,8 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 import { formatDistance } from 'date-fns';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import ReactGA from 'react-ga';
-
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
+import Lock from '../assets/lock.png';
 
 const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const intl = useIntl();
@@ -31,7 +31,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
     setUrl(content.video);
     setDisplayContent(content);
     if (payedFighter.includes(fighter.id)) {
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 600);
     } else {
       window.scrollTo(0, 900);
     }
@@ -61,7 +61,8 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
-              width
+              width={isMobile ? '100%' : '65vw'}
+              height={isMobile ? '35vh' : '50vh'}
               controls
               playing
               muted
@@ -78,7 +79,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             />
           </LazyLoadComponent>
         </div>
-        {displayContent && (
+        {!isMobile && displayContent && (
           <div className="video-description col-12 col-sm-4">
             <h1>{displayContent.title?.toUpperCase()}</h1>
             <h3>{displayContent.description}</h3>
@@ -136,12 +137,18 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                 onClick={() => selectPrivateVideo(v)}
               >
                 <div className="exclusive">EXCLUSIVE</div>
+                {!v.thumbnail && !payedFighter.includes(fighter.id) && (
+                  <div className={isMobile ? 'lock-mobile' : 'lock'}>
+                    <img src={Lock} alt="" />
+                  </div>
+                )}
                 <LazyLoadComponent>
                   <ReactPlayer
                     url={v.video}
                     width="100%"
                     height="25vh"
                     light={v.thumbnail}
+                    playIcon={!payedFighter.includes(fighter.id) && <img src={Lock} alt="" />}
                     config={{
                       file: {
                         attributes: {

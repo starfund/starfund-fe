@@ -652,6 +652,9 @@ h3 {
 
   h2 {
     font-size: 52px !important;
+    @media (max-width: 610px) {
+      font-size: 7vw !important;
+    }
   }
   
   h3 { text-align: center }
@@ -671,7 +674,7 @@ h3 {
     margin-top: -6px;
 
     li {
-      padding-right: 15%;
+      
     }
 
 
@@ -707,7 +710,6 @@ h3 {
 
       @media (max-width: 610px) {
         height: 45px;
-        padding: 0 24px 18px 24px;
       }
     }
   }
@@ -727,16 +729,6 @@ h3 {
         height: 35px;
         padding: 0 24px 18px 24px;
       }
-    }
-
-    .btn{
-      padding: 7px;
-      font-size: 1vw;
-    }
-
-    .btn-mob{
-      padding: 7px;
-      font-size: 2vw;
     }
 
     .btn-nobold{
@@ -764,6 +756,8 @@ h3 {
   .fighter-discover {
     margin-top: 5vw;
     margin-bottom: 3vw;
+    display: flex;
+    justify-content: center;
   }
 
   .discover-videos {
@@ -1354,6 +1348,16 @@ h3 {
 }
 
 .fighter-videos {
+  h1 {
+    margin-top: 3vh;
+    font-size: 7vw !important;
+  }
+  .row {
+    @media (max-width: 765px) {
+      margin-right: 1vw;
+      margin-bottom: 15vw;
+    }
+  }
   .container {
       margin-left: 2%;
     }
@@ -1370,10 +1374,6 @@ h3 {
     * { text-align: left; }
 
     word-wrap: break-word;
-
-    @media(max-width: 765px) {
-      margin: 20px auto;
-    }
     
   }
 
@@ -1484,6 +1484,10 @@ h3 {
   .fighter-watch {
     margin-bottom: 10px;
 
+    @media (max-width: 765px) {
+      margin-left: 5vw;
+    }
+
     .exclusive {
       background-color: red;
       color: white;
@@ -1492,6 +1496,26 @@ h3 {
       padding: 5px 15px;
       position: absolute;
       right: 15px;
+      width: fit-content;
+    }
+
+    .lock{
+      height: 2.5vw;
+      min-height: 32px;
+      padding: 5px 15px;
+      position: absolute;
+      right: 14vw;
+      top: 8.5vh;      
+      width: fit-content;
+    }
+
+    .lock-mobile{
+      height: 2.5vw;
+      min-height: 32px;
+      padding: 5px 15px;
+      position: absolute;
+      right: 35vw;
+      top: 10vh;      
       width: fit-content;
     }
   }
@@ -2411,7 +2435,7 @@ h3 {
   }
   .search-button{
     background-color: red;
-    padding: 1.5%;
+    padding: 0.85%;
   }
   .bar {
     width: 30vw;
@@ -2420,10 +2444,6 @@ h3 {
   .search-bar-mobile {
     display: flex;
     align-items: center;
-  }
-  .search-button{
-    background-color: red;
-    padding: 1.5%;
   }
   .bar {
     width: 80vw;

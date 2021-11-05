@@ -243,6 +243,7 @@ export default {
   'organization.watchfight': 'VER PELEA',
   'organization.allevents': 'Todos los videos de {organizationName}',
   'organization.watchevent': 'Ver evento completo',
+  'organization.event.live': 'EN VIVO',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

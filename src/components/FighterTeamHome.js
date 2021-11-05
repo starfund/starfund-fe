@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
-import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-component';
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
@@ -14,11 +14,6 @@ import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
 import HomeExclusive from './HomeExclusive';
 import PPVForm from './PPVForm';
-
-import ArrowDown from '../assets/ArrowDown.svg';
-import Email from '../assets/Email.svg';
-import Pin from '../assets/Pin.svg';
-import VideoCamera from '../assets/VideoCamera.svg';
 import PlayIcon from '../assets/play_button.png';
 
 import '../styles/components/_home-starts.scss';
@@ -48,7 +43,7 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                 <ReactPlayer
                   title="preview"
                   width="100%"
-                  height="80%"
+                  height="35vh"
                   url={isTeam ? team?.officialPreview : fighter?.officialPreview}
                   controls
                   config={{
@@ -131,8 +126,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
               <LazyLoadComponent>
                 <ReactPlayer
                   title="preview"
-                  width={isMobile ? '100%' : '57vw'}
-                  height={isMobile ? '90%' : '52vh'}
+                  width="57vw"
+                  height="52vh"
                   url={isTeam ? team.officialPreview : fighter.officialPreview}
                   controls
                   config={{
@@ -152,70 +147,6 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
       <br />
       <br />
       <br />
-      {isMobile && (
-        <div className="content">
-          <div id="accordion">
-            <div className="card text-white bg-dark">
-              <div className="card-header" id="headingOne">
-                <h5 className="mb-0 flex">
-                  <p className="bold width-90">
-                    {isTeam
-                      ? intl.formatMessage({ id: 'team.howItWorks.title' })
-                      : intl.formatMessage({ id: 'fighter.howItWorks.title' })}
-                  </p>
-                  <LazyLoadImage
-                    alt="drop"
-                    src={ArrowDown}
-                    data-toggle="collapse"
-                    data-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  />
-                </h5>
-              </div>
-              <div
-                id="collapseOne"
-                className="collapse"
-                aria-labelledby="headingOne"
-                data-parent="#accordion"
-              >
-                <div className="card-body">
-                  <div className="text">
-                    <LazyLoadImage src={VideoCamera} alt="bcm" />
-                    <p>
-                      {isTeam
-                        ? intl.formatMessage({ id: 'team.howItWorks.item1' })
-                        : intl.formatMessage({ id: 'fighter.howItWorks.item1' })}
-                    </p>
-                  </div>
-                  <br />
-                  <br />
-                  <div className="text">
-                    <LazyLoadImage src={Pin} alt="bpj" />
-                    <p>
-                      {isTeam
-                        ? intl.formatMessage({ id: 'team.howItWorks.item2' })
-                        : intl.formatMessage({ id: 'fighter.howItWorks.item2' })}
-                    </p>
-                  </div>
-                  <br />
-                  <br />
-                  <div className="text">
-                    <LazyLoadImage src={Email} alt="cwm" />
-                    <p>
-                      {isTeam
-                        ? intl.formatMessage({ id: 'team.howItWorks.item3' })
-                        : intl.formatMessage({ id: 'fighter.howItWorks.item3' })}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <br />
-            <br />
-          </div>
-        </div>
-      )}
       <div className="fighter-discover">
         <center>
           <h2>
@@ -256,7 +187,7 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                         />
                         <ReactPlayer
                           title="preview"
-                          height="345px"
+                          height={isMobile ? '30vh' : '345px'}
                           width={!isMobile ? '40vw' : '82vw'}
                           url={v.video}
                           onClick={() => setModalIsOpen(true)}

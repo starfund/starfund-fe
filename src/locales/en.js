@@ -237,6 +237,7 @@ export default {
   'organization.event.ppv': 'WATCH LIVE ON PPV',
   'organization.button.buyppv': 'BUY PPV NOW',
   'organization.watchfight': 'WATCH FIGHT',
+  'organization.event.live': 'LIVE',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

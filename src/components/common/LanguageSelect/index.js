@@ -35,8 +35,8 @@ const LanguageSelect = () => {
   const ButtonToggleMobile = styled(Button)`
     background-color: #373737;
     color: white;
-    width: 20vw;
-    height: 10vh;
+    width: 10vw;
+    height: 6vh;
     padding: 3px;
     font-family: Montserrat;
     font-style: normal;
