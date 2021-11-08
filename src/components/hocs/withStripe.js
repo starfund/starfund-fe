@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { StripeProvider, Elements, injectStripe } from 'react-stripe-elements';
 import { Helmet } from 'react-helmet';
 
+import { stripeKey } from 'utils/stripeHelper';
+
 export default component => {
   const StripedComponent = injectStripe(component);
 
@@ -9,11 +11,11 @@ export default component => {
     const [stripe, setStripe] = useState(null);
     const updateStripe = useCallback(() => {
       if (window.Stripe) {
-        !stripe && setStripe(window.Stripe(process.env.STRIPE_API_KEY));
+        !stripe && setStripe(window.Stripe(stripeKey()));
       } else {
         document
           .querySelector('#stripe-js')
-          .addEventListener('load', () => setStripe(window.Stripe(process.env.STRIPE_API_KEY)));
+          .addEventListener('load', () => setStripe(window.Stripe(stripeKey())));
       }
     }, [stripe]);
 
