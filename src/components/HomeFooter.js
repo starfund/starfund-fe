@@ -6,7 +6,6 @@ import { useMediaQuery } from 'react-responsive';
 
 import Facebook from '../assets/Facebook.png';
 import Linkedin from '../assets/Linkedin.png';
-import Whatsapp from '../assets/Whatsapp.png';
 import Instagram from '../assets/Instagram.png';
 import Youtube from '../assets/Youtube.png';
 import './index.css';
@@ -19,8 +18,9 @@ const HomeFooter = () => {
   return (
     <footer className="footer">
       <div className="container row">
-        <div className="col-sm-4 col-6 row-1">
-          <div className="">
+        <div className="col-sm-2 col-0 row-1" />
+        <div className="col-sm-2 col-6 row-1">
+          <div>
             <h3>{intl.formatMessage({ id: 'header.explore' })}</h3>
           </div>
           <div className="explore-div">
@@ -62,7 +62,7 @@ const HomeFooter = () => {
             <img
               src={Linkedin}
               alt="Linkedin"
-              onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
+              onClick={() => window.open('http://linkedin.com/company/starfund-inc', '_blank')}
             />
             <img
               src={Youtube}
@@ -76,14 +76,9 @@ const HomeFooter = () => {
               alt="Instagram"
               onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
             />
-            <img
-              src={Whatsapp}
-              alt="Whatsapp"
-              onClick={() => window.open('https://www.instagram.com/starfund.co/', '_blank')}
-            />
           </div>
         </div>
-        <div className="col-12 col-sm-4 col-6 row-1">
+        <div className="col-12 col-sm-2 col-6 row-1">
           {isMobile && <br />}
           <div className="col join-col">
             <h3>{intl.formatMessage({ id: 'header.join' })}</h3>
@@ -102,6 +97,7 @@ const HomeFooter = () => {
             </Link>
           </div>
         </div>
+        <div className="col-sm-2 col-0 row-1" />
         <div
           className={
             isMobile

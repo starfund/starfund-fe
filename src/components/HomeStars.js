@@ -49,12 +49,13 @@ const HomeStars = ({ title, selectedFighter }) => {
                     <div className="fighter-card-overlay">
                       <div className="fighter-card-name-wrapper">
                         <span className="fighter-card-text">{f.firstName} </span>
-                        <span className="fighter-card-text secondary">{f.lastName} </span>
+                        <span className="fighter-card-text">{f.lastName} </span>
                       </div>
                       <div className="fighter-card-separator" />
-                      <span className="fighter-card-text">
+                      <span className="fighter-card-text secondary">
                         {f.organization != '' ? f.organization : '★'}{' '}
                       </span>
+                      <br />
                     </div>
                   </div>
                 </Link>

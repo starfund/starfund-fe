@@ -38,11 +38,26 @@ const OrganizationView = () => {
       name: 'KOVACS'
     }
   ];
-  const mainVideos = fighters && fighters[10]?.publicVideos;
-  const prelimVideos = fighters && fighters[10]?.publicVideos;
+  const Videos = fighters && fighters[10]?.publicVideos;
+  const prelimVideos = Videos?.map(a => {
+    return { ...a };
+  })?.map(v => {
+    v.isLive = false;
+    return v;
+  });
+  const mainVideos = Videos?.map(a => {
+    return { ...a };
+  })?.map(v => {
+    v.isLive = false;
+    return v;
+  });
+  if (mainVideos) {
+    mainVideos[1].isLive = true;
+  }
+
   const events = [
     {
-      name: 'CAGEZILLA 59',
+      name: 'Cagezilla 59',
       date: '2021-12-20T10:00:00.133Z',
       location: 'The Sailsburry Center, Manassas VA',
       fighters: { fightersNames },
@@ -50,7 +65,7 @@ const OrganizationView = () => {
       prelimVideos: { prelimVideos }
     },
     {
-      name: 'CAGEZILLA 60',
+      name: 'Cagezilla 60',
       date: '2021-12-20T10:00:00.133Z',
       location: 'The Sailsburry Center, Manassas VA',
       fighters: { fightersNames },
@@ -58,7 +73,7 @@ const OrganizationView = () => {
       prelimVideos: { prelimVideos }
     },
     {
-      name: 'CAGEZILLA 61',
+      name: 'Cagezilla 61',
       date: '2021-12-20T10:00:00.133Z',
       location: 'The Sailsburry Center, Manassas VA',
       fighters: { fightersNames },
@@ -66,7 +81,7 @@ const OrganizationView = () => {
       prelimVideos: { prelimVideos }
     },
     {
-      name: 'CAGEZILLA 62',
+      name: 'Cagezilla 62',
       date: '2021-12-20T10:00:00.133Z',
       location: 'The Sailsburry Center, Manassas VA',
       fighters: { fightersNames },
@@ -74,7 +89,7 @@ const OrganizationView = () => {
       prelimVideos: { prelimVideos }
     },
     {
-      name: 'CAGEZILLA 63',
+      name: 'Cagezilla 63',
       date: '2021-12-20T10:00:00.133Z',
       location: 'The Sailsburry Center, Manassas VA',
       fighters: { fightersNames },
@@ -92,15 +107,7 @@ const OrganizationView = () => {
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(false);
   const [event, setEvent] = useState();
-  const [defaulturl, setDefaultUrl] = useState();
-
-  function selectEvent(e, u) {
-    setHome(false);
-    setAllEvents(false);
-    setPPV(true);
-    setDefaultUrl(u?.video);
-    setEvent(e);
-  }
+  const [defaulturl] = useState();
 
   return (
     <div className="fighter-container">
@@ -186,7 +193,10 @@ const OrganizationView = () => {
         />
       )}
       {allevents && (
-        <OrganizationEvents organization={organization} selectEventAction={selectEvent} />
+        <OrganizationEvents
+          organization={organization}
+          subscribeAction={() => setModalIsOpen(true)}
+        />
       )}
       {ppv && fighters && (
         <OrganizationPPV

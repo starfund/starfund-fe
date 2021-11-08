@@ -239,6 +239,7 @@ export default {
   'organization.watchfight': 'СМОТРЕТЬ БОЙ',
   'organization.watchevent': 'СМОТРЕТЬ ПОЛНОЕ СОБЫТИЕ',
   'organization.event.live': 'ЖИТЬ',
+  'organization.event.livevideo': ' ● ЖИТЬ',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

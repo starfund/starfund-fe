@@ -244,6 +244,7 @@ export default {
   'organization.allevents': 'Todos los videos de {organizationName}',
   'organization.watchevent': 'Ver evento completo',
   'organization.event.live': 'EN VIVO',
+  'organization.event.livevideo': ' ● EN VIVO',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

@@ -64,12 +64,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
       <br />
       {!payed && (
         <div className="event-div">
-          <div className="event-name">
-            {event?.name}
-            <div className="event-live">
-              {intl.formatMessage({ id: `organization.event.live` })}
-            </div>
-          </div>
+          <div className="event-name">{event?.name}</div>
           <div className="event-row">
             <div className="event-fighter-name">{event?.fighters.fightersNames[0].name}</div>
             <div className="event-vs">VS</div>
@@ -85,7 +80,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
               {' | '}
             </div>
             <div className="event-watch">
-              &nbsp;{intl.formatMessage({ id: 'organization.event.ppv' })}
+              {intl.formatMessage({ id: 'organization.event.ppv' })}
             </div>
           </div>
           <br />
@@ -96,7 +91,12 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
       )}
       {payed && (
         <div className="video-div">
-          {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
+          <div className="video-title">
+            {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
+            <div className="event-live">
+              {intl.formatMessage({ id: `organization.event.live` })}
+            </div>
+          </div>
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
@@ -161,29 +161,28 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
           {!prelim &&
             event?.mainVideos.mainVideos &&
             event?.mainVideos.mainVideos.map(v => (
-              <div className="event-item">
+              <div
+                className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}
+                onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
+              >
+                {v.isLive && (
+                  <div className="live-tag">
+                    {intl.formatMessage({ id: `organization.event.livevideo` })}
+                  </div>
+                )}
                 {v?.title}
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
               </div>
             ))}
           {prelim &&
             event?.prelimVideos.prelimVideos &&
             event?.prelimVideos.prelimVideos.map(v => (
-              <div className="event-item">
+              <div className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}>
+                {v.isLive && (
+                  <div className="live-tag">
+                    {intl.formatMessage({ id: `organization.event.livevideo` })}
+                  </div>
+                )}
                 {v?.title}
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
               </div>
             ))}
         </div>

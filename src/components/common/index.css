@@ -16,10 +16,11 @@
     background: white;
     cursor: pointer;
     min-height: inherit;
-    padding-top: 10px;
+    padding-top: 15px;
 
     img {
       padding: 10px;
+      height: 40px;
     }
   }
 
@@ -27,6 +28,13 @@
 
   ul > li {
     padding: 15px;
+  }
+  .nav-item{
+    min-width: 130px;
+    max-width: 170px;
+    display: flex;
+    justify-content: center;
+    font-weight: normal !important;
   }
 }
 
@@ -41,6 +49,7 @@
 
   .nav-link {
     color: white !important;
+    font-weight: 500 !important;
   }
 }
   

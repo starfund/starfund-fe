@@ -69,13 +69,11 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                     : intl.formatMessage({ id: 'fighter.howItWorks.title' })}
                 </h1>
                 <br />
-                <br />
                 <div className="text">
                   {isTeam
                     ? intl.formatMessage({ id: 'team.howItWorks.item1' })
                     : intl.formatMessage({ id: 'fighter.howItWorks.item1' })}
                 </div>
-                <br />
                 <br />
               </React.Fragment>
             </div>
@@ -126,8 +124,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
               <LazyLoadComponent>
                 <ReactPlayer
                   title="preview"
-                  width="57vw"
-                  height="52vh"
+                  width="45vw"
+                  height="45vh"
                   url={isTeam ? team.officialPreview : fighter.officialPreview}
                   controls
                   config={{
@@ -187,8 +185,8 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                         />
                         <ReactPlayer
                           title="preview"
-                          height={isMobile ? '30vh' : '345px'}
-                          width={!isMobile ? '40vw' : '82vw'}
+                          height={isMobile ? '30vh' : '280px'}
+                          width={!isMobile ? '35vw' : '82vw'}
                           url={v.video}
                           onClick={() => setModalIsOpen(true)}
                           config={{
@@ -201,8 +199,10 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
                           }}
                         />
                       </LazyLoadComponent>
-                      <h4>{formatTitle(v, language)}</h4>
-                      <p>{formatDescription(v, language)}</p>
+                      <div className="video-description-text">
+                        <h4>{formatTitle(v, language)}</h4>
+                        <p>{formatDescription(v, language)}</p>
+                      </div>
                     </div>
                   </div>
                 ))}

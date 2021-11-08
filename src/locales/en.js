@@ -26,7 +26,7 @@ export default {
   'button.subscribeNow': 'SUBSCRIBE NOW',
   'button.supportNow': 'SUPPORT NOW',
   'button.findAthlete': 'FIND YOUR STAR ATHLETE',
-  'button.enroll': 'ENROLL AS STAR',
+  'button.enroll': 'Enroll as star',
   'cta.text': 'Subscribe to get access to all athletes videos and exclusive content',
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
@@ -238,6 +238,7 @@ export default {
   'organization.button.buyppv': 'BUY PPV NOW',
   'organization.watchfight': 'WATCH FIGHT',
   'organization.event.live': 'LIVE',
+  'organization.event.livevideo': ' ● LIVE',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

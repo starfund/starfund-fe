@@ -67,9 +67,10 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
             muted
             style={{
               margin: '3%',
-              minHeight: `${isMobile ? 'auto' : '50vh'}`,
-              minWidth: `${isMobile ? 'auto' : '40vw'}`,
-              maxWidth: `${isMobile ? 'auto' : '40vw'}`
+              minHeight: `${isMobile ? '35vh' : '50vh'}`,
+              maxHeight: `${isMobile ? '35vh' : '50vh'}`,
+              minWidth: `${isMobile ? '75vw' : '40vw'}`,
+              maxWidth: `${isMobile ? '75vw' : '40vw'}`
             }}
             config={{
               file: {
@@ -179,7 +180,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                         <ReactPlayer
                           url={v.video}
                           width={isMobile ? '100%' : '15vw'}
-                          height="25vh"
+                          height={isMobile ? '35vh' : '25vh'}
                           light={v.thumbnail}
                           config={{
                             file: {

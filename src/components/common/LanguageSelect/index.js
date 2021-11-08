@@ -17,8 +17,8 @@ const LanguageSelect = () => {
   const ButtonToggle = styled(Button)`
     background-color: #373737;
     color: white;
-    width: 3vw;
-    height: 4vh;
+    width: 41px;
+    height: 29px;
     padding: 3px;
     font-family: Montserrat;
     font-style: normal;
@@ -35,8 +35,8 @@ const LanguageSelect = () => {
   const ButtonToggleMobile = styled(Button)`
     background-color: #373737;
     color: white;
-    width: 10vw;
-    height: 6vh;
+    width: 41px;
+    height: 29px;
     padding: 3px;
     font-family: Montserrat;
     font-style: normal;

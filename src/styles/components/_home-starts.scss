@@ -48,7 +48,8 @@
 .fighter-card-name-wrapper {
   display: flex;
   flex-direction: column;
-
+  line-height: 4.5vh;
+  
   > * {
     overflow: hidden;
     text-overflow: ellipsis;
