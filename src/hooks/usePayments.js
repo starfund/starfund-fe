@@ -12,7 +12,7 @@ export default stripe => {
   const { showErrorToast } = useToast();
 
   const createCreditCard = async billing => {
-    const { name, email, fighter, team, business, type } = billing;
+    const { name, email, fighter, team, business, organization, type } = billing;
 
     setLoading(true);
 
@@ -38,7 +38,16 @@ export default stripe => {
       };
       if (type === 'subscription') {
         await dispatch(
-          subscribe({ token: data.token, name, email, fighter, team, business, card_data: data })
+          subscribe({
+            token: data.token,
+            name,
+            email,
+            fighter,
+            team,
+            business,
+            organization,
+            card_data: data
+          })
         );
       } else {
         await dispatch(charge({ token: data.token, name, email, fighter, card_data: data }));
