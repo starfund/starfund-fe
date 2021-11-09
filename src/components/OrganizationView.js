@@ -210,18 +210,17 @@ const OrganizationView = () => {
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.title' })}
             explain={intl.formatMessage({
-              id: organization?.support ? 'modal.header.support' : 'modal.header.explain'
+              id: 'modal.header.explain'
             })}
             isOpen={modalIsOpen}
             setIsOpen={setModalIsOpen}
             isDelete={false}
             price={organization?.subPrice}
             email={currentUser?.email}
-            fighter={organization?.id}
           >
             <BillingForm
               email={currentUser?.email}
-              fighter={organization?.id}
+              organization={organization?.name}
               type="subscription"
             />
           </ConfirmationModal>
