@@ -724,11 +724,10 @@ h3 {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
       border-radius: 0;
-      font-weight: bold;
+      font-weight: 500!important;
       font-size: 16px;
       min-height: fit-content !important;
       max-height: 35px;
-      padding: 5px 0;
 
       @media (max-width: 610px) {
         height: 35px;
@@ -2158,7 +2157,7 @@ h3 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500 !important;
-  font-size: 1em;
+  font-size: 1.3em;
   letter-spacing: -0.02em;
   color: #FFFFFF;
   display: flex;
@@ -2175,7 +2174,7 @@ h3 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.3em;
   letter-spacing: -0.02em;
   color: #FFFFFF;
   display: flex;
@@ -2193,7 +2192,7 @@ h3 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.3em;
   letter-spacing: -0.02em;
   color: #FFFFFF;
   display: flex;
@@ -2209,8 +2208,9 @@ h3 {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 900;
+    font-size:1vw;
     text-align: center;
-    padding: 4px;
+    padding: 6px;
     @media (max-width: 765px) {
       left: -5vw;
       height: 3vh;
@@ -2361,7 +2361,6 @@ h3 {
 }
 
 .organization-container{
-  background-image: url("/ppv_background.png");
   background-repeat: no-repeat;
   background-position: top;
   text-align: center;
@@ -2431,7 +2430,12 @@ h3 {
   }
 
   .nav-item{
-    height: 10vh; 
+    height: 8vh; 
+    display: flex;
+    align-items: center;
+    .nav-link{
+      font-weight: bold !important;
+    }
   }
 }
 
@@ -2565,19 +2569,24 @@ h3 {
   }
   .search-button{
     background-color: red;
-    padding: 0.85%;
+    padding: 1.4%;
+    margin-top: 0.5%;
   }
   .bar {
     width: 30vw;
   }
-
+  .search-bar-input{
+    width: 30vw;
+    height: 5vh;
+    color: white;
+    background-color: #373737;
+    border-color: #373737;
+  }
   .search-bar-mobile {
     display: flex;
     align-items: center;
   }
-  .bar {
-    width: 80vw;
-  }
+
 }
 
 .event-video-row{

@@ -69,8 +69,8 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
               margin: '3%',
               minHeight: `${isMobile ? '35vh' : '50vh'}`,
               maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-              minWidth: `${isMobile ? '75vw' : '40vw'}`,
-              maxWidth: `${isMobile ? '75vw' : '40vw'}`
+              minWidth: `${isMobile ? '75vw' : '45vw'}`,
+              maxWidth: `${isMobile ? '75vw' : '45vw'}`
             }}
             config={{
               file: {

@@ -108,9 +108,8 @@ const OrganizationEvents = ({ organization, subscribeAction }) => {
               <div className="bar">
                 <input
                   id="search-bar"
-                  className="form-control"
+                  className="search-bar-input"
                   type="search"
-                  placeholder="Search Here"
                   aria-label="Search"
                   value={searchText}
                   onChange={e => setSearchText(e.target.value)}

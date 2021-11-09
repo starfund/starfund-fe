@@ -5,8 +5,12 @@ import { useMediaQuery } from 'react-responsive';
 import ReactPlayer from 'react-player/lazy';
 import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
+import Background from '../assets/ppv_background.png';
 
 const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
+  const divImage = {
+    backgroundImage: `url(${Background})`
+  };
   window.scrollTo(0, 700);
   const intl = useIntl();
   const date = new Date(event?.date);
@@ -53,7 +57,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
   };
 
   return (
-    <div className="organization-container">
+    <div className="organization-container" style={divImage}>
       <br />
       <br />
       <br />

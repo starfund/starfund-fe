@@ -2,10 +2,14 @@ import React from 'react';
 
 import CountDownTimer from './CountDownTimer';
 import EventView from './EventView';
+import Background from '../assets/ppv_background.png';
 
 const OrganizationHome = ({ organization, subscribeAction }) => {
+  const divImage = {
+    backgroundImage: `url(${Background})`
+  };
   return (
-    <div className="organization-container">
+    <div className="organization-container" style={divImage}>
       <div>
         <CountDownTimer
           event={organization?.events.events[organization?.events.events.length - 1]}

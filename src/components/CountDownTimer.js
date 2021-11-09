@@ -138,6 +138,8 @@ const CountDownTimer = ({ event, subscribeAction }) => {
           </div>
           <div className="event-fighter-name">{event?.fighters.fightersNames[1].name}</div>
           <div className="event-row">
+            <br />
+            <br />
             <div className="event-date">
               {intl.formatMessage({ id: `organization.months.${months[date.getMonth()]}` })}{' '}
               {date.getDate()}{' '}
