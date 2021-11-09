@@ -1365,9 +1365,12 @@ h3 {
 .fighter-videos {
   h1 {
     margin-top: 3vh;
-    font-size: 7vw !important;
+    font-size: 3.5vw !important;
   }
   .row {
+    margin-bottom: 10vh;
+    display: flex;
+    
     @media (max-width: 765px) {
       margin-right: 1vw;
       margin-bottom: 15vw;
@@ -1383,10 +1386,28 @@ h3 {
   }
 
   .video-description {
-    h1 { font-size: 3vw !important; }
-    h1, h3 { margin-right: 5px; }
-
-    * { text-align: left; }
+    margin-left:5%;
+    h1 { 
+      font-size: 3vw !important;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+      margin-right: 5px; 
+    }
+    h3 { 
+      margin-right: 5px;
+      font-weight: 500 !important;
+      font-size: 2vw !important;
+      letter-spacing: -0.02em; 
+    }
+    p {
+      font-weight: 500 !important;
+      font-size: 1.3vw !important;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+    }
+    * { 
+      text-align: left; 
+    }
 
     word-wrap: break-word;
     
@@ -1394,11 +1415,27 @@ h3 {
 
   .more-videos {
     margin-top: 20px;
+    margin-left: 10vw;
+    width: 80vw;
     display: flex;
 
     .video-description {
       background-color: #373737;
       padding: 15px;
+      height: 9vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      align-content: center;
+      width: 100%;
+      margin-left: 0px !important;
+      h4 {
+        font-style: normal;
+        font-weight: 500 !important;
+        font-size: 2.2vh;
+        line-height: 23px;
+        letter-spacing: -0.02em;
+      }
     }
 
     .video-description:hover {
@@ -1510,7 +1547,7 @@ h3 {
       min-height: 32px;
       padding: 5px 15px;
       position: absolute;
-      right: 15px;
+      right: 59px;
       width: fit-content;
     }
 

@@ -66,16 +66,16 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
       <br />
       <br />
       <div className="row">
-        <div className="col-12 col-md-8">
+        <div className="col-0 col-md-1" />
+        <div className="col-12 col-md-5 ">
           <LazyLoadComponent>
             <ReactPlayer
               url={url}
-              width={isMobile ? '100%' : '65vw'}
-              height={isMobile ? '35vh' : '50vh'}
+              width={isMobile ? '100%' : '40vw'}
               controls
               playing
               muted
-              style={{ 'margin-left': '3%', minHeight: `${isMobile ? 'auto' : '40vw'}` }}
+              style={{ 'margin-left': '8%', minHeight: `${isMobile ? 'auto' : '30vh'}` }}
               onEnded={endFreeVideo}
               config={{
                 file: {
@@ -91,8 +91,9 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
           </LazyLoadComponent>
         </div>
         {!isMobile && displayContent && (
-          <div className="video-description col-12 col-sm-4">
+          <div className="video-description col-12 col-sm-5">
             <h1>{displayContent.title?.toUpperCase()}</h1>
+            <br />
             <h3>{displayContent.description}</h3>
             <br />
             <p>
