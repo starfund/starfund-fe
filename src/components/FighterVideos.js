@@ -30,10 +30,12 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
   const selectVideo = content => {
     setUrl(content.video);
     setDisplayContent(content);
-    if (payedFighter.includes(fighter.id)) {
-      window.scrollTo(0, 600);
-    } else {
-      window.scrollTo(0, 900);
+    if (!isMobile) {
+      if (payedFighter.includes(fighter.id)) {
+        window.scrollTo(0, 600);
+      } else {
+        window.scrollTo(0, 900);
+      }
     }
   };
 
@@ -63,10 +65,14 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
             <ReactPlayer
               url={url}
               width={isMobile ? '100%' : '40vw'}
+              height={isMobile ? '35vh' : 'auto'}
               controls
               playing
               muted
-              style={{ 'margin-left': '8%', minHeight: `${isMobile ? 'auto' : '30vh'}` }}
+              style={{
+                'margin-left': `${isMobile ? '3%' : '8%'}`,
+                minHeight: `${isMobile ? '35vh' : '30vh'}`
+              }}
               onEnded={endFreeVideo}
               config={{
                 file: {
@@ -109,7 +115,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   <ReactPlayer
                     url={v.video}
                     width="100%"
-                    height="25vh"
+                    height="30vh"
                     light={v.thumbnail}
                     config={{
                       file: {
@@ -147,7 +153,7 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
                   <ReactPlayer
                     url={v.video}
                     width="100%"
-                    height="25vh"
+                    height="30vh"
                     light={v.thumbnail}
                     playIcon={!payedFighter.includes(fighter.id) && <img src={Lock} alt="" />}
                     config={{
