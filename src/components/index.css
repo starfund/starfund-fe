@@ -1550,7 +1550,7 @@ h3 {
       min-height: 32px;
       padding: 5px 15px;
       position: absolute;
-      right: 59px;
+      right: 15px;
       width: fit-content;
     }
 
@@ -1559,8 +1559,8 @@ h3 {
       min-height: 32px;
       padding: 5px 15px;
       position: absolute;
-      right: 14vw;
-      top: 8.5vh;      
+      right: 11vw;
+      top: 12vh;      
       width: fit-content;
     }
 
@@ -2652,13 +2652,14 @@ h3 {
 
 .play-icon{
   position: absolute;
-  margin-left: 18vw;
-  margin-top: 19vh;
+  margin-left: 15vw;
+  margin-top: 15vh;
 }
 
 .play-icon-mobile {
   position: absolute;
-  margin: 35vw;
+  margin-left: 33vw;
+  margin-top: 12vh;
 }
 
 .div-fade {
