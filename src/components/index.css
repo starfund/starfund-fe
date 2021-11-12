@@ -2690,6 +2690,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   align-content: center;
+  background-color: black;
   .box {
     margin: 5px;
     height: 40vh;
@@ -2697,7 +2698,6 @@ h3 {
     padding: 40px 20px;
     background: #fff;
     text-align: center;
-    box-shadow: 0px 0 30px rgb(28,28,28);
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -2705,6 +2705,7 @@ h3 {
   }
   .box:hover {
     transform: scale(1.1);
+    border: solid black;
   }  
   .featured {
     width: 200px;

@@ -37,7 +37,7 @@ const PaymentMode = ({
         <div className="payment-yearly">{intl.formatMessage({ id: 'payment.yearly' })}</div>
         <div className="price">
           <div className="discount-percentage">
-            <div className="discount">$ {MonthlyPrice * 12}</div>
+            <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
             20% OFF
           </div>
           <sup>$</sup>
