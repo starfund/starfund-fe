@@ -128,6 +128,7 @@ export default {
   'billing.confirmPassword': 'Подтвердить пароль',
   'billing.confirmAccountPassword': 'Подтвердить',
   'billing.title': 'Ежемесячная подписка ',
+  'billing.title.yearly': 'ЕЖЕГОДНОЕ ЧЛЕНСТВО',
   'billing.ppv.title': 'ПЕРСОНАЛИЗИРОВАННОЕ ВИДЕО',
   'billing.email': 'Email',
   'billing.number': 'Номер',
@@ -282,6 +283,15 @@ export default {
   'rewards.refer.date': 'Победители будут объявлены 5 июля.',
   'rewards.refer.explain': 'Не пропустите результатов розыгрыша.',
   'rewards.refer.result': 'Подпишитесь на наши страницы в соц. сетях',
+
+  // PAYMENT
+  'payment.title': 'Пожалуйста, выберите план оплаты',
+  'payment.featured': 'Featured',
+  'payment.ondemand': 'PPV',
+  'payment.monthly': 'ЕЖЕМЕСЯЧНО',
+  'payment.yearly': 'ЕЖЕГОДНО',
+  'payment.service1': 'Смотрите предстоящее мероприятие',
+  'payment.service2': 'Что все предыдущие события',
 
   // BUSINESSES
   'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',

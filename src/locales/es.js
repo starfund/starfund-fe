@@ -130,6 +130,7 @@ export default {
   'billing.confirmPassword': 'Confirmar Contraseña',
   'billing.confirmAccountPassword': 'Confirmar',
   'billing.title': 'MEMBRESIA MENSUAL',
+  'billing.title.yearly': 'MEMBRESIA ANUAL',
   'billing.ppv.title': 'VIDEO PERSONALIZADO',
   'billing.email': 'Email',
   'billing.number': 'Numero',
@@ -290,6 +291,15 @@ export default {
   'rewards.refer.date': 'Los ganadores seran anunciados el {date}',
   'rewards.refer.explain': 'Por favor espera los resultados',
   'rewards.refer.result': 'No te pierdas estos resultados. Subscribete a nuestras redes sociales',
+
+  // PAYMENT
+  'payment.title': 'Por favor elegir un plan de pago',
+  'payment.featured': 'Destacado',
+  'payment.ondemand': 'BAJO DEMANDA',
+  'payment.monthly': 'MENSUAL',
+  'payment.yearly': 'ANUAL',
+  'payment.service1': 'Ver el próximo evento',
+  'payment.service2': 'Ver todos los eventos anteriores',
 
   // BUSINESSES
   'business.programs.title': 'CONOCE NUESTROS CURSOS',

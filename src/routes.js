@@ -10,6 +10,7 @@ import FighterPage from 'pages/FighterPage';
 import BusinessPage from 'pages/BusinessPage';
 import TeamPage from 'pages/TeamPage';
 import OrganizationPage from 'pages/OrganizationPage';
+import OrganizationRedirect from 'components/OrganizationRedirect';
 import FightersPage from 'pages/FightersPage';
 import BusinessesPage from 'pages/BusinessesPage';
 import FightersPPVPage from 'pages/FightersPPVPage';
@@ -66,6 +67,12 @@ const routes = [
   {
     path: routesPaths.organization,
     component: <OrganizationPage />,
+    private: false,
+    exact: false
+  },
+  {
+    path: routesPaths.organizationName,
+    component: <OrganizationRedirect />,
     private: false,
     exact: false
   },

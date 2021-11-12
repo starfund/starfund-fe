@@ -23,7 +23,8 @@ const routes = {
   rewards: '/rewards',
   profile: '/profile',
   organizations: '/organization',
-  organization: '/organization/:name'
+  organization: '/organization/:name',
+  organizationName: '/Cagezilla'
 };
 
 export default routes;

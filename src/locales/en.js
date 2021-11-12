@@ -126,6 +126,7 @@ export default {
   'billing.confirmPassword': 'Confirm Password',
   'billing.confirmAccountPassword': 'Confirm',
   'billing.title': 'MONTHLY MEMBERSHIP',
+  'billing.title.yearly': 'YEARLY MEMBERSHIP',
   'billing.ppv.title': 'PERSONALIZED VIDEO',
   'billing.email': 'Email',
   'billing.number': 'Number',
@@ -284,6 +285,15 @@ export default {
   'rewards.refer.explain': 'Please wait for the results of the lottery',
   'rewards.refer.result':
     'Don’t miss the results of the lottery. Subscribe to our social media pages',
+
+  // PAYMENT
+  'payment.title': 'Please select a payment plan',
+  'payment.featured': 'Featured',
+  'payment.ondemand': 'ON DEMAND',
+  'payment.monthly': 'MONTHLY',
+  'payment.yearly': 'YEARLY',
+  'payment.service1': 'Watch upcoming event',
+  'payment.service2': 'Whath all previous events',
 
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',

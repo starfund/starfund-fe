@@ -99,10 +99,12 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
               </h3>
               <br />
               <h4>{title}</h4>
-              <p>
-                {' '}
-                {intl.formatMessage({ id: 'modal.header.totalBilled' })} {subPrice}
-              </p>
+              {price && (
+                <p>
+                  {' '}
+                  {intl.formatMessage({ id: 'modal.header.totalBilled' })} {subPrice}
+                </p>
+              )}
             </React.Fragment>
           )}
           <button
