@@ -212,7 +212,7 @@ const OrganizationEvents = ({ organization, subscribeAction }) => {
                                 <LazyLoadComponent>
                                   <ReactPlayer
                                     url={v.video}
-                                    width={isMobile ? '100%' : '15vw'}
+                                    width={isMobile ? '100%' : '20vw'}
                                     height="25vh"
                                     light={v.thumbnail}
                                     config={{

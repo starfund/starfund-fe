@@ -128,7 +128,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                       <LazyLoadComponent>
                         <ReactPlayer
                           url={v.video}
-                          width={isMobile ? '100%' : '15vw'}
+                          width={isMobile ? '100%' : '20vw'}
                           height="25vh"
                           light={v.thumbnail}
                           muted
@@ -179,7 +179,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                       <LazyLoadComponent>
                         <ReactPlayer
                           url={v.video}
-                          width={isMobile ? '100%' : '15vw'}
+                          width={isMobile ? '100%' : '20vw'}
                           height={isMobile ? '35vh' : '25vh'}
                           light={v.thumbnail}
                           config={{
