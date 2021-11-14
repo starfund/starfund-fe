@@ -99,7 +99,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
         <Carousel
           mobileBreakpoint={0}
           containerStyle={{ backgroundColor: '#202020', width: '75vw', marginLeft: '2vw' }}
-          cols={isMobile ? 1 : 4}
+          cols={isMobile ? 1 : 3}
           rows={1}
           gap={10}
           loop
