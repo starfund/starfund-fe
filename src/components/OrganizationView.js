@@ -265,7 +265,8 @@ const OrganizationView = () => {
           >
             <BillingForm
               email={currentUser?.email}
-              organization={organization?.id}
+              organization={organization?.name}
+              price={organization?.MonthlyPrice}
               type="subscription"
             />
           </ConfirmationModal>
@@ -276,7 +277,7 @@ const OrganizationView = () => {
             customWidth="80%"
             customHeight="80%"
           >
-            <PPVForm onSubmit={setPPVOpen} nextStep={setPayPPV} fighterName={organization?.name} />
+            <PPVForm onSubmit={setPPVOpen} nextStep={setPayPPV} orgName={organization?.name} />
           </CommonModal>
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.ppv.title' })}
@@ -288,7 +289,12 @@ const OrganizationView = () => {
             email={currentUser?.email}
             organization={organization?.id}
           >
-            <BillingForm email={currentUser?.email} organization={organization?.id} type="ppv" />
+            <BillingForm
+              email={currentUser?.email}
+              organization={organization?.name}
+              price={organization?.PPVPrice}
+              type="ppv"
+            />
           </ConfirmationModal>
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.title.yearly' })}
@@ -304,8 +310,9 @@ const OrganizationView = () => {
           >
             <BillingForm
               email={currentUser?.email}
-              organization={organization?.id}
+              organization={organization?.name}
               type="subscription"
+              price={organization?.MonthlyPrice * 12 * 0.8}
             />
           </ConfirmationModal>
         </div>

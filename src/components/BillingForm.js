@@ -24,7 +24,17 @@ import {
 
 import 'react-credit-cards/lib/styles.scss';
 
-const BillingForm = ({ stripe, elements, email, fighter, team, business, organization, type }) => {
+const BillingForm = ({
+  stripe,
+  elements,
+  email,
+  fighter,
+  team,
+  business,
+  organization,
+  type,
+  price
+}) => {
   ReactGA.modalview(`/${type}`);
   const { status: subStatus, error } = useStatus(subscribe);
   const { status: chargeStatus, error: chargeError } = useStatus(charge);
@@ -49,10 +59,10 @@ const BillingForm = ({ stripe, elements, email, fighter, team, business, organiz
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
   const pay = () => {
-    if (type === 'ppv') {
+    if (type === 'ppv' && organization === undefined) {
       dispatch(requestDream(dream));
     }
-    onSubmit({ name, email: emailField, fighter, team, business, organization, type });
+    onSubmit({ name, email: emailField, fighter, team, business, organization, type, price });
   };
 
   return (

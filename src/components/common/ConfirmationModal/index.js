@@ -54,7 +54,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
     if (chargeStatus === SUCCESS) {
       dispatch(charge.reset());
       setIsOpen(false);
-      window.alert(intl.formatMessage({ id: 'ppv.success' }));
+      // window.alert(intl.formatMessage({ id: 'ppv.success' }));
     }
   }, [
     authenticated,
