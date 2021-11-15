@@ -8,6 +8,7 @@ import session from './sessionReducer';
 import payments from './billingReducer';
 import fighters from './fighterReducer';
 import businesses from './businessReducer';
+import organizations from './organizationReducer';
 import teams from './teamReducer';
 import contents from './contentReducer';
 import messages from './messageReducer';
@@ -35,6 +36,7 @@ const rootReducer = () =>
     payments,
     fighters,
     businesses,
+    organizations,
     teams,
     contents,
     messages,

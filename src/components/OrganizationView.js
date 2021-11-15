@@ -8,6 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import ConfirmationModal from './common/ConfirmationModal';
 import { getFighters } from '../state/actions/fighterActions';
+import { getOrganizations } from '../state/actions/organizationActions';
 
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
@@ -30,6 +31,9 @@ const OrganizationView = () => {
   const currentUser = useSelector(state => state.session.user);
   useEffect(() => {
     dispatch(getFighters(true));
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(getOrganizations());
   }, [dispatch]);
 
   const fighters = useSelector(state => state.fighters.fighters);
