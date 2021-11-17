@@ -5,8 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import cn from 'classnames';
 import VideoSlider from './VideoSlider';
 
-const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video }) => {
-  const payed = true;
+const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, payed }) => {
   const intl = useIntl();
   const [curr, setCurr] = useState(true);
   const [prev, setPrev] = useState(false);
@@ -84,6 +83,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video }) 
                 privateVideos={getPrivateVideos(prevEvent)}
                 subscribeAction={subscribeAction}
                 selectedVideo={selectedVideo}
+                payed={payed}
               />
             )}
           </div>
@@ -97,6 +97,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video }) 
                 privateVideos={getPrivateVideos(currEvent)}
                 subscribeAction={subscribeAction}
                 selectedVideo={selectedVideo}
+                payed={payed}
               />
             )}
           </div>
@@ -110,6 +111,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video }) 
                 privateVideos={getPrivateVideos(nextEvent)}
                 subscribeAction={subscribeAction}
                 selectedVideo={selectedVideo}
+                payed={payed}
               />
             )}
           </div>

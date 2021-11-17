@@ -12,7 +12,7 @@ import EventView from './EventView';
 
 const PageSize = 4;
 
-const OrganizationEvents = ({ organization, subscribeAction }) => {
+const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
@@ -152,14 +152,29 @@ const OrganizationEvents = ({ organization, subscribeAction }) => {
                                 key={v.url}
                                 className="col-12 col-sm-6 col-md-4 fighter-watch"
                                 onClick={() => {
-                                  setSelectedVideo(v);
-                                  selectVideo(v, item);
-                                  setAllEvents(false);
-                                  setCurrEvent(item);
-                                  setPrevEvent(sortedEvents[index - 1]);
-                                  setNextEvent(sortedEvents[index + 1]);
+                                  if (v.public || payed) {
+                                    setSelectedVideo(v);
+                                    selectVideo(v, item);
+                                    setAllEvents(false);
+                                    setCurrEvent(item);
+                                    setPrevEvent(sortedEvents[index - 1]);
+                                    setNextEvent(sortedEvents[index + 1]);
+                                  } else {
+                                    subscribeAction();
+                                  }
                                 }}
                               >
+                                {!payed && !v.public && (
+                                  <div
+                                    className={
+                                      isMobile
+                                        ? 'exclusive-event-video-mobile-big'
+                                        : 'exclusive-event-video-big'
+                                    }
+                                  >
+                                    EXCLUSIVE
+                                  </div>
+                                )}
                                 <div
                                   className={cn('video-description', {
                                     selected: activeVideo === v.id + item?.name
@@ -195,7 +210,33 @@ const OrganizationEvents = ({ organization, subscribeAction }) => {
                             .concat(item?.prelimEvents)
                             .slice(0, 1)
                             .map(v => (
-                              <div key={v.url} className="col-12 col-sm-6 col-md-4 fighter-watch">
+                              <div
+                                key={v.url}
+                                className="col-12 col-sm-6 col-md-4 fighter-watch"
+                                onClick={() => {
+                                  if (v.public || payed) {
+                                    setSelectedVideo(v);
+                                    selectVideo(v, item);
+                                    setAllEvents(false);
+                                    setCurrEvent(item);
+                                    setPrevEvent(sortedEvents[index - 1]);
+                                    setNextEvent(sortedEvents[index + 1]);
+                                  } else {
+                                    subscribeAction();
+                                  }
+                                }}
+                              >
+                                {!payed && !v.public && (
+                                  <div
+                                    className={
+                                      isMobile
+                                        ? 'exclusive-event-video-mobile-big'
+                                        : 'exclusive-event-video-big'
+                                    }
+                                  >
+                                    EXCLUSIVE
+                                  </div>
+                                )}
                                 <div
                                   className={cn('video-description-mobile', {
                                     selected: activeVideo === v.id + item?.name
@@ -256,6 +297,7 @@ const OrganizationEvents = ({ organization, subscribeAction }) => {
             nextEvent={nextEvent}
             subscribeAction={subscribeAction}
             video={selectedVideo}
+            payed={payed}
           />
         </div>
       )}

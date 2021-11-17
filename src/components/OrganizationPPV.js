@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/ppv_background.png';
 
-const OrganizationPPV = ({ event, subscribeAction }) => {
+const OrganizationPPV = ({ event, subscribeAction, payed }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
@@ -30,7 +30,6 @@ const OrganizationPPV = ({ event, subscribeAction }) => {
   ];
   const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   const [prelim, setPrelim] = useState(false);
-  const payed = true;
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });

@@ -9,8 +9,14 @@ import { useMediaQuery } from 'react-responsive';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import Carousel from 'react-grid-carousel';
 
-const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction, selectedVideo }) => {
-  const payed = false;
+const VideoSlider = ({
+  event,
+  publicVideos,
+  privateVideos,
+  subscribeAction,
+  selectedVideo,
+  payed
+}) => {
   const intl = useIntl();
   const anyVideo = publicVideos[0] ? publicVideos[0] : '';
   const [url, setUrl] = useState(selectedVideo ? selectedVideo.video : anyVideo.video);

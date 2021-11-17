@@ -6,8 +6,10 @@ import { Link, useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useSession } from 'hooks';
 import ConfirmationModal from './common/ConfirmationModal';
 import { getOrganizations } from '../state/actions/organizationActions';
+import { getSubscriptions } from '../state/actions/subscriptionActions';
 
 import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
@@ -19,7 +21,6 @@ import OrganizationPPV from './OrganizationPPV';
 import OrganizationEvents from './OrganizationEvents';
 
 const OrganizationView = () => {
-  const payed = false;
   const { name } = useParams();
   const dispatch = useDispatch();
   const intl = useIntl();
@@ -29,15 +30,27 @@ const OrganizationView = () => {
   const [payYearly, setPayYearly] = useState(false);
   const [PPVOpen, setPPVOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user);
+  const { authenticated } = useSession();
+
   useEffect(() => {
     dispatch(getOrganizations());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (authenticated) {
+      dispatch(getSubscriptions());
+    }
+  }, [authenticated, dispatch]);
   const organization = useSelector(
     state => state.organizations.organizations.filter(f => f.name == name)[0]
   );
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
+
+  const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
+  const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
+  const payed = supporting.map(s => s.orgName).includes(name);
+  const payedPPV = supportingPPV.map(s => s.orgName).includes(name);
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -64,7 +77,6 @@ const OrganizationView = () => {
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(false);
   const [event, setEvent] = useState();
-  const [defaulturl] = useState();
 
   return (
     <div className="fighter-container">
@@ -86,10 +98,11 @@ const OrganizationView = () => {
                 type="button"
                 className="btn btn-danger btn-lg"
                 onClick={() => {
-                  if (payed) {
+                  if (payedPPV) {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
+                    setEvent(sortedEvents[sortedEvents?.length - 1]);
                   } else {
                     setModalIsOpen(true);
                   }
@@ -155,19 +168,28 @@ const OrganizationView = () => {
         <OrganizationHome
           organization={organization}
           subscribeAction={() => setModalIsOpen(true)}
+          payed={payed}
+          payedPPV={payedPPV}
+          watchAction={() => {
+            setHome(false);
+            setAllEvents(false);
+            setPPV(true);
+            setEvent(sortedEvents[sortedEvents?.length - 1]);
+          }}
         />
       )}
       {allevents && (
         <OrganizationEvents
           organization={organization}
           subscribeAction={() => setModalIsOpen(true)}
+          payed={payed}
         />
       )}
       {ppv && (
         <OrganizationPPV
           event={event}
-          defaulturl={defaulturl}
           subscribeAction={() => setModalIsOpen(true)}
+          payed={payedPPV}
         />
       )}
       {organization && (
@@ -187,6 +209,8 @@ const OrganizationView = () => {
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
+              payed={payed}
+              payedPPV={payedPPV}
             />
           </ConfirmationModal>
 
@@ -230,7 +254,7 @@ const OrganizationView = () => {
           >
             <BillingForm
               email={currentUser?.email}
-              organization={organization?.name}
+              orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
               price={organization?.ppvPrice}
               type="ppv"
             />

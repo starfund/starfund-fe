@@ -2389,6 +2389,27 @@ h3 {
   width: fit-content;
 }
 
+.exclusive-event-video-big {
+  background-color: red;
+  color: white;
+  height: 2.5vw;
+  min-height: 32px;
+  padding: 5px 15px;
+  position: absolute;
+  right: 16px;
+  width: fit-content;
+}
+.exclusive-event-video-mobile-big {
+  background-color: red;
+  color: white;
+  height: 2.5vw;
+  min-height: 32px;
+  padding: 5px 15px;
+  position: absolute;
+  right: 20px;
+  width: fit-content;
+}
+
 .video-div {
   width: 80vw;
   background-color: #373737;
@@ -2819,8 +2840,9 @@ h3 {
   }
 
   .services{
-    font-size: 1.7vh;
+    font-size: 2.7vh;
     display: flex;
+    justify-content: center;
     @media only screen and (max-width: 768px) {
       font-size: 2vh;
     }

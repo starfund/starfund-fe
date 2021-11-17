@@ -32,6 +32,7 @@ const BillingForm = ({
   team,
   business,
   organization,
+  orgEvent,
   type,
   price
 }) => {
@@ -59,10 +60,20 @@ const BillingForm = ({
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
 
   const pay = () => {
-    if (type === 'ppv' && organization === undefined) {
+    if (type === 'ppv' && orgEvent === undefined) {
       dispatch(requestDream(dream));
     }
-    onSubmit({ name, email: emailField, fighter, team, business, organization, type, price });
+    onSubmit({
+      name,
+      email: emailField,
+      fighter,
+      team,
+      business,
+      organization,
+      orgEvent,
+      type,
+      price
+    });
   };
 
   return (
