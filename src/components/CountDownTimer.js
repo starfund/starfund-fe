@@ -3,8 +3,9 @@ import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
 const CountDownTimer = ({ event, subscribeAction }) => {
+  const payed = false;
   const intl = useIntl();
-  const date = new Date(event?.date);
+  const date = new Date(event?.eventDate);
   const months = [
     'jan',
     'feb',
@@ -51,6 +52,28 @@ const CountDownTimer = ({ event, subscribeAction }) => {
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(date));
+
+  function getFirstFighter() {
+    const video = event?.mainEvents
+      .concat(event?.prelimEvents)
+      .filter(v => v.fighter1 && v.fighter2)
+      .slice(0, 1);
+    if (video.length > 0) {
+      return video[0].fighter1;
+    }
+    return '';
+  }
+
+  function getSecondFighter() {
+    const video = event?.mainEvents
+      .concat(event?.prelimEvents)
+      .filter(v => v.fighter1 && v.fighter2)
+      .slice(0, 1);
+    if (video.length > 0) {
+      return video[0].fighter2;
+    }
+    return '';
+  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -133,10 +156,12 @@ const CountDownTimer = ({ event, subscribeAction }) => {
         <div className="event-div">
           <div className="event-name">{event.name}</div>
           <div className="event-row">
-            <div className="event-fighter-name">{event?.fighters.fightersNames[0].name}</div>
-            <div className="event-vs">VS</div>
+            <div className="event-fighter-name">{getFirstFighter()}</div>
+            {getFirstFighter() != '' && getSecondFighter() != '' && (
+              <div className="event-vs">VS</div>
+            )}
           </div>
-          <div className="event-fighter-name">{event?.fighters.fightersNames[1].name}</div>
+          <div className="event-fighter-name">{getSecondFighter()}</div>
           <div className="event-row">
             <br />
             <br />
@@ -153,9 +178,15 @@ const CountDownTimer = ({ event, subscribeAction }) => {
             </div>
           </div>
           <br />
-          <button type="button" className="btn btn-danger btn-lg" onClick={() => subscribeAction()}>
-            {intl.formatMessage({ id: 'organization.button.buyppv' })}
-          </button>
+          {!payed && (
+            <button
+              type="button"
+              className="btn btn-danger btn-lg"
+              onClick={() => subscribeAction()}
+            >
+              {intl.formatMessage({ id: 'organization.button.buyppv' })}
+            </button>
+          )}
         </div>
       )}
       <br />

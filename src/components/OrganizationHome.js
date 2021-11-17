@@ -5,28 +5,28 @@ import EventView from './EventView';
 import Background from '../assets/ppv_background.png';
 
 const OrganizationHome = ({ organization, subscribeAction }) => {
+  const sortedEvents = organization?.events.slice();
+  sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
   const divImage = {
     backgroundImage: `url(${Background})`
   };
   return (
     <div className="organization-container" style={divImage}>
       <div>
-        <CountDownTimer
-          event={organization?.events.events[organization?.events.events.length - 1]}
-          subscribeAction={subscribeAction}
-        />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <EventView
-          prevEvent={organization?.events.events[organization?.events.events.length - 3]}
-          currEvent={organization?.events.events[organization?.events.events.length - 2]}
-          nextEvent={organization?.events.events[organization?.events.events.length - 1]}
-          subscribeAction={subscribeAction}
-        />
+        {sortedEvents && (
+          <CountDownTimer
+            event={sortedEvents[sortedEvents?.length - 1]}
+            subscribeAction={subscribeAction}
+          />
+        )}
+        {sortedEvents && (
+          <EventView
+            prevEvent={sortedEvents[sortedEvents?.length - 3]}
+            currEvent={sortedEvents[sortedEvents?.length - 2]}
+            nextEvent={sortedEvents[sortedEvents?.length - 1]}
+            subscribeAction={subscribeAction}
+          />
+        )}
       </div>
     </div>
   );

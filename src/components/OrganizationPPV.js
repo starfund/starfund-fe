@@ -7,14 +7,13 @@ import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/ppv_background.png';
 
-const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
+const OrganizationPPV = ({ event, subscribeAction }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
   window.scrollTo(0, 700);
   const intl = useIntl();
-  const date = new Date(event?.date);
-  const [url, setUrl] = useState(defaulturl);
+  const date = new Date(event?.eventDate);
   const months = [
     'jan',
     'feb',
@@ -36,6 +35,28 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
     query: '(max-width: 765px)'
   });
 
+  function getFirstFighter() {
+    const video = event?.mainEvents
+      .concat(event?.prelimEvents)
+      .filter(v => v.fighter1 && v.fighter2)
+      .slice(0, 1);
+    if (video.length > 0) {
+      return video[0].fighter1;
+    }
+    return '';
+  }
+
+  function getSecondFighter() {
+    const video = event?.mainEvents
+      .concat(event?.prelimEvents)
+      .filter(v => v.fighter1 && v.fighter2)
+      .slice(0, 1);
+    if (video.length > 0) {
+      return video[0].fighter2;
+    }
+    return '';
+  }
+
   function formatAMPM(d) {
     let hours = d.getHours();
     let minutes = d.getMinutes();
@@ -46,15 +67,6 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
     const strTime = `${hours}:${minutes} ${ampm}`;
     return strTime;
   }
-
-  const selectVideo = content => {
-    setUrl(content.video);
-    if (payed) {
-      window.scrollTo(0, 700);
-    } else {
-      window.scrollTo(0, 900);
-    }
-  };
 
   return (
     <div className="organization-container" style={divImage}>
@@ -70,10 +82,12 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
         <div className="event-div">
           <div className="event-name">{event?.name}</div>
           <div className="event-row">
-            <div className="event-fighter-name">{event?.fighters.fightersNames[0].name}</div>
-            <div className="event-vs">VS</div>
+            <div className="event-fighter-name">{getFirstFighter()}</div>
+            {getFirstFighter() != '' && getSecondFighter() != '' && (
+              <div className="event-vs">VS</div>
+            )}
           </div>
-          <div className="event-fighter-name">{event?.fighters.fightersNames[1].name}</div>
+          <div className="event-fighter-name">{getSecondFighter()}</div>
           <div className="event-row">
             <div className="event-date">
               {intl.formatMessage({ id: `organization.months.${months[date.getMonth()]}` })}{' '}
@@ -103,7 +117,7 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
           </div>
           <LazyLoadComponent>
             <ReactPlayer
-              url={url}
+              url={event?.streamLink ? event?.streamLink : ''}
               width
               controls
               playing
@@ -163,30 +177,31 @@ const OrganizationPPV = ({ event, defaulturl, subscribeAction }) => {
         </nav>
         <div className={!isMobile && 'container-nav'}>
           {!prelim &&
-            event?.mainVideos.mainVideos &&
-            event?.mainVideos.mainVideos.map(v => (
-              <div
-                className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}
-                onClick={payed ? () => selectVideo(v) : () => subscribeAction()}
-              >
-                {v.isLive && (
-                  <div className="live-tag">
-                    {intl.formatMessage({ id: `organization.event.livevideo` })}
-                  </div>
-                )}
-                {v?.title}
-              </div>
-            ))}
-          {prelim &&
-            event?.prelimVideos.prelimVideos &&
-            event?.prelimVideos.prelimVideos.map(v => (
+            event?.mainEvents &&
+            event?.mainEvents.map(v => (
               <div className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}>
                 {v.isLive && (
                   <div className="live-tag">
                     {intl.formatMessage({ id: `organization.event.livevideo` })}
                   </div>
                 )}
-                {v?.title}
+                {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
+                {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
+                {v?.fighter1} vs {v?.fighter2}
+              </div>
+            ))}
+          {prelim &&
+            event?.prelimEvents &&
+            event?.prelimEvents.map(v => (
+              <div className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}>
+                {v.isLive && (
+                  <div className="live-tag">
+                    {intl.formatMessage({ id: `organization.event.livevideo` })}
+                  </div>
+                )}
+                {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
+                {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
+                {v?.fighter1} vs {v?.fighter2}
               </div>
             ))}
         </div>

@@ -241,6 +241,7 @@ export default {
   'organization.watchevent': 'СМОТРЕТЬ ПОЛНОЕ СОБЫТИЕ',
   'organization.event.live': 'ЖИТЬ',
   'organization.event.livevideo': ' ● ЖИТЬ',
+  'organization.event.novideos': 'У этого мероприятия нет видео',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

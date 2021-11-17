@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import ConfirmationModal from './common/ConfirmationModal';
-import { getFighters } from '../state/actions/fighterActions';
 import { getOrganizations } from '../state/actions/organizationActions';
 
 import CommonModal from './common/CommonModal';
@@ -15,12 +14,13 @@ import BillingForm from './BillingForm';
 import PPVForm from './PPVForm';
 import PaymentMode from './PaymentMode';
 import HomeFooter from './HomeFooter';
-import background from '../assets/poster_ppv.png';
 import OrganizationHome from './OrganizationHome';
 import OrganizationPPV from './OrganizationPPV';
 import OrganizationEvents from './OrganizationEvents';
 
 const OrganizationView = () => {
+  const payed = false;
+  const { name } = useParams();
   const dispatch = useDispatch();
   const intl = useIntl();
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,37 +30,14 @@ const OrganizationView = () => {
   const [PPVOpen, setPPVOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user);
   useEffect(() => {
-    dispatch(getFighters(true));
-  }, [dispatch]);
-  useEffect(() => {
     dispatch(getOrganizations());
   }, [dispatch]);
 
-  const fighters = useSelector(state => state.fighters.fighters);
-  const fightersNames = [
-    {
-      name: 'BRADY'
-    },
-    {
-      name: 'KOVACS'
-    }
-  ];
-  const Videos = fighters && fighters[10]?.publicVideos;
-  const prelimVideos = Videos?.map(a => {
-    return { ...a };
-  })?.map(v => {
-    v.isLive = false;
-    return v;
-  });
-  const mainVideos = Videos?.map(a => {
-    return { ...a };
-  })?.map(v => {
-    v.isLive = false;
-    return v;
-  });
-  if (mainVideos) {
-    mainVideos[1].isLive = true;
-  }
+  const organization = useSelector(
+    state => state.organizations.organizations.filter(f => f.name == name)[0]
+  );
+  const sortedEvents = organization?.events.slice();
+  sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -83,56 +60,6 @@ const OrganizationView = () => {
     setModalIsOpen(false);
   };
 
-  const events = [
-    {
-      name: 'Cagezilla 59',
-      date: '2021-12-20T10:00:00.133Z',
-      location: 'The Sailsburry Center, Manassas VA',
-      fighters: { fightersNames },
-      mainVideos: { mainVideos },
-      prelimVideos: { prelimVideos }
-    },
-    {
-      name: 'Cagezilla 60',
-      date: '2021-12-20T10:00:00.133Z',
-      location: 'The Sailsburry Center, Manassas VA',
-      fighters: { fightersNames },
-      mainVideos: { mainVideos },
-      prelimVideos: { prelimVideos }
-    },
-    {
-      name: 'Cagezilla 61',
-      date: '2021-12-20T10:00:00.133Z',
-      location: 'The Sailsburry Center, Manassas VA',
-      fighters: { fightersNames },
-      mainVideos: { mainVideos },
-      prelimVideos: { prelimVideos }
-    },
-    {
-      name: 'Cagezilla 62',
-      date: '2021-12-20T10:00:00.133Z',
-      location: 'The Sailsburry Center, Manassas VA',
-      fighters: { fightersNames },
-      mainVideos: { mainVideos },
-      prelimVideos: { prelimVideos }
-    },
-    {
-      name: 'Cagezilla 63',
-      date: '2021-12-20T10:00:00.133Z',
-      location: 'The Sailsburry Center, Manassas VA',
-      fighters: { fightersNames },
-      mainVideos: { mainVideos },
-      prelimVideos: { prelimVideos }
-    }
-  ];
-
-  const organization = {
-    id: '1',
-    name: 'CageZilla',
-    events: { events },
-    PPVPrice: 2000,
-    MonthlyPrice: 1500
-  };
   const [home, setHome] = useState(true);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(false);
@@ -143,7 +70,7 @@ const OrganizationView = () => {
     <div className="fighter-container">
       <div className="cover-container">
         {organization ? (
-          <LazyLoadImage className="fighter-cover" src={background} alt="Cover" />
+          <LazyLoadImage className="fighter-cover" src={organization?.coverPhoto} alt="Cover" />
         ) : (
           <SkeletonTheme color="#202020" highlightColor="#444">
             <Skeleton height="90vh" />
@@ -158,7 +85,15 @@ const OrganizationView = () => {
               <button
                 type="button"
                 className="btn btn-danger btn-lg"
-                onClick={() => setModalIsOpen(true)}
+                onClick={() => {
+                  if (payed) {
+                    setHome(false);
+                    setAllEvents(false);
+                    setPPV(true);
+                  } else {
+                    setModalIsOpen(true);
+                  }
+                }}
               >
                 {intl.formatMessage({ id: 'organization.button.watch' })}
               </button>
@@ -206,7 +141,7 @@ const OrganizationView = () => {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
-                    setEvent(organization?.events?.events[organization?.events?.events.length - 1]);
+                    setEvent(sortedEvents[sortedEvents?.length - 1]);
                   }}
                 >
                   {intl.formatMessage({ id: 'header.ppv' })}
@@ -228,7 +163,7 @@ const OrganizationView = () => {
           subscribeAction={() => setModalIsOpen(true)}
         />
       )}
-      {ppv && fighters && (
+      {ppv && (
         <OrganizationPPV
           event={event}
           defaulturl={defaulturl}
@@ -247,8 +182,8 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={organization?.PPVPrice}
-              MonthlyPrice={organization?.MonthlyPrice}
+              onDemandPrice={organization?.ppvPrice}
+              MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
@@ -263,14 +198,14 @@ const OrganizationView = () => {
             isOpen={payMonthly}
             setIsOpen={setPayMonthly}
             isDelete={false}
-            price={organization?.MonthlyPrice}
+            price={organization?.subPrice}
             email={currentUser?.email}
             organization={organization?.id}
           >
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
-              price={organization?.MonthlyPrice}
+              price={organization?.subPrice}
               type="subscription"
             />
           </ConfirmationModal>
@@ -289,14 +224,14 @@ const OrganizationView = () => {
             isOpen={payPPV}
             setIsOpen={setPayPPV}
             isDelete={false}
-            price={organization?.PPVPrice}
+            price={organization?.ppvPrice}
             email={currentUser?.email}
             organization={organization?.id}
           >
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
-              price={organization?.PPVPrice}
+              price={organization?.ppvPrice}
               type="ppv"
             />
           </ConfirmationModal>
@@ -308,7 +243,7 @@ const OrganizationView = () => {
             isOpen={payYearly}
             setIsOpen={setPayYearly}
             isDelete={false}
-            price={organization?.MonthlyPrice * 12 * 0.8}
+            price={organization?.subPrice * 12 * 0.8}
             email={currentUser?.email}
             organization={organization?.id}
           >
@@ -316,7 +251,7 @@ const OrganizationView = () => {
               email={currentUser?.email}
               organization={organization?.name}
               type="subscription"
-              price={organization?.MonthlyPrice * 12 * 0.8}
+              price={organization?.subPrice * 12 * 0.8}
             />
           </ConfirmationModal>
         </div>

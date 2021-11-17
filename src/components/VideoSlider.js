@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 
 import { useIntl } from 'react-intl';
@@ -9,21 +9,30 @@ import { useMediaQuery } from 'react-responsive';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import Carousel from 'react-grid-carousel';
 
-const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) => {
+const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction, selectedVideo }) => {
+  const payed = false;
   const intl = useIntl();
-  const [url, setUrl] = useState();
-  const [activeVideo, setActiveVideo] = useState();
-  const [displayContent, setDisplayContent] = useState();
+  const anyVideo = publicVideos[0] ? publicVideos[0] : '';
+  const [url, setUrl] = useState(selectedVideo ? selectedVideo.video : anyVideo.video);
+  const [activeVideo, setActiveVideo] = useState(selectedVideo ? selectedVideo.id : anyVideo.id);
+  const [displayContent, setDisplayContent] = useState(selectedVideo || anyVideo);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
   const language = useSelector(state => state.language.language);
 
   const selectVideo = content => {
-    setUrl(content.video);
+    setUrl(content?.video);
     setDisplayContent(content);
-    setActiveVideo(`${content.id}pub`);
+    setActiveVideo(`${content?.id}`);
   };
+
+  useEffect(() => {
+    if (selectedVideo) {
+      selectVideo(selectedVideo);
+    }
+  }, [selectedVideo]);
+
   const months = [
     'jan.long',
     'feb.long',
@@ -40,7 +49,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
   ];
 
   const selectPrivateVideo = content => {
-    if (event?.payed) {
+    if (payed) {
       setActiveVideo(`${content.id}pri`);
       selectVideo(content);
     } else {
@@ -89,7 +98,7 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
             <br />
             <div className="event-subtitle">{displayContent?.description}</div>
             <br />
-            <div className="event-description">{EventDate(event?.date)}</div>
+            <div className="event-description">{EventDate(event?.eventDate)}</div>
             <br />
             <div className="event-description">{event?.location}</div>
           </div>
@@ -118,10 +127,10 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                       className={
                         isMobile
                           ? cn('video-description-mobile', {
-                              selected: activeVideo === `${v.id}pub`
+                              selected: activeVideo === `${v.id}`
                             })
                           : cn('video-description', {
-                              selected: activeVideo === `${v.id}pub`
+                              selected: activeVideo === `${v.id}`
                             })
                       }
                     >
@@ -158,13 +167,15 @@ const VideoSlider = ({ event, publicVideos, privateVideos, subscribeAction }) =>
                     className="col-12 col-sm-6 col-md-4 fighter-watch"
                     onClick={() => selectPrivateVideo(v)}
                   >
-                    <div
-                      className={
-                        isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
-                      }
-                    >
-                      EXCLUSIVE
-                    </div>
+                    {!payed && (
+                      <div
+                        className={
+                          isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
+                        }
+                      >
+                        EXCLUSIVE
+                      </div>
+                    )}
                     <div
                       className={
                         isMobile

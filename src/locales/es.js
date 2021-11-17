@@ -246,6 +246,7 @@ export default {
   'organization.watchevent': 'Ver evento completo',
   'organization.event.live': 'EN VIVO',
   'organization.event.livevideo': ' ● EN VIVO',
+  'organization.event.novideos': 'Este evento no contiene videos',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 import cn from 'classnames';
-import { getFighters } from '../state/actions/fighterActions';
 import VideoSlider from './VideoSlider';
 
-const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
-  const dispatch = useDispatch();
+const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video }) => {
+  const payed = true;
   const intl = useIntl();
   const [curr, setCurr] = useState(true);
   const [prev, setPrev] = useState(false);
   const [next, setNext] = useState(false);
   const [prelim, setPrelim] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(video);
 
-  useEffect(() => {
-    dispatch(getFighters(true));
-  }, [dispatch]);
+  function getPublicVideos(e) {
+    return e.mainEvents.concat(e.prelimEvents).filter(v => v.public);
+  }
 
-  const fighters = useSelector(state => state.fighters.fighters);
-  const videos = fighters && fighters[10]?.publicVideos;
+  function getPrivateVideos(e) {
+    return e.mainEvents.concat(e.prelimEvents).filter(v => !v.public);
+  }
+
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
@@ -76,36 +77,39 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
         </div>
         {prev && (
           <div>
-            {videos && (
+            {prevEvent && (
               <VideoSlider
                 event={prevEvent}
-                publicVideos={videos}
-                privateVideos={videos}
+                publicVideos={getPublicVideos(prevEvent)}
+                privateVideos={getPrivateVideos(prevEvent)}
                 subscribeAction={subscribeAction}
+                selectedVideo={selectedVideo}
               />
             )}
           </div>
         )}
         {curr && (
           <div>
-            {videos && (
+            {currEvent && (
               <VideoSlider
                 event={currEvent}
-                publicVideos={videos}
-                privateVideos={videos}
+                publicVideos={getPublicVideos(currEvent)}
+                privateVideos={getPrivateVideos(currEvent)}
                 subscribeAction={subscribeAction}
+                selectedVideo={selectedVideo}
               />
             )}
           </div>
         )}
         {next && (
           <div>
-            {videos && (
+            {nextEvent && (
               <VideoSlider
                 event={nextEvent}
-                publicVideos={videos}
-                privateVideos={videos}
+                publicVideos={getPublicVideos(nextEvent)}
+                privateVideos={getPrivateVideos(nextEvent)}
                 subscribeAction={subscribeAction}
+                selectedVideo={selectedVideo}
               />
             )}
           </div>
@@ -150,14 +154,16 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
         <div className="container-nav">
           {!prelim &&
             curr &&
-            currEvent.mainVideos.mainVideos &&
-            currEvent.mainVideos.mainVideos.map(v => (
+            currEvent?.mainEvents &&
+            currEvent?.mainEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => {
+                    v.public || payed ? setSelectedVideo(v) : subscribeAction();
+                  }}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>
@@ -165,14 +171,14 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
             ))}
           {prelim &&
             curr &&
-            currEvent.prelimVideos.prelimVideos &&
-            currEvent.prelimVideos.prelimVideos.map(v => (
+            currEvent?.prelimEvents &&
+            currEvent?.prelimEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>
@@ -180,14 +186,14 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
             ))}
           {!prelim &&
             next &&
-            nextEvent.mainVideos.mainVideos &&
-            nextEvent.mainVideos.mainVideos.map(v => (
+            nextEvent?.mainEvents &&
+            nextEvent?.mainEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>
@@ -195,14 +201,14 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
             ))}
           {prelim &&
             next &&
-            nextEvent.prelimVideos.prelimVideos &&
-            nextEvent.prelimVideos.prelimVideos.map(v => (
+            nextEvent?.prelimEvents &&
+            nextEvent?.prelimEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>
@@ -210,14 +216,14 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
             ))}
           {!prelim &&
             prev &&
-            prevEvent.mainVideos.mainVideos &&
-            prevEvent.mainVideos.mainVideos.map(v => (
+            prevEvent?.mainEvents &&
+            prevEvent?.mainEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>
@@ -225,14 +231,14 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction }) => {
             ))}
           {prelim &&
             prev &&
-            prevEvent.prelimVideos.prelimVideos &&
-            prevEvent.prelimVideos.prelimVideos.map(v => (
+            prevEvent?.prelimEvents &&
+            prevEvent?.prelimEvents.map(v => (
               <div className="event-item">
                 {v?.title}
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => subscribeAction()}
+                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
                 >
                   {intl.formatMessage({ id: 'organization.watchfight' })}
                 </button>

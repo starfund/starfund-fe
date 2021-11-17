@@ -2117,6 +2117,7 @@ h3 {
   align-items: center;
   justify-content: center;
   align-content: center;
+  margin-bottom: 15vh;
 }
 
 .event-fighter-name{
@@ -2196,7 +2197,47 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 7vh;
+  height: 8vh;
+  .winner1-tag{
+    position: absolute;
+    left:-1vw;
+    transform: rotate(270deg);
+    background-color: red;
+    color: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size:1vw;
+    text-align: center;
+    padding: 6px;
+    width:8vh;
+    @media (max-width: 765px) {
+      left: -5vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
+  }
+  .winner2-tag{
+    position: absolute;
+    right: -1vw;
+    transform: rotate(270deg);
+    background-color: red;
+    color: white;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size:1vw;
+    text-align: center;
+    padding: 6px;
+    width:8vh;
+    @media (max-width: 765px) {
+      left: -5vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
+  }
 }
 
 .event-item-ppv-active {
@@ -2214,7 +2255,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 7vh;
+  height: 8vh;
   .live-tag{
     position: absolute;
     left:-1vw;
@@ -2334,7 +2375,7 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: -136px;
+  right: -190px;
   width: fit-content;
 }
 .exclusive-event-video-mobile {
@@ -2344,7 +2385,7 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: 15px;
+  right: 160px;
   width: fit-content;
 }
 
@@ -2611,6 +2652,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 75vw;
   button {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;
@@ -2691,6 +2733,11 @@ h3 {
   justify-content: space-between;
   align-content: center;
   background-color: black;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
   .box {
     margin: 5px;
     height: 40vh;
@@ -2702,6 +2749,12 @@ h3 {
     position: relative;
     overflow: hidden;
     transition: 0.3s;
+    @media only screen and (max-width: 768px) {
+      width: 60vw;
+    }
+    @media only screen and (max-width: 1024px) {
+      width: 60vw;
+    }
   }
   .box:hover {
     transform: scale(1.1);
@@ -2768,5 +2821,8 @@ h3 {
   .services{
     font-size: 1.7vh;
     display: flex;
+    @media only screen and (max-width: 768px) {
+      font-size: 2vh;
+    }
   }
 }
