@@ -99,7 +99,7 @@ const UserHome = () => {
                       <div className="fighter-sub flex">
                         <img
                           src={
-                            organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                            organizations.filter(o => o.name === s.orgName)[0]?.coverPhoto ||
                             DefaultAvatar
                           }
                           alt="sub"

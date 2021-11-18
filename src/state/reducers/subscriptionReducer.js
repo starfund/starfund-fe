@@ -1,4 +1,5 @@
 import { createReducer } from '@rootstrap/redux-tools';
+import { logout } from 'state/actions/userActions';
 import {
   subscribe,
   updatePassword,
@@ -63,7 +64,8 @@ const actionHandlers = {
   },
   [requestDream.success]: state => {
     state.ppvRequest = [];
-  }
+  },
+  [logout.success]: () => initialState
 };
 
 export default createReducer(initialState, actionHandlers);

@@ -242,6 +242,7 @@ export default {
   'organization.event.live': 'ЖИТЬ',
   'organization.event.livevideo': ' ● ЖИТЬ',
   'organization.event.novideos': 'У этого мероприятия нет видео',
+  'organization.seasonpass': 'КУПИТЬ СЕЗОННЫЙ ПРОПУСК СЕЙЧАС',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

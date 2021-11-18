@@ -86,6 +86,20 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
               />
             </h2>
             <br />
+            <div className="season-pass">
+              {!payed && (
+                <button
+                  type="button"
+                  className="btn btn-danger btn-lg"
+                  onClick={() => {
+                    subscribeAction();
+                  }}
+                >
+                  {intl.formatMessage({ id: 'organization.seasonpass' })}
+                </button>
+              )}
+            </div>
+            <br />
             <div className={isMobile ? 'search-bar-mobile' : 'search-bar'}>
               <div className="bar">
                 <input

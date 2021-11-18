@@ -2202,8 +2202,8 @@ h3 {
     position: absolute;
     left:-1vw;
     transform: rotate(270deg);
-    background-color: red;
-    color: white;
+    background-color: greenyellow;
+    color: black;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 900;
@@ -2222,8 +2222,28 @@ h3 {
     position: absolute;
     right: -1vw;
     transform: rotate(270deg);
+    background-color: greenyellow;
+    color: black;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size:1vw;
+    text-align: center;
+    padding: 6px;
+    width:8vh;
+    @media (max-width: 765px) {
+      right: -5vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
+  }
+  .loser1-tag{
+    position: absolute;
+    left:-1vw;
+    transform: rotate(270deg);
     background-color: red;
-    color: white;
+    color: black;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 900;
@@ -2233,6 +2253,26 @@ h3 {
     width:8vh;
     @media (max-width: 765px) {
       left: -5vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
+  }
+  .loser2-tag{
+    position: absolute;
+    right: -1vw;
+    transform: rotate(270deg);
+    background-color: red;
+    color: black;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size:1vw;
+    text-align: center;
+    padding: 6px;
+    width:8vh;
+    @media (max-width: 765px) {
+      right: -5vw;
       height: 3vh;
       font-size: 2vh;
       padding: 3px;
@@ -2595,6 +2635,7 @@ h3 {
   align-content: center;
   align-items: center;
   justify-content: center;
+
   .video-description {
     width: 25vw;
     background-color: #373737;
@@ -2845,6 +2886,27 @@ h3 {
     justify-content: center;
     @media only screen and (max-width: 768px) {
       font-size: 2vh;
+    }
+  }
+}
+
+.season-pass{
+  display: flex;
+  justify-content: center;
+  button {
+    background-color: #ea0a0a;
+    border: solid #eb0000 1px;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: 16px;
+    max-height: 45px;
+    letter-spacing: 0.2em;
+    height: 45px;
+    padding: 5px 20px;
+
+    @media (max-width: 610px) {
+      height: 10vh;
+      margin-bottom: 3vh;
     }
   }
 }
