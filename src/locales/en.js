@@ -294,7 +294,7 @@ export default {
   'payment.monthly': 'MONTHLY',
   'payment.yearly': 'YEARLY',
   'payment.service1': 'Watch upcoming event',
-  'payment.service2': 'Whath all previous events',
+  'payment.service2': 'Watch all previous events',
 
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',
