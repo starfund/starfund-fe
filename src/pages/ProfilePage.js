@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
+import { getOrganizations } from '../state/actions/organizationActions';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
 import FighterDashboard from '../components/reports/FighterDashboard';
@@ -14,9 +15,14 @@ const ProfilePage = () => {
   useEffect(() => {
     dispatch(getSubscriptions());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getOrganizations());
+  }, [dispatch]);
 
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
+  const organizations = useSelector(state => state.organizations.organizations);
+  const orgSubs = useSelector(state => state.subscriptions.orgSubscriptions);
 
   return (
     <div className="profile-container">
@@ -75,6 +81,7 @@ const ProfilePage = () => {
                           <p> {s.team?.name} </p>
                         </div>
                       ))}
+                  <div className="blank-line" />
                   {supporting.length == 0 && (
                     <React.Fragment>
                       <p> You are not subscribed to any athletes yet. </p>
@@ -84,6 +91,25 @@ const ProfilePage = () => {
                       </Link>
                     </React.Fragment>
                   )}
+                  <h3>
+                    <center> EVENTS & SUBS </center>
+                  </h3>
+                  {organizations &&
+                    orgSubs?.length > 0 &&
+                    orgSubs.map(s => (
+                      <React.Fragment key={s.id}>
+                        <div className="fighter-sub flex">
+                          <img
+                            src={
+                              organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                              DefaultAvatar
+                            }
+                            alt="sub"
+                          />
+                          <p>{s.orgName}</p>
+                        </div>
+                      </React.Fragment>
+                    ))}
                   <div className="blank-line" />
                 </React.Fragment>
               )}
