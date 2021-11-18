@@ -7,6 +7,7 @@ import ReactGA from 'react-ga';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 import { getContent } from '../state/actions/contentActions';
+import { getOrganizations } from '../state/actions/organizationActions';
 
 import FeedContent from './FeedContent';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
@@ -21,8 +22,13 @@ const UserHome = () => {
   useEffect(() => {
     dispatch(getContent());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getOrganizations());
+  }, [dispatch]);
   const currentUser = useSelector(state => state.session.user);
   const supporting = useSelector(state => state.subscriptions.subscriptions);
+  const organizations = useSelector(state => state.organizations.organizations);
+  const orgSubs = useSelector(state => state.subscriptions.orgSubscriptions);
   const fighterIds = supporting.map(sub => sub.fighter && sub.fighter.id);
   const payedTeamFighterIds = supporting.map(sub => sub.team && sub.team.fighters?.map(f => f.id));
   const payedFighters = fighterIds + payedTeamFighterIds;
@@ -84,6 +90,22 @@ const UserHome = () => {
                             <p>{f?.firstName}</p>
                           </div>
                         ))}
+                    </React.Fragment>
+                  ))}
+                {organizations &&
+                  orgSubs?.length > 0 &&
+                  orgSubs.map(s => (
+                    <React.Fragment key={s.id}>
+                      <div className="fighter-sub flex">
+                        <img
+                          src={
+                            organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                            DefaultAvatar
+                          }
+                          alt="sub"
+                        />
+                        <p>{s.orgName}</p>
+                      </div>
                     </React.Fragment>
                   ))}
                 {supporting.length == 0 && (
