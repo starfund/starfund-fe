@@ -1,6 +1,6 @@
 import { createReducer } from '@rootstrap/redux-tools';
 import { login, signUp, logout, updateSession, update } from 'state/actions/userActions';
-import { subscribe } from 'state/actions/subscriptionActions';
+import { subscribe, charge } from 'state/actions/subscriptionActions';
 import { deleteCard } from 'state/actions/billingActions';
 
 const initialState = {
@@ -21,6 +21,9 @@ const actionHandlers = {
     state.authenticated = true;
   },
   [subscribe.success]: (state, { payload }) => {
+    state.user = payload.user;
+  },
+  [charge.success]: (state, { payload }) => {
     state.user = payload.user;
   },
   [update.success]: (state, { payload }) => {
