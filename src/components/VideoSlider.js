@@ -170,7 +170,7 @@ const VideoSlider = ({
                 <Carousel.Item>
                   <div
                     key={v.url}
-                    className="col-12 col-sm-6 col-md-4 fighter-watch"
+                    className="col-12 fighter-watch"
                     onClick={() => selectPrivateVideo(v)}
                   >
                     {!payed && (
@@ -178,6 +178,7 @@ const VideoSlider = ({
                         className={
                           isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
                         }
+                        style={{ right: '18px' }}
                       >
                         EXCLUSIVE
                       </div>
