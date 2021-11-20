@@ -31,7 +31,7 @@ export default {
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
   findFighter: 'FIND YOUR STAR',
-  findBusiness: 'FIND YOUR BUSINESS',
+  findBusiness: 'FIND YOUR ORGANIZATION',
   ppvTitle: 'Request a personal video to your fighter',
   team: 'Team',
 

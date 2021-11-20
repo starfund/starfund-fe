@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-import { getBusinesses } from '../state/actions/businessActions';
+import { getOrganizations } from '../state/actions/organizationActions';
 
 import Slider from './common/Slider';
 
@@ -13,31 +13,31 @@ const HomeBusinesses = ({ title }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   useEffect(() => {
-    dispatch(getBusinesses(true));
+    dispatch(getOrganizations(true));
   }, [dispatch]);
-  const businesses = useSelector(state => state.businesses.businesses);
+  const organizations = useSelector(state => state.organizations.organizations);
 
   return (
     <div className="stars-container">
       <h1 className="stars-title"> {title} </h1>
       <div className="fighters-slider-wrapper">
-        {businesses.length == 0 && (
+        {organizations.length == 0 && (
           <SkeletonTheme color="#202020" highlightColor="#444">
             <Skeleton height="90vh" />
           </SkeletonTheme>
         )}
         <Slider>
-          {businesses.length > 0 && (
+          {organizations.length > 0 && (
             <React.Fragment>
-              {businesses.map(b => (
+              {organizations.map(b => (
                 <Link
                   key={b.id}
                   className="fighter-card-link"
                   href=""
-                  onClick={() => history.push(`/business/${b.id}`)}
+                  onClick={() => history.push(`/organization/${b.name}`)}
                 >
                   <div key={b.id} className="fighter-card">
-                    <img className="fighter-card-image" src={b?.profilePicture} alt="Card cap" />
+                    <img className="fighter-card-image" src={b?.coverPhoto} alt="Card cap" />
                     <div className="fighter-card-overlay">
                       <div className="fighter-card-name-wrapper">
                         <span className="fighter-card-text">{b.name} </span>

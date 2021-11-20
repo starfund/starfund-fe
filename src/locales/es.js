@@ -38,7 +38,7 @@ export default {
   commingSoon: 'Estamos trabajando...',
   emailUs: 'Contactanos a ',
   findFighter: 'Encuentra tu estrella',
-  findBusiness: 'Encuentra tu centro deportivo',
+  findBusiness: 'Encuentra tu organizacion',
   ppvTitle: 'Solicita videos personalizados a tus atletas',
   equipo: 'Equipo',
 
