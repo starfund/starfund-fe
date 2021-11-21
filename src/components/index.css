@@ -2653,10 +2653,12 @@ h3 {
     }
     h4 {
       margin-left: 1vw;
+      margin-top: 5px;
     }
     p {
       font-weight: 300 !important;
       margin-left: 1vw;
+      margin-bottom: 5px;
     }
   }
   .video-description-mobile {
@@ -2715,7 +2717,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 98%;
+  width: 100%;
   button {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;
