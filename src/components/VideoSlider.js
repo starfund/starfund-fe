@@ -18,7 +18,7 @@ const VideoSlider = ({
   payed
 }) => {
   const intl = useIntl();
-  const anyVideo = publicVideos[0] ? publicVideos[0] : '';
+  const anyVideo = publicVideos[0] || privateVideos[0] || '';
   const [url, setUrl] = useState(selectedVideo ? selectedVideo.video : anyVideo.video);
   const [activeVideo, setActiveVideo] = useState(selectedVideo ? selectedVideo.id : anyVideo.id);
   const [displayContent, setDisplayContent] = useState(selectedVideo || anyVideo);
