@@ -2371,11 +2371,12 @@ h3 {
 }
 
 .event-video-text {
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
   align-content: flex-start;
   align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2%;
+  margin-top: 5vh;
 }
 
 .event-title {
@@ -2415,8 +2416,8 @@ h3 {
 .exclusive-event-video {
   background-color: red;
   color: white;
-  height: 2.5vw;
-  min-height: 32px;
+  height: 2vw;
+  min-height: 28px;
   padding: 5px 15px;
   position: absolute;
   right: -10vw;
