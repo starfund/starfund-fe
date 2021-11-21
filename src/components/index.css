@@ -2481,6 +2481,12 @@ h3 {
   }
 }
 
+.main-events {
+  .nav-link {
+    cursor: pointer;
+  }
+}
+
 .organization-container{
   background-repeat: no-repeat;
   background-position: top;

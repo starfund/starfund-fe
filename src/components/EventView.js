@@ -117,7 +117,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, pa
           </div>
         )}
       </div>
-      <div className="container">
+      <div className="container main-events">
         <br />
         <br />
         <br />

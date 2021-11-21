@@ -136,7 +136,7 @@ const OrganizationPPV = ({ event, subscribeAction, payed }) => {
       )}
       <br />
       <br />
-      <div className="container">
+      <div className="container main-events">
         <br />
         <br />
         <br />
