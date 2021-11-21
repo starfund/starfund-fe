@@ -127,12 +127,12 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed }) => {
             <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
               {'0'}
               {timeLeft[interval]}
-              {':'}
+              {' :'}
             </div>
           ) : (
             <div className={isMobile ? 'timer-time-number-mobile' : 'timer-time-number'}>
               {timeLeft[interval]}
-              {':'}
+              {': '}
             </div>
           )}
           <div className="timer-labels">

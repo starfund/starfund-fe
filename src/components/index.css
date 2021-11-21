@@ -2008,6 +2008,7 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   margin: 1em;
+  margin-right: 2em;
 }
 
 .timer-col {
@@ -2016,8 +2017,7 @@ h3 {
   align-items: flex-start;
   margin-top: 1em;
   margin-bottom: 1em;
-  min-width: 8em;
-  max-width: 8em;
+  width: 11em;
 }
 
 .timer-col-mobile {
@@ -2084,6 +2084,10 @@ h3 {
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.02em;
+  
+  @media (min-width: 765px) {
+    padding-left: 1em;
+  }
 }
 
 .event-name {
