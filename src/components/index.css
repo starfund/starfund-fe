@@ -2093,6 +2093,7 @@ h3 {
   font-weight: 900;
   font-size: 2.5em;
   line-height: 49px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
@@ -2714,7 +2715,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 75vw;
+  width: 98%;
   button {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;
