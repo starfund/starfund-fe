@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import ReactPlayer from 'react-player/lazy';
 import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
-import Background from '../assets/ppv_background.png';
+import Background from '../assets/awcf_poster_bg.png';
 
 const OrganizationPPV = ({ event, payed }) => {
   const divImage = {
