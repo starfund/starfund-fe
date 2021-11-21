@@ -178,7 +178,7 @@ const VideoSlider = ({
                         className={
                           isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
                         }
-                        style={{ right: '18px' }}
+                        style={{ right: '2.5vw' }}
                       >
                         EXCLUSIVE
                       </div>

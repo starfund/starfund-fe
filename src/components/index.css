@@ -2133,7 +2133,6 @@ h3 {
 .event-row {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .event-date {
@@ -2416,7 +2415,7 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: -190px;
+  right: -10vw;
   width: fit-content;
 }
 .exclusive-event-video-mobile {
@@ -2434,10 +2433,11 @@ h3 {
   background-color: red;
   color: white;
   height: 2.5vw;
+  margin-top: -35px;
   min-height: 32px;
   padding: 5px 15px;
-  position: absolute;
-  right: 16px;
+  position: relative;
+  top:35px;
   width: fit-content;
 }
 .exclusive-event-video-mobile-big {
