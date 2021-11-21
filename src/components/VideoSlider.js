@@ -103,6 +103,7 @@ const VideoSlider = ({
               url={url}
               width
               muted
+              light={displayContent?.thumbnail}
               style={{
                 margin: '3%',
                 minHeight: `${isMobile ? '35vh' : '50vh'}`,
