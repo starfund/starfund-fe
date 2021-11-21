@@ -198,13 +198,7 @@ const OrganizationView = () => {
           subscribeAction={() => setModalIsOpen(true)}
         />
       )}
-      {ppv && fighters && (
-        <OrganizationPPV
-          event={event}
-          defaulturl={defaulturl}
-          subscribeAction={() => setModalIsOpen(true)}
-        />
-      )}
+      {ppv && fighters && <OrganizationPPV event={event} defaulturl={defaulturl} />}
       {organization && (
         <div>
           <ConfirmationModal

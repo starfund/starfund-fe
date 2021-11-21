@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/ppv_background.png';
 
-const OrganizationPPV = ({ event, subscribeAction, payed }) => {
+const OrganizationPPV = ({ event, payed }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
@@ -210,11 +210,6 @@ const OrganizationPPV = ({ event, subscribeAction, payed }) => {
         </div>
         <br />
       </div>
-      {!payed && (
-        <button type="button" className="btn btn-danger btn-lg" onClick={() => subscribeAction()}>
-          {intl.formatMessage({ id: 'organization.button.buyppv' })}
-        </button>
-      )}
       <br />
       <br />
       <br />
