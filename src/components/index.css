@@ -2323,7 +2323,10 @@ h3 {
 
 .container-nav{
   max-width: 80vw;
-  margin-left: 10vw; 
+  @media (min-width: 992px) {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
 }
 
 .event-view-nav {
@@ -2336,10 +2339,10 @@ h3 {
     font-size: 1.5vw
   }
   .navbar-nav {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-      margin-left: 10.5vw;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 10.5vw;
   }
 }
 
