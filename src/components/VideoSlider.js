@@ -74,28 +74,52 @@ const VideoSlider = ({
     <div>
       <div className="event-video">
         <LazyLoadComponent>
-          <ReactPlayer
-            url={url}
-            width
-            controls
-            playing
-            muted
-            style={{
-              margin: '3%',
-              minHeight: `${isMobile ? '35vh' : '50vh'}`,
-              maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-              minWidth: `${isMobile ? '75vw' : '45vw'}`,
-              maxWidth: `${isMobile ? '75vw' : '45vw'}`
-            }}
-            config={{
-              file: {
-                attributes: {
-                  onContextMenu: e => e.preventDefault(),
-                  controlsList: 'nodownload'
+          {payed && (
+            <ReactPlayer
+              url={url}
+              width
+              muted
+              controls
+              playing
+              style={{
+                margin: '3%',
+                minHeight: `${isMobile ? '35vh' : '50vh'}`,
+                maxHeight: `${isMobile ? '35vh' : '50vh'}`,
+                minWidth: `${isMobile ? '75vw' : '45vw'}`,
+                maxWidth: `${isMobile ? '75vw' : '45vw'}`
+              }}
+              config={{
+                file: {
+                  attributes: {
+                    onContextMenu: e => e.preventDefault(),
+                    controlsList: 'nodownload'
+                  }
                 }
-              }
-            }}
-          />
+              }}
+            />
+          )}
+          {!payed && (
+            <ReactPlayer
+              url={url}
+              width
+              muted
+              style={{
+                margin: '3%',
+                minHeight: `${isMobile ? '35vh' : '50vh'}`,
+                maxHeight: `${isMobile ? '35vh' : '50vh'}`,
+                minWidth: `${isMobile ? '75vw' : '45vw'}`,
+                maxWidth: `${isMobile ? '75vw' : '45vw'}`
+              }}
+              config={{
+                file: {
+                  attributes: {
+                    onContextMenu: e => e.preventDefault(),
+                    controlsList: 'nodownload'
+                  }
+                }
+              }}
+            />
+          )}
         </LazyLoadComponent>
         {!isMobile && (
           <div className="event-video-text">
