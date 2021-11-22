@@ -1,3 +1,21 @@
+.custom-header-mobile {
+  .main-logo {
+    background: white;
+    cursor: pointer;
+    min-height: inherit;
+    padding-top: 15px;
+
+    img {
+      padding: 10px;
+      height: 40px;
+    }
+  }
+
+  .navbar-collapse {
+    margin-right: 5px;
+  }
+}
+
 .custom-header {
   min-height: 55px;
   min-height: 55px;
