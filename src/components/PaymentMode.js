@@ -44,7 +44,7 @@ const PaymentMode = ({
               20% OFF
             </div>
             <sup>$</sup>
-            {(MonthlyPrice * 12 * 0.8) / 100}
+            {Math.round((MonthlyPrice * 12 * 0.8) / 100)}
           </div>
           <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
         </div>
