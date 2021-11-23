@@ -144,7 +144,7 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed }) => {
   });
 
   return (
-    <div className="cover-container">
+    <div>
       <br />
       <br />
       <div className="timer-div">{timerComponents.length > 0 && timerComponents}</div>
@@ -190,8 +190,6 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed }) => {
           </button>
         </div>
       )}
-      <br />
-      <br />
     </div>
   );
 };

@@ -136,22 +136,24 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                 <React.Fragment key={index}>
                   <div className={isMobile ? 'event-video-row-mobile' : 'event-video-row'}>
                     <div className="event-video-text">
-                      <div className="event-name">{item?.name}</div>
+                      <div className="event-name-all-events">{item?.name}</div>
                       <div className="event-description">{EventDate(item?.eventDate)}</div>
                       <br />
                     </div>
-                    <button
-                      type="button"
-                      className="btn btn-danger btn-lg"
-                      onClick={() => {
-                        setAllEvents(false);
-                        setCurrEvent(item);
-                        setPrevEvent(sortedEvents[index - 1]);
-                        setNextEvent(sortedEvents[index + 1]);
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'organization.watchevent' })}
-                    </button>
+                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 && !isMobile && (
+                      <button
+                        type="button"
+                        className="btn btn-danger btn-lg"
+                        onClick={() => {
+                          setAllEvents(false);
+                          setCurrEvent(item);
+                          setPrevEvent(sortedEvents[index - 1]);
+                          setNextEvent(sortedEvents[index + 1]);
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'organization.watchevent' })}
+                      </button>
+                    )}
                   </div>
                   <div className="event-row">
                     {!isMobile &&
@@ -162,7 +164,9 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                         .map(v => (
                           <div
                             key={v.url}
-                            className="col-12 col-sm-6 col-md-4 fighter-watch"
+                            className={
+                              isMobile ? 'fighter-watch' : 'col-12 col-sm-6 col-md-4 fighter-watch'
+                            }
                             onClick={() => {
                               if (v.public || payed) {
                                 setSelectedVideo(v);
@@ -214,7 +218,12 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                           </div>
                         ))}
                     {item?.mainEvents.concat(item?.prelimEvents).length == 0 && (
-                      <h3>{intl.formatMessage({ id: 'organization.event.novideos' })}</h3>
+                      <div>
+                        <br />
+                        <br />
+                        <br />
+                        <h3>{intl.formatMessage({ id: 'organization.event.novideos' })}</h3>
+                      </div>
                     )}
                     {isMobile &&
                       item?.mainEvents.concat(item?.prelimEvents).slice(0, 1) &&
@@ -224,7 +233,9 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                         .map(v => (
                           <div
                             key={v.url}
-                            className="col-12 col-sm-6 col-md-4 fighter-watch"
+                            className={
+                              isMobile ? 'fighter-watch' : 'col-12 col-sm-6 col-md-4 fighter-watch'
+                            }
                             onClick={() => {
                               if (v.public || payed) {
                                 setSelectedVideo(v);
@@ -277,6 +288,10 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                             <br />
                           </div>
                         ))}
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                   </div>
                 </React.Fragment>
               );

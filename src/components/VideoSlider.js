@@ -74,7 +74,7 @@ const VideoSlider = ({
     <div>
       <div className="event-video">
         <LazyLoadComponent>
-          {payed && (
+          {(payed || displayContent.public) && (
             <ReactPlayer
               url={url}
               width
@@ -85,8 +85,8 @@ const VideoSlider = ({
                 margin: '3%',
                 minHeight: `${isMobile ? '35vh' : '50vh'}`,
                 maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-                minWidth: `${isMobile ? '75vw' : '45vw'}`,
-                maxWidth: `${isMobile ? '75vw' : '45vw'}`
+                minWidth: `${isMobile ? '100vw' : '45vw'}`,
+                maxWidth: `${isMobile ? '100vw' : '45vw'}`
               }}
               config={{
                 file: {
@@ -98,7 +98,7 @@ const VideoSlider = ({
               }}
             />
           )}
-          {!payed && (
+          {!payed && !displayContent.public && (
             <ReactPlayer
               url={url}
               width
@@ -109,8 +109,8 @@ const VideoSlider = ({
                 margin: '3%',
                 minHeight: `${isMobile ? '35vh' : '50vh'}`,
                 maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-                minWidth: `${isMobile ? '75vw' : '45vw'}`,
-                maxWidth: `${isMobile ? '75vw' : '45vw'}`,
+                minWidth: `${isMobile ? '100vw' : '45vw'}`,
+                maxWidth: `${isMobile ? '100vw' : '45vw'}`,
                 pointerEvents: 'none'
               }}
               config={{
@@ -140,7 +140,11 @@ const VideoSlider = ({
       <div>
         <Carousel
           mobileBreakpoint={0}
-          containerStyle={{ backgroundColor: '#202020', width: '75vw', marginLeft: '2vw' }}
+          containerStyle={{
+            backgroundColor: '#202020',
+            width: `${isMobile ? '100vw' : '75vw'}`,
+            marginLeft: `${isMobile ? '0vw' : '2vw'}`
+          }}
           cols={isMobile ? 1 : 3}
           rows={1}
           gap={10}
@@ -171,7 +175,7 @@ const VideoSlider = ({
                         <ReactPlayer
                           url={v.video}
                           width={isMobile ? '100%' : '20vw'}
-                          height="25vh"
+                          height={isMobile ? '35vh' : '25vh'}
                           light={v.thumbnail}
                           muted
                           config={{
@@ -205,7 +209,6 @@ const VideoSlider = ({
                         className={
                           isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
                         }
-                        style={{ right: '2.5vw' }}
                       >
                         EXCLUSIVE
                       </div>

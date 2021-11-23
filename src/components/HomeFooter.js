@@ -19,38 +19,38 @@ const HomeFooter = () => {
     <footer className="footer">
       <div className="container row">
         <div className="col-sm-2 col-0 row-1" />
-        <div className="col-sm-2 col-6 row-1">
+        <div className="col-sm-2 col-12 row-1">
           <div>
             <h3>{intl.formatMessage({ id: 'header.explore' })}</h3>
           </div>
           <div className="explore-div">
-            <div className="center-50">
+            <div className={isMobile ? 'footer-items' : 'center-50'}>
               <a onClick={() => window.open('/about-us', '_self')}>
                 {intl.formatMessage({ id: 'header.about' })}
               </a>
             </div>
-            <div className="center-50">
+            <div className={isMobile ? 'footer-items' : 'center-50'}>
               <a onClick={() => window.open('/athletes', '_self')}>
                 {intl.formatMessage({ id: 'header.athletes' })}
               </a>
             </div>
-            <div className="center-50">
+            <div className={isMobile ? 'footer-items' : 'center-50'}>
               <a onClick={() => window.open('/watch', '_self')}>
                 {intl.formatMessage({ id: 'header.watch.lower' })}
               </a>
             </div>
-            <div className="center-50">
+            <div className={isMobile ? 'footer-items' : 'center-50'}>
               <a onClick={() => window.open('/watch', '_self')}>
                 {intl.formatMessage({ id: 'header.business.lower' })}
               </a>
             </div>
           </div>
         </div>
-        <div className="col-sm-4 col-6 row-1">
+        <div className="col-sm-4 col-12 row-1">
           <div className="contact">
             <h3>{intl.formatMessage({ id: 'header.contact' })}</h3>
           </div>
-          <div className="center-50">
+          <div className={isMobile ? 'footer-items' : 'center-50'}>
             <p> info@starfund.app </p>
           </div>
           <div className={isMobile ? 'flex social-container-mobile' : 'flex social-container'}>
@@ -79,11 +79,10 @@ const HomeFooter = () => {
           </div>
         </div>
         <div className="col-12 col-sm-2 col-6 row-1">
-          {isMobile && <br />}
           <div className="col join-col">
             <h3>{intl.formatMessage({ id: 'header.join' })}</h3>
           </div>
-          <div className="center-50">
+          <div className={isMobile ? 'footer-items' : 'center-50'}>
             <Link
               to="/join-us"
               type="button"

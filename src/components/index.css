@@ -344,6 +344,9 @@ h3 {
       font-weight: 600;
     }
   }
+  .footer-items{
+    margin-left: 0vw;
+  }
 
   .social-container {
     display: flex;
@@ -355,14 +358,15 @@ h3 {
   }
 
   .social-container-mobile {
-    display: contents;
-    margin-top: 4vh;
+    display: inline;
+    margin-left: -1vw;
     img {
-      width: 5vw;
+      margin-top:4vh;
+      width: 10vw;
     }
   }
   .explore-div{
-    margin-top: 3vh;
+    margin-bottom: 18vh;
   }
 
   .social {
@@ -386,6 +390,10 @@ h3 {
 
     h3 {
       text-align: center;
+      @media only screen and (max-width : 768px) {
+      text-align: left;
+      margin-left: 0vw;
+      }
     }
 
     a { 
@@ -414,6 +422,11 @@ h3 {
 
   .join-col {
     margin-bottom: 20px;
+    @media (max-width:769px){
+      margin-bottom: 2vw;
+      margin-top: -6vw;
+      margin-left: -4vw; 
+    }
   }
 
   .last-row {
@@ -450,11 +463,12 @@ h3 {
       font-weight: 500 !important;  
       margin-top:2vh;
       line-height: normal;
+      font-size: 3.6vw;
     }
 
     p {
       font-weight: 500 !important; 
-      margin-top:2vh;
+      font-size: 3.6vw;
     }
 
     .copyright-div {
@@ -462,6 +476,9 @@ h3 {
       display: flex;
       line-height: normal;
       font-weight: 500 !important;
+      margin-top: -5vw;
+      margin-bottom: 3vw;
+      font-size: 3.6vw;
     }
 
     display: flex;
@@ -481,7 +498,7 @@ h3 {
   }
 
   .contact {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
 
   .enroll-as-a-star-btn {
@@ -708,13 +725,12 @@ h3 {
       border-radius: 0;
       font-weight: bold;
       font-size: 16px;
-      max-height: 45px;
       letter-spacing: 0.2em;
-      height: 45px;
+      height: 6vh;
       padding: 5px 20px;
-
-      @media (max-width: 610px) {
-        height: 40px;
+      @media (max-width: 600px) {
+        font-size: 5vw;
+        height: 10vw;
       }
     }
   }
@@ -731,7 +747,8 @@ h3 {
 
       @media (max-width: 610px) {
         height: 35px;
-        width: 16vw;
+        width: 25vw;
+        font-weight: bold !important;
         padding: 0vw;
         font-size: 3vw;        
       }
@@ -827,39 +844,34 @@ h3 {
   .centered {
     position: absolute;
     width: 100%;
-    top: 65%;
+    top: 55%;
     left: 50%;
     z-index: 2;
     font-size: 60px;
     font-weight: bold;
     transform: translate(-50%, -50%);
 
-    @media (max-height: 800px) {
-      top: 55%;
-    }
-
-    @media (max-height: 700px) {
-      top: 45%;
-    }
-
-    @media (max-height: 600px) {
-      top: 10%;
+    @media (max-width: 1024px) {
+      top: 80%;
     }
 
     @media (max-width: 777px) {
-      top: 50%;
+      top: 70%;
     }
 
-    @media (max-width: 350px) {
+    @media (max-width: 500px) {
+      top: 60%;
+      @media (max-height: 777px) {
+        top: 50%;
+      }
+    }
+
+    @media (max-width: 370px) {
       top: 50%;
     }
 
     @media (max-width: 320px) {
-      top: 40%;
-    }
-
-    @media (max-width: 260px) {
-      top: 40%;
+      top: 35%;
     }
 
     h1 {
@@ -2014,7 +2026,6 @@ h3 {
 .timer-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   margin-top: 1em;
   margin-bottom: 1em;
   width: 11em;
@@ -2023,7 +2034,7 @@ h3 {
 .timer-col-mobile {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 1em;
   margin-bottom: 1em;
   min-width: 24vw;
@@ -2080,13 +2091,15 @@ h3 {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 500 !important;
-  font-size: 1em;
+  font-size: 4vw;
   line-height: 20px;
   text-align: center;
   letter-spacing: 0.02em;
   
-  @media (min-width: 765px) {
+  @media (min-width: 1200px) {
     padding-left: 1em;
+    line-height:11px;
+    font-size:2.5vh;
   }
 }
 
@@ -2099,6 +2112,25 @@ h3 {
   line-height: 49px;
   padding-bottom: 10px;
   text-align: center;
+  @media (max-width: 768px){
+    margin-top: -3vh;
+    margin-bottom: 9vh;
+  }
+}
+
+
+.event-name-all-events {
+  color: white;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 2.5em;
+  line-height: 49px;
+  padding-bottom: 10px;
+  text-align: center;
+  @media (max-width: 768px){
+    margin-top: -3vh;
+  }
 }
 
 .event-vs{
@@ -2132,11 +2164,18 @@ h3 {
   font-weight: 900;
   font-size: 4em;
   line-height: 62px;
+  @media (max-width: 765px) {
+    font-size: 9vw;
+    line-height: 40px;
+  }
 }
 
 .event-row {
   display: flex;
   align-items: center;
+  @media (max-width: 768px){
+    flex-direction: column;
+  }
 }
 
 .event-date {
@@ -2147,6 +2186,9 @@ h3 {
   line-height: 1.25em;
   text-align: center;
   color: #FFFFFF;
+  @media (max-width: 765px) {
+    font-size:6vw;
+  }
 }
 
 .event-watch {
@@ -2157,6 +2199,10 @@ h3 {
   line-height: 20px;
   text-align: center;
   color: red;
+  @media (max-width: 765px) {
+    font-size:6vw;
+    margin-top: 6px;
+  }
 }
 
 .navbar-events {
@@ -2168,6 +2214,10 @@ h3 {
   background-color: #373737;
   max-width: 80vw;
   margin-left: 10vw; 
+  @media (max-width:768px){
+    max-width: 100vw;
+    margin-left: 0vw; 
+  }
 }
 
 .event-item {
@@ -2184,6 +2234,13 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px){
+    width: 100vw;
+    margin-left: 0px;
+    font-weight: bold !important;
+    font-size: 1vw;
+    font-size: 4.5vw;
+  }
 }
 
 .event-item-ppv {
@@ -2202,6 +2259,10 @@ h3 {
   justify-content: center;
   align-items: center;
   height: 8vh;
+  @media (max-width: 765px) {
+    width:100vw;
+    margin-left:0px;
+  }
   .winner1-tag{
     position: absolute;
     left:-1vw;
@@ -2300,6 +2361,10 @@ h3 {
   justify-content: center;
   align-items: center;
   height: 8vh;
+  @media (max-width: 765px) {
+    width:100vw;
+    margin-left:0px;
+  }
   .live-tag{
     position: absolute;
     left:-1vw;
@@ -2314,9 +2379,10 @@ h3 {
     padding: 6px;
     @media (max-width: 765px) {
       left: -5vw;
-      height: 3vh;
+      width: 8vh;
+      height: 3.5vh;
       font-size: 2vh;
-      padding: 3px;
+      padding: 5px;
     }
   }
 }
@@ -2349,11 +2415,11 @@ h3 {
 .event-view-nav-mobile {
   display: flex;
   justify-content: center;
-  margin-left: -10vw;
   .nav-item {
     margin-left: 3vw;
     margin-right: 3vw;
-    font-size: 5vw
+    font-size: 5vw;
+    width: 100vw;
   }
   .navbar-nav  {
     display: flex;
@@ -2367,9 +2433,9 @@ h3 {
   justify-content: space-evenly;
   width: 80vw;
   @media (max-width: 765px) {
-    width: 80vw;
+    width: 100vw;
     height: 35vh;
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
   }
 }
 
@@ -2423,7 +2489,7 @@ h3 {
   min-height: 28px;
   padding: 5px 15px;
   position: absolute;
-  right: -10vw;
+  right: 3vw;
   width: fit-content;
 }
 .exclusive-event-video-mobile {
@@ -2433,7 +2499,7 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: 160px;
+  right: 73px;
   width: fit-content;
 }
 
@@ -2455,7 +2521,7 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: 20px;
+  right: 5px;
   width: fit-content;
 }
 
@@ -2481,15 +2547,24 @@ h3 {
       font-size: 52px;
       @media (max-width: 765px) {
         font-size:  10vw;
+        margin-bottom: 2vh;
       }
     }
     @media (max-width: 765px) {
       display: inline;
     }
   }
+
+  @media (max-width: 765px) {
+    width: 100vw;
+    margin-left: 0vw;
+  }
 }
 
 .main-events {
+  width: 100vw;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
   .nav-link {
     cursor: pointer;
   }
@@ -2710,9 +2785,15 @@ h3 {
     background-color: red;
     padding: 1.4%;
     margin-top: 0.5%;
+    @media (max-width: 800px) {
+      padding: 2%;
+    }
   }
   .bar {
     width: 30vw;
+    @media (max-width: 800px) {
+      width: 70vw;
+    }
   }
   .search-bar-input{
     width: 30vw;
@@ -2720,6 +2801,10 @@ h3 {
     color: white;
     background-color: #373737;
     border-color: #373737;
+    @media (max-width: 800px) {
+      width: 70vw;
+    }
+
   }
   .search-bar-mobile {
     display: flex;
@@ -2754,6 +2839,7 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: -18px;
   button {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;

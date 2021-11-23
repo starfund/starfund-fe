@@ -28,7 +28,6 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, pa
   return (
     <div>
       <div className="event-view-div">
-        <br />
         <div className={isMobile ? 'event-view-nav-mobile' : 'event-view-nav'}>
           <React.Fragment>
             <ul className="navbar-nav">
@@ -118,8 +117,6 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, pa
         )}
       </div>
       <div className="container main-events">
-        <br />
-        <br />
         <br />
         <br />
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

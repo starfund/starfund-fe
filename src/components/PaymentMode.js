@@ -40,10 +40,12 @@ const PaymentMode = ({
           <span className="featured">{intl.formatMessage({ id: 'payment.featured' })}</span>
           <div className="payment-yearly">{intl.formatMessage({ id: 'payment.yearly' })}</div>
           <div className="price">
-            <div className="discount-percentage">
-              <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
-              {yearlyDiscount}% OFF
-            </div>
+            {yearlyDiscount && (
+              <div className="discount-percentage">
+                <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
+                {yearlyDiscount}% OFF
+              </div>
+            )}
             <sup>$</sup>
             {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
           </div>

@@ -11,6 +11,13 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
+
+  const sortedMainEvents = event?.mainEvents.slice();
+  sortedMainEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
+
+  const sortedPrelimEvents = event?.prelimEvents.slice();
+  sortedPrelimEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
+
   window.scrollTo(0, 700);
   const intl = useIntl();
   const date = new Date(event?.eventDate);
@@ -69,10 +76,10 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
 
   return (
     <div className="organization-container" style={divImage}>
-      <br />
-      <br />
-      <br />
-      <br />
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
       <br />
       <br />
       <br />
@@ -87,6 +94,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
             )}
           </div>
           <div className="event-fighter-name">{getSecondFighter()}</div>
+          <br />
           <div className="event-row">
             <div className="event-date">
               {intl.formatMessage({ id: `organization.months.${months[date.getMonth()]}` })}{' '}
@@ -176,8 +184,8 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
         </nav>
         <div className={!isMobile && 'container-nav'}>
           {!prelim &&
-            event?.mainEvents &&
-            event?.mainEvents.map(v => (
+            sortedMainEvents &&
+            sortedMainEvents.map(v => (
               <div className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}>
                 {v.isLive && (
                   <div className="live-tag">
@@ -192,8 +200,8 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
               </div>
             ))}
           {prelim &&
-            event?.prelimEvents &&
-            event?.prelimEvents.map(v => (
+            sortedPrelimEvents &&
+            sortedPrelimEvents.map(v => (
               <div className={!v.isLive ? 'event-item-ppv' : 'event-item-ppv-active'}>
                 {v.isLive && (
                   <div className="live-tag">
