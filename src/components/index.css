@@ -2985,7 +2985,7 @@ h3 {
     display: flex;
     justify-content: center;
     @media only screen and (max-width: 768px) {
-      font-size: 2vh;
+      font-size: 1.9vh;
     }
   }
 }

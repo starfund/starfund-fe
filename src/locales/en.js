@@ -294,8 +294,10 @@ export default {
   'payment.ondemand': 'ON DEMAND',
   'payment.monthly': 'MONTHLY',
   'payment.yearly': 'YEARLY',
-  'payment.service1': 'Watch upcoming event',
-  'payment.service2': 'Watch all previous events',
+  'payment.service1': 'Purchase single PPV',
+  'payment.service2': 'Access to 100+ fights',
+  'payment.service3': 'Recieve 10% off on PPV',
+  'payment.service4': 'Plus everything from monthly',
 
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',

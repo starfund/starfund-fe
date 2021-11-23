@@ -300,8 +300,10 @@ export default {
   'payment.ondemand': 'BAJO DEMANDA',
   'payment.monthly': 'MENSUAL',
   'payment.yearly': 'ANUAL',
-  'payment.service1': 'Ver el próximo evento',
-  'payment.service2': 'Ver todos los eventos anteriores',
+  'payment.service1': 'Comprar PPV unico',
+  'payment.service2': 'Acceder a 100+ peleas',
+  'payment.service3': 'Recivir 10% off en PPV',
+  'payment.service4': 'Todo lo del mensual',
 
   // BUSINESSES
   'business.programs.title': 'CONOCE NUESTROS CURSOS',

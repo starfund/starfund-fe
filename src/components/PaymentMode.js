@@ -33,6 +33,8 @@ const PaymentMode = ({
             {MonthlyPrice / 100}
           </div>
           <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
+          <br />
+          <div className="services">{intl.formatMessage({ id: 'payment.service3' })}</div>
         </div>
       )}
       {!payed && (
@@ -49,7 +51,7 @@ const PaymentMode = ({
             <sup>$</sup>
             {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
           </div>
-          <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
+          <div className="services">{intl.formatMessage({ id: 'payment.service4' })}</div>
         </div>
       )}
     </div>

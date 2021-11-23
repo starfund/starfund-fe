@@ -292,8 +292,10 @@ export default {
   'payment.ondemand': 'PPV',
   'payment.monthly': 'ЕЖЕМЕСЯЧНО',
   'payment.yearly': 'ЕЖЕГОДНО',
-  'payment.service1': 'Смотрите предстоящее мероприятие',
-  'payment.service2': 'Что все предыдущие события',
+  'payment.service1': 'Покупка одного PPV',
+  'payment.service2': 'Доступ к 100+ боям',
+  'payment.service3': 'Получите 10% скидку на PPV',
+  'payment.service4': 'Плюс все, начиная с месяца',
 
   // BUSINESSES
   'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',
