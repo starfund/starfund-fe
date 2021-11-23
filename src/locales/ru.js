@@ -83,7 +83,7 @@ export default {
     'Мы свяжемся с вами в течение всего процесса и любыми способами, если вы все еще хотите узнать что-то еще, свяжитесь с нами по адресу support@starfund.app',
 
   // Header
-  'header.business': 'Спортзалы',
+  'header.business': 'Организации',
   'header.watch': 'Смотреть',
   'header.business.lower': 'Спортзалы',
   'header.watch.lower': 'Смотреть',

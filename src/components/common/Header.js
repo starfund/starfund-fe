@@ -60,11 +60,6 @@ const Header = () => {
                   <span className="sr-only">(current)</span>
                 </Link>
               </li>
-              <li className={cn('nav-item text-right', { active: pathname === routePaths.watch })}>
-                <Link to="/watch" className="nav-link">
-                  {intl.formatMessage({ id: 'header.watch' })}
-                </Link>
-              </li>
               <li
                 className={cn('nav-item text-right', {
                   active: pathname === routePaths.businesses
