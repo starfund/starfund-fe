@@ -2,7 +2,7 @@ import React from 'react';
 
 import CountDownTimer from './CountDownTimer';
 import EventView from './EventView';
-import Background from '../assets/awcf_poster_bg.png';
+import Background from '../assets/awcf_poster_bg2.png';
 
 const OrganizationHome = ({ organization, subscribeAction, watchAction, payed, payedPPV }) => {
   const sortedEvents = organization?.events.slice();
