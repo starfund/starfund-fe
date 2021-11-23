@@ -62,9 +62,7 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, pa
                   className="nav-link"
                   href=""
                   onClick={() => {
-                    setPrev(false);
-                    setCurr(false);
-                    setNext(true);
+                    console.log('upcoming');
                   }}
                 >
                   {nextEvent?.name}{' '}
