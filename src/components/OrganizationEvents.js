@@ -14,7 +14,7 @@ const PageSize = 4;
 
 const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
   const intl = useIntl();
-  const sortedEvents = organization?.events.slice();
+  const sortedEvents = organization?.events.slice().filter(e => new Date(e.eventDate) < Date.now());
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
   const [allevents, setAllEvents] = useState(true);
   const [prevEvent, setPrevEvent] = useState();
