@@ -205,6 +205,7 @@ const OrganizationView = () => {
               selectOptionYearly={() => selectOptionYearly()}
               payed={payed}
               payedPPV={payedPPV}
+              yearlyDiscount={organization?.yearlyDiscount}
             />
           </ConfirmationModal>
 

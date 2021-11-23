@@ -9,7 +9,8 @@ const PaymentMode = ({
   selectOptionMonthly,
   selectOptionYearly,
   payed,
-  payedPPV
+  payedPPV,
+  yearlyDiscount
 }) => {
   const intl = useIntl();
   return (
@@ -41,10 +42,10 @@ const PaymentMode = ({
           <div className="price">
             <div className="discount-percentage">
               <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
-              20% OFF
+              {yearlyDiscount}% OFF
             </div>
             <sup>$</sup>
-            {Math.round((MonthlyPrice * 12 * 0.8) / 100)}
+            {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
           </div>
           <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
         </div>
