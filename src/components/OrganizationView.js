@@ -262,7 +262,11 @@ const OrganizationView = () => {
             isOpen={payYearly}
             setIsOpen={setPayYearly}
             isDelete={false}
-            price={organization?.subPrice * 12 * 0.8}
+            price={
+              Math.round(
+                (organization?.subPrice / 100) * 12 * ((100 - organization?.yearlyDiscount) / 100)
+              ) * 100
+            }
             email={currentUser?.email}
             organization={organization?.id}
           >
@@ -270,7 +274,11 @@ const OrganizationView = () => {
               email={currentUser?.email}
               organization={organization?.name}
               type="subscription"
-              price={organization?.subPrice * 12 * 0.8}
+              price={
+                Math.round(
+                  (organization?.subPrice / 100) * 12 * ((100 - organization?.yearlyDiscount) / 100)
+                ) * 100
+              }
             />
           </ConfirmationModal>
         </div>
