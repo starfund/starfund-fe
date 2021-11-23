@@ -185,7 +185,13 @@ const OrganizationView = () => {
           payed={payed}
         />
       )}
-      {ppv && <OrganizationPPV event={event} payed={payedPPV} />}
+      {ppv && (
+        <OrganizationPPV
+          event={event}
+          payed={payedPPV}
+          subscribeAction={() => setModalIsOpen(true)}
+        />
+      )}
       {organization && (
         <div>
           <ConfirmationModal
