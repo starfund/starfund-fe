@@ -2644,6 +2644,7 @@ h3 {
     height: 8vh; 
     display: flex;
     align-items: center;
+    cursor: pointer;
     .nav-link{
       font-weight: bold !important;
     }
@@ -2904,13 +2905,14 @@ h3 {
     margin: 5px;
     height: 40vh;
     width: 17vw;
-    padding: 40px 20px;
+    padding: 40px 0px;
     background: #fff;
     text-align: center;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
     transition: 0.3s;
+    cursor: pointer;
     @media only screen and (max-width: 768px) {
       width: 60vw;
     }
@@ -2977,7 +2979,7 @@ h3 {
     text-decoration: none;
     color: red;
     font-size: 2.5vh;
-    margin-bottom: -10%;
+    margin-bottom: -4%;
   }
 
   .services{

@@ -33,7 +33,6 @@ const PaymentMode = ({
             {MonthlyPrice / 100}
           </div>
           <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
-          <br />
           <div className="services">{intl.formatMessage({ id: 'payment.service3' })}</div>
         </div>
       )}
