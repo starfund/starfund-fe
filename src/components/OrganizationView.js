@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useMediaQuery } from 'react-responsive';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
 import ConfirmationModal from './common/ConfirmationModal';
@@ -31,6 +32,10 @@ const OrganizationView = () => {
   const [PPVOpen, setPPVOpen] = useState(false);
   const currentUser = useSelector(state => state.session.user);
   const { authenticated } = useSession();
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
 
   useEffect(() => {
     dispatch(getOrganizations());
@@ -82,7 +87,11 @@ const OrganizationView = () => {
     <div className="fighter-container">
       <div className="cover-container">
         {organization ? (
-          <LazyLoadImage className="fighter-cover" src={organization?.coverPhoto} alt="Cover" />
+          <LazyLoadImage
+            className="fighter-cover"
+            src={isMobile ? organization?.mobileCoverPhoto : organization?.coverPhoto}
+            alt="Cover"
+          />
         ) : (
           <SkeletonTheme color="#202020" highlightColor="#444">
             <Skeleton height="90vh" />
