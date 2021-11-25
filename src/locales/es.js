@@ -248,6 +248,7 @@ export default {
   'organization.event.livevideo': ' ● EN VIVO',
   'organization.event.novideos': 'Este evento no contiene videos',
   'organization.seasonpass': 'Comprar pase de temporada',
+  'organization.event.comingsoon': 'Este evento llegará pronto',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

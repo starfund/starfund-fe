@@ -37,10 +37,13 @@ const HomeBusinesses = ({ title }) => {
                   onClick={() => history.push(`/organization/${b.name}`)}
                 >
                   <div key={b.id} className="fighter-card">
-                    <img className="fighter-card-image" src={b?.coverPhoto} alt="Card cap" />
-                    <div className="fighter-card-overlay">
+                    <img className="fighter-card-image" src={b?.mobileCoverPhoto} alt="Card cap" />
+                    <div className="organizations-card-overlay">
                       <div className="fighter-card-name-wrapper">
                         <span className="fighter-card-text">{b.name} </span>
+                        <br />
+                        <br />
+                        <br />
                       </div>
                     </div>
                   </div>

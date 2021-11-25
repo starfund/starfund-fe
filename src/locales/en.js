@@ -242,6 +242,7 @@ export default {
   'organization.event.livevideo': ' ● LIVE',
   'organization.event.novideos': 'This event does not have any videos',
   'organization.seasonpass': 'BUY SEASON PASS NOW',
+  'organization.event.comingsoon': 'This event is coming soon',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

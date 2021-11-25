@@ -23,6 +23,20 @@ const ProfilePage = () => {
   const supporting = useSelector(state => state.subscriptions?.subscriptions);
   const organizations = useSelector(state => state.organizations.organizations);
   const orgSubs = useSelector(state => state.subscriptions.orgSubscriptions);
+  const eventPPV = useSelector(state => state.subscriptions.ppvCharges);
+
+  const originalevents = organizations.map(o => o.events.slice()).flat();
+  const events = [...originalevents].map(e => {
+    const eventDate = new Date(e.eventDate);
+    const currDate = new Date();
+    const newEvent = { ...e };
+    if (eventDate - currDate > 0) {
+      newEvent.isActive = true;
+    } else {
+      newEvent.isActive = false;
+    }
+    return newEvent;
+  });
 
   return (
     <div className="profile-container">
@@ -107,6 +121,28 @@ const ProfilePage = () => {
                             alt="sub"
                           />
                           <p>{s.orgName}</p>
+                        </div>
+                      </React.Fragment>
+                    ))}
+                  {organizations &&
+                    eventPPV?.length > 0 &&
+                    eventPPV.map(c => (
+                      <React.Fragment key={c.id}>
+                        <div className="fighter-sub flex">
+                          {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
+                            <img
+                              src={
+                                organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                                DefaultAvatar
+                              }
+                              alt="sub"
+                            />
+                          )}
+                          <p>
+                            {`${
+                              events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
+                            } - PPV`}
+                          </p>
                         </div>
                       </React.Fragment>
                     ))}

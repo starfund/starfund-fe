@@ -16,6 +16,7 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
+  const lastEventId = sortedEvents[sortedEvents?.length - 1]?.id;
   const [allevents, setAllEvents] = useState(true);
   const [prevEvent, setPrevEvent] = useState();
   const [currEvent, setCurrEvent] = useState();
@@ -30,7 +31,6 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
   const selectVideo = (content, event) => {
     setActiveVideo(content.id + event?.name);
   };
-
   const filterEvents = useCallback(list => {
     if (searchText == '') {
       return list;
@@ -140,23 +140,37 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                       <div className="event-description">{EventDate(item?.eventDate)}</div>
                       <br />
                     </div>
-                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 && !isMobile && (
+                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 &&
+                      !isMobile &&
+                      item?.id != lastEventId && (
+                        <button
+                          type="button"
+                          className="btn btn-danger btn-lg"
+                          onClick={() => {
+                            setAllEvents(false);
+                            setCurrEvent(item);
+                            setPrevEvent(sortedEvents[index - 1]);
+                            setNextEvent(sortedEvents[index + 1]);
+                          }}
+                        >
+                          {intl.formatMessage({ id: 'organization.watchevent' })}
+                        </button>
+                      )}
+                    {!isMobile && item?.id == lastEventId && (
                       <button
                         type="button"
                         className="btn btn-danger btn-lg"
                         onClick={() => {
-                          setAllEvents(false);
-                          setCurrEvent(item);
-                          setPrevEvent(sortedEvents[index - 1]);
-                          setNextEvent(sortedEvents[index + 1]);
+                          subscribeAction();
                         }}
                       >
-                        {intl.formatMessage({ id: 'organization.watchevent' })}
+                        {intl.formatMessage({ id: 'organization.button.buyppv' })}
                       </button>
                     )}
                   </div>
                   <div className="event-row">
                     {!isMobile &&
+                      item.id != lastEventId &&
                       item?.mainEvents.concat(item?.prelimEvents).slice(0, 3) &&
                       item?.mainEvents
                         .concat(item?.prelimEvents)
@@ -220,12 +234,21 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                     {item?.mainEvents.concat(item?.prelimEvents).length == 0 && (
                       <div>
                         <br />
-                        <br />
-                        <br />
+                        {isMobile && <br />}
+                        {isMobile && <br />}
                         <h3>{intl.formatMessage({ id: 'organization.event.novideos' })}</h3>
                       </div>
                     )}
+                    {item?.id == lastEventId && (
+                      <div>
+                        <br />
+                        {isMobile && <br />}
+                        {isMobile && <br />}
+                        <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
+                      </div>
+                    )}
                     {isMobile &&
+                      item.id != lastEventId &&
                       item?.mainEvents.concat(item?.prelimEvents).slice(0, 1) &&
                       item?.mainEvents
                         .concat(item?.prelimEvents)

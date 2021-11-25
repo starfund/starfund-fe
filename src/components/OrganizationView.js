@@ -55,7 +55,8 @@ const OrganizationView = () => {
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
-  const payedPPV = supportingPPV.map(s => s.orgName).includes(name);
+  const lastEvent = sortedEvents && sortedEvents[sortedEvents?.length - 1]?.id;
+  const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent);
 
   const selectOptionPPV = () => {
     setPayPPV(true);

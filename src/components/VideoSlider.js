@@ -147,7 +147,7 @@ const VideoSlider = ({
           }}
           cols={isMobile ? 1 : 3}
           rows={1}
-          gap={10}
+          gap={0}
           loop
         >
           {publicVideos &&

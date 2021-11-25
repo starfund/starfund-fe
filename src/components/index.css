@@ -2181,6 +2181,7 @@ h3 {
 .event-date {
   font-family: Montserrat;
   font-style: normal;
+  letter-spacing: 0.02em;
   font-weight: 900;
   font-size: 1em;
   line-height: 1.25em;
@@ -2196,6 +2197,7 @@ h3 {
   font-style: normal;
   font-weight: 900;
   font-size: 1em;
+  letter-spacing: 0.02em;
   line-height: 20px;
   text-align: center;
   color: red;
@@ -2645,6 +2647,7 @@ h3 {
     display: flex;
     align-items: center;
     cursor: pointer;
+    font-size: 3vh;
     .nav-link{
       font-weight: bold !important;
     }
@@ -3010,5 +3013,11 @@ h3 {
       height: 10vh;
       margin-bottom: 3vh;
     }
+  }
+}
+.sc-dnqmqq{
+  margin-left: 1vw;
+  @media (max-width: 780px){
+    margin-left: 0vw;
   }
 }
