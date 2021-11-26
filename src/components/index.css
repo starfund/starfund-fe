@@ -2487,11 +2487,11 @@ h3 {
 .exclusive-event-video {
   background-color: red;
   color: white;
-  height: 2vw;
+  height: 35px;
   min-height: 28px;
   padding: 5px 15px;
   position: absolute;
-  right: 3vw;
+  right: 2.2vw;
   width: fit-content;
 }
 .exclusive-event-video-mobile {
@@ -2508,7 +2508,7 @@ h3 {
 .exclusive-event-video-big {
   background-color: red;
   color: white;
-  height: 2.5vw;
+  height: 35px;
   margin-top: -35px;
   min-height: 32px;
   padding: 5px 15px;
@@ -2591,6 +2591,13 @@ h3 {
       @media (max-width: 610px) {
         height: 45px;
       }
+  }
+
+  .one-line-text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 18vw;
   }
 
   .video-description {

@@ -188,8 +188,8 @@ const VideoSlider = ({
                           }}
                         />
                       </LazyLoadComponent>
-                      <h4>{formatTitle(v, language)}</h4>
-                      <p>{formatDescription(v, language)}</p>
+                      <h4 className="one-line-text">{formatTitle(v, language)}</h4>
+                      <p className="one-line-text">{formatDescription(v, language)}</p>
                     </div>
                   </div>
                 </Carousel.Item>
@@ -240,8 +240,8 @@ const VideoSlider = ({
                           }}
                         />
                       </LazyLoadComponent>
-                      <h4>{formatTitle(v, language)}</h4>
-                      <p>{formatDescription(v, language)}</p>
+                      <h4 className="one-line-text">{formatTitle(v, language)}</h4>
+                      <p className="one-line-text">{formatDescription(v, language)}</p>
                     </div>
                   </div>
                 </Carousel.Item>
