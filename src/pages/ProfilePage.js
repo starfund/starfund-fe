@@ -25,12 +25,18 @@ const ProfilePage = () => {
   const orgSubs = useSelector(state => state.subscriptions.orgSubscriptions);
   const eventPPV = useSelector(state => state.subscriptions.ppvCharges);
 
+  function addDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
   const originalevents = organizations.map(o => o.events.slice()).flat();
   const events = [...originalevents].map(e => {
     const eventDate = new Date(e.eventDate);
     const currDate = new Date();
     const newEvent = { ...e };
-    if (eventDate - currDate > 0) {
+    if (addDays(eventDate, 7) - currDate > 0) {
       newEvent.isActive = true;
     } else {
       newEvent.isActive = false;
@@ -112,7 +118,7 @@ const ProfilePage = () => {
                     orgSubs?.length > 0 &&
                     orgSubs.map(s => (
                       <React.Fragment key={s.id}>
-                        <div className="fighter-sub flex">
+                        <div className="fighter-sub flex" onClick>
                           <img
                             src={
                               organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
@@ -120,7 +126,12 @@ const ProfilePage = () => {
                             }
                             alt="sub"
                           />
-                          <p>{s.orgName}</p>
+                          <Link
+                            style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                            to={`/organization/${s.orgName}`}
+                          >
+                            {s.orgName}
+                          </Link>
                         </div>
                       </React.Fragment>
                     ))}
@@ -138,11 +149,14 @@ const ProfilePage = () => {
                               alt="sub"
                             />
                           )}
-                          <p>
+                          <Link
+                            style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                            to={`/organization/${c.orgName}`}
+                          >
                             {`${
                               events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
                             } - PPV`}
-                          </p>
+                          </Link>
                         </div>
                       </React.Fragment>
                     ))}

@@ -46,17 +46,28 @@ const OrganizationView = () => {
       dispatch(getSubscriptions());
     }
   }, [authenticated, dispatch]);
+
   const organization = useSelector(
     state => state.organizations.organizations.filter(f => f.name == name)[0]
   );
+
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
 
+  const lastEventDate = sortedEvents && new Date(sortedEvents[sortedEvents?.length - 1]?.eventDate);
+  const today = new Date();
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
   const lastEvent = sortedEvents && sortedEvents[sortedEvents?.length - 1]?.id;
-  const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent);
+  function addDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  const payedPPV =
+    supportingPPV.map(s => s.orgEvent).includes(lastEvent) && addDays(lastEventDate, 7) > today;
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -214,7 +225,11 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={organization?.ppvPrice}
+              onDemandPrice={
+                today > lastEventDate && addDays(lastEventDate, 7) > today
+                  ? organization?.ppvPrice / 2
+                  : organization?.ppvPrice
+              }
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}

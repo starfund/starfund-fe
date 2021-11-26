@@ -18,8 +18,8 @@ const HomeFooter = () => {
   return (
     <footer className="footer">
       <div className="container row">
-        <div className="col-sm-2 col-0 row-1" />
-        <div className="col-sm-2 col-12 row-1">
+        <div className="col-lg-2 col-sm-0 col-0 row-1" />
+        <div className="col-lg-2 col-sm-4 col-12 row-1">
           <div>
             <h3>{intl.formatMessage({ id: 'header.explore' })}</h3>
           </div>
@@ -46,7 +46,7 @@ const HomeFooter = () => {
             </div>
           </div>
         </div>
-        <div className="col-sm-4 col-12 row-1">
+        <div className="col-lg-4 col-sm-4 col-12 row-1">
           <div className="contact">
             <h3>{intl.formatMessage({ id: 'header.contact' })}</h3>
           </div>
@@ -78,7 +78,7 @@ const HomeFooter = () => {
             />
           </div>
         </div>
-        <div className="col-12 col-sm-2 col-6 row-1">
+        <div className="col-12 col-lg-2 col-sm-4 col-6 row-1">
           <div className="col join-col">
             <h3>{intl.formatMessage({ id: 'header.join' })}</h3>
           </div>
@@ -96,12 +96,12 @@ const HomeFooter = () => {
             </Link>
           </div>
         </div>
-        <div className="col-sm-2 col-0 row-1" />
+        <div className="col-lg-2 col-sm-4 col-0 row-1" />
         <div
           className={
             isMobile
-              ? 'col-12 col-sm-12 col-md-6 last-row-mobile'
-              : 'col-12 col-sm-12 col-md-6 last-row'
+              ? 'col-12 col-sm-12 col-lg-6 last-row-mobile'
+              : 'col-12 col-sm-12 col-lg-6 last-row'
           }
         >
           <a href="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</a>

@@ -13,9 +13,11 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
   };
 
   const sortedMainEvents = event?.mainEvents.slice();
+  sortedMainEvents.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
   sortedMainEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
 
   const sortedPrelimEvents = event?.prelimEvents.slice();
+  sortedPrelimEvents.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
   sortedPrelimEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
 
   window.scrollTo(0, 700);
