@@ -26,7 +26,7 @@ const Header = () => {
 
   const goHome = () => {
     if (window.location.href.indexOf('starfund-stage') === -1) {
-      history.push('/');
+      history.push('/organization/Demo');
     }
   };
 
@@ -55,7 +55,10 @@ const Header = () => {
                   active: pathname === routePaths.fighters || pathname === routePaths.athletes
                 })}
               >
-                <Link to="/fighters" className="nav-link">
+                <Link
+                  to={pathname === '/organization/Demo' ? '/organization/Demo' : '/fighters'}
+                  className="nav-link"
+                >
                   {intl.formatMessage({ id: 'header.stars' })}{' '}
                   <span className="sr-only">(current)</span>
                 </Link>
