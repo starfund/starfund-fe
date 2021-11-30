@@ -49,63 +49,64 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto">
-              <li
-                className={cn('nav-item text-right', {
-                  active: pathname === routePaths.fighters || pathname === routePaths.athletes
-                })}
-              >
-                <Link
-                  to={pathname === '/organization/Demo' ? '/organization/Demo' : '/fighters'}
-                  className="nav-link"
+            {pathname != '/organization/Demo' && (
+              <ul className="navbar-nav mr-auto">
+                <li
+                  className={cn('nav-item text-right', {
+                    active: pathname === routePaths.fighters || pathname === routePaths.athletes
+                  })}
                 >
-                  {intl.formatMessage({ id: 'header.stars' })}{' '}
-                  <span className="sr-only">(current)</span>
-                </Link>
-              </li>
-              <li
-                className={cn('nav-item text-right', {
-                  active: pathname === routePaths.businesses
-                })}
-              >
-                <Link to={routePaths.businesses} className="nav-link">
-                  {intl.formatMessage({ id: 'header.business' })}
-                </Link>
-              </li>
-            </ul>
-            <LanguageSelect />
-            <div className="nav-actions flex justify-content-end">
-              <img src={ProfileUser} alt="profile" />
-              {authenticated && (
-                <div className="dropdown">
-                  <span
-                    className="dropdown-toggle"
-                    type="button"
-                    id="dropdownMenu2"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    {intl.formatMessage({ id: 'header.actions' })}
-                  </span>
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    {' '}
-                    <Link to="/profile" className="dropdown-item" type="button">
-                      {intl.formatMessage({ id: 'header.profile' })}
-                    </Link>
-                    <div className="dropdown-divider" />
-                    <LogoutButton />
+                  <Link to="/fighters" className="nav-link">
+                    {intl.formatMessage({ id: 'header.stars' })}{' '}
+                    <span className="sr-only">(current)</span>
+                  </Link>
+                </li>
+                <li
+                  className={cn('nav-item text-right', {
+                    active: pathname === routePaths.businesses
+                  })}
+                >
+                  <Link to={routePaths.businesses} className="nav-link">
+                    {intl.formatMessage({ id: 'header.business' })}
+                  </Link>
+                </li>
+              </ul>
+            )}
+            {pathname != '/organization/Demo' && <LanguageSelect />}
+            {pathname != '/organization/Demo' && (
+              <div className="nav-actions flex justify-content-end">
+                <img src={ProfileUser} alt="profile" />
+                {authenticated && (
+                  <div className="dropdown">
+                    <span
+                      className="dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {intl.formatMessage({ id: 'header.actions' })}
+                    </span>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      {' '}
+                      <Link to="/profile" className="dropdown-item" type="button">
+                        {intl.formatMessage({ id: 'header.profile' })}
+                      </Link>
+                      <div className="dropdown-divider" />
+                      <LogoutButton />
+                    </div>
                   </div>
-                </div>
-              )}
-              {!authenticated && (
-                <React.Fragment>
-                  <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
-                    {intl.formatMessage({ id: 'header.login' })}
-                  </span>
-                </React.Fragment>
-              )}
-            </div>
+                )}
+                {!authenticated && (
+                  <React.Fragment>
+                    <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
+                      {intl.formatMessage({ id: 'header.login' })}
+                    </span>
+                  </React.Fragment>
+                )}
+              </div>
+            )}
           </div>
         </nav>
       </header>
