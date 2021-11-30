@@ -244,6 +244,9 @@ export default {
   'organization.event.novideos': 'У этого мероприятия нет видео',
   'organization.seasonpass': 'КУПИТЬ СЕЗОННЫЙ ПРОПУСК СЕЙЧАС',
   'organization.event.comingsoon': 'Скоро это мероприятие',
+  'organization.mobile.allevents': 'Смотрите предыдущие мероприятия {orgName}',
+  'organization.mobile.seeall': 'Посмотреть все события >>',
+  'organization.mobile.watchfights': 'Смотреть все бои >>',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

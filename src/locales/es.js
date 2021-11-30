@@ -249,6 +249,9 @@ export default {
   'organization.event.novideos': 'Este evento no contiene videos',
   'organization.seasonpass': 'Comprar pase de temporada',
   'organization.event.comingsoon': 'Este evento llegará pronto',
+  'organization.mobile.allevents': 'Ver evntos previos de {orgName}',
+  'organization.mobile.seeall': 'Ver eventos >>',
+  'organization.mobile.watchfights': 'Ver peleas >>',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

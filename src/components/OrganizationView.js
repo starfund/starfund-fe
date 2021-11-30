@@ -119,7 +119,7 @@ const OrganizationView = () => {
                 type="button"
                 className="btn btn-danger btn-lg"
                 onClick={() => {
-                  if (payedPPV) {
+                  if (payedPPV || isMobile) {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
@@ -135,56 +135,58 @@ const OrganizationView = () => {
           </div>
         )}
       </div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="navbar-collapse" id="navbarText">
-          <React.Fragment>
-            <ul className="navbar-nav navbar-center mr-auto">
-              {organization && (
-                <li className={cn('nav-item', { active: home })}>
+      {!isMobile && (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className="navbar-collapse" id="navbarText">
+            <React.Fragment>
+              <ul className="navbar-nav navbar-center mr-auto">
+                {organization && (
+                  <li className={cn('nav-item', { active: home })}>
+                    <Link
+                      className="nav-link"
+                      href=""
+                      onClick={() => {
+                        setHome(true);
+                        setAllEvents(false);
+                        setPPV(false);
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'header.home' })}{' '}
+                      <span className="sr-only">(current)</span>
+                    </Link>
+                  </li>
+                )}
+                <li className={cn('nav-item', { active: allevents })}>
                   <Link
                     className="nav-link"
                     href=""
                     onClick={() => {
-                      setHome(true);
-                      setAllEvents(false);
+                      setHome(false);
+                      setAllEvents(true);
                       setPPV(false);
                     }}
                   >
-                    {intl.formatMessage({ id: 'header.home' })}{' '}
-                    <span className="sr-only">(current)</span>
+                    {intl.formatMessage({ id: 'header.allevents' })}{' '}
                   </Link>
                 </li>
-              )}
-              <li className={cn('nav-item', { active: allevents })}>
-                <Link
-                  className="nav-link"
-                  href=""
-                  onClick={() => {
-                    setHome(false);
-                    setAllEvents(true);
-                    setPPV(false);
-                  }}
-                >
-                  {intl.formatMessage({ id: 'header.allevents' })}{' '}
-                </Link>
-              </li>
-              <li className={cn('nav-item', { active: ppv })}>
-                <Link
-                  className="nav-link"
-                  onClick={() => {
-                    setHome(false);
-                    setAllEvents(false);
-                    setPPV(true);
-                    setEvent(sortedEvents[sortedEvents?.length - 1]);
-                  }}
-                >
-                  {intl.formatMessage({ id: 'header.ppv' })}
-                </Link>
-              </li>
-            </ul>
-          </React.Fragment>
-        </div>
-      </nav>
+                <li className={cn('nav-item', { active: ppv })}>
+                  <Link
+                    className="nav-link"
+                    onClick={() => {
+                      setHome(false);
+                      setAllEvents(false);
+                      setPPV(true);
+                      setEvent(sortedEvents[sortedEvents?.length - 1]);
+                    }}
+                  >
+                    {intl.formatMessage({ id: 'header.ppv' })}
+                  </Link>
+                </li>
+              </ul>
+            </React.Fragment>
+          </div>
+        </nav>
+      )}
       {home && (
         <OrganizationHome
           organization={organization}
@@ -197,6 +199,21 @@ const OrganizationView = () => {
             setPPV(true);
             setEvent(sortedEvents[sortedEvents?.length - 1]);
           }}
+          homeNav={() => {
+            setHome(true);
+            setAllEvents(false);
+            setPPV(false);
+          }}
+          eventsNav={() => {
+            setHome(false);
+            setAllEvents(true);
+            setPPV(false);
+          }}
+          PPVNav={() => {
+            setHome(false);
+            setAllEvents(false);
+            setPPV(true);
+          }}
         />
       )}
       {allevents && (
@@ -204,6 +221,11 @@ const OrganizationView = () => {
           organization={organization}
           subscribeAction={() => setModalIsOpen(true)}
           payed={payed}
+          homeNav={() => {
+            setHome(true);
+            setAllEvents(false);
+            setPPV(false);
+          }}
         />
       )}
       {ppv && (
@@ -211,6 +233,11 @@ const OrganizationView = () => {
           event={event}
           payed={payedPPV}
           subscribeAction={() => setModalIsOpen(true)}
+          homeNav={() => {
+            setHome(true);
+            setAllEvents(false);
+            setPPV(false);
+          }}
         />
       )}
       {organization && (

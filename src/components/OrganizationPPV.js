@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/awcf_poster_bg2.png';
 
-const OrganizationPPV = ({ event, payed, subscribeAction }) => {
+const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
@@ -77,15 +77,25 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
   }
 
   return (
-    <div className="organization-container" style={divImage}>
+    <div
+      className={isMobile ? 'mobile-background' : 'organization-container'}
+      style={isMobile ? { backgroundColor: '#202020' } : divImage}
+    >
       {!isMobile && <br />}
       {!isMobile && <br />}
       {!isMobile && <br />}
       {!isMobile && <br />}
-      <br />
-      <br />
-      <br />
-      <br />
+      {isMobile && (
+        <div className="event-view-mobile-container">
+          <div className="link-text-back" onClick={() => homeNav()}>
+            {intl.formatMessage({ id: 'organization.mobile.home' })}
+          </div>
+        </div>
+      )}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
       {!payed && (
         <div className="event-div">
           <div className="event-name">{event?.name}</div>
@@ -147,15 +157,31 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
       <br />
       <br />
       <div className="container main-events">
-        <br />
-        <br />
-        <br />
-        <br />
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="navbar-collapse" id="navbarText">
-            <React.Fragment>
-              <ul className="navbar-nav">
-                {event && (
+        {!isMobile && <br />}
+        {!isMobile && <br />}
+        {!isMobile && <br />}
+        {!isMobile && <br />}
+        {isMobile && (
+          <div className="mobile-nav">
+            <div
+              className={!prelim ? 'nav-button-active' : 'nav-button'}
+              onClick={() => setPrelim(false)}
+            >
+              Main Card
+            </div>
+            <div
+              className={prelim ? 'nav-button-active' : 'nav-button'}
+              onClick={() => setPrelim(true)}
+            >
+              Prelims
+            </div>
+          </div>
+        )}
+        {!isMobile && (
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div className="navbar-collapse" id="navbarText">
+              <React.Fragment>
+                <ul className="navbar-nav">
                   <li className={cn('nav-item', { active: !prelim })}>
                     <p
                       className="nav-link"
@@ -168,22 +194,22 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
                       <span className="sr-only">(current)</span>
                     </p>
                   </li>
-                )}
-                <li className={cn('nav-item', { active: prelim })}>
-                  <p
-                    className="nav-link"
-                    href=""
-                    onClick={() => {
-                      setPrelim(true);
-                    }}
-                  >
-                    {intl.formatMessage({ id: 'header.prelim' })}{' '}
-                  </p>
-                </li>
-              </ul>
-            </React.Fragment>
-          </div>
-        </nav>
+                  <li className={cn('nav-item', { active: prelim })}>
+                    <p
+                      className="nav-link"
+                      href=""
+                      onClick={() => {
+                        setPrelim(true);
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'header.prelim' })}{' '}
+                    </p>
+                  </li>
+                </ul>
+              </React.Fragment>
+            </div>
+          </nav>
+        )}
         <div className={!isMobile && 'container-nav'}>
           {!prelim &&
             sortedMainEvents &&
@@ -220,12 +246,12 @@ const OrganizationPPV = ({ event, payed, subscribeAction }) => {
         </div>
         <br />
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
+      {!isMobile && <br />}
     </div>
   );
 };

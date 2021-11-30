@@ -243,6 +243,10 @@ export default {
   'organization.event.novideos': 'This event does not have any videos',
   'organization.seasonpass': 'BUY SEASON PASS NOW',
   'organization.event.comingsoon': 'This event is coming soon',
+  'organization.mobile.allevents': 'Watch previous {orgName} events',
+  'organization.mobile.seeall': 'See all events >>',
+  'organization.mobile.watchfights': 'Watch all fights >>',
+  'organization.mobile.home': '<< Home',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

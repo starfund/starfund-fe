@@ -7,12 +7,14 @@ import ReactPlayer from 'react-player/lazy';
 import { useMediaQuery } from 'react-responsive';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import { useSelector } from 'react-redux';
+import Carousel from 'react-grid-carousel';
 import Pagination from './Pagination';
 import EventView from './EventView';
+import EventViewMobile from './EventViewMobile';
 
 const PageSize = 4;
 
-const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
+const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) => {
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
@@ -74,7 +76,20 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
 
   return (
     <div>
-      {allevents && (
+      {isMobile && allevents && (
+        <div className="event-view-mobile-container">
+          <div className="link-text-back" onClick={() => homeNav()}>
+            {intl.formatMessage({ id: 'organization.mobile.home' })}
+          </div>
+          <h3>
+            <FormattedMessage
+              id="organization.allevents"
+              values={{ organizationName: organization?.name }}
+            />
+          </h3>
+        </div>
+      )}
+      {!isMobile && allevents && (
         <div className="events-container">
           <br />
           <br />
@@ -99,47 +114,66 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                 </button>
               )}
             </div>
-            <br />
-            <div className={isMobile ? 'search-bar-mobile' : 'search-bar'}>
-              <div className="bar">
-                <input
-                  id="search-bar"
-                  className="search-bar-input"
-                  type="search"
-                  aria-label="Search"
-                  value={searchText}
-                  onChange={e => setSearchText(e.target.value)}
-                />
-              </div>
-              <div className="search-button">
-                <svg
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  onClick={() => filterEvents(sortedEvents.length)}
-                >
-                  <path
-                    d="M23.7871 22.7761L17.9548 16.9437C19.5193 15.145 20.4665 12.7982 20.4665 10.2333C20.4665 4.58714 15.8741 0 10.2333 0C4.58714 0 0 4.59246 0 10.2333C0 15.8741 4.59246 20.4665 10.2333 20.4665C12.7982 20.4665 15.145 19.5193 16.9437 17.9548L22.7761 23.7871C22.9144 23.9255 23.1007 24 23.2816 24C23.4625 24 23.6488 23.9308 23.7871 23.7871C24.0639 23.5104 24.0639 23.0528 23.7871 22.7761ZM1.43149 10.2333C1.43149 5.38004 5.38004 1.43681 10.2279 1.43681C15.0812 1.43681 19.0244 5.38537 19.0244 10.2333C19.0244 15.0812 15.0812 19.035 10.2279 19.035C5.38004 19.035 1.43149 15.0865 1.43149 10.2333Z"
-                    fill="#FFFFFF"
-                  />
-                </svg>
-              </div>
-            </div>
           </div>
           <br />
-          <br />
+          <div className={isMobile ? 'search-bar-mobile' : 'search-bar'}>
+            <div className="bar">
+              <input
+                id="search-bar"
+                className="search-bar-input"
+                type="search"
+                aria-label="Search"
+                value={searchText}
+                onChange={e => setSearchText(e.target.value)}
+              />
+            </div>
+            <div className="search-button">
+              <svg
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={() => filterEvents(sortedEvents.length)}
+              >
+                <path
+                  d="M23.7871 22.7761L17.9548 16.9437C19.5193 15.145 20.4665 12.7982 20.4665 10.2333C20.4665 4.58714 15.8741 0 10.2333 0C4.58714 0 0 4.59246 0 10.2333C0 15.8741 4.59246 20.4665 10.2333 20.4665C12.7982 20.4665 15.145 19.5193 16.9437 17.9548L22.7761 23.7871C22.9144 23.9255 23.1007 24 23.2816 24C23.4625 24 23.6488 23.9308 23.7871 23.7871C24.0639 23.5104 24.0639 23.0528 23.7871 22.7761ZM1.43149 10.2333C1.43149 5.38004 5.38004 1.43681 10.2279 1.43681C15.0812 1.43681 19.0244 5.38537 19.0244 10.2333C19.0244 15.0812 15.0812 19.035 10.2279 19.035C5.38004 19.035 1.43149 15.0865 1.43149 10.2333Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
+            <br />
+            <br />
+          </div>
+        </div>
+      )}
+      {allevents && (
+        <div className={isMobile ? '' : 'events-container'}>
           <div className="col-12 col-sm-12 col-md-10">
             {currentTableData.map((item, index) => {
               return (
                 <React.Fragment key={index}>
                   <div className={isMobile ? 'event-video-row-mobile' : 'event-video-row'}>
-                    <div className="event-video-text">
-                      <div className="event-name-all-events">{item?.name}</div>
-                      <div className="event-description">{EventDate(item?.eventDate)}</div>
-                      <br />
-                    </div>
+                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
+                      <div className="event-video-text">
+                        <div className="event-name-all-events">{item?.name}</div>
+                        <div className="event-description">{EventDate(item?.eventDate)}</div>
+                        <br />
+                      </div>
+                    )}
+                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
+                      <div
+                        className="link-text"
+                        onClick={() => {
+                          setAllEvents(false);
+                          setCurrEvent(item);
+                          setPrevEvent(sortedEvents[index - 1]);
+                          setNextEvent(sortedEvents[index + 1]);
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'organization.mobile.watchfights' })}
+                      </div>
+                    )}
                     {item?.mainEvents.concat(item?.prelimEvents).length != 0 &&
                       !isMobile &&
                       item?.id != lastEventId && (
@@ -168,9 +202,10 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                       </button>
                     )}
                   </div>
-                  <div className="event-row">
+                  <div>
                     {!isMobile &&
                       item.id != lastEventId &&
+                      item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
                       item?.mainEvents.concat(item?.prelimEvents).slice(0, 3) &&
                       item?.mainEvents
                         .concat(item?.prelimEvents)
@@ -231,89 +266,67 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
                             </div>
                           </div>
                         ))}
-                    {item?.mainEvents.concat(item?.prelimEvents).length == 0 && (
-                      <div>
-                        <br />
-                        {isMobile && <br />}
-                        {isMobile && <br />}
-                        <h3>{intl.formatMessage({ id: 'organization.event.novideos' })}</h3>
-                      </div>
-                    )}
                     {item?.id == lastEventId && (
                       <div>
                         <br />
-                        {isMobile && <br />}
-                        {isMobile && <br />}
                         <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
                       </div>
                     )}
-                    {isMobile &&
-                      item.id != lastEventId &&
-                      item?.mainEvents.concat(item?.prelimEvents).slice(0, 1) &&
-                      item?.mainEvents
-                        .concat(item?.prelimEvents)
-                        .slice(0, 1)
-                        .map(v => (
-                          <div
-                            key={v.url}
-                            className={
-                              isMobile ? 'fighter-watch' : 'col-12 col-sm-6 col-md-4 fighter-watch'
-                            }
-                            onClick={() => {
-                              if (v.public || payed) {
-                                setSelectedVideo(v);
-                                selectVideo(v, item);
-                                setAllEvents(false);
-                                setCurrEvent(item);
-                                setPrevEvent(sortedEvents[index - 1]);
-                                setNextEvent(sortedEvents[index + 1]);
-                              } else {
-                                subscribeAction();
-                              }
-                            }}
-                          >
-                            {!payed && !v.public && (
+                    {isMobile && (
+                      <Carousel cols={1} rows={1} gap={15} loop>
+                        {item.id != lastEventId &&
+                          item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
+                          item?.mainEvents.concat(item?.prelimEvents) &&
+                          item?.mainEvents.concat(item?.prelimEvents).map(v => (
+                            <Carousel.Item>
                               <div
-                                className={
-                                  isMobile
-                                    ? 'exclusive-event-video-mobile-big'
-                                    : 'exclusive-event-video-big'
-                                }
+                                key={v.url}
+                                onClick={() => {
+                                  if (v.public || payed) {
+                                    setSelectedVideo(v);
+                                    selectVideo(v, item);
+                                    setAllEvents(false);
+                                    setCurrEvent(item);
+                                    setPrevEvent(sortedEvents[index - 1]);
+                                    setNextEvent(sortedEvents[index + 1]);
+                                  } else {
+                                    subscribeAction();
+                                  }
+                                }}
                               >
-                                EXCLUSIVE
+                                <div className="video-description-mobile">
+                                  {!v.public && !payed && (
+                                    <div className="exclusive-event-mobile"> EXCLUSIVE </div>
+                                  )}
+                                  <LazyLoadComponent>
+                                    <ReactPlayer
+                                      url={v.video}
+                                      width="100%"
+                                      height="20vh"
+                                      light={v.thumbnail}
+                                      muted
+                                      config={{
+                                        file: {
+                                          attributes: {
+                                            onContextMenu: e => e.preventDefault(),
+                                            controlsList: 'nodownload'
+                                          }
+                                        }
+                                      }}
+                                    />
+                                  </LazyLoadComponent>
+                                  <h4 className="one-line-text-mobile">
+                                    {formatTitle(v, language)}
+                                  </h4>
+                                  <p className="one-line-text-mobile">
+                                    {formatDescription(v, language)}
+                                  </p>
+                                </div>
                               </div>
-                            )}
-                            <div
-                              className={cn('video-description-mobile', {
-                                selected: activeVideo === v.id + item?.name
-                              })}
-                            >
-                              <LazyLoadComponent>
-                                <ReactPlayer
-                                  url={v.video}
-                                  width={isMobile ? '100%' : '20vw'}
-                                  height="25vh"
-                                  light={v.thumbnail}
-                                  config={{
-                                    file: {
-                                      attributes: {
-                                        onContextMenu: e => e.preventDefault(),
-                                        controlsList: 'nodownload'
-                                      }
-                                    }
-                                  }}
-                                />
-                              </LazyLoadComponent>
-                              <h4>{formatTitle(v, language)}</h4>
-                              <p>{formatDescription(v, language)}</p>
-                            </div>
-                            <br />
-                            <br />
-                          </div>
-                        ))}
-                    <br />
-                    <br />
-                    <br />
+                            </Carousel.Item>
+                          ))}
+                      </Carousel>
+                    )}
                     <br />
                   </div>
                 </React.Fragment>
@@ -334,19 +347,31 @@ const OrganizationEvents = ({ organization, subscribeAction, payed }) => {
       )}
       {!allevents && (
         <div className="organization-container">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <EventView
-            prevEvent={prevEvent}
-            currEvent={currEvent}
-            nextEvent={nextEvent}
-            subscribeAction={subscribeAction}
-            video={selectedVideo}
-            payed={payed}
-          />
+          {!isMobile && <br />}
+          {!isMobile && <br />}
+          {!isMobile && <br />}
+          {!isMobile && <br />}
+          {!isMobile && <br />}
+          {!isMobile && (
+            <EventView
+              prevEvent={prevEvent}
+              currEvent={currEvent}
+              nextEvent={nextEvent}
+              subscribeAction={subscribeAction}
+              video={selectedVideo}
+              payed={payed}
+            />
+          )}
+          {isMobile && (
+            <EventViewMobile
+              organization={organization}
+              subscribeAction={subscribeAction}
+              payed={payed}
+              eventsNav={() => setAllEvents(true)}
+              event={currEvent?.name}
+              video={selectedVideo}
+            />
+          )}
         </div>
       )}
     </div>
