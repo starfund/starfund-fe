@@ -247,6 +247,7 @@ export default {
   'organization.mobile.allevents': 'Смотрите предыдущие мероприятия {orgName}',
   'organization.mobile.seeall': 'Посмотреть все события >>',
   'organization.mobile.watchfights': 'Смотреть все бои >>',
+  'organization.mobile.results': 'Результаты {eventName}',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

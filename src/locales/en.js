@@ -247,6 +247,7 @@ export default {
   'organization.mobile.seeall': 'See all events >>',
   'organization.mobile.watchfights': 'Watch all fights >>',
   'organization.mobile.home': '<< Home',
+  'organization.mobile.results': '{eventName} results',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

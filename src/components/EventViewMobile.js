@@ -7,13 +7,34 @@ import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import Carousel from 'react-grid-carousel';
 
-const EventViewMobile = ({ organization, subscribeAction, payed, event, video, eventsNav }) => {
+const EventViewMobile = ({
+  organization,
+  subscribeAction,
+  payed,
+  event,
+  video,
+  eventsNav,
+  showResults
+}) => {
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1)).pop();
 
   const [prelim, setPrelim] = useState(false);
+  const [prelim2, setPrelim2] = useState(false);
   const [selectedEventName, setSelectedEventName] = useState(event || sortedEvents[0]?.name);
+  const [sortedPrelimEvents, setSortedPrelimEvents] = useState(
+    sortedEvents
+      .filter(ev => ev.name === selectedEventName)[0]
+      ?.prelimEvents.slice()
+      .sort((a, b) => a.eventDate - b.eventDate)
+  );
+  const [sortedMainEvents, setSortedMainEvents] = useState(
+    sortedEvents
+      .filter(ev => ev.name === selectedEventName)[0]
+      ?.mainEvents.slice()
+      .sort((a, b) => a.eventDate - b.eventDate)
+  );
   const [selectedVideo, setSelectedVideo] = useState(
     video?.title || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]?.title
   );
@@ -38,6 +59,22 @@ const EventViewMobile = ({ organization, subscribeAction, payed, event, video, e
     }
   };
 
+  const selectEvent = eventName => {
+    setSelectedEventName(eventName);
+    setSortedMainEvents(
+      sortedEvents
+        .filter(ev => ev.name === eventName)[0]
+        ?.mainEvents.slice()
+        .sort((a, b) => a.eventDate - b.eventDate)
+    );
+    setSortedPrelimEvents(
+      sortedEvents
+        .filter(ev => ev.name === eventName)[0]
+        ?.prelimEvents.slice()
+        .sort((a, b) => a.eventDate - b.eventDate)
+    );
+  };
+
   return (
     <div className="mobile-background">
       <div className="event-view-mobile-container">
@@ -51,7 +88,9 @@ const EventViewMobile = ({ organization, subscribeAction, payed, event, video, e
         <div className="filters-container">
           <select
             value={selectedEventName}
-            onChange={e => setSelectedEventName(e.target.value)}
+            onChange={e => {
+              selectEvent(e.target.value);
+            }}
             className="mobile-filters"
           >
             {sortedEvents && sortedEvents.map(ev => <option>{ev.name}</option>)}
@@ -113,13 +152,13 @@ const EventViewMobile = ({ organization, subscribeAction, payed, event, video, e
           className={!prelim ? 'nav-button-active' : 'nav-button'}
           onClick={() => setPrelim(false)}
         >
-          Main Card
+          {intl.formatMessage({ id: 'header.main' })}
         </div>
         <div
           className={prelim ? 'nav-button-active' : 'nav-button'}
           onClick={() => setPrelim(true)}
         >
-          Prelims
+          {intl.formatMessage({ id: 'header.prelim' })}
         </div>
       </div>
       {!prelim && (
@@ -195,6 +234,68 @@ const EventViewMobile = ({ organization, subscribeAction, payed, event, video, e
         </Carousel>
       )}
       <br />
+      {showResults && (
+        <div className="mobile-background">
+          <div className="mobile-results-tile">
+            <br />
+            <h3>
+              <FormattedMessage
+                id="organization.mobile.results"
+                values={{ eventName: selectedEventName }}
+              />
+            </h3>
+            <div className="mobile-nav-center">
+              <div
+                className={!prelim2 ? 'nav-button-active' : 'nav-button'}
+                onClick={() => setPrelim2(false)}
+              >
+                {intl.formatMessage({ id: 'header.main' })}
+              </div>
+              <div
+                className={prelim2 ? 'nav-button-active' : 'nav-button'}
+                onClick={() => setPrelim2(true)}
+              >
+                {intl.formatMessage({ id: 'header.prelim' })}
+              </div>
+            </div>
+          </div>
+          <div className="container-nav">
+            {!prelim2 &&
+              sortedMainEvents &&
+              sortedMainEvents.map(v => (
+                <div className={!v.isLive ? 'event-item-results' : 'event-item-ppv-active'}>
+                  {v.isLive && (
+                    <div className="live-tag">
+                      {intl.formatMessage({ id: `organization.event.livevideo` })}
+                    </div>
+                  )}
+                  {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
+                  {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
+                  {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
+                  {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
+                  {v?.fighter1} vs {v?.fighter2}
+                </div>
+              ))}
+            {prelim2 &&
+              sortedPrelimEvents &&
+              sortedPrelimEvents.map(v => (
+                <div className={!v.isLive ? 'event-item-results' : 'event-item-ppv-active'}>
+                  {v.isLive && (
+                    <div className="live-tag">
+                      {intl.formatMessage({ id: `organization.event.livevideo` })}
+                    </div>
+                  )}
+                  {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
+                  {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
+                  {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
+                  {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
+                  {v?.fighter1} vs {v?.fighter2}
+                </div>
+              ))}
+          </div>
+          <br />
+        </div>
+      )}
     </div>
   );
 };

@@ -252,6 +252,7 @@ export default {
   'organization.mobile.allevents': 'Ver evntos previos de {orgName}',
   'organization.mobile.seeall': 'Ver eventos >>',
   'organization.mobile.watchfights': 'Ver peleas >>',
+  'organization.mobile.results': 'Resultados de {eventName}',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

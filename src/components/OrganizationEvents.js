@@ -370,6 +370,7 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
               eventsNav={() => setAllEvents(true)}
               event={currEvent?.name}
               video={selectedVideo}
+              showResults
             />
           )}
         </div>

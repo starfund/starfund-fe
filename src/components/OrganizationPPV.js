@@ -167,13 +167,13 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
               className={!prelim ? 'nav-button-active' : 'nav-button'}
               onClick={() => setPrelim(false)}
             >
-              Main Card
+              {intl.formatMessage({ id: 'header.main' })}
             </div>
             <div
               className={prelim ? 'nav-button-active' : 'nav-button'}
               onClick={() => setPrelim(true)}
             >
-              Prelims
+              {intl.formatMessage({ id: 'header.prelim' })}
             </div>
           </div>
         )}
