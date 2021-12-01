@@ -162,7 +162,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
         {!isMobile && <br />}
         {!isMobile && <br />}
         {isMobile && (
-          <div className="mobile-nav">
+          <div className="mobile-nav-center">
             <div
               className={!prelim ? 'nav-button-active' : 'nav-button'}
               onClick={() => setPrelim(false)}
