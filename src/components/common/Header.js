@@ -25,9 +25,10 @@ const Header = () => {
   const intl = useIntl();
 
   const goHome = () => {
-    if (window.location.href.indexOf('starfund-stage') === -1) {
+    if (window.location.href.indexOf('starfund-stage') > -1) {
       history.push('/organization/Demo');
     }
+    history.push('/');
   };
 
   return (
