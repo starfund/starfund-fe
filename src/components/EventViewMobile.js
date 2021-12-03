@@ -147,7 +147,7 @@ const EventViewMobile = ({
         <h3>{formatTitle(displayContent, language)}</h3>
         <p>{formatDescription(displayContent, language)}</p>
       </div>
-      <div className="mobile-nav">
+      <div className="mobile-nav-center">
         <div
           className={!prelim ? 'nav-button-active' : 'nav-button'}
           onClick={() => setPrelim(false)}

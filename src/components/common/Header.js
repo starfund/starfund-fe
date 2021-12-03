@@ -27,8 +27,9 @@ const Header = () => {
   const goHome = () => {
     if (window.location.href.indexOf('starfund-stage') > -1) {
       history.push('/organization/Demo');
+    } else {
+      history.push('/');
     }
-    history.push('/');
   };
 
   return (

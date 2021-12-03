@@ -897,12 +897,8 @@ h3 {
       top: 65%;
     }
 
-    @media (max-height: 777px) {
-      top: 60%;
-    }
-
     @media (max-height: 667px) {
-      top: 50%;
+      top: 60%;
     }
 
     @media (max-height: 570px) {
