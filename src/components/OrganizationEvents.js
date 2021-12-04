@@ -202,7 +202,7 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
                       </button>
                     )}
                   </div>
-                  <div>
+                  <div className={!isMobile && 'flex'}>
                     {!isMobile &&
                       item.id != lastEventId &&
                       item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
