@@ -51,7 +51,7 @@ const OrganizationView = () => {
     state => state.organizations.organizations.filter(f => f.name == name)[0]
   );
 
-  const sortedEvents = organization?.events.slice();
+  const sortedEvents = organization && [...organization.events];
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
 
   const lastEventDate = sortedEvents && new Date(sortedEvents[sortedEvents?.length - 1]?.eventDate);
@@ -252,11 +252,7 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={
-                today > lastEventDate && addDays(lastEventDate, 7) > today
-                  ? organization?.ppvPrice / 2
-                  : organization?.ppvPrice
-              }
+              onDemandPrice={organization?.ppvPrice}
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
