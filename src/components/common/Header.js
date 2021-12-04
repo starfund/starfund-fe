@@ -25,9 +25,7 @@ const Header = () => {
   const intl = useIntl();
 
   const goHome = () => {
-    if (window.location.href.indexOf('starfund-stage') > -1) {
-      history.push('/organization/Demo');
-    } else {
+    if (window.location.href.indexOf('starfund-stage') === -1) {
       history.push('/');
     }
   };
