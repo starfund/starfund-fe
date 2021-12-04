@@ -144,6 +144,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
               style={{ minHeight: `${isMobile ? 'auto' : '550px'}` }}
               config={{
                 file: {
+                  forceHLS: true,
                   attributes: {
                     onContextMenu: e => e.preventDefault(),
                     controlsList: 'nodownload'
