@@ -161,7 +161,7 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
                         <br />
                       </div>
                     )}
-                    {item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
+                    {isMobile && item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
                       <div
                         className="link-text"
                         onClick={() => {
@@ -203,75 +203,79 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
                     )}
                   </div>
                   <div>
-                    {!isMobile &&
-                      item.id != lastEventId &&
-                      item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
-                      item?.mainEvents.concat(item?.prelimEvents).slice(0, 3) &&
-                      item?.mainEvents
-                        .concat(item?.prelimEvents)
-                        .slice(0, 3)
-                        .map(v => (
-                          <div
-                            key={v.url}
-                            className={
-                              isMobile ? 'fighter-watch' : 'col-12 col-sm-6 col-md-4 fighter-watch'
-                            }
-                            onClick={() => {
-                              if (v.public || payed) {
-                                setSelectedVideo(v);
-                                selectVideo(v, item);
-                                setAllEvents(false);
-                                setCurrEvent(item);
-                                setPrevEvent(sortedEvents[index - 1]);
-                                setNextEvent(sortedEvents[index + 1]);
-                              } else {
-                                subscribeAction();
-                              }
-                            }}
-                          >
-                            {!payed && !v.public && (
-                              <div
-                                className={
-                                  isMobile
-                                    ? 'exclusive-event-video-mobile-big'
-                                    : 'exclusive-event-video-big'
-                                }
-                              >
-                                EXCLUSIVE
-                              </div>
-                            )}
+                    <div className="event-row">
+                      {!isMobile &&
+                        item.id != lastEventId &&
+                        item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
+                        item?.mainEvents.concat(item?.prelimEvents).slice(0, 3) &&
+                        item?.mainEvents
+                          .concat(item?.prelimEvents)
+                          .slice(0, 3)
+                          .map(v => (
                             <div
-                              className={cn('video-description', {
-                                selected: activeVideo === v.id + item?.name
-                              })}
+                              key={v.url}
+                              className={
+                                isMobile
+                                  ? 'fighter-watch'
+                                  : 'col-12 col-sm-6 col-md-4 fighter-watch'
+                              }
+                              onClick={() => {
+                                if (v.public || payed) {
+                                  setSelectedVideo(v);
+                                  selectVideo(v, item);
+                                  setAllEvents(false);
+                                  setCurrEvent(item);
+                                  setPrevEvent(sortedEvents[index - 1]);
+                                  setNextEvent(sortedEvents[index + 1]);
+                                } else {
+                                  subscribeAction();
+                                }
+                              }}
                             >
-                              <LazyLoadComponent>
-                                <ReactPlayer
-                                  url={v.video}
-                                  width={isMobile ? '100%' : '25vw'}
-                                  height="30vh"
-                                  light={v.thumbnail}
-                                  config={{
-                                    file: {
-                                      attributes: {
-                                        onContextMenu: e => e.preventDefault(),
-                                        controlsList: 'nodownload'
+                              {!payed && !v.public && (
+                                <div
+                                  className={
+                                    isMobile
+                                      ? 'exclusive-event-video-mobile-big'
+                                      : 'exclusive-event-video-big'
+                                  }
+                                >
+                                  EXCLUSIVE
+                                </div>
+                              )}
+                              <div
+                                className={cn('video-description', {
+                                  selected: activeVideo === v.id + item?.name
+                                })}
+                              >
+                                <LazyLoadComponent>
+                                  <ReactPlayer
+                                    url={v.video}
+                                    width={isMobile ? '100%' : '25vw'}
+                                    height="30vh"
+                                    light={v.thumbnail}
+                                    config={{
+                                      file: {
+                                        attributes: {
+                                          onContextMenu: e => e.preventDefault(),
+                                          controlsList: 'nodownload'
+                                        }
                                       }
-                                    }
-                                  }}
-                                />
-                              </LazyLoadComponent>
-                              <h4>{formatTitle(v, language)}</h4>
-                              <p>{formatDescription(v, language)}</p>
+                                    }}
+                                  />
+                                </LazyLoadComponent>
+                                <h4>{formatTitle(v, language)}</h4>
+                                <p>{formatDescription(v, language)}</p>
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                    {item?.id == lastEventId && (
-                      <div>
-                        <br />
-                        <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
-                      </div>
-                    )}
+                          ))}
+                      {item?.id == lastEventId && (
+                        <div>
+                          <br />
+                          <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
+                        </div>
+                      )}
+                    </div>
                     {isMobile && (
                       <Carousel cols={1} rows={1} gap={15} loop>
                         {item.id != lastEventId &&
