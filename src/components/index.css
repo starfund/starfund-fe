@@ -469,6 +469,7 @@ h3 {
       display: flex;
       font-weight: 500 !important;
       margin-top: -3vh;
+      letter-spacing: -0.02em;
     }
 
     display: flex;
@@ -786,6 +787,7 @@ h3 {
       font-size: 16px;
       min-height: fit-content !important;
       max-height: 35px;
+      letter-spacing: -0.02em;
 
       @media (max-width: 610px) {
         height: 35px;
@@ -2148,6 +2150,7 @@ h3 {
   line-height: 49px;
   padding-bottom: 10px;
   text-align: center;
+  letter-spacing: -0.02em;
   @media (max-width: 768px){
     font-size: 6vw;
     line-height: 3vh;
@@ -2603,6 +2606,7 @@ h3 {
   text-align: center;
   display: inline;
   margin-right: 1vw;
+  letter-spacing: -0.02em;
 }
 
 .event-description {
@@ -2628,6 +2632,7 @@ h3 {
   line-height: 30px;
   letter-spacing: -0.02em;
   color: #FFFFFF;
+  text-align: left;
 }
 
 .exclusive-event-video {
@@ -2637,7 +2642,7 @@ h3 {
   min-height: 28px;
   padding: 5px 15px;
   position: absolute;
-  right: 2.2vw;
+  right: 1.4vw;
   width: fit-content;
 }
 .exclusive-event-video-mobile {
@@ -2729,6 +2734,13 @@ h3 {
   }
 }
 
+.one-line-text{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 23vw;
+}
+
 .organization-container{
   background-repeat: no-repeat;
   background-position: top;
@@ -2754,7 +2766,7 @@ h3 {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 18vw;
+    width: 290px;
   }
 
   .one-line-text-mobile{
@@ -2770,7 +2782,8 @@ h3 {
     display: flex;
     flex-direction:column;
     margin-bottom: 20px;
-    width: 20vw;
+    margin-top: 20px;
+    width: 302px;
     &:hover {
       background-color: red;
       cursor: pointer;
@@ -2782,11 +2795,13 @@ h3 {
     h4 {
       margin-left: 1vw;
       letter-spacing: -0.02em;
+      text-align: left;
     }
     p {
       font-weight: 300 !important;
       margin-left: 1vw;
       letter-spacing: -0.02em;
+      text-align: left;
     }
   }
 
@@ -2819,6 +2834,7 @@ h3 {
     align-items: center;
     cursor: pointer;
     font-size: 3vh;
+    margin-top: 10px;
     .nav-link{
       font-weight: bold !important;
     }
@@ -2943,11 +2959,13 @@ h3 {
     h4 {
       margin-left: 1vw;
       margin-top: 5px;
+      letter-spacing: -0.02em;
     }
     p {
       font-weight: 300 !important;
       margin-left: 1vw;
       margin-bottom: 5px;
+      letter-spacing: -0.02em;
     }
   }
   .video-description-mobile {
@@ -2982,8 +3000,7 @@ h3 {
   }
   .search-button{
     background-color: red;
-    padding: 1.4%;
-    margin-top: 0.5%;
+    padding: 2%;
     @media (max-width: 800px) {
       padding: 2%;
     }
@@ -2999,7 +3016,7 @@ h3 {
     height: 5vh;
     color: white;
     background-color: #373737;
-    border-color: #373737;
+    border: none;
     @media (max-width: 800px) {
       width: 70vw;
     }

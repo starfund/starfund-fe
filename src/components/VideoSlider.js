@@ -145,7 +145,7 @@ const VideoSlider = ({
             width: `${isMobile ? '100vw' : '75vw'}`,
             marginLeft: `${isMobile ? '0vw' : '2vw'}`
           }}
-          cols={isMobile ? 1 : 3}
+          cols={4}
           rows={1}
           gap={0}
           loop
@@ -174,8 +174,8 @@ const VideoSlider = ({
                       <LazyLoadComponent>
                         <ReactPlayer
                           url={v.video}
-                          width={isMobile ? '100%' : '20vw'}
-                          height={isMobile ? '35vh' : '25vh'}
+                          width="302px"
+                          height="202px"
                           light={v.thumbnail}
                           muted
                           config={{
@@ -227,8 +227,8 @@ const VideoSlider = ({
                       <LazyLoadComponent>
                         <ReactPlayer
                           url={v.video}
-                          width={isMobile ? '100%' : '20vw'}
-                          height={isMobile ? '35vh' : '25vh'}
+                          width="302px"
+                          height="202px"
                           light={v.thumbnail}
                           config={{
                             file: {

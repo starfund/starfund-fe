@@ -264,8 +264,8 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
                                     }}
                                   />
                                 </LazyLoadComponent>
-                                <h4>{formatTitle(v, language)}</h4>
-                                <p>{formatDescription(v, language)}</p>
+                                <h4 className="one-line-text">{formatTitle(v, language)}</h4>
+                                <p className="one-line-text">{formatDescription(v, language)}</p>
                               </div>
                             </div>
                           ))}
