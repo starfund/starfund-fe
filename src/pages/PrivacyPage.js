@@ -384,7 +384,7 @@ const PolicyPage = () => {
           the information practices of the Services.
         </p>
         <p>You may contact us as follows:</p>
-        <p> 1747 Tysons Central St #1303 Vienna VA 22182 starfundapp@gmail.com </p>
+        <p> 1747 Tysons Central St #1303 Vienna VA 22182 info@starfund.app </p>
       </div>
     </div>
   );

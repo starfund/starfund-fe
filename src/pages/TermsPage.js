@@ -213,7 +213,7 @@ const TermsPage = () => {
           Android mobile device, you can cancel by opening the Google Play Store and selecting Menu
           Subscription. You can select the subscription you want to cancel or update and then follow
           the onscreen instructions. If you subscribed on our website, you can cancel by contacting
-          Support at starfundapp@gmail.com or by going to Settings in your account, selecting Cancel
+          Support at info@starfund.app or by going to Settings in your account, selecting Cancel
           under the Subscription box and then following the onscreen instructions to continue and
           cancel subscription.
         </p>
@@ -448,7 +448,7 @@ const TermsPage = () => {
           legal theory. The only disputes excluded from this broad prohibition are the litigation of
           certain intellectual property and small court claims, as provided below. If you have any
           dispute with us, you agree that before taking any formal action, you will contact us at
-          Starfund,1747 Tysons Central St Suite 1303, Vienna Va 22182 and starfundapp@gmail.com, and
+          Starfund,1747 Tysons Central St Suite 1303, Vienna Va 22182 and info@starfund.app, and
           provide a brief, written description of the dispute and your contact information
           (including your username, if your dispute relates to an account). Except for intellectual
           property and small claims court claims, the parties agree to use their best efforts to
@@ -581,7 +581,7 @@ const TermsPage = () => {
         <h4>14. Questions? Concerns? Suggestions?</h4>
         <p>
           Please contact us at 1747 Tysons Central St Suite 1303, Vienna VA 22182 or
-          starfundapp@gmail.com to report any violations of these Terms of Service or to pose any
+          info@starfund.app to report any violations of these Terms of Service or to pose any
           questions regarding this Terms of Service or the Service.
         </p>
       </div>

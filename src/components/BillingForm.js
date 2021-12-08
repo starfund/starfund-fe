@@ -88,6 +88,7 @@ const BillingForm = ({
         <div className="col-12">
           <form className="newbie-form">
             <div className="missing-email">
+              <p>{intl.formatMessage({ id: 'billing.newpassword' })}</p>
               <Input
                 name="password"
                 type="password"
@@ -185,13 +186,17 @@ const BillingForm = ({
               </div>
             </div>
           </form>
-          <p className="small-copy">
-            {intl.formatMessage({ id: 'billing.copy' })}
-            <a href="/terms" target="_blank">
-              {intl.formatMessage({ id: 'billing.legal' })}
-            </a>
-            {intl.formatMessage({ id: 'billing.copy2' })}
-          </p>
+          {type != 'ppv' ? (
+            <p className="small-copy">
+              {intl.formatMessage({ id: 'billing.copy' })}
+              <a href="/terms" target="_blank">
+                {intl.formatMessage({ id: 'billing.legal' })}
+              </a>
+              {intl.formatMessage({ id: 'billing.copy2' })}
+            </p>
+          ) : (
+            <br />
+          )}
         </React.Fragment>
       )}
     </div>

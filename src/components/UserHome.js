@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useHistory, Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
@@ -32,9 +32,30 @@ const UserHome = () => {
   const fighterIds = supporting.map(sub => sub.fighter && sub.fighter.id);
   const payedTeamFighterIds = supporting.map(sub => sub.team && sub.team.fighters?.map(f => f.id));
   const payedFighters = fighterIds + payedTeamFighterIds;
-  const feedContent = useSelector(state => state.contents.content.content);
+  // const feedContent = useSelector(state => state.contents.content.content);
+  const feedContent = undefined;
   const likes = useSelector(state => state.contents.content.likes);
   const language = useSelector(state => state.language.language);
+  const eventPPV = useSelector(state => state.subscriptions.ppvCharges);
+
+  function addDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  const originalevents = organizations.map(o => o.events.slice()).flat();
+  const events = [...originalevents].map(e => {
+    const eventDate = new Date(e.eventDate);
+    const currDate = new Date();
+    const newEvent = { ...e };
+    if (addDays(eventDate, 7) - currDate > 0) {
+      newEvent.isActive = true;
+    } else {
+      newEvent.isActive = false;
+    }
+    return newEvent;
+  });
 
   useEffect(() => {
     ReactGA.pageview('/user_home/');
@@ -96,15 +117,45 @@ const UserHome = () => {
                   orgSubs?.length > 0 &&
                   orgSubs.map(s => (
                     <React.Fragment key={s.id}>
-                      <div className="fighter-sub flex">
+                      <div className="fighter-sub flex" onClick>
                         <img
                           src={
-                            organizations.filter(o => o.name === s.orgName)[0]?.coverPhoto ||
+                            organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
                             DefaultAvatar
                           }
                           alt="sub"
                         />
-                        <p>{s.orgName}</p>
+                        <Link
+                          style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                          to={`/organization/${s.orgName}`}
+                        >
+                          {s.orgName}
+                        </Link>
+                      </div>
+                    </React.Fragment>
+                  ))}
+                {organizations &&
+                  eventPPV?.length > 0 &&
+                  eventPPV.map(c => (
+                    <React.Fragment key={c.id}>
+                      <div className="fighter-sub flex">
+                        {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
+                          <img
+                            src={
+                              organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                              DefaultAvatar
+                            }
+                            alt="sub"
+                          />
+                        )}
+                        <Link
+                          style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                          to={`/organization/${c.orgName}`}
+                        >
+                          {`${
+                            events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
+                          } - PPV`}
+                        </Link>
                       </div>
                     </React.Fragment>
                   ))}
@@ -193,6 +244,65 @@ const UserHome = () => {
                     ))}
                 </React.Fragment>
               )}
+              {organizations &&
+                orgSubs?.length > 0 &&
+                orgSubs.map(s => (
+                  <React.Fragment key={s.id}>
+                    <div className="fighter-sub flex" onClick>
+                      <img
+                        src={
+                          organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                          DefaultAvatar
+                        }
+                        alt="sub"
+                      />
+                      <p>
+                        <FormattedMessage id="home.welcomepost" values={{ new: s.orgName }} />
+                      </p>
+                    </div>
+                    <img
+                      className="welcome-photo"
+                      src={
+                        organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                        DefaultAvatar
+                      }
+                      alt="sub"
+                    />
+                  </React.Fragment>
+                ))}
+              {organizations &&
+                eventPPV?.length > 0 &&
+                eventPPV.map(c => (
+                  <React.Fragment key={c.id}>
+                    <div className="fighter-sub flex">
+                      {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
+                        <img
+                          src={
+                            organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                            DefaultAvatar
+                          }
+                          alt="sub"
+                        />
+                      )}
+                      <p>
+                        <FormattedMessage
+                          id="home.welcomepost"
+                          values={{
+                            new: events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
+                          }}
+                        />
+                      </p>
+                    </div>
+                    <img
+                      className="welcome-photo"
+                      src={
+                        organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                        DefaultAvatar
+                      }
+                      alt="sub"
+                    />
+                  </React.Fragment>
+                ))}
             </div>
           </div>
         </div>

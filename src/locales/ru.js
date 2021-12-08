@@ -15,6 +15,7 @@ export default {
 
   'logout.button': 'Выйти',
   'home.welcome': 'Starfund',
+  'home.welcomepost': 'Добро пожаловать в {new}',
 
   // General
   'button.subscribe': 'Подписаться',
@@ -57,7 +58,7 @@ export default {
   'form.email.placeholder': 'email@example.com',
 
   // Modals
-  'modal.header.selectPassword': 'Выбрать свой пароль для окончания регистрации',
+  'modal.header.selectPassword': 'Создайте свой пароль, чтобы завершить свою учетную запись',
   'modal.header.explain':
     'Подпишись, чтобы стать эксклюзивным фанатом и наслаждайся видео и сюрпризами.',
   'modal.header.explainGym':
@@ -129,7 +130,7 @@ export default {
   'billing.confirmAccountPassword': 'Подтвердить',
   'billing.title': 'Ежемесячная подписка ',
   'billing.title.yearly': 'ЕЖЕГОДНОЕ ЧЛЕНСТВО',
-  'billing.ppv.title': 'ПЕРСОНАЛИЗИРОВАННОЕ ВИДЕО',
+  'billing.ppv.title': 'PPV событие',
   'billing.email': 'Email',
   'billing.number': 'Номер',
   'billing.name': 'Имя на карте',
@@ -141,6 +142,7 @@ export default {
     'С вашего метода оплаты будет взиматься плата за первый месяц, а затем будет взиматься ежемесячная плата по текущему курсу. Цены указаны без учета налогов. Отмените в любое время в настройках. Возврат средств за неполный неиспользованный период или после выкупа подарка не производится',
   'billing.legal': 'Условия пользования',
   'billing.addCard': 'Добавить способ оплаты',
+  'billing.newpassword': 'Пожалуйста, введите новый пароль длиной не менее 8 символов',
 
   // FAQS
   'faqs.title': 'Часто задаваемые вопросы',

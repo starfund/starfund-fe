@@ -51,10 +51,19 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       window.location.href = '/dashboard';
     }
 
-    if (chargeStatus === SUCCESS) {
-      dispatch(charge.reset());
-      setIsOpen(false);
-      // window.alert(intl.formatMessage({ id: 'ppv.success' }));
+    if (!shouldUpdatePassword && authenticated) {
+      if (chargeStatus === SUCCESS) {
+        dispatch(charge.reset());
+        setIsOpen(false);
+      }
+    }
+
+    if (authenticated && updateStatus === SUCCESS) {
+      if (chargeStatus === SUCCESS) {
+        dispatch(updatePassword.reset());
+        setIsOpen(false);
+        window.location.href = '/dashboard';
+      }
     }
   }, [
     authenticated,
@@ -138,7 +147,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
                 </div>
                 <div className="col-sm-3">
                   <p className="pad-20"> {intl.formatMessage({ id: 'modal.footer.question' })} </p>
-                  <p className="email-pad"> starfundapp@gmail.com </p>
+                  <p className="email-pad"> info@starfund.app </p>
                 </div>
               </div>
             </div>

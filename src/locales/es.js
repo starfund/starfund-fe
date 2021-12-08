@@ -19,6 +19,7 @@ export default {
 
   'logout.button': 'SALIR',
   'home.welcome': 'Bienvenido a Starfund',
+  'home.welcomepost': 'Bienvenido a {new}',
 
   'login.form.email.presence': 'Debe ingresar un email para continuar',
   'login.form.email.invalid': 'Debe ingresar un email válido',
@@ -74,7 +75,7 @@ export default {
     'Nosotros te contactaremos durante todo el proceso, si tienes alguna duda puedes contactarnos a support@starfund.app',
 
   // Modals
-  'modal.header.selectPassword': 'Para terminar tu cuenta selecciona tu contraseña',
+  'modal.header.selectPassword': 'Para terminar tu cuenta crear tu contraseña',
   'modal.header.explain': 'Subscribete para disfrutar los videos exclusivos y sorpresas.',
   'modal.header.explainGym': 'Subscribete para disfrutar los videos exclusivos e info del gym.',
   'modal.header.ppv.explain': 'Casi listo, solo confirma tu pago',
@@ -131,7 +132,7 @@ export default {
   'billing.confirmAccountPassword': 'Confirmar',
   'billing.title': 'MEMBRESIA MENSUAL',
   'billing.title.yearly': 'MEMBRESIA ANUAL',
-  'billing.ppv.title': 'VIDEO PERSONALIZADO',
+  'billing.ppv.title': 'EVENTO PPV',
   'billing.email': 'Email',
   'billing.number': 'Numero',
   'billing.name': 'Nombre Completo',
@@ -144,6 +145,7 @@ export default {
     '. Un cargo sera realizado contra tu metodo de pago el primer mes y continuara realizandose de forma mensual de igual manera. Los precios no incluyen impuestos. Puede cancelar en cualquier momento en su perfil. No se realizan devoluciones ni devoluciones parciales para periodos no utilizados ni para regalos si ya fueron reclamados',
   'billing.legal': ' Terminos de Oferta y Terminos de Servicio',
   'billing.addCard': 'Agregar medio de pago',
+  'billing.newpassword': 'Porfavor ingrese una nueva contraseña con por lo menos 8 caracteres',
 
   // FAQS
   'faqs.title': 'Preguntas Frecuentes',

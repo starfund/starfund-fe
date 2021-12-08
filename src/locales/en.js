@@ -15,6 +15,7 @@ export default {
 
   'logout.button': 'LOGOUT',
   'home.welcome': 'Welcome to Starfund',
+  'home.welcomepost': 'Welcome to {new}',
 
   // General
   'button.subscribe': 'SUBSCRIBE',
@@ -67,7 +68,7 @@ export default {
     'We will contact you trhough all the process and by any means, if you still want to know something else contact us at support@starfund.app',
 
   // Modals
-  'modal.header.selectPassword': 'Select your password to finish your account',
+  'modal.header.selectPassword': 'Create your password to finish your account',
   'modal.header.explain': 'Subscribe to become an exclusive fan and enjoy videos and surprises.',
   'modal.header.explainGym': 'Subscribe to access all videos and gym information.',
   'modal.header.ppv.explain': 'Almost there, just finish your payment',
@@ -127,7 +128,7 @@ export default {
   'billing.confirmAccountPassword': 'Confirm',
   'billing.title': 'MONTHLY MEMBERSHIP',
   'billing.title.yearly': 'YEARLY MEMBERSHIP',
-  'billing.ppv.title': 'PERSONALIZED VIDEO',
+  'billing.ppv.title': 'PPV event',
   'billing.email': 'Email',
   'billing.number': 'Number',
   'billing.name': 'Holder Name',
@@ -140,6 +141,7 @@ export default {
     '. Your payment method will be charged the price above the first month and monthly thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in Settings. No refunds for partial unused periods, or after gift is redeemed.',
   'billing.legal': ' Offer Terms and Terms of Service',
   'billing.addCard': 'Add payment method',
+  'billing.newpassword': 'Please enter a new password with at least 8 characters',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',

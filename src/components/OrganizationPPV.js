@@ -13,12 +13,12 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
   };
 
   const sortedMainEvents = event?.mainEvents.slice();
-  sortedMainEvents.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
-  sortedMainEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
+  sortedMainEvents?.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
+  sortedMainEvents?.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
 
   const sortedPrelimEvents = event?.prelimEvents.slice();
-  sortedPrelimEvents.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
-  sortedPrelimEvents.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
+  sortedPrelimEvents?.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
+  sortedPrelimEvents?.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
 
   window.scrollTo(0, 700);
   const intl = useIntl();
@@ -247,6 +247,14 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
         </div>
         <br />
       </div>
+      {isMobile && (
+        <div className="event-div">
+          <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
+            {intl.formatMessage({ id: 'organization.button.buyppv' })}
+          </button>
+          <br />
+        </div>
+      )}
       {!isMobile && <br />}
       {!isMobile && <br />}
       {!isMobile && <br />}

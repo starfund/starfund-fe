@@ -41,6 +41,9 @@ const OrganizationHome = ({
             nextEvent={sortedEvents[sortedEvents?.length - 1]}
             subscribeAction={subscribeAction}
             payed={payed}
+            payedPPV={payedPPV}
+            goToPPV={watchAction}
+            isUpcoming
           />
         )}
         {sortedEvents && isMobile && (

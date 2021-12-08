@@ -10,7 +10,7 @@ const BecomeStarPage = () => {
           <h1>{intl.formatMessage({ id: 'emailUs' })}</h1>
           <br />
           <h2>
-            <u>starfundapp@gmail.com</u>
+            <u>info@starfund.app</u>
           </h2>
         </div>
       </div>

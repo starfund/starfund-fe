@@ -14,12 +14,20 @@ import EventViewMobile from './EventViewMobile';
 
 const PageSize = 4;
 
-const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) => {
+const OrganizationEvents = ({
+  organization,
+  subscribeAction,
+  payed,
+  homeNav,
+  payedPPV,
+  goToPPV,
+  allevents,
+  setAllEvents
+}) => {
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
   const lastEventId = sortedEvents[sortedEvents?.length - 1]?.id;
-  const [allevents, setAllEvents] = useState(true);
   const [prevEvent, setPrevEvent] = useState();
   const [currEvent, setCurrEvent] = useState();
   const [nextEvent, setNextEvent] = useState();
@@ -364,6 +372,9 @@ const OrganizationEvents = ({ organization, subscribeAction, payed, homeNav }) =
               subscribeAction={subscribeAction}
               video={selectedVideo}
               payed={payed}
+              payedPPV={payedPPV}
+              goToPPV={goToPPV}
+              isUpcoming={nextEvent?.id === lastEventId}
             />
           )}
           {isMobile && (

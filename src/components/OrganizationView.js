@@ -12,9 +12,7 @@ import ConfirmationModal from './common/ConfirmationModal';
 import { getOrganizations } from '../state/actions/organizationActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 
-import CommonModal from './common/CommonModal';
 import BillingForm from './BillingForm';
-import PPVForm from './PPVForm';
 import PaymentMode from './PaymentMode';
 import HomeFooter from './HomeFooter';
 import OrganizationHome from './OrganizationHome';
@@ -29,7 +27,7 @@ const OrganizationView = () => {
   const [payPPV, setPayPPV] = useState(false);
   const [payMonthly, setPayMonthly] = useState(false);
   const [payYearly, setPayYearly] = useState(false);
-  const [PPVOpen, setPPVOpen] = useState(false);
+  const [allevents2, setAllEvents2] = useState(true);
   const currentUser = useSelector(state => state.session.user);
   const { authenticated } = useSession();
 
@@ -90,9 +88,9 @@ const OrganizationView = () => {
     setModalIsOpen(false);
   };
 
-  const [home, setHome] = useState(true);
+  const [home, setHome] = useState(!payedPPV);
   const [allevents, setAllEvents] = useState(false);
-  const [ppv, setPPV] = useState(false);
+  const [ppv, setPPV] = useState(payedPPV);
   const [event, setEvent] = useState();
 
   return (
@@ -163,6 +161,7 @@ const OrganizationView = () => {
                     onClick={() => {
                       setHome(false);
                       setAllEvents(true);
+                      setAllEvents2(true);
                       setPPV(false);
                     }}
                   >
@@ -226,6 +225,15 @@ const OrganizationView = () => {
             setAllEvents(false);
             setPPV(false);
           }}
+          payedPPV={payedPPV}
+          goToPPV={() => {
+            setHome(false);
+            setAllEvents(false);
+            setPPV(true);
+            setEvent(sortedEvents[sortedEvents?.length - 1]);
+          }}
+          allevents={allevents2}
+          setAllEvents={setAllEvents2}
         />
       )}
       {ppv && (
@@ -282,15 +290,6 @@ const OrganizationView = () => {
               type="subscription"
             />
           </ConfirmationModal>
-          <CommonModal
-            title={intl.formatMessage({ id: 'ppv.title' })}
-            isOpen={PPVOpen}
-            setIsOpen={setPPVOpen}
-            customWidth="80%"
-            customHeight="80%"
-          >
-            <PPVForm onSubmit={setPPVOpen} nextStep={setPayPPV} orgName={organization?.name} />
-          </CommonModal>
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.ppv.title' })}
             explain={intl.formatMessage({ id: 'modal.header.ppv.explain' })}

@@ -468,7 +468,7 @@ h3 {
       color: white;
       display: flex;
       font-weight: 500 !important;
-      margin-top: -3vh;
+      margin-top: -2.5vh;
       letter-spacing: -0.02em;
     }
 
@@ -486,6 +486,7 @@ h3 {
       font-weight: 500 !important;  
       margin-top:2vh;
       line-height: normal;
+      text-align: center;
       @media (max-width: 933px) {
         font-size: 2.5vw;
       }
@@ -899,17 +900,21 @@ h3 {
       top: 65%;
     }
 
-    @media (max-height: 667px) {
+    @media (max-height: 850px) {
+      top: 65%;
+    }
+
+    @media (max-height: 780px) {
       top: 60%;
+    }
+
+    @media (max-height: 732px) {
+      top: 53%;
+
     }
 
     @media (max-height: 570px) {
       top: 40%;
-
-    }
-
-    @media (max-height: 320px) {
-      top: 35%;
     }
 
     h1 {
@@ -3338,6 +3343,74 @@ h3 {
   }
 }
 
+.event-view-mobile-videos{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  
+  .mobile-filters{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    padding: 3px;
+    margin: 2px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 3vw;
+    line-height: 12px;
+    letter-spacing: -0.025em;
+    width: 30vw;
+  }
+
+  p{
+    font-weight: normal!important;
+  }
+
+  
+  .filters-container{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+  }
+}
+
+.event-view-mobile-video-small{
+  justify-content: space-between;
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -2vw;
+  
+  .mobile-filters{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    padding: 3px;
+    margin: 2px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal !important;
+    font-size: 3vw;
+    line-height: 12px;
+    letter-spacing: -0.025em;
+    width: 30vw;
+  }
+
+  p{
+    font-weight: normal!important;
+  }
+
+  
+  .filters-container{
+    display: flex;
+    align-items: center;
+    margin-top: 2vh;
+  }
+}
+
 .link-text{
   font-family: Montserrat;
   font-style: normal;
@@ -3358,4 +3431,10 @@ h3 {
   color: #FFFFFF;
   margin: 1vw;
   margin-left: -75vw;
+}
+
+.welcome-photo{
+  max-width: 50vw;
+  max-height: 50vh;
+  margin: 10px;
 }

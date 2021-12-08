@@ -75,6 +75,28 @@ const EventViewMobile = ({
     );
   };
 
+  const months = [
+    'jan.long',
+    'feb.long',
+    'mar.long',
+    'apr.long',
+    'may.long',
+    'jun.long',
+    'jul.long',
+    'aug.long',
+    'sep.long',
+    'oct.long',
+    'nov.long',
+    'dec.long'
+  ];
+
+  function EventDate(d) {
+    const date = new Date(d);
+    return `${intl.formatMessage({
+      id: `organization.months.${months[date?.getMonth()]}`
+    })} ${date?.getDate()}, ${date.getFullYear()}`;
+  }
+
   return (
     <div className="mobile-background">
       <div className="event-view-mobile-container">
@@ -121,31 +143,64 @@ const EventViewMobile = ({
           </div>
         </div>
       </div>
-      <ReactPlayer
-        url={url}
-        width
-        muted
-        controls
-        playing
-        style={{
-          margin: '3%',
-          minHeight: '35vh',
-          maxHeight: '35vh',
-          minWidth: '95vw',
-          maxWidth: '95vw'
-        }}
-        config={{
-          file: {
-            attributes: {
-              onContextMenu: e => e.preventDefault(),
-              controlsList: 'nodownload'
+      {(payed || displayContent.public) && (
+        <ReactPlayer
+          url={url}
+          width
+          muted
+          controls
+          playing
+          style={{
+            margin: '3%',
+            minHeight: '35vh',
+            maxHeight: '35vh',
+            minWidth: '95vw',
+            maxWidth: '95vw'
+          }}
+          config={{
+            file: {
+              attributes: {
+                onContextMenu: e => e.preventDefault(),
+                controlsList: 'nodownload'
+              }
             }
-          }
-        }}
-      />
-      <div className="event-view-mobile-container">
+          }}
+        />
+      )}
+      {!payed && !displayContent.public && (
+        <ReactPlayer
+          url={url}
+          width
+          muted
+          light={displayContent?.thumbnail}
+          playIcon
+          style={{
+            margin: '3%',
+            minHeight: '35vh',
+            maxHeight: '35vh',
+            minWidth: '95vw',
+            maxWidth: '95vw'
+          }}
+          config={{
+            file: {
+              attributes: {
+                onContextMenu: e => e.preventDefault(),
+                controlsList: 'nodownload'
+              }
+            }
+          }}
+        />
+      )}
+      <div className="event-view-mobile-videos">
         <h3>{formatTitle(displayContent, language)}</h3>
-        <p>{formatDescription(displayContent, language)}</p>
+      </div>
+      <div className="event-view-mobile-video-small">
+        <div>
+          <p>{formatDescription(displayContent, language)}</p>
+        </div>
+        <div>
+          <p>{EventDate(sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.eventDate)}</p>
+        </div>
       </div>
       <div className="mobile-nav-center">
         <div
@@ -162,7 +217,7 @@ const EventViewMobile = ({
         </div>
       </div>
       {!prelim && (
-        <Carousel cols={1} rows={1} gap={35} loop>
+        <Carousel cols={1} rows={1} gap={10} loop>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
             .mainEvents.map(v => (

@@ -5,7 +5,17 @@ import { useMediaQuery } from 'react-responsive';
 import cn from 'classnames';
 import VideoSlider from './VideoSlider';
 
-const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, payed }) => {
+const EventView = ({
+  prevEvent,
+  currEvent,
+  nextEvent,
+  subscribeAction,
+  video,
+  payed,
+  payedPPV,
+  isUpcoming,
+  goToPPV
+}) => {
   const intl = useIntl();
   const [curr, setCurr] = useState(true);
   const [prev, setPrev] = useState(false);
@@ -62,10 +72,21 @@ const EventView = ({ prevEvent, currEvent, nextEvent, subscribeAction, video, pa
                   className="nav-link"
                   href=""
                   onClick={() => {
-                    console.log('upcoming');
+                    if (isUpcoming) {
+                      if (payedPPV) {
+                        goToPPV();
+                      } else {
+                        subscribeAction();
+                      }
+                    } else {
+                      setPrev(false);
+                      setCurr(false);
+                      setNext(true);
+                    }
                   }}
                 >
-                  {nextEvent?.name}{' '}
+                  {`${nextEvent?.name} `}
+                  {isUpcoming && '(UPCOMING)'}
                 </p>
               </li>
             </ul>
