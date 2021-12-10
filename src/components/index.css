@@ -769,12 +769,13 @@ h3 {
     button {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
-      border-radius: 0;
-      font-weight: bold;
       font-size: 16px;
       letter-spacing: 0.2em;
       height: 6vh;
       padding: 5px 20px;
+      border-radius: 0;
+      font-weight: 500 !important;
+      letter-spacing: -0.02em;
       @media (max-width: 600px) {
         font-size: 5vw;
         height: 18vw;
@@ -2759,10 +2760,10 @@ h3 {
       background-color: #ea0a0a;
       border: solid #eb0000 1px;
       border-radius: 0;
-      font-weight: bold;
       font-size: 16px;
       max-height: 45px;
-      letter-spacing: 0.2em;
+      font-weight: 500 !important;
+      letter-spacing: -0.02em;
       height: 45px;
       padding: 5px 20px;
 
@@ -3047,10 +3048,10 @@ h3 {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;
     border-radius: 0;
-    font-weight: bold;
     font-size: 16px;
     max-height: 45px;
-    letter-spacing: 0.2em;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
     height: 45px;
     padding: 5px 20px;
 
@@ -3227,7 +3228,8 @@ h3 {
     font-weight: bold;
     font-size: 16px;
     max-height: 45px;
-    letter-spacing: 0.2em;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
     height: 45px;
     padding: 5px 20px;
 

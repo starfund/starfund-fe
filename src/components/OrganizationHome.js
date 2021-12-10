@@ -5,7 +5,6 @@ import { useMediaQuery } from 'react-responsive';
 import CountDownTimer from './CountDownTimer';
 import EventView from './EventView';
 import EventViewMobile from './EventViewMobile';
-import Background from '../assets/awcf_poster_bg2.png';
 
 const OrganizationHome = ({
   organization,
@@ -17,14 +16,11 @@ const OrganizationHome = ({
 }) => {
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
-  const divImage = {
-    backgroundImage: `url(${Background})`
-  };
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
   return (
-    <div className="organization-container" style={divImage}>
+    <div className="organization-container">
       <div>
         {sortedEvents && !isMobile && (
           <CountDownTimer

@@ -52,12 +52,11 @@ const OrganizationView = () => {
   const sortedEvents = organization && [...organization.events];
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
 
-  const lastEventDate = sortedEvents && new Date(sortedEvents[sortedEvents?.length - 1]?.eventDate);
   const today = new Date();
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
-  const lastEvent = sortedEvents && sortedEvents[sortedEvents?.length - 1]?.id;
+  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage)[0];
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -65,7 +64,12 @@ const OrganizationView = () => {
   }
 
   const payedPPV =
-    supportingPPV.map(s => s.orgEvent).includes(lastEvent) && addDays(lastEventDate, 7) > today;
+    supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id) && !lastEvent?.finished;
+
+  const isDiscount =
+    lastEvent?.finished &&
+    today > new Date(lastEvent?.eventDate) &&
+    today < addDays(lastEvent?.eventDate, 7);
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -121,7 +125,7 @@ const OrganizationView = () => {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
-                    setEvent(sortedEvents[sortedEvents?.length - 1]);
+                    setEvent(sortedEvents.filter(e => e.homePage)[0]);
                   } else {
                     setModalIsOpen(true);
                   }
@@ -175,7 +179,7 @@ const OrganizationView = () => {
                       setHome(false);
                       setAllEvents(false);
                       setPPV(true);
-                      setEvent(sortedEvents[sortedEvents?.length - 1]);
+                      setEvent(sortedEvents.filter(e => e.homePage)[0]);
                     }}
                   >
                     {intl.formatMessage({ id: 'header.ppv' })}
@@ -230,7 +234,7 @@ const OrganizationView = () => {
             setHome(false);
             setAllEvents(false);
             setPPV(true);
-            setEvent(sortedEvents[sortedEvents?.length - 1]);
+            setEvent(sortedEvents.filter(e => e.homePage)[0]);
           }}
           allevents={allevents2}
           setAllEvents={setAllEvents2}
@@ -260,7 +264,7 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={organization?.ppvPrice}
+              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
@@ -303,7 +307,7 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
-              price={organization?.ppvPrice}
+              price={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
               type="ppv"
             />
           </ConfirmationModal>

@@ -34,9 +34,11 @@ const Header = () => {
     <React.Fragment>
       <header className={isMobile ? 'custom-header-mobile' : 'custom-header'}>
         <nav className="navbar navbar-expand-lg navbar-dark">
-          <div className="main-logo" onClick={() => goHome()}>
-            <img src={LogoWhite} alt="logo" />
-          </div>
+          {!isMobile && (
+            <div className="main-logo" onClick={() => goHome()}>
+              <img src={LogoWhite} alt="logo" />
+            </div>
+          )}
           <button
             className="navbar-toggler"
             type="button"
@@ -108,6 +110,11 @@ const Header = () => {
               </div>
             )}
           </div>
+          {isMobile && (
+            <div className="main-logo" onClick={() => goHome()}>
+              <img src={LogoWhite} alt="logo" />
+            </div>
+          )}
         </nav>
       </header>
       <Auth modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
