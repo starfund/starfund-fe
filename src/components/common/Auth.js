@@ -35,9 +35,11 @@ const Auth = ({ modalIsOpen, setModalIsOpen }) => {
       setModalIsOpen(false);
     }
     if (status2.status === SUCCESS) {
+      window.history.pushState({ new: true }, '', '/dashboard');
       setModalIsOpen(false);
     }
     if (status3.status === SUCCESS) {
+      window.history.pushState({ new: true }, '', '/dashboard');
       setModalIsOpen(false);
     }
   }, [dispatch, setModalIsOpen, status, status2.status, status3.status]);

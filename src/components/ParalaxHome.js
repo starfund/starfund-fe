@@ -4,10 +4,12 @@ import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import FlashMessage from 'react-flash-message';
 
 import ConfirmationModal from './common/ConfirmationModal';
 import BillingForm from './BillingForm';
 import './index.css';
+import Tick from '../assets/tick.png';
 
 const ParalaxHome = () => {
   const intl = useIntl();
@@ -15,9 +17,23 @@ const ParalaxHome = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+  const value = window.history.state?.new;
 
   return (
     <div className="container home-container">
+      {value && (
+        <div className="flash-message-container">
+          <FlashMessage duration={5000} persistOnHover>
+            <div style={{ marginTop: '-10vh' }} className="flash-message">
+              <img style={{ width: '8vh' }} src={Tick} alt="" />
+              <div className="flash-message-text">
+                <h4>{intl.formatMessage({ id: 'password.reset.title' })}</h4>
+                {intl.formatMessage({ id: 'password.reset.message' })}
+              </div>
+            </div>
+          </FlashMessage>
+        </div>
+      )}
       <div className="row">
         <div className="col-md-4 home-text">
           <h1>{intl.formatMessage({ id: 'home.paralax.title' })}</h1>

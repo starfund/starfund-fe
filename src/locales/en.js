@@ -17,6 +17,13 @@ export default {
   'home.welcome': 'Welcome to Starfund',
   'home.welcomepost': 'Welcome to {new}',
 
+  'password.create.title': 'Account created',
+  'password.create.message':
+    'You have successfully created your password. You will receive a confirmation email.',
+  'password.reset.title': 'Email sent',
+  'password.reset.message':
+    'We have sent an email to change your password. Please check your email or your Spam Folder.',
+
   // General
   'button.subscribe': 'SUBSCRIBE',
   'button.support': 'SUPPORT',

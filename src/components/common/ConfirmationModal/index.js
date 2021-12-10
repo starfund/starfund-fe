@@ -48,7 +48,8 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
     if (authenticated && updateStatus === SUCCESS) {
       dispatch(updatePassword.reset());
       setIsOpen(false);
-      window.location.href = '/dashboard';
+      window.history.pushState({ new: true }, '', '/dashboard');
+      window.location.reload();
     }
 
     if (!shouldUpdatePassword && authenticated) {
@@ -62,7 +63,8 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       if (chargeStatus === SUCCESS) {
         dispatch(updatePassword.reset());
         setIsOpen(false);
-        window.location.href = '/dashboard';
+        window.history.pushState({ new: true }, '', '/dashboard');
+        window.location.reload();
       }
     }
   }, [

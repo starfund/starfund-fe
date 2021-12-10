@@ -25,6 +25,12 @@ export default {
   'login.form.email.invalid': 'Debe ingresar un email válido',
   'login.form.password.presence': 'Debe ingresar una contraseña para continuar',
 
+  'password.create.title': 'Cuenta creada',
+  'password.create.message': 'Se creo su cuenta con exito. Recibira un mail de confirmacion',
+  'password.reset.title': 'Email enviado',
+  'password.reset.message':
+    'Se envio un mail para cambiar su contraseña. Por favor revisar su correo o carpeta de spam',
+
   'button.subscribe': 'SUBSCRIBIRSE',
   'button.support': 'APOYAR',
   'button.continue': 'CONTINUAR',

@@ -222,6 +222,7 @@ h3 {
     width: 90%;
     height: 40px;
     padding: 8px;
+    margin-bottom: 2vh;
   }
 
   .missing-email {
@@ -289,6 +290,9 @@ h3 {
     border-bottom: solid 1px black;
     background-color: white;
     margin-top: 15px;
+    @media (max-width: 768px){
+      width: 305px;
+    }
   }
 
   .stripe-name:focus {
@@ -3437,4 +3441,48 @@ h3 {
   max-width: 50vw;
   max-height: 50vh;
   margin: 10px;
+}
+
+.flash-message-container{
+  display: flex;
+  justify-content: flex-end;
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+}
+
+.flash-message{
+  display: flex;
+  color: white;
+  width: 30vw;
+  height: 10vh;
+  padding: 10px;
+  margin-bottom: 2vh;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: left;
+  background-color: #51a351;
+  opacity: 0.8;
+  border-radius: 1%;
+  &:hover {
+    opacity: 1;
+  }
+  @media (max-width: 768px) {
+    width: 100vw;
+  }
+}
+
+.flash-message-text{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: left;
 }

@@ -96,6 +96,7 @@
     "react-credit-card-display": "0.5.7",
     "react-credit-cards": "0.8.3",
     "react-dom": "16.13.1",
+    "react-flash-message": "1.0.8",
     "react-ga": "3.3.0",
     "react-grid-carousel": "1.0.1",
     "react-helmet": "5.2.1",

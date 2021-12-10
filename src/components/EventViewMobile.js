@@ -189,6 +189,7 @@ const EventViewMobile = ({
               }
             }
           }}
+          onClick={() => subscribeAction()}
         />
       )}
       <div className="event-view-mobile-videos">

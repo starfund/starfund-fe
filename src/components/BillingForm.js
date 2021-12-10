@@ -5,6 +5,7 @@ import { object, string } from 'prop-types';
 import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stripe-elements';
 import { useIntl } from 'react-intl';
 import ReactGA from 'react-ga';
+import { useMediaQuery } from 'react-responsive';
 
 import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
@@ -76,6 +77,10 @@ const BillingForm = ({
     });
   };
 
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
+
   return (
     <div className="row no-gutters checkout-container">
       {subStatus === ERROR && <strong>{error}</strong>}
@@ -126,14 +131,17 @@ const BillingForm = ({
                       <Cards cvc={cvc} expiry={expiry} focused={focus} number={number} />
                     </div>
                     <div className="col-12 col-md-6 offset-md-1">
-                      <div className="offset-1 offset-sm-2 offset-md-0 col-12">
+                      <div
+                        style={isMobile ? { marginLeft: '2vw' } : {}}
+                        className={isMobile ? '' : 'offset-1 offset-sm-2 offset-md-0 col-12'}
+                      >
                         <Field
                           onChange={setNumberStripe}
                           StripeComponent={CardNumberElement}
                           error={numberStripe.error}
                           onFocus={() => setFocus('number')}
                           placeholder={intl.formatMessage({ id: 'billing.number' })}
-                          width={16}
+                          width={isMobile ? 19 : 16}
                         />
                         {!email && (
                           <Input
@@ -144,12 +152,12 @@ const BillingForm = ({
                             className="stripe-name"
                           />
                         )}
-                        <div className="flex">
+                        <div style={isMobile ? { marginLeft: '2px' } : {}} className="flex">
                           <Field
                             onChange={setExpiryStripe}
                             StripeComponent={CardExpiryElement}
                             error={expiryStripe.error}
-                            width={10}
+                            width={isMobile ? 12 : 10}
                             placeholder={intl.formatMessage({ id: 'billing.expiry' })}
                             onFocus={() => setFocus('expiry')}
                             className="expiry"
@@ -159,7 +167,7 @@ const BillingForm = ({
                             StripeComponent={CardCVCElement}
                             error={cvcStripe.error}
                             placeholder={intl.formatMessage({ id: 'billing.cvc' })}
-                            width={6}
+                            width={isMobile ? 7 : 6}
                             onFocus={() => setFocus('cvc')}
                           />
                         </div>

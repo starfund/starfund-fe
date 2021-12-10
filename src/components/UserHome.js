@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useHistory, Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
+import FlashMessage from 'react-flash-message';
 
 import { getSubscriptions } from '../state/actions/subscriptionActions';
 import { getContent } from '../state/actions/contentActions';
 import { getOrganizations } from '../state/actions/organizationActions';
 
+import Tick from '../assets/tick.png';
 import FeedContent from './FeedContent';
 import DefaultAvatar from '../assets/DefaultAvatar.jpeg';
 
@@ -37,7 +39,7 @@ const UserHome = () => {
   const likes = useSelector(state => state.contents.content.likes);
   const language = useSelector(state => state.language.language);
   const eventPPV = useSelector(state => state.subscriptions.ppvCharges);
-
+  const value = window.history.state?.new;
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -63,6 +65,19 @@ const UserHome = () => {
 
   return (
     <div className="user-home">
+      {value && (
+        <div className="flash-message-container">
+          <FlashMessage duration={5000} persistOnHover>
+            <div className="flash-message">
+              <img style={{ width: '8vh' }} src={Tick} alt="" />
+              <div className="flash-message-text">
+                <h4>{intl.formatMessage({ id: 'password.create.title' })}</h4>
+                {intl.formatMessage({ id: 'password.create.message' })}
+              </div>
+            </div>
+          </FlashMessage>
+        </div>
+      )}
       <div className="container">
         <div className="row">
           <div className="col col-sm-4 col-md-4 offset-sm-0">
@@ -263,7 +278,7 @@ const UserHome = () => {
                     <img
                       className="welcome-photo"
                       src={
-                        organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                        organizations.filter(o => o.name === s.orgName)[0]?.coverPhoto ||
                         DefaultAvatar
                       }
                       alt="sub"
@@ -296,7 +311,7 @@ const UserHome = () => {
                     <img
                       className="welcome-photo"
                       src={
-                        organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                        organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
                         DefaultAvatar
                       }
                       alt="sub"
