@@ -68,7 +68,7 @@ const OrganizationView = () => {
   const isDiscount =
     lastEvent?.finished &&
     today > new Date(lastEvent?.eventDate) &&
-    today < addDays(lastEvent?.eventDate, 7);
+    today < addDays(lastEvent?.eventDate, 30);
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -303,7 +303,7 @@ const OrganizationView = () => {
             isOpen={payPPV}
             setIsOpen={setPayPPV}
             isDelete={false}
-            price={organization?.ppvPrice}
+            price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
             email={currentUser?.email}
             organization={organization?.id}
           >
