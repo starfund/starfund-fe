@@ -63,8 +63,7 @@ const OrganizationView = () => {
     return result;
   }
 
-  const payedPPV =
-    supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id) && !lastEvent?.finished;
+  const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id);
 
   const isDiscount =
     lastEvent?.finished &&
