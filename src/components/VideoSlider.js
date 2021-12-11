@@ -19,7 +19,11 @@ const VideoSlider = ({
 }) => {
   const intl = useIntl();
   const anyVideo = publicVideos[0] || privateVideos[0] || '';
-  const [url, setUrl] = useState(selectedVideo ? selectedVideo.video : anyVideo.video);
+  const [url, setUrl] = useState(
+    selectedVideo
+      ? selectedVideo.videoUrl || selectedVideo.video
+      : anyVideo.videoUrl || anyVideo.video
+  );
   const [activeVideo, setActiveVideo] = useState(selectedVideo ? selectedVideo.id : anyVideo.id);
   const [displayContent, setDisplayContent] = useState(selectedVideo || anyVideo);
   const isMobile = useMediaQuery({
@@ -28,7 +32,7 @@ const VideoSlider = ({
   const language = useSelector(state => state.language.language);
 
   const selectVideo = content => {
-    setUrl(content?.video);
+    setUrl(content?.videoUrl || content?.video);
     setDisplayContent(content);
     setActiveVideo(`${content?.id}`);
   };
@@ -173,7 +177,7 @@ const VideoSlider = ({
                     >
                       <LazyLoadComponent>
                         <ReactPlayer
-                          url={v.video}
+                          url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
                           light={v.thumbnail}
@@ -226,7 +230,7 @@ const VideoSlider = ({
                     >
                       <LazyLoadComponent>
                         <ReactPlayer
-                          url={v.video}
+                          url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
                           light={v.thumbnail}
