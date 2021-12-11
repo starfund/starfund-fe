@@ -268,7 +268,7 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
+              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
