@@ -56,7 +56,7 @@ const OrganizationView = () => {
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
-  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage)[0];
+  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -131,7 +131,11 @@ const OrganizationView = () => {
                   }
                 }}
               >
-                {intl.formatMessage({ id: 'organization.button.watch' })}
+                {intl.formatMessage({
+                  id: lastEvent.finished
+                    ? 'organization.button.rewatchppv'
+                    : 'organization.button.watch'
+                })}
               </button>
             )}
           </div>

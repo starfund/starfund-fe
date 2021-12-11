@@ -249,6 +249,7 @@ export default {
   'organization.months.dec.long': 'Diciembre',
   'organization.event.ppv': 'MIRAR EN VIVO CON PPV',
   'organization.button.buyppv': 'COMPRAR PPV AHORA',
+  'organization.button.rewatchppv': 'VOLVER A VER PPV',
   'organization.watchfight': 'VER PELEA',
   'organization.allevents': 'Todos los videos de {organizationName}',
   'organization.watchevent': 'Ver evento completo',

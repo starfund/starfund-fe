@@ -122,7 +122,9 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
           </div>
           <br />
           <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
-            {intl.formatMessage({ id: 'organization.button.buyppv' })}
+            {intl.formatMessage({
+              id: event.finished ? 'organization.button.rewatchppv' : 'organization.button.buyppv'
+            })}
           </button>
         </div>
       )}
