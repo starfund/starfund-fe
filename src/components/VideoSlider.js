@@ -107,7 +107,7 @@ const VideoSlider = ({
               url={url}
               width
               muted
-              light={displayContent?.thumbnail}
+              light={!displayContent?.videoUrl && displayContent?.thumbnail}
               playIcon
               style={{
                 margin: '3%',
@@ -180,7 +180,7 @@ const VideoSlider = ({
                           url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
-                          light={v.thumbnail}
+                          light={!v.videoUrl && v.thumbnail}
                           muted
                           config={{
                             file: {
@@ -233,7 +233,7 @@ const VideoSlider = ({
                           url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
-                          light={v.thumbnail}
+                          light={!v.videoUrl && v.thumbnail}
                           config={{
                             file: {
                               attributes: {
