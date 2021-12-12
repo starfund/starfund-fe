@@ -86,7 +86,7 @@ const EventView = ({
                   }}
                 >
                   {`${nextEvent?.name} `}
-                  {isUpcoming && '(UPCOMING)'}
+                  {isUpcoming && !currEvent?.finished && '(UPCOMING)'}
                 </p>
               </li>
             </ul>
