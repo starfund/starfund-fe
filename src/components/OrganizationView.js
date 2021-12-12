@@ -131,7 +131,7 @@ const OrganizationView = () => {
                 }}
               >
                 {intl.formatMessage({
-                  id: lastEvent.finished
+                  id: lastEvent?.finished
                     ? 'organization.button.rewatchppv'
                     : 'organization.button.watch'
                 })}
