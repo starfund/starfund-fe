@@ -143,7 +143,6 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
               url={event?.streamLink ? event?.streamLink : ''}
               width
               controls
-              playing
               muted
               style={{ minHeight: `${isMobile ? 'auto' : '550px'}` }}
               config={{
