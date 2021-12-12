@@ -156,7 +156,7 @@ const VideoSlider = ({
         >
           {publicVideos &&
             publicVideos
-              .filter(c => !!c.video)
+              .filter(c => !!c.video || !!c.videoUrl)
               .map(v => (
                 <Carousel.Item>
                   <div
@@ -200,7 +200,7 @@ const VideoSlider = ({
               ))}
           {privateVideos &&
             privateVideos
-              .filter(c => !!c.video)
+              .filter(c => !!c.video || !!c.videoUrl)
               .map(v => (
                 <Carousel.Item>
                   <div
