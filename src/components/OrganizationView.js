@@ -310,7 +310,7 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
-              price={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
+              price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
               type="ppv"
             />
           </ConfirmationModal>
