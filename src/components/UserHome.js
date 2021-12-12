@@ -51,7 +51,7 @@ const UserHome = () => {
     const eventDate = new Date(e.eventDate);
     const currDate = new Date();
     const newEvent = { ...e };
-    if (addDays(eventDate, 7) - currDate > 0) {
+    if (addDays(eventDate, 30) - currDate > 0) {
       newEvent.isActive = true;
     } else {
       newEvent.isActive = false;
