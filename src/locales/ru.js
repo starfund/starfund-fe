@@ -245,7 +245,7 @@ export default {
   'organization.months.dec.long': 'Декабрь',
   'organization.event.ppv': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
   'organization.button.buyppv': 'КУПИТЬ PPV СЕЙЧАС',
-  'organization.button.rewatchppv': 'ПОВТОРНО ПОСМОТРЕТЬ PPV',
+  'organization.button.rewatchppv': 'ПОВТОРНО ПОСМОТРЕТЬ AOW 21',
   'organization.watchfight': 'СМОТРЕТЬ БОЙ',
   'organization.watchevent': 'СМОТРЕТЬ ПОЛНОЕ СОБЫТИЕ',
   'organization.event.live': 'ЖИТЬ',
