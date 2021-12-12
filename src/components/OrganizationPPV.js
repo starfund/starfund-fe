@@ -133,7 +133,9 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
           <div className="video-title">
             {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
             <div className="event-live">
-              {intl.formatMessage({ id: `organization.event.live` })}
+              {intl.formatMessage({
+                id: event.finished ? 'organization.event.rewatch' : 'organization.event.live'
+              })}
             </div>
           </div>
           <LazyLoadComponent>

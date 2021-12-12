@@ -249,6 +249,7 @@ export default {
   'organization.button.rewatchppv': 'RE-WATCH AOW 21',
   'organization.watchfight': 'WATCH FIGHT',
   'organization.event.live': 'LIVE',
+  'organization.event.rewatch': 'REPLAY',
   'organization.event.livevideo': ' ● LIVE',
   'organization.event.novideos': 'This event does not have any videos',
   'organization.seasonpass': 'BUY SEASON PASS NOW',

@@ -254,6 +254,7 @@ export default {
   'organization.allevents': 'Todos los videos de {organizationName}',
   'organization.watchevent': 'Ver evento completo',
   'organization.event.live': 'EN VIVO',
+  'organization.event.rewatch': 'REPETICION',
   'organization.event.livevideo': ' ● EN VIVO',
   'organization.event.novideos': 'Este evento no contiene videos',
   'organization.seasonpass': 'Comprar pase de temporada',
