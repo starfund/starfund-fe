@@ -95,7 +95,7 @@ const OrganizationView = () => {
   const [home, setHome] = useState(!payedPPV);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(payedPPV);
-  const [event, setEvent] = useState();
+  const [event, setEvent] = useState(sortedEvents.filter(e => e.homePage)[0]);
 
   return (
     <div className="fighter-container">

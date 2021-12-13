@@ -68,6 +68,14 @@
   .nav-link {
     color: white !important;
     font-weight: 500 !important;
+    @media (max-width: 768px) {
+      display: flex;
+      border-bottom: solid;
+      border-color: #373737;
+      border-width: 1px;
+      padding-left: 30px !important;
+      width: 100vw;
+    }
   }
 }
   
@@ -77,4 +85,13 @@
 
 .nav-actions {
   cursor: pointer;
+  @media (max-width: 768px) {
+    display: flex;
+    border-bottom: solid;
+    border-color: #373737;
+    border-width: 1px;
+    padding-left: 30px !important;
+    width: 100vw;
+    padding:0px;
+  }
 }

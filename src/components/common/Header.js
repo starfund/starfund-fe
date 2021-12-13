@@ -51,6 +51,40 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
+            {isMobile && pathname != '/organization/Demo' && (
+              <div className="nav-actions flex">
+                {authenticated && <img src={ProfileUser} alt="profile" />}
+                {authenticated && (
+                  <div className="dropdown">
+                    <span
+                      className="dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      {intl.formatMessage({ id: 'header.actions' })}
+                    </span>
+                    <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      {' '}
+                      <Link to="/profile" className="dropdown-item" type="button">
+                        {intl.formatMessage({ id: 'header.profile' })}
+                      </Link>
+                      <div className="dropdown-divider" />
+                      <LogoutButton />
+                    </div>
+                  </div>
+                )}
+                {!authenticated && (
+                  <React.Fragment>
+                    <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
+                      {intl.formatMessage({ id: 'header.login' })}
+                    </span>
+                  </React.Fragment>
+                )}
+              </div>
+            )}
             {pathname != '/organization/Demo' && (
               <ul className="navbar-nav mr-auto">
                 <li
@@ -74,8 +108,14 @@ const Header = () => {
                 </li>
               </ul>
             )}
-            {pathname != '/organization/Demo' && <LanguageSelect />}
             {pathname != '/organization/Demo' && (
+              <div
+                style={isMobile ? { display: 'flex', marginLeft: '30px', marginTop: '10px' } : {}}
+              >
+                <LanguageSelect />
+              </div>
+            )}
+            {!isMobile && pathname != '/organization/Demo' && (
               <div className="nav-actions flex justify-content-end">
                 <img src={ProfileUser} alt="profile" />
                 {authenticated && (
