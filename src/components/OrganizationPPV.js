@@ -122,7 +122,9 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
           </div>
           <br />
           <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
-            {intl.formatMessage({ id: 'organization.button.buyppv' })}
+            {intl.formatMessage({
+              id: event?.finished ? 'organization.button.rewatchppv' : 'organization.button.buyppv'
+            })}
           </button>
         </div>
       )}
@@ -131,7 +133,9 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
           <div className="video-title">
             {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
             <div className="event-live">
-              {intl.formatMessage({ id: `organization.event.live` })}
+              {intl.formatMessage({
+                id: event?.finished ? 'organization.event.rewatch' : 'organization.event.live'
+              })}
             </div>
           </div>
           <LazyLoadComponent>
@@ -139,7 +143,6 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
               url={event?.streamLink ? event?.streamLink : ''}
               width
               controls
-              playing
               muted
               style={{ minHeight: `${isMobile ? 'auto' : '550px'}` }}
               config={{

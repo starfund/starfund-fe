@@ -47,7 +47,6 @@ const OrganizationEvents = ({
     }
     return list.filter(e => {
       const name = e?.name.toLowerCase();
-      console.log(name);
       return name.includes(searchText);
     });
   });
@@ -258,10 +257,10 @@ const OrganizationEvents = ({
                               >
                                 <LazyLoadComponent>
                                   <ReactPlayer
-                                    url={v.video}
+                                    url={v.videoUrl || v.video}
                                     width={isMobile ? '100%' : '25vw'}
                                     height="30vh"
-                                    light={v.thumbnail}
+                                    light={!v.videoUrl && v.thumbnail}
                                     config={{
                                       file: {
                                         attributes: {
@@ -312,10 +311,10 @@ const OrganizationEvents = ({
                                   )}
                                   <LazyLoadComponent>
                                     <ReactPlayer
-                                      url={v.video}
+                                      url={v.videoUrl || v.video}
                                       width="100%"
                                       height="20vh"
-                                      light={v.thumbnail}
+                                      light={!v.videoUrl && v.thumbnail}
                                       muted
                                       config={{
                                         file: {

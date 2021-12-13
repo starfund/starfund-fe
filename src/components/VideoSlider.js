@@ -19,7 +19,11 @@ const VideoSlider = ({
 }) => {
   const intl = useIntl();
   const anyVideo = publicVideos[0] || privateVideos[0] || '';
-  const [url, setUrl] = useState(selectedVideo ? selectedVideo.video : anyVideo.video);
+  const [url, setUrl] = useState(
+    selectedVideo
+      ? selectedVideo.videoUrl || selectedVideo.video
+      : anyVideo.videoUrl || anyVideo.video
+  );
   const [activeVideo, setActiveVideo] = useState(selectedVideo ? selectedVideo.id : anyVideo.id);
   const [displayContent, setDisplayContent] = useState(selectedVideo || anyVideo);
   const isMobile = useMediaQuery({
@@ -28,7 +32,7 @@ const VideoSlider = ({
   const language = useSelector(state => state.language.language);
 
   const selectVideo = content => {
-    setUrl(content?.video);
+    setUrl(content?.videoUrl || content?.video);
     setDisplayContent(content);
     setActiveVideo(`${content?.id}`);
   };
@@ -103,7 +107,7 @@ const VideoSlider = ({
               url={url}
               width
               muted
-              light={displayContent?.thumbnail}
+              light={!displayContent?.videoUrl && displayContent?.thumbnail}
               playIcon
               style={{
                 margin: '3%',
@@ -152,7 +156,7 @@ const VideoSlider = ({
         >
           {publicVideos &&
             publicVideos
-              .filter(c => !!c.video)
+              .filter(c => !!c.video || !!c.videoUrl)
               .map(v => (
                 <Carousel.Item>
                   <div
@@ -173,10 +177,10 @@ const VideoSlider = ({
                     >
                       <LazyLoadComponent>
                         <ReactPlayer
-                          url={v.video}
+                          url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
-                          light={v.thumbnail}
+                          light={!v.videoUrl && v.thumbnail}
                           muted
                           config={{
                             file: {
@@ -196,7 +200,7 @@ const VideoSlider = ({
               ))}
           {privateVideos &&
             privateVideos
-              .filter(c => !!c.video)
+              .filter(c => !!c.video || !!c.videoUrl)
               .map(v => (
                 <Carousel.Item>
                   <div
@@ -226,10 +230,10 @@ const VideoSlider = ({
                     >
                       <LazyLoadComponent>
                         <ReactPlayer
-                          url={v.video}
+                          url={v.videoUrl || v.video}
                           width="302px"
                           height="202px"
-                          light={v.thumbnail}
+                          light={!v.videoUrl && v.thumbnail}
                           config={{
                             file: {
                               attributes: {

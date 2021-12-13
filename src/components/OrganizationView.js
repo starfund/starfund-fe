@@ -56,20 +56,19 @@ const OrganizationView = () => {
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
-  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage)[0];
+  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
   }
 
-  const payedPPV =
-    supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id) && !lastEvent?.finished;
+  const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id);
 
   const isDiscount =
     lastEvent?.finished &&
     today > new Date(lastEvent?.eventDate) &&
-    today < addDays(lastEvent?.eventDate, 7);
+    today < addDays(lastEvent?.eventDate, 30);
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -131,7 +130,11 @@ const OrganizationView = () => {
                   }
                 }}
               >
-                {intl.formatMessage({ id: 'organization.button.watch' })}
+                {intl.formatMessage({
+                  id: lastEvent?.finished
+                    ? 'organization.button.rewatchppv'
+                    : 'organization.button.watch'
+                })}
               </button>
             )}
           </div>
@@ -264,7 +267,7 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
+              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
@@ -300,14 +303,14 @@ const OrganizationView = () => {
             isOpen={payPPV}
             setIsOpen={setPayPPV}
             isDelete={false}
-            price={organization?.ppvPrice}
+            price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
             email={currentUser?.email}
             organization={organization?.id}
           >
             <BillingForm
               email={currentUser?.email}
               orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
-              price={isDiscount ? organization?.ppvPrice * 0.8 : organization?.ppvPrice}
+              price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
               type="ppv"
             />
           </ConfirmationModal>
