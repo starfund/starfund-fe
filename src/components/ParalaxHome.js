@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import FlashMessage from 'react-flash-message';
 
@@ -54,11 +53,6 @@ const ParalaxHome = () => {
             </div>
           )}
           <p>{intl.formatMessage({ id: 'home.paralax.subTitle' })}</p>
-          <br />
-          <Link to="/fighters" type="button" className="btn btn-danger">
-            {intl.formatMessage({ id: 'home.paralax.subscribe' })}
-          </Link>
-          <br />
           <br />
           <p className="small mb-4 mt-2">
             {intl.formatMessage({ id: 'legal.share' })}

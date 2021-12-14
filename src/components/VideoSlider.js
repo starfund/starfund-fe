@@ -89,8 +89,8 @@ const VideoSlider = ({
                 margin: '3%',
                 minHeight: `${isMobile ? '35vh' : '50vh'}`,
                 maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-                minWidth: `${isMobile ? '100vw' : '45vw'}`,
-                maxWidth: `${isMobile ? '100vw' : '45vw'}`
+                minWidth: `${isMobile ? '100vw' : '44vw'}`,
+                maxWidth: `${isMobile ? '100vw' : '44vw'}`
               }}
               config={{
                 file: {
@@ -164,6 +164,7 @@ const VideoSlider = ({
                     className="col-12 col-sm-6 col-md-4 fighter-watch"
                     onClick={() => selectVideo(v)}
                   >
+                    <div className="select-cover" onClick={() => selectVideo(v)} />
                     <div
                       className={
                         isMobile
@@ -217,6 +218,7 @@ const VideoSlider = ({
                         EXCLUSIVE
                       </div>
                     )}
+                    <div className="select-cover" onClick={() => selectVideo(v)} />
                     <div
                       className={
                         isMobile

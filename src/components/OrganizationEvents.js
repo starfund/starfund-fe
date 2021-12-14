@@ -45,10 +45,24 @@ const OrganizationEvents = ({
     if (searchText == '') {
       return list;
     }
-    return list.filter(e => {
+    let resEvName = list.slice();
+    resEvName = resEvName.filter(e => {
       const name = e?.name.toLowerCase();
       return name.includes(searchText);
     });
+    const resFightersNames = list.slice();
+    resFightersNames?.map(e => {
+      e._mainEvents?.filter(
+        v => v?.fighter1.includes(searchText) || v?.fighter2.includes(searchText)
+      );
+      e._prelimEvents?.filter(
+        v => v?.fighter1.includes(searchText) || v?.fighter2.includes(searchText)
+      );
+      if (e?.mainEvents.concat(e?.prelimEvents).length > 0) {
+        return e;
+      }
+    });
+    return resEvName;
   });
 
   const language = useSelector(state => state.language.language);
@@ -250,6 +264,7 @@ const OrganizationEvents = ({
                                   EXCLUSIVE
                                 </div>
                               )}
+                              <div className="select-cover-big" onClick={() => selectVideo(v)} />
                               <div
                                 className={cn('video-description', {
                                   selected: activeVideo === v.id + item?.name
@@ -258,7 +273,7 @@ const OrganizationEvents = ({
                                 <LazyLoadComponent>
                                   <ReactPlayer
                                     url={v.videoUrl || v.video}
-                                    width={isMobile ? '100%' : '25vw'}
+                                    width={isMobile ? '100%' : '25.1vw'}
                                     height="30vh"
                                     light={!v.videoUrl && v.thumbnail}
                                     config={{
@@ -309,6 +324,10 @@ const OrganizationEvents = ({
                                   {!v.public && !payed && (
                                     <div className="exclusive-event-mobile"> EXCLUSIVE </div>
                                   )}
+                                  <div
+                                    className="select-cover-big"
+                                    onClick={() => selectVideo(v)}
+                                  />
                                   <LazyLoadComponent>
                                     <ReactPlayer
                                       url={v.videoUrl || v.video}

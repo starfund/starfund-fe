@@ -135,7 +135,7 @@ const UserHome = () => {
                       <div className="fighter-sub flex" onClick>
                         <img
                           src={
-                            organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                            organizations.filter(o => o.name === s.orgName)[0]?.coverPhoto ||
                             DefaultAvatar
                           }
                           alt="sub"
@@ -157,7 +157,7 @@ const UserHome = () => {
                         {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
                           <img
                             src={
-                              organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                              organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
                               DefaultAvatar
                             }
                             alt="sub"
@@ -266,7 +266,7 @@ const UserHome = () => {
                     <div className="fighter-sub flex" onClick>
                       <img
                         src={
-                          organizations.filter(o => o.name === s.orgName)[0].coverPhoto ||
+                          organizations.filter(o => o.name === s.orgName)[0]?.coverPhoto ||
                           DefaultAvatar
                         }
                         alt="sub"
@@ -293,7 +293,7 @@ const UserHome = () => {
                       {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
                         <img
                           src={
-                            organizations.filter(o => o.name === c.orgName)[0].coverPhoto ||
+                            organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
                             DefaultAvatar
                           }
                           alt="sub"

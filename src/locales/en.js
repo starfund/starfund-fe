@@ -14,6 +14,7 @@ export default {
   'registration.haveAccount': 'Already have an account?',
 
   'logout.button': 'LOGOUT',
+  'home.welcome.short': 'WELCOME',
   'home.welcome': 'Welcome to Starfund',
   'home.welcomepost': 'Welcome to {new}',
 
@@ -89,7 +90,7 @@ export default {
   // Header
   'header.business': 'ORGANIZATIONS',
   'header.watch': 'DISCOVER',
-  'header.business.lower': 'Business',
+  'header.business.lower': 'Organizations',
   'header.watch.lower': 'Discover',
   'header.shop': 'SHOP',
   'header.stars': 'STARS',
@@ -149,6 +150,7 @@ export default {
   'billing.legal': ' Offer Terms and Terms of Service',
   'billing.addCard': 'Add payment method',
   'billing.newpassword': 'Please enter a new password with at least 8 characters',
+  'billing.nomatch': 'Your password confirmation must be equal to the password',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',
@@ -270,6 +272,7 @@ export default {
   'home.info.title': 'Exclusive Contents',
   'home.info.subTitle': 'Be a part of the Journey from the Beginning Experience exclusive access',
   'home.paralax.title': 'Changing the way You connect with your STAR',
+  'home.title': 'Changing the way you connect',
   'home.paralax.subTitle':
     'Be an exclusive fan, enjoy videos, behind the scenes and products. Connect directly with your star.',
   'home.paralax.subscribe': 'SUBSCRIBE TO STARS',

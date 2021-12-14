@@ -68,12 +68,7 @@ const HomeFooter = () => {
               </a>
             </div>
             <div className={isMobile ? 'footer-items' : 'center-50'}>
-              <a onClick={() => window.open('/watch', '_self')}>
-                {intl.formatMessage({ id: 'header.watch.lower' })}
-              </a>
-            </div>
-            <div className={isMobile ? 'footer-items' : 'center-50'}>
-              <a onClick={() => window.open('/watch', '_self')}>
+              <a onClick={() => window.open('/organization', '_self')}>
                 {intl.formatMessage({ id: 'header.business.lower' })}
               </a>
             </div>

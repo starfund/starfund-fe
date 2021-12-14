@@ -47,6 +47,7 @@ export const SignUpForm = ({ onSubmit }) => {
           name="email"
           placeholder={intl.formatMessage(messages.email)}
           type="email"
+          style={status === ERROR || errors.email ? { borderColor: 'red' } : {}}
           {...inputProps(fields.email)}
         />
       </div>
@@ -55,6 +56,7 @@ export const SignUpForm = ({ onSubmit }) => {
           name="password"
           placeholder={intl.formatMessage(messages.password)}
           type="password"
+          style={status === ERROR || errors.password ? { borderColor: 'red' } : {}}
           {...inputProps(fields.password)}
         />
       </div>
@@ -63,6 +65,7 @@ export const SignUpForm = ({ onSubmit }) => {
           name="passwordConfirmation"
           placeholder={intl.formatMessage(messages.passConfirmation)}
           type="password"
+          style={status === ERROR || errors.passwordConfirmation ? { borderColor: 'red' } : {}}
           {...inputProps(fields.passwordConfirmation)}
         />
       </div>

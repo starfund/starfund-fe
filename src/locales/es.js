@@ -18,6 +18,7 @@ export default {
     'Su confirmación de contraseña debe ser igual a la contraseña',
 
   'logout.button': 'SALIR',
+  'home.welcome.short': 'BIENVENIDO',
   'home.welcome': 'Bienvenido a Starfund',
   'home.welcomepost': 'Bienvenido a {new}',
 
@@ -95,7 +96,7 @@ export default {
   // Header
   'header.business': 'Organizaciones',
   'header.watch': 'Descubrir',
-  'header.business.lower': 'Gimnasios',
+  'header.business.lower': 'Organizaciones',
   'header.watch.lower': 'Descubrir',
   'header.shop': 'Tienda',
   'header.stars': 'Estrellas',
@@ -152,6 +153,7 @@ export default {
   'billing.legal': ' Terminos de Oferta y Terminos de Servicio',
   'billing.addCard': 'Agregar medio de pago',
   'billing.newpassword': 'Porfavor ingrese una nueva contraseña con por lo menos 8 caracteres',
+  'billing.nomatch': 'La confirmacion de contraseña debe coincidir con la contraseña',
 
   // FAQS
   'faqs.title': 'Preguntas Frecuentes',
@@ -274,6 +276,7 @@ export default {
   'home.info.title': 'Contendio Exclusivo',
   'home.info.subTitle': 'Se parte del trayecto de tus Estrellas a travez de su contenido exclusivo',
   'home.paralax.title': 'Cambia la forma en que interactuas con tus ESTRELLAS',
+  'home.title': 'Cambia la forma en que interactuas',
   'home.paralax.subTitle':
     'Conviertete en un fan exclusivo, disfruta de vidos, detras de camaras y productos. Ten contacto directo con tus estrellas!.',
   'home.paralax.subscribe': 'SUBSCRIBETE A ESTRELLAS',

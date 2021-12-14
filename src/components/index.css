@@ -9,6 +9,12 @@ html, body, .home {
   }
 }
 
+.home{
+  @media (max-width: 768px) {
+    background-color: #202020;
+  }
+}
+
 body { overflow-x: hidden }
 
 @media only screen and (min-width : 1200px) {
@@ -199,6 +205,15 @@ h3 {
 
 .registration-container {
   p { color: black; }
+  span {
+    color: red !important;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal !important;
+    line-height: 30px;
+    letter-spacing: -0.025em;
+  }
+
 
   button {
     width: 100%;
@@ -382,8 +397,10 @@ h3 {
   }
   .explore-div{
     margin-bottom: 18vh;
+    margin-top: 2vh;
     @media (max-width:500px) {
-      margin-bottom: 14vh;    
+      margin-bottom: 14vh;
+      margin-top: 0vh;    
     }
   }
 
@@ -440,16 +457,18 @@ h3 {
     }
   }
   .contact-div{
+    margin-top: 2vh;
     @media only screen and (max-width : 900px) {
       padding-bottom: 16vh;
     }
     @media only screen and (max-width : 500px) {
+      margin-top: 0vh;
       padding-bottom: 14vh;
     }
   }
   
   .join-div {
-    margin-top: 2vh;
+    margin-top: 4vh;
     @media only screen and (max-width : 500px) {
       margin-top: 0vh;
     }
@@ -869,7 +888,7 @@ h3 {
   }
 
   .video-description-mobile {
-    width: 80vw;
+    width: 79vw;
     background-color: #373737;
     display: flex;
     flex-direction:column;
@@ -2035,7 +2054,9 @@ h3 {
 
 .mailchimp {
   color: white;
-
+  @media (max-width: 768px) {
+    background-color: #202020;
+  }
   .center-50 {
     text-align: center;
     padding: 50px 0;
@@ -3496,4 +3517,143 @@ h3 {
   font-size: 15px;
   line-height: 18px;
   text-align: left;
+}
+
+.home-view{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:flex-start;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    background-color:#202020;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .home-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 5vh;
+    line-height: 100%;
+    letter-spacing: -0.025em;
+    color: white;
+    text-align: left;
+    margin-left:5vw;
+    @media (max-width: 768px) {
+      margin-left: 0px;
+      text-align: center;
+      font-size: 3vh;
+      align-items: center;
+      line-height: 4.5vh;
+    }
+    
+    .login-button{
+      background:none;
+      border: none;
+      margin-top: 10px;
+    }
+    
+    button {
+      color: white;
+      background-color: #ea0a0a;
+      border: solid #eb0000 1px;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+      height: 6vh;
+      padding: 5px 20px;
+      border-radius: 0;
+      font-weight: 500 !important;
+      letter-spacing: -0.02em;
+      min-width: 15vw;
+      max-height: 4vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media (max-width: 600px) {
+        font-size: 5vw;
+        height: 18vw;
+        width: 50vw;
+      }
+    }
+  }
+
+  .home-image{
+    width: 90%;
+    margin-right: 5%;
+    &:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+      margin-right: 0%;
+    }
+  }
+  
+  .home-welcome{
+    position: relative;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10vh;
+    line-height: 100%;
+    letter-spacing: -0.025em;
+    top:-50vh;
+    left: -10vw;
+    color: white;
+    animation: slide-right 7s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes slide-right {
+    0% {
+      transform: translateX(0);
+      opacity: 0;
+    }
+    99% {
+      transform: translateX(100px);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+
+  .home-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.error-message{
+  color: red !important;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal !important;
+  line-height: 30px;
+  letter-spacing: -0.025em;
+}
+
+.select-cover{
+  position: absolute;
+  width: 302px;
+  height: 202px;
+  background: none;
+  cursor: pointer;
+}
+
+.select-cover-big{
+  position: absolute;
+  width: 25vw;
+  height: 30vh;
+  background: none;
+  cursor: pointer;
 }

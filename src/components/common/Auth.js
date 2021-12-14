@@ -11,7 +11,7 @@ import LoginForm from '../user/LoginForm';
 import ForgotPassForm from '../user/ForgotPassForm';
 import SignUpForm from '../user/SignUpForm';
 
-const Auth = ({ modalIsOpen, setModalIsOpen }) => {
+const Auth = ({ modalIsOpen, setModalIsOpen, isSignUp }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const loginRequest = useDispatch(login);
@@ -56,7 +56,7 @@ const Auth = ({ modalIsOpen, setModalIsOpen }) => {
       <CommonModal title={formatTitle()} isOpen={modalIsOpen} setIsOpen={setModalIsOpen}>
         {!authenticated && (
           <div className="registration-container">
-            {signIn ? (
+            {signIn && !isSignUp ? (
               <React.Fragment>
                 {!forgotPassword && <LoginForm onSubmit={loginRequest} />}
                 {forgotPassword && <ForgotPassForm onSubmit={forgotPassRequest} />}

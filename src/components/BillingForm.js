@@ -50,7 +50,9 @@ const BillingForm = ({
   const [name, setName] = useState('');
   const [number] = useState('4242');
   const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState(''); // eslint-disable-line no-unused-vars
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [noMatch, setNoMacth] = useState(false);
+  const [noLong, setNoLong] = useState(false);
   const [numberStripe, setNumberStripe] = useState({});
   const [cvcStripe, setCvcStripe] = useState({});
   const [expiryStripe, setExpiryStripe] = useState({});
@@ -81,6 +83,23 @@ const BillingForm = ({
     query: '(max-width: 765px)'
   });
 
+  const createPassword = () => {
+    if (password === passwordConfirmation && password.length >= 8) {
+      setNoMacth(false);
+      setNoLong(false);
+      dispatch(updatePassword(password));
+    } else {
+      if (password.length < 8) {
+        setNoMacth(false);
+        setNoLong(true);
+      }
+      if (password != passwordConfirmation) {
+        setNoLong(false);
+        setNoMacth(true);
+      }
+    }
+  };
+
   return (
     <div className="row no-gutters checkout-container">
       {subStatus === ERROR && <strong>{error}</strong>}
@@ -93,12 +112,18 @@ const BillingForm = ({
         <div className="col-12">
           <form className="newbie-form">
             <div className="missing-email">
-              <p>{intl.formatMessage({ id: 'billing.newpassword' })}</p>
+              {noLong && (
+                <p className="error-message">{intl.formatMessage({ id: 'billing.newpassword' })}</p>
+              )}
+              {noMatch && (
+                <p className="error-message">{intl.formatMessage({ id: 'billing.nomatch' })}</p>
+              )}
               <Input
                 name="password"
                 type="password"
                 placeholder={intl.formatMessage({ id: 'billing.password' })}
                 onChange={e => setPassword(e.target.value)}
+                style={noLong || noMatch ? { borderColor: 'red' } : {}}
               />
             </div>
             <div className="missing-email">
@@ -107,12 +132,13 @@ const BillingForm = ({
                 type="password"
                 placeholder={intl.formatMessage({ id: 'billing.confirmPassword' })}
                 onChange={e => setPasswordConfirmation(e.target.value)}
+                style={noLong || noMatch ? { borderColor: 'red' } : {}}
               />
             </div>
             <br />
             <br />
             <Button
-              onClick={() => dispatch(updatePassword(password))}
+              onClick={() => createPassword()}
               labelId="billing.confirmAccountPassword"
               type="submit"
               className="btn btn-primary pay-button"

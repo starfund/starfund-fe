@@ -14,6 +14,7 @@ export default {
   'registration.haveAccount': 'Уже имеется аккаунт?',
 
   'logout.button': 'Выйти',
+  'home.welcome.short': 'STARFUND',
   'home.welcome': 'Starfund',
   'home.welcomepost': 'Добро пожаловать в {new}',
 
@@ -92,7 +93,7 @@ export default {
   // Header
   'header.business': 'Организации',
   'header.watch': 'Смотреть',
-  'header.business.lower': 'Спортзалы',
+  'header.business.lower': 'Организации',
   'header.watch.lower': 'Смотреть',
   'header.shop': 'Купить',
   'header.stars': 'Звезды',
@@ -149,6 +150,7 @@ export default {
   'billing.legal': 'Условия пользования',
   'billing.addCard': 'Добавить способ оплаты',
   'billing.newpassword': 'Пожалуйста, введите новый пароль длиной не менее 8 символов',
+  'billing.nomatch': 'Подтверждение вашего пароля должно совпадать с паролем',
 
   // FAQS
   'faqs.title': 'Часто задаваемые вопросы',
@@ -268,6 +270,7 @@ export default {
   'home.subscribe.text': 'Подписаться чтобы увидеть все видео',
   'home.info.title': 'Эксклюзивный контент',
   'home.info.subTitle': 'Примите участие в эксклюзивном доступе к "Путешествию с самого начала".',
+  'home.title': 'Изменение способа подключения',
   'home.paralax.title': 'С Нами Ты Станешь Ближе к Любимому Спортсмену',
   'home.paralax.subTitle':
     'Будьте эксклюзивным поклонником, наслаждайтесь видео, закулисными работами и продуктами. Свяжитесь со своей звездой напрямую.',

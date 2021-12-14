@@ -33,12 +33,13 @@ export const ForgotPassForm = ({ onSubmit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {status === ERROR && <strong>{error}</strong>}
+        {status === ERROR && <strong className="error-message">{error}</strong>}
         <div>
           <Input
             name="email"
             type="email"
             placeholder={intl.formatMessage(messages.email)}
+            style={status === ERROR ? { borderColor: 'red' } : {}}
             {...inputProps(fields.email)}
           />
         </div>
