@@ -261,6 +261,7 @@ export default {
   'organization.mobile.watchfights': 'Watch all fights >>',
   'organization.mobile.home': '<< Home',
   'organization.mobile.results': '{eventName} results',
+  'organization.winner': 'WINNER',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

@@ -175,7 +175,14 @@ const EventView = ({
             currEvent?.mainEvents &&
             currEvent?.mainEvents.map(v => (
               <div className="event-item">
-                {v?.title}
+                <div className="event-item-title">
+                  {v?.title}
+                  <div className="event-item-desc">
+                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                      v?.resultDescription
+                    }`}
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
@@ -192,7 +199,14 @@ const EventView = ({
             currEvent?.prelimEvents &&
             currEvent?.prelimEvents.map(v => (
               <div className="event-item">
-                {v?.title}
+                <div className="event-item-title">
+                  {v?.title}
+                  <div className="event-item-desc">
+                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                      v?.resultDescription
+                    }`}
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
@@ -207,7 +221,14 @@ const EventView = ({
             nextEvent?.mainEvents &&
             nextEvent?.mainEvents.map(v => (
               <div className="event-item">
-                {v?.title}
+                <div className="event-item-title">
+                  {v?.title}
+                  <div className="event-item-desc">
+                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                      v?.resultDescription
+                    }`}
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
@@ -237,7 +258,14 @@ const EventView = ({
             prevEvent?.mainEvents &&
             prevEvent?.mainEvents.map(v => (
               <div className="event-item">
-                {v?.title}
+                <div className="event-item-title">
+                  {v?.title}
+                  <div className="event-item-desc">
+                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                      v?.resultDescription
+                    }`}
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
@@ -252,7 +280,14 @@ const EventView = ({
             prevEvent?.prelimEvents &&
             prevEvent?.prelimEvents.map(v => (
               <div className="event-item">
-                {v?.title}
+                <div className="event-item-title">
+                  {v?.title}
+                  <div className="event-item-desc">
+                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                      v?.resultDescription
+                    }`}
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}

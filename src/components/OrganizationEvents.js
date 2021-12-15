@@ -48,22 +48,76 @@ const OrganizationEvents = ({
     let resEvName = list.slice();
     resEvName = resEvName.filter(e => {
       const name = e?.name.toLowerCase();
-      return name.includes(searchText);
+      return name.includes(searchText.toLocaleLowerCase());
     });
-    const resFightersNames = list.slice();
-    resFightersNames?.map(e => {
-      e._mainEvents?.filter(
-        v => v?.fighter1.includes(searchText) || v?.fighter2.includes(searchText)
+    let resFightersNames = list.slice();
+    resFightersNames = resFightersNames?.filter(e => {
+      return (
+        e?.mainEvents
+          .concat(e?.prelimEvents)
+          .filter(
+            v =>
+              v.fighter1?.toLowerCase().includes(searchText.toLocaleLowerCase()) ||
+              v.fighter2?.toLowerCase().includes(searchText.toLocaleLowerCase())
+          ).length > 0
       );
-      e._prelimEvents?.filter(
-        v => v?.fighter1.includes(searchText) || v?.fighter2.includes(searchText)
-      );
-      if (e?.mainEvents.concat(e?.prelimEvents).length > 0) {
-        return e;
-      }
     });
-    return resEvName;
+    let resDivision = list.slice();
+    resDivision = resDivision?.filter(e => {
+      return (
+        e?.mainEvents
+          .concat(e?.prelimEvents)
+          .filter(v => v.division?.toLowerCase().includes(searchText.toLocaleLowerCase())).length >
+        0
+      );
+    });
+    if (resEvName.length > 0) {
+      return resEvName;
+    }
+    if (resFightersNames.length > 0) {
+      return resFightersNames;
+    }
+    return resDivision;
   });
+
+  const getEventVideos = (e, list) => {
+    let resFightersNames = list.slice();
+    resFightersNames = resFightersNames?.filter(e => {
+      return (
+        e?.mainEvents
+          .concat(e?.prelimEvents)
+          .filter(
+            v =>
+              v.fighter1?.toLowerCase().includes(searchText.toLocaleLowerCase()) ||
+              v.fighter2?.toLowerCase().includes(searchText.toLocaleLowerCase())
+          ).length > 0
+      );
+    });
+    let resDivision = list.slice();
+    resDivision = resDivision?.filter(e => {
+      return (
+        e?.mainEvents
+          .concat(e?.prelimEvents)
+          .filter(v => v.division?.toLowerCase().includes(searchText.toLocaleLowerCase())).length >
+        0
+      );
+    });
+    if (resFightersNames.length > 0) {
+      return e?.mainEvents
+        .concat(e?.prelimEvents)
+        .filter(
+          v =>
+            v.fighter1?.toLowerCase().includes(searchText.toLocaleLowerCase()) ||
+            v.fighter2?.toLowerCase().includes(searchText.toLocaleLowerCase())
+        );
+    }
+    if (resDivision.length > 0) {
+      return e?.mainEvents
+        .concat(e?.prelimEvents)
+        .filter(v => v.division?.toLowerCase().includes(searchText.toLocaleLowerCase()));
+    }
+    return e?.mainEvents.concat(e?.prelimEvents);
+  };
 
   const language = useSelector(state => state.language.language);
 
@@ -227,10 +281,7 @@ const OrganizationEvents = ({
                     <div className="event-row">
                       {!isMobile &&
                         item.id != lastEventId &&
-                        item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
-                        item?.mainEvents.concat(item?.prelimEvents).slice(0, 3) &&
-                        item?.mainEvents
-                          .concat(item?.prelimEvents)
+                        getEventVideos(item, sortedEvents)
                           .slice(0, 3)
                           .map(v => (
                             <div

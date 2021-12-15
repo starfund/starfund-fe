@@ -260,6 +260,7 @@ export default {
   'organization.mobile.seeall': 'Посмотреть все события >>',
   'organization.mobile.watchfights': 'Смотреть все бои >>',
   'organization.mobile.results': 'Результаты {eventName}',
+  'organization.winner': 'ПОБЕДИТЕЛЬ',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

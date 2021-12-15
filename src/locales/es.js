@@ -265,6 +265,7 @@ export default {
   'organization.mobile.seeall': 'Ver eventos >>',
   'organization.mobile.watchfights': 'Ver peleas >>',
   'organization.mobile.results': 'Resultados de {eventName}',
+  'organization.winner': 'GANADOR',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

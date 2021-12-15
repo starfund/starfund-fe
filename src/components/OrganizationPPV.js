@@ -228,7 +228,12 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
                 {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
                 {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
                 {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                {v?.fighter1} vs {v?.fighter2}
+                <div>
+                  {v?.fighter1} vs {v?.fighter2}
+                  <div className="event-item-ppv-desc">
+                    {`${v?.division} | ${v?.rounds} Rounds`}
+                  </div>
+                </div>
               </div>
             ))}
           {prelim &&
@@ -244,7 +249,12 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
                 {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
                 {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
                 {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                {v?.fighter1} vs {v?.fighter2}
+                <div>
+                  {v?.fighter1} vs {v?.fighter2}
+                  <div className="event-item-ppv-desc">
+                    {`${v?.division} | ${v?.rounds} Rounds`}
+                  </div>
+                </div>
               </div>
             ))}
         </div>
