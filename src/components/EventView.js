@@ -177,11 +177,13 @@ const EventView = ({
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
-                  <div className="event-item-desc">
-                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                      v?.resultDescription
-                    }`}
-                  </div>
+                  {payed && (
+                    <div className="event-item-desc">
+                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                        v?.resultDescription
+                      }`}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"
@@ -201,11 +203,13 @@ const EventView = ({
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
-                  <div className="event-item-desc">
-                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                      v?.resultDescription
-                    }`}
-                  </div>
+                  {payed && (
+                    <div className="event-item-desc">
+                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                        v?.resultDescription
+                      }`}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"
@@ -223,11 +227,13 @@ const EventView = ({
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
-                  <div className="event-item-desc">
-                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                      v?.resultDescription
-                    }`}
-                  </div>
+                  {payed && (
+                    <div className="event-item-desc">
+                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                        v?.resultDescription
+                      }`}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"
@@ -260,11 +266,13 @@ const EventView = ({
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
-                  <div className="event-item-desc">
-                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                      v?.resultDescription
-                    }`}
-                  </div>
+                  {payed && (
+                    <div className="event-item-desc">
+                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                        v?.resultDescription
+                      }`}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"
@@ -282,11 +290,13 @@ const EventView = ({
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
-                  <div className="event-item-desc">
-                    {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                      v?.resultDescription
-                    }`}
-                  </div>
+                  {payed && (
+                    <div className="event-item-desc">
+                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
+                        v?.resultDescription
+                      }`}
+                    </div>
+                  )}
                 </div>
                 <button
                   type="button"

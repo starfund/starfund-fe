@@ -149,7 +149,6 @@ const EventViewMobile = ({
           width
           muted
           controls
-          playing
           style={{
             margin: '3%',
             minHeight: '35vh',
@@ -197,7 +196,7 @@ const EventViewMobile = ({
       </div>
       <div className="event-view-mobile-video-small">
         <div>
-          <p>{formatDescription(displayContent, language)}</p>
+          <p>{`${displayContent?.division} | ${displayContent?.rounds} Rounds`}</p>
         </div>
         <div>
           <p>{EventDate(sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.eventDate)}</p>

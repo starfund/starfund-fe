@@ -73,7 +73,6 @@ const TeamVideos = ({ team, supporting, subscribeAction }) => {
               url={url}
               width={isMobile ? '100%' : '40vw'}
               controls
-              playing
               muted
               style={{ 'margin-left': '8%', minHeight: `${isMobile ? 'auto' : '30vh'}` }}
               onEnded={endFreeVideo}

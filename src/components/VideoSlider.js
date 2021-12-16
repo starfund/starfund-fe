@@ -84,7 +84,6 @@ const VideoSlider = ({
               width
               muted
               controls
-              playing
               style={{
                 margin: '3%',
                 minHeight: `${isMobile ? '35vh' : '50vh'}`,

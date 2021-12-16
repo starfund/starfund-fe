@@ -71,9 +71,9 @@ const ParalaxHome = () => {
               title="preview"
               width="760"
               height="515"
-              playing
               muted
               loop
+              playing
               playsInline
               url={require('../assets/HomeVideoBig.mp4')}
             />

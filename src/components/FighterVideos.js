@@ -67,7 +67,6 @@ const FighterVideos = ({ fighter, supporting, subscribeAction }) => {
               width={isMobile ? '100%' : '40vw'}
               height={isMobile ? '35vh' : 'auto'}
               controls
-              playing
               muted
               style={{
                 'margin-left': `${isMobile ? '3%' : '8%'}`,
