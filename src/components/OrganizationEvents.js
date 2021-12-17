@@ -325,7 +325,7 @@ const OrganizationEvents = ({
                                   <ReactPlayer
                                     url={v.videoUrl || v.video}
                                     width={isMobile ? '100%' : '25.1vw'}
-                                    height="30vh"
+                                    height="202px"
                                     light={!v.videoUrl && v.thumbnail}
                                     config={{
                                       file: {

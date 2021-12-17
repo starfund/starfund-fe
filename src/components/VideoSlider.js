@@ -27,7 +27,10 @@ const VideoSlider = ({
   const [activeVideo, setActiveVideo] = useState(selectedVideo ? selectedVideo.id : anyVideo.id);
   const [displayContent, setDisplayContent] = useState(selectedVideo || anyVideo);
   const isMobile = useMediaQuery({
-    query: '(max-width: 765px)'
+    query: '(max-width: 768px)'
+  });
+  const isMobileBig = useMediaQuery({
+    query: '(max-width: 1024px)'
   });
   const language = useSelector(state => state.language.language);
 
@@ -142,11 +145,12 @@ const VideoSlider = ({
       </div>
       <div>
         <Carousel
-          mobileBreakpoint={0}
+          mobileBreakpoint={1024}
           containerStyle={{
             backgroundColor: '#202020',
             width: `${isMobile ? '100vw' : '75vw'}`,
-            marginLeft: `${isMobile ? '0vw' : '2vw'}`
+            marginLeft: `${isMobile ? '0vw' : '2vw'}`,
+            marginTop: '10px'
           }}
           cols={4}
           rows={1}
@@ -211,7 +215,7 @@ const VideoSlider = ({
                     {!payed && (
                       <div
                         className={
-                          isMobile ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
+                          isMobileBig ? 'exclusive-event-video-mobile' : 'exclusive-event-video'
                         }
                       >
                         EXCLUSIVE

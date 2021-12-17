@@ -42,6 +42,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       if (subStatus === SUCCESS) {
         dispatch(subscribe.reset());
         setIsOpen(false);
+        window.location.reload();
       }
     }
 
@@ -56,6 +57,7 @@ const ConfirmationModal = ({ children, title, explain, isOpen, setIsOpen, price 
       if (chargeStatus === SUCCESS) {
         dispatch(charge.reset());
         setIsOpen(false);
+        window.location.reload();
       }
     }
 

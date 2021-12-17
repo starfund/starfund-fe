@@ -38,9 +38,6 @@ const EventViewMobile = ({
   const [selectedVideo, setSelectedVideo] = useState(
     video?.title || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]?.title
   );
-  const [url, setUrl] = useState(
-    video?.video || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]?.video
-  );
   const [displayContent, setDisplayContent] = useState(
     video || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]
   );
@@ -52,9 +49,9 @@ const EventViewMobile = ({
     const allVideos = selectedEvent.mainEvents.concat(selectedEvent.prelimEvents);
     const content = allVideos.filter(vid => formatTitle(vid, language) === v)[0];
     if (content.public || payed) {
-      setUrl(content?.video);
       setDisplayContent(content);
     } else {
+      setDisplayContent(content);
       subscribeAction();
     }
   };
@@ -145,7 +142,7 @@ const EventViewMobile = ({
       </div>
       {(payed || displayContent.public) && (
         <ReactPlayer
-          url={url}
+          url={displayContent.videoUrl || displayContent.video}
           width
           muted
           controls
@@ -168,11 +165,7 @@ const EventViewMobile = ({
       )}
       {!payed && !displayContent.public && (
         <ReactPlayer
-          url={url}
-          width
-          muted
-          light={displayContent?.thumbnail}
-          playIcon
+          url={displayContent.videoUrl || displayContent.video}
           style={{
             margin: '3%',
             minHeight: '35vh',
@@ -180,6 +173,8 @@ const EventViewMobile = ({
             minWidth: '95vw',
             maxWidth: '95vw'
           }}
+          light={!displayContent.videoUrl && displayContent.thumbnail}
+          muted
           config={{
             file: {
               attributes: {
@@ -188,7 +183,6 @@ const EventViewMobile = ({
               }
             }
           }}
-          onClick={() => subscribeAction()}
         />
       )}
       <div className="event-view-mobile-videos">
@@ -227,23 +221,26 @@ const EventViewMobile = ({
                     {!v.public && !payed && (
                       <div className="exclusive-event-mobile"> EXCLUSIVE </div>
                     )}
-                    <LazyLoadComponent>
-                      <ReactPlayer
-                        url={v.video}
-                        width="100%"
-                        height="20vh"
-                        light={v.thumbnail}
-                        muted
-                        config={{
-                          file: {
-                            attributes: {
-                              onContextMenu: e => e.preventDefault(),
-                              controlsList: 'nodownload'
+                    <div className="select-cover-mobile" onClick={() => selectVideo(v.title)} />
+                    <div>
+                      <LazyLoadComponent>
+                        <ReactPlayer
+                          url={v.videoUrl || v.video}
+                          width="100%"
+                          height="20vh"
+                          light={!v.videoUrl && v.thumbnail}
+                          muted
+                          config={{
+                            file: {
+                              attributes: {
+                                onContextMenu: e => e.preventDefault(),
+                                controlsList: 'nodownload'
+                              }
                             }
-                          }
-                        }}
-                      />
-                    </LazyLoadComponent>
+                          }}
+                        />
+                      </LazyLoadComponent>
+                    </div>
                     <h4 className="one-line-text-mobile">{formatTitle(v, language)}</h4>
                     <p className="one-line-text-mobile">{formatDescription(v, language)}</p>
                   </div>
@@ -253,7 +250,7 @@ const EventViewMobile = ({
         </Carousel>
       )}
       {prelim && (
-        <Carousel cols={1} rows={1} gap={35} loop>
+        <Carousel cols={1} rows={1} gap={60} loop>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
             .prelimEvents.map(v => (
@@ -263,12 +260,13 @@ const EventViewMobile = ({
                     {!v.public && !payed && (
                       <div className="exclusive-event-mobile"> EXCLUSIVE </div>
                     )}
+                    <div className="select-cover-mobile" onClick={() => selectVideo(v.title)} />
                     <LazyLoadComponent>
                       <ReactPlayer
-                        url={v.video}
+                        url={v.videoUrl || v.video}
                         width="100%"
                         height="20vh"
-                        light={v.thumbnail}
+                        light={!v.videoUrl && v.thumbnail}
                         muted
                         config={{
                           file: {
