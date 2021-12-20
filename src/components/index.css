@@ -2345,6 +2345,9 @@ h3 {
     font-size: 4vw;
     justify-content: flex-start;
   }
+  @media (min-width: 2080px) {
+    height:4vh;
+  }
   .winner1-tag{
     position: absolute;
     left:-1vw;
@@ -2435,6 +2438,9 @@ h3 {
     letter-spacing: -0.02em;
     @media (max-width: 765px) {
       font-size: 2vh;
+    }
+    @media (min-width: 2080px) {
+      font-size:1vh;
     }
   }
 }
@@ -2599,7 +2605,10 @@ h3 {
   .nav-item {
     margin-left: 3vw;
     margin-right: 3vw;
-    font-size: 1.5vw
+    font-size: 1.5vw;
+    @media (min-width: 2080px) {
+      font-size:1vh;
+    }
   }
   .navbar-nav {
     display: flex;
@@ -2617,6 +2626,9 @@ h3 {
     margin-right: 3vw;
     font-size: 5vw;
     width: 100vw;
+    @media (min-width: 2080px) {
+      font-size:1vh;
+    }
   }
   .navbar-nav  {
     display: flex;
@@ -2694,6 +2706,9 @@ h3 {
   position: absolute;
   right: 1.4vw;
   width: fit-content;
+  @media (min-width: 2080px) {
+    right: 7vw;
+  }
 }
 .exclusive-event-video-mobile {
   background-color: red;
@@ -2885,6 +2900,10 @@ h3 {
     cursor: pointer;
     font-size: 3vh;
     margin-top: 10px;
+    @media (min-width: 2080px) {
+      font-size:1vh;
+      height:3vh;
+    }
     .nav-link{
       font-weight: bold !important;
     }
@@ -3072,6 +3091,9 @@ h3 {
     border: none;
     @media (max-width: 800px) {
       width: 70vw;
+    }
+    @media (min-width: 2080px) {
+      height: 3vh;
     }
 
   }

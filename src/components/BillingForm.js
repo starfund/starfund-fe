@@ -58,6 +58,7 @@ const BillingForm = ({
   const [expiryStripe, setExpiryStripe] = useState({});
   const { createCreditCard: onSubmit } = usePayments(stripe, elements);
 
+  const authenticated = useSelector(state => state.session.authenticated);
   const newUser = useSelector(state => state.subscriptions.newUser);
   const dream = useSelector(state => state.subscriptions.ppvRequest);
   const shouldUpdatePassword = useSelector(state => state.subscriptions.shouldUpdatePassword);
@@ -169,7 +170,7 @@ const BillingForm = ({
                           placeholder={intl.formatMessage({ id: 'billing.number' })}
                           width={isMobile ? 19 : 16}
                         />
-                        {!email && (
+                        {!email && !authenticated && (
                           <Input
                             name="name"
                             placeholder={intl.formatMessage({ id: 'billing.name' })}
@@ -200,7 +201,7 @@ const BillingForm = ({
                       </div>
                     </div>
                   </div>
-                  {!email && (
+                  {!email && !authenticated && (
                     <div className="missing-email">
                       <Input
                         name="email"
