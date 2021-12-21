@@ -36,17 +36,17 @@ const EventViewMobile = ({
       .sort((a, b) => a.eventDate - b.eventDate)
   );
   const [selectedVideo, setSelectedVideo] = useState(
-    video?.title || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]?.title
+    video?.title || sortedEvents[0]?.mainEvents.concat(sortedEvents[0]?.prelimEvents)[0]?.title
   );
   const [displayContent, setDisplayContent] = useState(
-    video || sortedEvents[0].mainEvents.concat(sortedEvents[0].prelimEvents)[0]
+    video || sortedEvents[0]?.mainEvents.concat(sortedEvents[0]?.prelimEvents)[0]
   );
   const language = useSelector(state => state.language.language);
 
   const selectVideo = v => {
     setSelectedVideo(v);
     const selectedEvent = sortedEvents.filter(ev => ev.name == selectedEventName)[0];
-    const allVideos = selectedEvent.mainEvents.concat(selectedEvent.prelimEvents);
+    const allVideos = selectedEvent?.mainEvents.concat(selectedEvent?.prelimEvents);
     const content = allVideos.filter(vid => formatTitle(vid, language) === v)[0];
     if (content.public || payed) {
       setDisplayContent(content);
@@ -116,8 +116,8 @@ const EventViewMobile = ({
           </select>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
-            .mainEvents.concat(
-              sortedEvents.filter(ev => ev.name == selectedEventName)[0].prelimEvents
+            ?.mainEvents.concat(
+              sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.prelimEvents
             ).length > 0 && (
             <select
               value={selectedVideo}
@@ -129,8 +129,8 @@ const EventViewMobile = ({
               {sortedEvents &&
                 sortedEvents
                   .filter(ev => ev.name == selectedEventName)[0]
-                  .mainEvents.concat(
-                    sortedEvents.filter(ev => ev.name == selectedEventName)[0].prelimEvents
+                  ?.mainEvents.concat(
+                    sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.prelimEvents
                   )
                   .map(v => <option>{formatTitle(v, language)}</option>)}
             </select>
@@ -214,7 +214,7 @@ const EventViewMobile = ({
         <Carousel cols={1} rows={1} gap={10} loop>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
-            .mainEvents.map(v => (
+            ?.mainEvents.map(v => (
               <Carousel.Item>
                 <div onClick={() => selectVideo(v.title)}>
                   <div className="video-description-mobile-home">
@@ -253,7 +253,7 @@ const EventViewMobile = ({
         <Carousel cols={1} rows={1} gap={60} loop>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
-            .prelimEvents.map(v => (
+            ?.prelimEvents.map(v => (
               <Carousel.Item>
                 <div onClick={() => selectVideo(v.title)}>
                   <div className="video-description-mobile-home">
