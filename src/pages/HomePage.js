@@ -6,7 +6,6 @@ import ReactGA from 'react-ga';
 import HomeView from 'components/HomeView';
 import UserHomePage from './UserHomePage';
 import HomeFooter from '../components/HomeFooter';
-import MailchimpForm from '../components/MailchimpForm';
 
 const HomePage = () => {
   const { authenticated } = useSession();
@@ -22,7 +21,6 @@ const HomePage = () => {
   return (
     <div className="home">
       <HomeView />
-      <MailchimpForm />
       <HomeFooter />
     </div>
   );

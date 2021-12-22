@@ -174,7 +174,7 @@ h3 {
 .small { font-size: 12px; }
 
 .home-container {
-  padding-bottom: 158px
+  padding-bottom: 50px
 }
 
 .home-text {
@@ -277,7 +277,6 @@ h3 {
 }
 
 .stars-container {
-  padding: 30px 0 80px;
   background-color: #191c21;
 
   h2 { text-align: center; }
@@ -2064,8 +2063,15 @@ h3 {
 
   input {
     text-align: center;
-    border-radius: 20px;
     width: 90%;
+    border: none;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    height: 6vh;
+    padding: 5px 20px;
+    border-radius: 0;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
 
     @media (min-width: 1024px) {
       width: 50%;
@@ -3717,4 +3723,59 @@ h3 {
   height: 30vh;
   background: none;
   cursor: pointer;
+}
+
+.home-stars-container{
+  width: 90vw;
+  border-bottom: solid 1px #C4C4C4;
+  margin-left: 4vw !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  padding-top: 10vh;
+  @media (max-width: 768px) {
+    width: 100vw;
+    margin-left: -4vw !important;
+  }
+
+  .home-stars-title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 59px;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  
+  .home-stars-description{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+
+  button {
+    color: #FFFFFF;
+    background-color: #ea0a0a;
+    border: solid #eb0000 1px;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    height: 6vh;
+    padding: 5px 20px;
+    border-radius: 0;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+    @media (max-width: 600px) {
+      font-size: 5vw;
+      height: 18vw;
+      width: 90vw;
+    }
+  }
 }

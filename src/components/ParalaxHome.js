@@ -33,9 +33,9 @@ const ParalaxHome = () => {
           </FlashMessage>
         </div>
       )}
-      <div className="row">
+      <div className="row home-stars-container">
         <div className="col-md-4 home-text">
-          <h1>{intl.formatMessage({ id: 'home.paralax.title' })}</h1>
+          <div className="home-stars-title">{intl.formatMessage({ id: 'home.paralax.title' })}</div>
           <br />
           {isMobile && (
             <div className="col-md-7 offset-md-1">
@@ -52,25 +52,17 @@ const ParalaxHome = () => {
               />
             </div>
           )}
-          <p>{intl.formatMessage({ id: 'home.paralax.subTitle' })}</p>
-          <br />
-          <p className="small mb-4 mt-2">
-            {intl.formatMessage({ id: 'legal.share' })}
-            <a href="/terms" target="_blank">
-              {intl.formatMessage({ id: 'legal.terms' })}
-            </a>
-            &
-            <a href="/privacy" target="_blank">
-              {intl.formatMessage({ id: 'legal.privacy' })}
-            </a>
-          </p>
+          <div className="home-stars-description">
+            {intl.formatMessage({ id: 'home.paralax.subTitle' })}
+          </div>
+          <button type="button">SUBSCRIBE TO STARS</button>
         </div>
         {!isMobile && (
           <div className="col-md-7 offset-md-1">
             <ReactPlayer
               title="preview"
-              width="760"
-              height="515"
+              width="51.3vw"
+              height="55vh"
               muted
               loop
               playing
@@ -79,6 +71,7 @@ const ParalaxHome = () => {
             />
           </div>
         )}
+        <div className="line" />
       </div>
       <ConfirmationModal
         title={intl.formatMessage({ id: 'billing.title' })}

@@ -25,14 +25,8 @@ const MailchimpForm = () => {
             placeholder={intl.formatMessage({ id: 'mailchimp.email' })}
             required
           />
-          <div style={{ position: 'relative', left: '-5000px' }} aria-hidden="true">
-            <input
-              type="text"
-              name="b_afe93a970567ff88ccd219547_bb2e03da83"
-              tabIndex="-1"
-              value=""
-            />
-          </div>
+          <br />
+          <br />
           <div className="clear">
             <input
               type="submit"
