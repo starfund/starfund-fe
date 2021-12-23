@@ -70,6 +70,16 @@ const EventViewMobile = ({
         ?.prelimEvents.slice()
         .sort((a, b) => a.eventDate - b.eventDate)
     );
+    const selectedEvent = sortedEvents.filter(ev => ev.name == eventName)[0];
+    const allVideos = selectedEvent?.mainEvents.concat(selectedEvent?.prelimEvents);
+    const content = allVideos[0];
+    setSelectedVideo(formatTitle(content, language));
+    if (content.public || payed) {
+      setDisplayContent(content);
+    } else {
+      setDisplayContent(content);
+      subscribeAction();
+    }
   };
 
   const months = [
@@ -164,26 +174,28 @@ const EventViewMobile = ({
         />
       )}
       {!payed && !displayContent.public && (
-        <ReactPlayer
-          url={displayContent.videoUrl || displayContent.video}
-          style={{
-            margin: '3%',
-            minHeight: '35vh',
-            maxHeight: '35vh',
-            minWidth: '95vw',
-            maxWidth: '95vw'
-          }}
-          light={!displayContent.videoUrl && displayContent.thumbnail}
-          muted
-          config={{
-            file: {
-              attributes: {
-                onContextMenu: e => e.preventDefault(),
-                controlsList: 'nodownload'
+        <div onClick={() => subscribeAction()}>
+          <ReactPlayer
+            url={displayContent.videoUrl || displayContent.video}
+            style={{
+              margin: '3%',
+              minHeight: '35vh',
+              maxHeight: '35vh',
+              minWidth: '95vw',
+              maxWidth: '95vw'
+            }}
+            light={!displayContent.videoUrl && displayContent.thumbnail}
+            muted
+            config={{
+              file: {
+                attributes: {
+                  onContextMenu: e => e.preventDefault(),
+                  controlsList: 'nodownload'
+                }
               }
-            }
-          }}
-        />
+            }}
+          />
+        </div>
       )}
       <div className="event-view-mobile-videos">
         <h3>{formatTitle(displayContent, language)}</h3>
