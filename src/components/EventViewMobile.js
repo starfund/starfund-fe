@@ -174,7 +174,8 @@ const EventViewMobile = ({
         />
       )}
       {!payed && !displayContent.public && (
-        <div onClick={() => subscribeAction()}>
+        <div>
+          <div className="select-cover-video" onClick={() => subscribeAction()} />
           <ReactPlayer
             url={displayContent.videoUrl || displayContent.video}
             style={{

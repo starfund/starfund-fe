@@ -3725,6 +3725,14 @@ h3 {
   cursor: pointer;
 }
 
+.select-cover-video{
+  position: absolute;
+  width: 100vw;
+  height: 30vh;
+  background: none;
+  cursor: pointer;
+}
+
 .home-stars-container{
   width: 90vw;
   border-bottom: solid 1px #C4C4C4;
