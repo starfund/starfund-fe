@@ -19,7 +19,10 @@ const ParalaxHome = () => {
   const value = window.history.state?.new;
 
   return (
-    <div className="container home-container">
+    <div
+      className="container home-container"
+      style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+    >
       {value && (
         <div className="flash-message-container">
           <FlashMessage duration={5000} persistOnHover>

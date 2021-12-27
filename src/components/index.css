@@ -3736,10 +3736,9 @@ h3 {
 .home-stars-container{
   width: 90vw;
   border-bottom: solid 1px #C4C4C4;
-  margin-left: 4vw !important;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: 40px;
   padding-top: 10vh;
   @media (max-width: 768px) {
