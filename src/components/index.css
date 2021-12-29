@@ -1080,12 +1080,11 @@ h3 {
 }
 
 .stars-preview-container {
-  height: 100%;
   justify-content: center;
   text-align: center;
 
   .stars-container {
-    height: 100%;
+    padding-bottom: 6vh;
   }
 }
 
@@ -3740,7 +3739,7 @@ h3 {
   align-items: center;
   justify-content: flex-start;
   padding-bottom: 40px;
-  padding-top: 10vh;
+  padding-top: 50px;
   @media (max-width: 768px) {
     width: 100vw;
     margin-left: -4vw !important;

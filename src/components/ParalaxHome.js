@@ -64,8 +64,8 @@ const ParalaxHome = () => {
           <div className="col-md-7 offset-md-1">
             <ReactPlayer
               title="preview"
-              width="51.3vw"
-              height="55vh"
+              width="101%"
+              height="100%"
               muted
               loop
               playing
