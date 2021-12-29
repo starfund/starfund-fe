@@ -51,7 +51,7 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarText">
-            {isMobile && pathname != '/organization/Demo' && (
+            {isMobile && (
               <div className="nav-actions flex">
                 {authenticated && <img src={ProfileUser} alt="profile" />}
                 {authenticated && (
@@ -85,37 +85,31 @@ const Header = () => {
                 )}
               </div>
             )}
-            {pathname != '/organization/Demo' && (
-              <ul className="navbar-nav mr-auto">
-                <li
-                  className={cn('nav-item text-right', {
-                    active: pathname === routePaths.fighters || pathname === routePaths.athletes
-                  })}
-                >
-                  <Link to="/fighters" className="nav-link">
-                    {intl.formatMessage({ id: 'header.stars' })}{' '}
-                    <span className="sr-only">(current)</span>
-                  </Link>
-                </li>
-                <li
-                  className={cn('nav-item text-right', {
-                    active: pathname === routePaths.businesses
-                  })}
-                >
-                  <Link to={routePaths.businesses} className="nav-link">
-                    {intl.formatMessage({ id: 'header.business' })}
-                  </Link>
-                </li>
-              </ul>
-            )}
-            {pathname != '/organization/Demo' && (
-              <div
-                style={isMobile ? { display: 'flex', marginLeft: '30px', marginTop: '10px' } : {}}
+            <ul className="navbar-nav mr-auto">
+              <li
+                className={cn('nav-item text-right', {
+                  active: pathname === routePaths.fighters || pathname === routePaths.athletes
+                })}
               >
-                <LanguageSelect />
-              </div>
-            )}
-            {!isMobile && pathname != '/organization/Demo' && (
+                <Link to="/fighters" className="nav-link">
+                  {intl.formatMessage({ id: 'header.stars' })}{' '}
+                  <span className="sr-only">(current)</span>
+                </Link>
+              </li>
+              <li
+                className={cn('nav-item text-right', {
+                  active: pathname === routePaths.businesses
+                })}
+              >
+                <Link to={routePaths.businesses} className="nav-link">
+                  {intl.formatMessage({ id: 'header.business' })}
+                </Link>
+              </li>
+            </ul>
+            <div style={isMobile ? { display: 'flex', marginLeft: '30px', marginTop: '10px' } : {}}>
+              <LanguageSelect />
+            </div>
+            {!isMobile && (
               <div className="nav-actions flex justify-content-end">
                 <img src={ProfileUser} alt="profile" />
                 {authenticated && (

@@ -2366,8 +2366,20 @@ h3 {
     text-align: center;
     padding: 6px;
     width:8vh;
+    @media (min-width: 1500px) {
+      left: -3vw;
+    }
+    @media (min-width: 1700px) {
+      left: -1.5vw;
+    }
+    @media (max-width: 1024px) {
+      left: -3vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
     @media (max-width: 765px) {
-      left: -5vw;
+      left: -4.5vw;
       height: 3vh;
       font-size: 2vh;
       padding: 3px;
@@ -2386,8 +2398,20 @@ h3 {
     text-align: center;
     padding: 6px;
     width:8vh;
+    @media (min-width: 1500px) {
+      right: -3vw;
+    }
+    @media (min-width: 1700px) {
+      right: -1.5vw;
+    }
+    @media (max-width: 1024px) {
+      right: -3vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
     @media (max-width: 765px) {
-      right: -5vw;
+      right: -4.5vw;
       height: 3vh;
       font-size: 2vh;
       padding: 3px;
@@ -2406,8 +2430,20 @@ h3 {
     text-align: center;
     padding: 6px;
     width:8vh;
+    @media (min-width: 1500px) {
+      left: -3vw;
+    }
+    @media (min-width: 1700px) {
+      left: -1.5vw;
+    }
+    @media (max-width: 1024px) {
+      left: -3vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
     @media (max-width: 765px) {
-      left: -5vw;
+      left: -4.5vw;
       height: 3vh;
       font-size: 2vh;
       padding: 3px;
@@ -2426,8 +2462,20 @@ h3 {
     text-align: center;
     padding: 6px;
     width:8vh;
+    @media (min-width: 1500px) {
+      right: -3vw;
+    }
+    @media (min-width: 1700px) {
+      right: -1.5vw;
+    }
+    @media (max-width: 1024px) {
+      right: -3vw;
+      height: 3vh;
+      font-size: 2vh;
+      padding: 3px;
+    }
     @media (max-width: 765px) {
-      right: -5vw;
+      right: -4.5vw;
       height: 3vh;
       font-size: 2vh;
       padding: 3px;
@@ -2596,7 +2644,7 @@ h3 {
 }
 
 .container-nav{
-  max-width: 80vw;
+  max-width: 100vw;
   @media (min-width: 1024px) {
     margin-left: 10vw;
     margin-right: 10vw;
@@ -2709,7 +2757,7 @@ h3 {
   min-height: 28px;
   padding: 5px 15px;
   position: absolute;
-  right: 1.4vw;
+  right: 16px;
   width: fit-content;
   @media (min-width: 2080px) {
     right: 7vw;
@@ -2722,8 +2770,11 @@ h3 {
   min-height: 32px;
   padding: 5px 15px;
   position: absolute;
-  right: 55px;
+  right: 17px;
   width: fit-content;
+  @media (min-width:1024px){
+    right: 4px;
+  }
 }
 
 .exclusive-event-mobile {
@@ -2745,7 +2796,16 @@ h3 {
   padding: 5px 15px;
   position: relative;
   top:35px;
+  left: -115px;
   width: fit-content;
+  @media (max-width: 768px){
+    top: 85px;
+    left:30px;
+  }
+  @media (max-width: 1024px){
+    top: 67px;
+    left:60px;
+  }
 }
 .exclusive-event-video-mobile-big {
   background-color: red;
@@ -3019,11 +3079,23 @@ h3 {
   justify-content: center;
 
   .video-description {
-    width: 25vw;
+    width: 358px;
     background-color: #373737;
     display: flex;
     flex-direction:column;
     align-items: flex-start;
+    
+    @media (max-width: 1024px){
+      margin-top: -30px;
+    }
+    @media (max-width: 768px){
+      margin-top: -50px;
+    }
+    @media (min-width:1700px){
+      margin-left: -10px;
+    }
+
+
     &:hover {
       background-color: red;
       cursor: pointer;
@@ -3077,10 +3149,11 @@ h3 {
   }
   .search-button{
     background-color: red;
-    padding: 2%;
-    @media (max-width: 800px) {
-      padding: 2%;
-    }
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
   }
   .bar {
     width: 30vw;
@@ -3113,7 +3186,10 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 98%;
+  @media (max-width: 1024px){
+    width:100%;
+  }
   button {
     background-color: #ea0a0a;
     border: solid #eb0000 1px;
@@ -3517,18 +3593,9 @@ h3 {
 }
 
 .welcome-photo{
-  max-width: 50vw;
+  max-width: 90%;
   max-height: 50vh;
   margin: 10px;
-  @media (max-width: 1200px) {
-    max-width: 45vw;
-  }
-  @media (max-width: 768px) {
-    max-width: 48vw;
-  }
-  @media (max-width: 570px) {
-    max-width: 70vw;
-  }
 }
 
 .flash-message-container{

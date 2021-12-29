@@ -306,39 +306,55 @@ const OrganizationEvents = ({
                             >
                               {!payed && !v.public && (
                                 <div
-                                  className={
-                                    isMobile
-                                      ? 'exclusive-event-video-mobile-big'
-                                      : 'exclusive-event-video-big'
-                                  }
+                                  style={{
+                                    minWidth: '25.1vw',
+                                    display: 'flex',
+                                    justifyContent: 'center'
+                                  }}
                                 >
-                                  EXCLUSIVE
+                                  <div
+                                    className={
+                                      isMobile
+                                        ? 'exclusive-event-video-mobile-big'
+                                        : 'exclusive-event-video-big'
+                                    }
+                                  >
+                                    EXCLUSIVE
+                                  </div>
                                 </div>
                               )}
                               <div className="select-cover-big" onClick={() => selectVideo(v)} />
-                              <div
-                                className={cn('video-description', {
-                                  selected: activeVideo === v.id + item?.name
-                                })}
-                              >
-                                <LazyLoadComponent>
-                                  <ReactPlayer
-                                    url={v.videoUrl || v.video}
-                                    width={isMobile ? '100%' : '25.1vw'}
-                                    height="202px"
-                                    light={!v.videoUrl && v.thumbnail}
-                                    config={{
-                                      file: {
-                                        attributes: {
-                                          onContextMenu: e => e.preventDefault(),
-                                          controlsList: 'nodownload'
-                                        }
+                              <LazyLoadComponent>
+                                <ReactPlayer
+                                  url={v.videoUrl || v.video}
+                                  width={isMobile ? '100%' : '25.1vw'}
+                                  height="202px"
+                                  light={!v.videoUrl && v.thumbnail}
+                                  config={{
+                                    file: {
+                                      attributes: {
+                                        onContextMenu: e => e.preventDefault(),
+                                        controlsList: 'nodownload'
                                       }
-                                    }}
-                                  />
-                                </LazyLoadComponent>
-                                <h4 className="one-line-text">{formatTitle(v, language)}</h4>
-                                <p className="one-line-text">{formatDescription(v, language)}</p>
+                                    }
+                                  }}
+                                />
+                              </LazyLoadComponent>
+                              <div
+                                style={{
+                                  minWidth: '25.1vw',
+                                  display: 'flex',
+                                  justifyContent: 'center'
+                                }}
+                              >
+                                <div
+                                  className={cn('video-description', {
+                                    selected: activeVideo === v.id + item?.name
+                                  })}
+                                >
+                                  <h4 className="one-line-text">{formatTitle(v, language)}</h4>
+                                  <p className="one-line-text">{formatDescription(v, language)}</p>
+                                </div>
                               </div>
                             </div>
                           ))}

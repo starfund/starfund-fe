@@ -240,7 +240,7 @@ const EventViewMobile = ({
                         <ReactPlayer
                           url={v.videoUrl || v.video}
                           width="100%"
-                          height="20vh"
+                          height="25vh"
                           light={!v.videoUrl && v.thumbnail}
                           muted
                           config={{

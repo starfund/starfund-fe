@@ -1,3 +1,4 @@
+import HomeFooter from 'components/HomeFooter';
 import React from 'react';
 import { useIntl } from 'react-intl';
 
@@ -13,6 +14,7 @@ const AboutPage = () => {
       </div>
       <br />
       <FAQS />
+      <HomeFooter />
     </div>
   );
 };
