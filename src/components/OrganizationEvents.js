@@ -38,6 +38,9 @@ const OrganizationEvents = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+  const isBigScreen = useMediaQuery({
+    query: '(min-width: 1700px)'
+  });
   const selectVideo = (content, event) => {
     setActiveVideo(content.id + event?.name);
   };
@@ -321,8 +324,8 @@ const OrganizationEvents = ({
                               <LazyLoadComponent>
                                 <ReactPlayer
                                   url={v.videoUrl || v.video}
-                                  width={isMobile ? '100%' : '25.1vw'}
-                                  height="202px"
+                                  width={isMobile ? '100%' : '25vw'}
+                                  height={isBigScreen ? '14vw' : '202px'}
                                   light={!v.videoUrl && v.thumbnail}
                                   config={{
                                     file: {

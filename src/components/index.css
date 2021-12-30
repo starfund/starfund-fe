@@ -2806,6 +2806,9 @@ h3 {
     top: 85px;
     left:30px;
   }
+  @media (min-width: 1700px){
+    left:-185px;
+  }
 }
 .exclusive-event-video-mobile-big {
   background-color: red;
@@ -3093,6 +3096,7 @@ h3 {
     }
     @media (min-width:1700px){
       margin-left: -10px;
+      width: 25vw;
     }
 
 
@@ -3187,7 +3191,6 @@ h3 {
   align-items: center;
   justify-content: space-between;
   width: 98%;
-  width: 93.5%;
   @media (max-width: 1024px){
     width:100%;
   }

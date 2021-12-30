@@ -35,7 +35,7 @@ export default {
   'button.subscribeNow': 'SUBSCRIBE NOW',
   'button.supportNow': 'SUPPORT NOW',
   'button.findAthlete': 'FIND YOUR STAR ATHLETE',
-  'button.enroll': 'Enroll as star',
+  'button.enroll': 'Enroll',
   'cta.text': 'Subscribe to get access to all athletes videos and exclusive content',
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',

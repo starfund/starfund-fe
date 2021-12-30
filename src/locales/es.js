@@ -41,7 +41,7 @@ export default {
   'button.subscribeNow': 'SUBSCRIBIRSE AHORA',
   'button.supportNow': 'APOYAR AHORA',
   'button.findAthlete': 'ENCUENTRA TU ESTRELLA',
-  'button.enroll': 'SE UNA ESTRELLA',
+  'button.enroll': 'UNETE',
   'cta.text': 'Subscribete para tener acceso a todo el contenido exclusivo',
   commingSoon: 'Estamos trabajando...',
   emailUs: 'Contactanos a ',
