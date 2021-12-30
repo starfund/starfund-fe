@@ -3614,7 +3614,7 @@ h3 {
   display: flex;
   color: white;
   width: 30vw;
-  height: 10vh;
+  height: 12vh;
   padding: 10px;
   margin-bottom: 2vh;
   font-family: Montserrat;
@@ -3631,6 +3631,7 @@ h3 {
   }
   @media (max-width: 768px) {
     width: 100vw;
+    height: 13vh;
   }
 }
 
