@@ -305,13 +305,7 @@ const OrganizationEvents = ({
                               }}
                             >
                               {!payed && !v.public && (
-                                <div
-                                  style={{
-                                    minWidth: '25.1vw',
-                                    display: 'flex',
-                                    justifyContent: 'center'
-                                  }}
-                                >
+                                <div className="video-tag-container">
                                   <div
                                     className={
                                       isMobile
@@ -340,13 +334,7 @@ const OrganizationEvents = ({
                                   }}
                                 />
                               </LazyLoadComponent>
-                              <div
-                                style={{
-                                  minWidth: '25.1vw',
-                                  display: 'flex',
-                                  justifyContent: 'center'
-                                }}
-                              >
+                              <div className="video-tag-container">
                                 <div
                                   className={cn('video-description', {
                                     selected: activeVideo === v.id + item?.name
@@ -387,37 +375,36 @@ const OrganizationEvents = ({
                                   }
                                 }}
                               >
-                                <div className="video-description-mobile">
-                                  {!v.public && !payed && (
-                                    <div className="exclusive-event-mobile"> EXCLUSIVE </div>
-                                  )}
-                                  <div
-                                    className="select-cover-big"
-                                    onClick={() => selectVideo(v)}
-                                  />
-                                  <LazyLoadComponent>
-                                    <ReactPlayer
-                                      url={v.videoUrl || v.video}
-                                      width="100%"
-                                      height="20vh"
-                                      light={!v.videoUrl && v.thumbnail}
-                                      muted
-                                      config={{
-                                        file: {
-                                          attributes: {
-                                            onContextMenu: e => e.preventDefault(),
-                                            controlsList: 'nodownload'
-                                          }
+                                {!v.public && !payed && (
+                                  <div className="exclusive-event-mobile"> EXCLUSIVE </div>
+                                )}
+                                <div className="select-cover-big" onClick={() => selectVideo(v)} />
+                                <LazyLoadComponent>
+                                  <ReactPlayer
+                                    url={v.videoUrl || v.video}
+                                    width="100%"
+                                    height="46vw"
+                                    light={!v.videoUrl && v.thumbnail}
+                                    muted
+                                    config={{
+                                      file: {
+                                        attributes: {
+                                          onContextMenu: e => e.preventDefault(),
+                                          controlsList: 'nodownload'
                                         }
-                                      }}
-                                    />
-                                  </LazyLoadComponent>
-                                  <h4 className="one-line-text-mobile">
-                                    {formatTitle(v, language)}
-                                  </h4>
-                                  <p className="one-line-text-mobile">
-                                    {formatDescription(v, language)}
-                                  </p>
+                                      }
+                                    }}
+                                  />
+                                </LazyLoadComponent>
+                                <div className="video-tag-container-mobile">
+                                  <div className="video-description-mobile">
+                                    <h4 className="one-line-text-mobile">
+                                      {formatTitle(v, language)}
+                                    </h4>
+                                    <p className="one-line-text-mobile">
+                                      {formatDescription(v, language)}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </Carousel.Item>

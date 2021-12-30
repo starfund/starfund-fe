@@ -106,7 +106,13 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <div style={isMobile ? { display: 'flex', marginLeft: '30px', marginTop: '10px' } : {}}>
+            <div
+              style={
+                isMobile
+                  ? { display: 'flex', marginLeft: '30px', marginTop: '10px', marginBottom: '10px' }
+                  : {}
+              }
+            >
               <LanguageSelect />
             </div>
             {!isMobile && (

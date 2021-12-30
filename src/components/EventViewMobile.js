@@ -230,32 +230,32 @@ const EventViewMobile = ({
             ?.mainEvents.map(v => (
               <Carousel.Item>
                 <div onClick={() => selectVideo(v.title)}>
-                  <div className="video-description-mobile-home">
-                    {!v.public && !payed && (
-                      <div className="exclusive-event-mobile"> EXCLUSIVE </div>
-                    )}
-                    <div className="select-cover-mobile" onClick={() => selectVideo(v.title)} />
-                    <div>
-                      <LazyLoadComponent>
-                        <ReactPlayer
-                          url={v.videoUrl || v.video}
-                          width="100%"
-                          height="25vh"
-                          light={!v.videoUrl && v.thumbnail}
-                          muted
-                          config={{
-                            file: {
-                              attributes: {
-                                onContextMenu: e => e.preventDefault(),
-                                controlsList: 'nodownload'
-                              }
+                  {!v.public && !payed && <div className="exclusive-event-mobile"> EXCLUSIVE </div>}
+                  <div className="select-cover-mobile" onClick={() => selectVideo(v.title)} />
+                  <div>
+                    <LazyLoadComponent>
+                      <ReactPlayer
+                        url={v.videoUrl || v.video}
+                        width="100%"
+                        height="50vw"
+                        light={!v.videoUrl && v.thumbnail}
+                        muted
+                        config={{
+                          file: {
+                            attributes: {
+                              onContextMenu: e => e.preventDefault(),
+                              controlsList: 'nodownload'
                             }
-                          }}
-                        />
-                      </LazyLoadComponent>
+                          }
+                        }}
+                      />
+                    </LazyLoadComponent>
+                  </div>
+                  <div className="video-tag-container-mobile">
+                    <div className="video-description-mobile-home">
+                      <h4 className="one-line-text-mobile">{formatTitle(v, language)}</h4>
+                      <p className="one-line-text-mobile">{formatDescription(v, language)}</p>
                     </div>
-                    <h4 className="one-line-text-mobile">{formatTitle(v, language)}</h4>
-                    <p className="one-line-text-mobile">{formatDescription(v, language)}</p>
                   </div>
                 </div>
               </Carousel.Item>
