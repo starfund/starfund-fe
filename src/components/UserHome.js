@@ -271,9 +271,12 @@ const UserHome = () => {
                         }
                         alt="sub"
                       />
-                      <p>
+                      <Link
+                        style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                        to={`/organization/${s.orgName}`}
+                      >
                         <FormattedMessage id="home.welcomepost" values={{ new: s.orgName }} />
-                      </p>
+                      </Link>
                     </div>
                     <img
                       className="welcome-photo"
@@ -287,37 +290,43 @@ const UserHome = () => {
                 ))}
               {organizations &&
                 eventPPV?.length > 0 &&
-                eventPPV.map(c => (
-                  <React.Fragment key={c.id}>
-                    <div className="fighter-sub flex">
-                      {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
+                eventPPV.map(
+                  c =>
+                    orgSubs.filter(s => s.orgName == c?.orgName).length != 1 && (
+                      <React.Fragment key={c.id}>
+                        <div className="fighter-sub flex">
+                          {events.filter(e => e.id === c.orgEvent && e.isActive).length > 0 && (
+                            <img
+                              src={
+                                organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
+                                DefaultAvatar
+                              }
+                              alt="sub"
+                            />
+                          )}
+                          <Link
+                            style={{ color: 'white', marginLeft: '1vw', marginTop: '1vh' }}
+                            to={`/organization/${c.orgName}`}
+                          >
+                            <FormattedMessage
+                              id="home.welcomepost"
+                              values={{
+                                new: events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
+                              }}
+                            />
+                          </Link>
+                        </div>
                         <img
+                          className="welcome-photo"
                           src={
                             organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
                             DefaultAvatar
                           }
                           alt="sub"
                         />
-                      )}
-                      <p>
-                        <FormattedMessage
-                          id="home.welcomepost"
-                          values={{
-                            new: events.filter(e => e.id === c.orgEvent && e.isActive)[0]?.name
-                          }}
-                        />
-                      </p>
-                    </div>
-                    <img
-                      className="welcome-photo"
-                      src={
-                        organizations.filter(o => o.name === c.orgName)[0]?.coverPhoto ||
-                        DefaultAvatar
-                      }
-                      alt="sub"
-                    />
-                  </React.Fragment>
-                ))}
+                      </React.Fragment>
+                    )
+                )}
             </div>
           </div>
         </div>

@@ -32,6 +32,9 @@ const VideoSlider = ({
   const isMobileBig = useMediaQuery({
     query: '(max-width: 1024px)'
   });
+  const isBigScreen = useMediaQuery({
+    query: '(min-width: 1700px)'
+  });
   const language = useSelector(state => state.language.language);
 
   const selectVideo = content => {
@@ -152,7 +155,7 @@ const VideoSlider = ({
             marginLeft: `${isMobile ? '0vw' : '2vw'}`,
             marginTop: '10px'
           }}
-          cols={3}
+          cols={isBigScreen ? 4 : 3}
           rows={1}
           gap={0}
           loop

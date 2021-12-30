@@ -17,7 +17,13 @@ const ParalaxHome = () => {
     query: '(max-width: 765px)'
   });
   const value = window.history.state?.new;
-
+  const scrollDown = () => {
+    if (isMobile) {
+      window.scrollTo(0, 900);
+    } else {
+      window.scrollTo(0, 600);
+    }
+  };
   return (
     <div
       className="container home-container"
@@ -58,7 +64,9 @@ const ParalaxHome = () => {
           <div className="home-stars-description">
             {intl.formatMessage({ id: 'home.paralax.subTitle' })}
           </div>
-          <button type="button">SUBSCRIBE TO STARS</button>
+          <button type="button" onClick={() => scrollDown()}>
+            {intl.formatMessage({ id: 'home.paralax.subscribe' })}
+          </button>
         </div>
         {!isMobile && (
           <div className="col-md-7 offset-md-1">

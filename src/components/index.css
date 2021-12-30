@@ -3796,6 +3796,9 @@ h3 {
   @media (max-width:767px){
     width:80vw;
   }
+  @media (min-width:1700px){
+    height:25vh;
+  }
 }
 
 .select-cover-video{
