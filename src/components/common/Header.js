@@ -77,11 +77,13 @@ const Header = () => {
                   </div>
                 )}
                 {!authenticated && (
-                  <React.Fragment>
-                    <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
-                      {intl.formatMessage({ id: 'header.login' })}
-                    </span>
-                  </React.Fragment>
+                  <span data-toggle="collapse" data-target="#navbarText">
+                    <React.Fragment>
+                      <span className="navbar-text" onClick={() => setModalIsOpen(true)}>
+                        {intl.formatMessage({ id: 'header.login' })}
+                      </span>
+                    </React.Fragment>
+                  </span>
                 )}
               </div>
             )}
@@ -91,30 +93,41 @@ const Header = () => {
                   active: pathname === routePaths.fighters || pathname === routePaths.athletes
                 })}
               >
-                <Link to="/fighters" className="nav-link">
-                  {intl.formatMessage({ id: 'header.stars' })}{' '}
-                  <span className="sr-only">(current)</span>
-                </Link>
+                <span data-toggle="collapse" data-target="#navbarText">
+                  <Link to="/fighters" className="nav-link">
+                    {intl.formatMessage({ id: 'header.stars' })}{' '}
+                    <span className="sr-only">(current)</span>
+                  </Link>
+                </span>
               </li>
               <li
                 className={cn('nav-item text-right', {
                   active: pathname === routePaths.businesses
                 })}
               >
-                <Link to={routePaths.businesses} className="nav-link">
-                  {intl.formatMessage({ id: 'header.business' })}
-                </Link>
+                <span data-toggle="collapse" data-target="#navbarText">
+                  <Link to={routePaths.businesses} className="nav-link">
+                    {intl.formatMessage({ id: 'header.business' })}
+                  </Link>
+                </span>
               </li>
             </ul>
-            <div
-              style={
-                isMobile
-                  ? { display: 'flex', marginLeft: '30px', marginTop: '10px', marginBottom: '10px' }
-                  : {}
-              }
-            >
-              <LanguageSelect />
-            </div>
+            <span data-toggle="collapse" data-target="#navbarText">
+              <div
+                style={
+                  isMobile
+                    ? {
+                        display: 'flex',
+                        marginLeft: '30px',
+                        marginTop: '10px',
+                        marginBottom: '10px'
+                      }
+                    : {}
+                }
+              >
+                <LanguageSelect />
+              </div>
+            </span>
             {!isMobile && (
               <div className="nav-actions flex justify-content-end">
                 <img src={ProfileUser} alt="profile" />
