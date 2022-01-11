@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { useMediaQuery } from 'react-responsive';
 import ReactPlayer from 'react-player/lazy';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/awcf_poster_bg2.png';
 
@@ -122,9 +122,16 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
           </div>
           <br />
           <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
-            {intl.formatMessage({
-              id: event?.finished ? 'organization.button.rewatchppv' : 'organization.button.buyppv'
-            })}
+            {event?.finished ? (
+              <FormattedMessage
+                id="organization.button.rewatchppv"
+                values={{ eventName: event?.name }}
+              />
+            ) : (
+              intl.formatMessage({
+                id: 'organization.button.watch'
+              })
+            )}
           </button>
         </div>
       )}

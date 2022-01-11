@@ -6,6 +6,7 @@ import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stri
 import { useIntl } from 'react-intl';
 import ReactGA from 'react-ga';
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
@@ -46,6 +47,8 @@ const BillingForm = ({
   const [cvc] = useState('XXX');
   const [expiry] = useState('');
   const [focus, setFocus] = useState('');
+  const [agreed, setAgreed] = useState(false);
+  const [agreedOnSumit, setAgreedOnSubmit] = useState(true);
   const [emailField, setEmailField] = useState(email);
   const [name, setName] = useState('');
   const [number] = useState('4242');
@@ -136,10 +139,33 @@ const BillingForm = ({
                 style={noLong || noMatch ? { borderColor: 'red' } : {}}
               />
             </div>
+            {!agreedOnSumit && (
+              <p className="error-message">{intl.formatMessage({ id: 'billing.nomatch' })}</p>
+            )}
+            <div
+              style={{ textAlign: 'left', lineHeight: '15px', display: 'flex', marginLeft: '5%' }}
+            >
+              <div>
+                {intl.formatMessage({ id: 'legal.ihaveread' })}
+                <Link to="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</Link>
+              </div>
+              <input
+                name="terms"
+                type="checkbox"
+                style={{ width: '15px', height: '15px' }}
+                checked={agreed}
+                onClick={e => setAgreed(e.target.checked)}
+              />
+            </div>
             <br />
             <br />
             <Button
-              onClick={() => createPassword()}
+              onClick={() => {
+                setAgreedOnSubmit(agreed);
+                if (agreed) {
+                  createPassword();
+                }
+              }}
               labelId="billing.confirmAccountPassword"
               type="submit"
               className="btn btn-primary pay-button"

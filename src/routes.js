@@ -21,7 +21,7 @@ import PrivacyPage from 'pages/PrivacyPage';
 import UserHomePage from 'pages/UserHomePage';
 import ProfilePage from 'pages/ProfilePage';
 import WatchPage from 'pages/WatchPage';
-import BecomeStarPage from 'pages/BecomeStarPage';
+import EnrollPage from 'pages/EnrollPage';
 import RewardsPage from 'pages/RewardsPage';
 import ResetPasswordPage from 'pages/ResetPasswordPage';
 
@@ -156,13 +156,13 @@ const routes = [
   },
   {
     path: routesPaths.becomeStar,
-    component: <BecomeStarPage />,
+    component: <EnrollPage />,
     exact: true,
     private: false
   },
   {
     path: routesPaths.help,
-    component: <BecomeStarPage />,
+    component: <EnrollPage />,
     exact: true,
     private: false
   },

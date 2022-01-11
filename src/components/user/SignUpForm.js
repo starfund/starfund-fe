@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { useState, memo } from 'react';
 import { func } from 'prop-types';
 import { useIntl, defineMessages, FormattedMessage } from 'react-intl';
 import { useStatus, ERROR, LOADING } from '@rootstrap/redux-tools';
@@ -9,6 +9,7 @@ import Input from 'components/common/Input';
 import { signUp as signUpValidations } from 'utils/constraints';
 import { useForm, useValidation, useTextInputProps } from 'hooks';
 import { signUp } from 'state/actions/userActions';
+import { Link } from 'react-router-dom';
 
 const messages = defineMessages({
   email: { id: 'login.form.email' },
@@ -19,13 +20,14 @@ const messages = defineMessages({
 const fields = {
   email: 'email',
   password: 'password',
-  passwordConfirmation: 'passwordConfirmation'
+  passwordConfirmation: 'passwordConfirmation',
+  terms: 'terms'
 };
 
-export const SignUpForm = ({ onSubmit }) => {
+export const SignUpForm = ({ onSubmit, setModalIsOpen }) => {
   const intl = useIntl();
+  const [agreed, setAgreed] = useState(false);
   const { status, error } = useStatus(signUp);
-
   const validator = useValidation(signUpValidations);
   const { values, errors, handleValueChange, handleSubmit, handleBlur } = useForm(
     {
@@ -69,7 +71,23 @@ export const SignUpForm = ({ onSubmit }) => {
           {...inputProps(fields.passwordConfirmation)}
         />
       </div>
-      <button className="btn btn-danger" type="submit">
+      <br />
+      <div style={{ textAlign: 'left', lineHeight: '15px', display: 'flex', marginLeft: '5%' }}>
+        <div>
+          {intl.formatMessage({ id: 'legal.ihaveread' })}
+          <Link to="/terms" onClick={() => setModalIsOpen()}>
+            {intl.formatMessage({ id: 'legal.conditions' })}
+          </Link>
+        </div>
+        <input
+          name="terms"
+          type="checkbox"
+          style={{ width: '15px', height: '15px' }}
+          checked={agreed}
+          onClick={e => setAgreed(e.target.checked)}
+        />
+      </div>
+      <button className="btn btn-danger" type="submit" disabled={!agreed}>
         <FormattedMessage id="login.form.submit" />
       </button>
       {status === LOADING && <Loading />}

@@ -86,7 +86,12 @@ const EventView = ({
                   }}
                 >
                   {`${nextEvent?.name} `}
-                  {isUpcoming && !currEvent?.finished && '(UPCOMING)'}
+                  {isUpcoming &&
+                    !nextEvent?.finished &&
+                    `(${intl.formatMessage({ id: 'organization.upcoming' })})`}
+                  {isUpcoming &&
+                    nextEvent?.finished &&
+                    `(${intl.formatMessage({ id: 'organization.rewatch' })})`}
                 </p>
               </li>
             </ul>

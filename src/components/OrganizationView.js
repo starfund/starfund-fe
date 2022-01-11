@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Link, useParams } from 'react-router-dom';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
@@ -130,11 +130,16 @@ const OrganizationView = () => {
                   }
                 }}
               >
-                {intl.formatMessage({
-                  id: lastEvent?.finished
-                    ? 'organization.button.rewatchppv'
-                    : 'organization.button.watch'
-                })}
+                {lastEvent?.finished ? (
+                  <FormattedMessage
+                    id="organization.button.rewatchppv"
+                    values={{ eventName: lastEvent?.name }}
+                  />
+                ) : (
+                  intl.formatMessage({
+                    id: 'organization.button.watch'
+                  })
+                )}
               </button>
             )}
           </div>
@@ -275,6 +280,7 @@ const OrganizationView = () => {
               payed={payed}
               payedPPV={payedPPV}
               yearlyDiscount={organization?.yearlyDiscount}
+              event={lastEvent}
             />
           </ConfirmationModal>
 

@@ -126,6 +126,7 @@ export default {
 
   // Legal
   'legal.terms': ' Terminos de Servicio ',
+  'legal.ihaveread': 'He leido y acepto ',
   'legal.conditions': ' Terminos & Condiciones ',
   'legal.help': 'Soporte & Ayuda',
   'legal.privacy': ' Politicas de Privacidad ',
@@ -139,7 +140,7 @@ export default {
   'billing.confirmAccountPassword': 'Confirmar',
   'billing.title': 'MEMBRESIA MENSUAL',
   'billing.title.yearly': 'MEMBRESIA ANUAL',
-  'billing.ppv.title': 'EVENTO PPV',
+  'billing.ppv.title': 'PPV de evento',
   'billing.email': 'Email',
   'billing.number': 'Numero',
   'billing.name': 'Nombre Completo',
@@ -251,7 +252,7 @@ export default {
   'organization.months.dec.long': 'Diciembre',
   'organization.event.ppv': 'MIRAR EN VIVO CON PPV',
   'organization.button.buyppv': 'COMPRAR PPV AHORA',
-  'organization.button.rewatchppv': 'VOLVER A VER AOW 21',
+  'organization.button.rewatchppv': 'VOLVER A VER {eventName}',
   'organization.watchfight': 'VER PELEA',
   'organization.allevents': 'Todos los videos de {organizationName}',
   'organization.watchevent': 'Ver evento completo',
@@ -266,6 +267,8 @@ export default {
   'organization.mobile.watchfights': 'Ver peleas >>',
   'organization.mobile.results': 'Resultados de {eventName}',
   'organization.winner': 'GANADOR',
+  'organization.upcoming': 'PROXIMO',
+  'organization.rewatch': 'VOLVER A VER',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',
@@ -316,10 +319,13 @@ export default {
   // PAYMENT
   'payment.title': 'Por favor elegir un plan de pago',
   'payment.featured': 'Destacado',
-  'payment.ondemand': 'BAJO DEMANDA',
+  'payment.ondemand': 'Comprar {eventName}',
+  'payment.ondemand.rewatch': 'Volver a ver {eventName}',
   'payment.monthly': 'MENSUAL',
   'payment.yearly': 'ANUAL',
   'payment.service1': 'Comprar PPV unico',
+  'payment.service1.date': 'Este evento empieza el',
+  'payment.service1.replaydate': 'Este evento fue el',
   'payment.service2': 'Acceder a 100+ peleas',
   'payment.service3': 'Recivir 10% off en PPV',
   'payment.service4': 'Todo lo del mensual',
@@ -327,5 +333,34 @@ export default {
   // BUSINESSES
   'business.programs.title': 'CONOCE NUESTROS CURSOS',
   'business.schedule': 'HORARIOS',
-  'business.watch': 'Ver Videos'
+  'business.watch': 'Ver Videos',
+
+  // ENROLL
+  'enroll.organization': 'Organizacion',
+  'enroll.star': 'Estrella',
+  'enroll.star.title': 'Applicar para unirse a STARFUND como estrella!',
+  'enroll.star.description':
+    'Si tenes una fanbase y queres unirte a STARFUND como estrella, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',
+  'enroll.organization.title': 'Applicar para unirse a STARFUND como organizacion!',
+  'enroll.organization.description':
+    'Si trabajas en las industrias de entretenimiento o deporte y quieres ganar mas dinero monetizando tu contenido, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',
+  'enroll.note':
+    'Nota: no quedaras inscripto en STARFUND automaticamente. Si tienes los requermimientos de elegibilidad, un representante se contactara en unos dias para finalizar el proceso',
+  'enroll.submit': 'Submitir',
+  'enroll.name': 'Nombre',
+  'enroll.name.placeholder': 'John Smith',
+  'enroll.companyname': 'Nombre Empresa',
+  'enroll.companyname.placeholder': 'Company Inc.',
+  'enroll.email': 'Email',
+  'enroll.email.placeholder': 'mymail@example.com',
+  'enroll.phonenumber': 'Numero de telefono',
+  'enroll.phonenumber.placeholder': '123-456-789',
+  'enroll.companyinstagram': 'Cuenta de Instagram de la empresa',
+  'enroll.companyinstagram.placeholder': '@example',
+  'enroll.numfollowers': '¿Cuantos seguidores tienes?',
+  'enroll.numfollowers.placeholder': '200k',
+  'enroll.selectCountry': 'Seleccionar...',
+  'enroll.country': 'Pais',
+  'enroll.wherefind': '¿Donde te podemos encontrar?',
+  'enroll.other': '¿Algo mas que tengamos que saber de ti?'
 };

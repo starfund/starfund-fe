@@ -93,7 +93,7 @@ const Auth = ({ modalIsOpen, setModalIsOpen, isSignUp }) => {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                <SignUpForm onSubmit={signUpRequest} />
+                <SignUpForm onSubmit={signUpRequest} setModalIsOpen={setModalIsOpen} />
                 <p>
                   {intl.formatMessage({ id: 'registration.haveAccount' })}
                   <a onClick={() => setSignIn(true)}>

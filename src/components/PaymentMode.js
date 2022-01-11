@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useIntl } from 'react-intl';
+import { useIntl, FormattedMessage } from 'react-intl';
 
 const PaymentMode = ({
   onDemandPrice,
@@ -10,19 +10,59 @@ const PaymentMode = ({
   selectOptionYearly,
   payed,
   payedPPV,
-  yearlyDiscount
+  yearlyDiscount,
+  event
 }) => {
   const intl = useIntl();
+
+  const months = [
+    'jan.long',
+    'feb.long',
+    'mar.long',
+    'apr.long',
+    'may.long',
+    'jun.long',
+    'jul.long',
+    'aug.long',
+    'sep.long',
+    'oct.long',
+    'nov.long',
+    'dec.long'
+  ];
+
+  function EventDate(d) {
+    const date = new Date(d);
+    return `${intl.formatMessage({
+      id: `organization.months.${months[date?.getMonth()]}`
+    })} ${date?.getDate()}, ${date.getFullYear()}`;
+  }
   return (
     <div className="pricing">
       {!payedPPV && (
         <div className="box" onClick={() => selectOptionPPV()}>
-          <div className="payment-on-demand">{intl.formatMessage({ id: 'payment.ondemand' })}</div>
+          <div className="payment-on-demand">
+            {event?.finnished ? (
+              <FormattedMessage id="payment.ondemand.rewatch" values={{ eventName: event?.name }} />
+            ) : (
+              <FormattedMessage id="payment.ondemand" values={{ eventName: event?.name }} />
+            )}
+          </div>
           <div className="price">
             <sup>$</sup>
             {onDemandPrice / 100}
           </div>
           <div className="services">{intl.formatMessage({ id: 'payment.service1' })}</div>
+          {!event?.finished ? (
+            <div className="services">
+              {intl.formatMessage({ id: 'payment.service1.date' })}{' '}
+              {+' ' + EventDate(event?.eventDate)}
+            </div>
+          ) : (
+            <div className="services">
+              {intl.formatMessage({ id: 'payment.service1.replaydate' })}{' '}
+              {+' ' + EventDate(event?.eventDate)}
+            </div>
+          )}
         </div>
       )}
       {!payed && (

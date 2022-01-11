@@ -123,6 +123,7 @@ export default {
 
   // Legal
   'legal.terms': ' Terms of Service ',
+  'legal.ihaveread': 'I have read and accepted the ',
   'legal.conditions': ' Terms & Conditions ',
   'legal.help': 'Help & Support',
   'legal.privacy': ' Privacy Policy ',
@@ -136,7 +137,7 @@ export default {
   'billing.confirmAccountPassword': 'Confirm',
   'billing.title': 'MONTHLY MEMBERSHIP',
   'billing.title.yearly': 'YEARLY MEMBERSHIP',
-  'billing.ppv.title': 'PPV event',
+  'billing.ppv.title': 'Event PPV',
   'billing.email': 'Email',
   'billing.number': 'Number',
   'billing.name': 'Holder Name',
@@ -248,7 +249,7 @@ export default {
   'organization.months.dec.long': 'December',
   'organization.event.ppv': 'WATCH LIVE ON PPV',
   'organization.button.buyppv': 'BUY PPV NOW',
-  'organization.button.rewatchppv': 'RE-WATCH AOW 21',
+  'organization.button.rewatchppv': 'RE-WATCH {eventName}',
   'organization.watchfight': 'WATCH FIGHT',
   'organization.event.live': 'LIVE',
   'organization.event.rewatch': 'REPLAY',
@@ -262,6 +263,8 @@ export default {
   'organization.mobile.home': '<< Home',
   'organization.mobile.results': '{eventName} results',
   'organization.winner': 'WINNER',
+  'organization.upcoming': 'UPCOMING',
+  'organization.rewatch': 'REWATCH',
 
   // HOME
   'home.fighters.title': 'Explore Stars',
@@ -312,10 +315,13 @@ export default {
   // PAYMENT
   'payment.title': 'Please select a payment plan',
   'payment.featured': 'Featured',
-  'payment.ondemand': 'ON DEMAND',
+  'payment.ondemand': 'Purchase {eventName}',
+  'payment.ondemand.rewatch': 'Replay {eventName}',
   'payment.monthly': 'MONTHLY',
   'payment.yearly': 'YEARLY',
   'payment.service1': 'Purchase single PPV',
+  'payment.service1.date': 'This event starts on',
+  'payment.service1.replaydate': 'This event was aired on',
   'payment.service2': 'Access to 100+ fights',
   'payment.service3': 'Recieve 10% off on PPV',
   'payment.service4': 'Plus everything from monthly',
@@ -323,5 +329,34 @@ export default {
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',
   'business.schedule': 'SCHEDULE',
-  'business.watch': 'Watch Videos'
+  'business.watch': 'Watch Videos',
+
+  // ENROLL
+  'enroll.organization': 'ORGANIZATION',
+  'enroll.star': 'STAR',
+  'enroll.star.title': 'Apply to join STARFUND as a star!',
+  'enroll.star.description':
+    'If you have fanbase and want to join STARFUND as a star,you can apply here and we will be in touch within 72 hours.',
+  'enroll.organization.title': 'Apply to join STARFUND as an organization!',
+  'enroll.organization.description':
+    'If you work in the entertainment or sports industry and want to earn extra money by monetizing your content, apply here and we’ll be in touch within 72 hours.',
+  'enroll.note':
+    'Note: you are not automatically enrolled on STARFUND. If you meet the eligibility requirements, a talent representative will contact you within a few days to finish onboarding.',
+  'enroll.submit': 'Submit',
+  'enroll.name': 'Name',
+  'enroll.name.placeholder': 'John Smith',
+  'enroll.companyname': 'Company name',
+  'enroll.companyname.placeholder': 'Company Inc.',
+  'enroll.email': 'Email',
+  'enroll.email.placeholder': 'mymail@example.com',
+  'enroll.phonenumber': 'Phone number',
+  'enroll.phonenumber.placeholder': '123-456-789',
+  'enroll.companyinstagram': 'Instagram account of the company',
+  'enroll.companyinstagram.placeholder': '@example',
+  'enroll.numfollowers': 'How many followers do you have?',
+  'enroll.numfollowers.placeholder': '200k',
+  'enroll.selectCountry': 'Select...',
+  'enroll.country': 'Country',
+  'enroll.wherefind': 'Where can we find you?',
+  'enroll.other': 'Anything else we should know about you?'
 };

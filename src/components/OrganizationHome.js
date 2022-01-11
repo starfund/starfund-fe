@@ -39,7 +39,10 @@ const OrganizationHome = ({
             payed={payed}
             payedPPV={payedPPV}
             goToPPV={watchAction}
-            isUpcoming
+            isUpcoming={
+              sortedEvents[sortedEvents?.length - 1]?.id ==
+              sortedEvents.filter(e => e.homePage === true)[0]?.id
+            }
           />
         )}
         {sortedEvents && isMobile && (

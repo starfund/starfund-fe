@@ -124,6 +124,7 @@ export default {
 
   // Legal
   'legal.terms': ' Условия пользования ',
+  'legal.ihaveread': 'Я прочитал и принял ',
   'legal.conditions': ' Условия и положения ',
   'legal.help': 'Поддержка',
   'legal.privacy': ' Политика конфиденциальности ',
@@ -137,7 +138,7 @@ export default {
   'billing.confirmAccountPassword': 'Подтвердить',
   'billing.title': 'Ежемесячная подписка ',
   'billing.title.yearly': 'ЕЖЕГОДНОЕ ЧЛЕНСТВО',
-  'billing.ppv.title': 'PPV событие',
+  'billing.ppv.title': 'Событие PPV',
   'billing.email': 'Email',
   'billing.number': 'Номер',
   'billing.name': 'Имя на карте',
@@ -247,7 +248,7 @@ export default {
   'organization.months.dec.long': 'Декабрь',
   'organization.event.ppv': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
   'organization.button.buyppv': 'КУПИТЬ PPV СЕЙЧАС',
-  'organization.button.rewatchppv': 'ПОВТОРНО ПОСМОТРЕТЬ AOW 21',
+  'organization.button.rewatchppv': 'ПОВТОРНО ПОСМОТРЕТЬ {eventName}',
   'organization.watchfight': 'СМОТРЕТЬ БОЙ',
   'organization.watchevent': 'СМОТРЕТЬ ПОЛНОЕ СОБЫТИЕ',
   'organization.event.live': 'ЖИТЬ',
@@ -261,6 +262,8 @@ export default {
   'organization.mobile.watchfights': 'Смотреть все бои >>',
   'organization.mobile.results': 'Результаты {eventName}',
   'organization.winner': 'ПОБЕДИТЕЛЬ',
+  'organization.upcoming': 'ПРЕДСТОЯЩИЙ',
+  'organization.rewatch': 'ПЕРЕСМОТРЕТЬ',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',
@@ -308,10 +311,13 @@ export default {
   // PAYMENT
   'payment.title': 'Пожалуйста, выберите план оплаты',
   'payment.featured': 'Featured',
-  'payment.ondemand': 'PPV',
+  'payment.ondemand': 'Покупка {eventName}',
+  'payment.ondemand.rewatch': 'Воспроизвести {eventName}',
   'payment.monthly': 'ЕЖЕМЕСЯЧНО',
   'payment.yearly': 'ЕЖЕГОДНО',
   'payment.service1': 'Покупка одного PPV',
+  'payment.service1.date': 'Это мероприятие начинается',
+  'payment.service1.replaydate': 'Это событие транслировалось',
   'payment.service2': 'Доступ к 100+ боям',
   'payment.service3': 'Получите 10% скидку на PPV',
   'payment.service4': 'Плюс все, начиная с месяца',
@@ -319,5 +325,34 @@ export default {
   // BUSINESSES
   'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',
   'business.schedule': 'РАСПИСАНИЯ',
-  'business.watch': 'Просмотр видео'
+  'business.watch': 'Просмотр видео',
+
+  // ENROLL
+  'enroll.organization': 'ОРГАНИЗАЦИЯ',
+  'enroll.star': 'ЗВЕЗДА',
+  'enroll.star.title': 'Подайте заявку на вступление в STARFUND в качестве звезды!',
+  'enroll.star.description':
+    'Если у вас есть фанаты и вы хотите присоединиться к STARFUND в качестве звезды, вы можете подать заявку здесь, и мы свяжемся с вами в течение 72 часов.',
+  'enroll.organization.title': 'Подать заявку на вступление в STARFUND как организацию!',
+  'enroll.organization.description':
+    'Если вы работаете в индустрии развлечений или спорта и хотите зарабатывать дополнительные деньги, монетизируя свой контент, подайте заявку здесь, и мы свяжемся с вами в течение 72 часов.',
+  'enroll.note':
+    'Примечание: вы не зачислены в STARFUND автоматически. Если вы соответствуете квалификационным требованиям, представитель талантов свяжется с вами в течение нескольких дней, чтобы завершить адаптацию.',
+  'enroll.submit': 'подавать',
+  'enroll.name': 'Имя',
+  'enroll.name.placeholder': 'John Smith',
+  'enroll.companyname': 'Company name',
+  'enroll.companyname.placeholder': 'Company Inc.',
+  'enroll.email': 'Электронное письмо',
+  'enroll.email.placeholder': 'mymail@example.com',
+  'enroll.phonenumber': 'Телефонный номер',
+  'enroll.phonenumber.placeholder': '123-456-789',
+  'enroll.companyinstagram': 'Инстаграм-аккаунт компании',
+  'enroll.companyinstagram.placeholder': '@example',
+  'enroll.numfollowers': 'Сколько у вас подписчиков?',
+  'enroll.numfollowers.placeholder': '200k',
+  'enroll.selectCountry': 'Выбирать...',
+  'enroll.country': 'Страна',
+  'enroll.wherefind': 'Где мы можем найти вас?',
+  'enroll.other': 'Что еще мы должны знать о вас?'
 };
