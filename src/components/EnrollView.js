@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 import HomeFooter from './HomeFooter';
 import EnrollOrganization from './EnrollOrganization';
@@ -12,10 +13,14 @@ const EnrollView = () => {
   const intl = useIntl();
 
   const [isOrg, setIsOrg] = useState();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 1024px)'
+  });
 
   return (
     <div>
       <div className="enroll-container">
+        {isMobile && <br />}
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="navbar-collapse" id="navbarText">
             <React.Fragment>

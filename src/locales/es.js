@@ -337,7 +337,7 @@ export default {
 
   // ENROLL
   'enroll.organization': 'Organizacion',
-  'enroll.star': 'Estrella',
+  'enroll.star': 'Atleta Estrella',
   'enroll.star.title': 'Applicar para unirse a STARFUND como estrella!',
   'enroll.star.description':
     'Si tenes una fanbase y queres unirte a STARFUND como estrella, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',

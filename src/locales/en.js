@@ -333,11 +333,11 @@ export default {
 
   // ENROLL
   'enroll.organization': 'ORGANIZATION',
-  'enroll.star': 'STAR',
-  'enroll.star.title': 'Apply to join STARFUND as a star!',
+  'enroll.star': 'STAR ATHLETE',
+  'enroll.star.title': 'Apply to join STARFUND as a Star Athlete!',
   'enroll.star.description':
-    'If you have fanbase and want to join STARFUND as a star,you can apply here and we will be in touch within 72 hours.',
-  'enroll.organization.title': 'Apply to join STARFUND as an organization!',
+    'If you have fanbase and want to join STARFUND as a Star Athlete,you can apply here and we will be in touch within 72 hours.',
+  'enroll.organization.title': 'Apply to join STARFUND as an Organization!',
   'enroll.organization.description':
     'If you work in the entertainment or sports industry and want to earn extra money by monetizing your content, apply here and we’ll be in touch within 72 hours.',
   'enroll.note':

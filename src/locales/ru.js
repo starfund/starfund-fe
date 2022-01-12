@@ -329,7 +329,7 @@ export default {
 
   // ENROLL
   'enroll.organization': 'ОРГАНИЗАЦИЯ',
-  'enroll.star': 'ЗВЕЗДА',
+  'enroll.star': 'ЗВЕЗДНЫЙ СПОРТСМЕН',
   'enroll.star.title': 'Подайте заявку на вступление в STARFUND в качестве звезды!',
   'enroll.star.description':
     'Если у вас есть фанаты и вы хотите присоединиться к STARFUND в качестве звезды, вы можете подать заявку здесь, и мы свяжемся с вами в течение 72 часов.',

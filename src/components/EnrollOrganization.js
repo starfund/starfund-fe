@@ -37,7 +37,10 @@ const EnrollOrganization = () => {
         {!isMobile && <br />}
         {!isMobile && <br />}
         <br />
-        <div className="card-title">{intl.formatMessage({ id: 'enroll.organization.title' })}</div>
+        <div className="form-card-title">
+          {intl.formatMessage({ id: 'enroll.organization.title' })}
+        </div>
+        <br />
         <div className="card-description">
           {intl.formatMessage({ id: 'enroll.organization.description' })}
         </div>
@@ -121,7 +124,7 @@ const EnrollOrganization = () => {
           <div className="character-count">{`${notesLenght}/300`}</div>
         </div>
         <br />
-        <div className="card-footer">{intl.formatMessage({ id: 'enroll.note' })}</div>
+        <div className="form-card-footer">{intl.formatMessage({ id: 'enroll.note' })}</div>
         <br />
         <button type="submit">{intl.formatMessage({ id: 'enroll.submit' })}</button>
         <br />
