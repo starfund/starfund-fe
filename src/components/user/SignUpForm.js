@@ -72,7 +72,16 @@ export const SignUpForm = ({ onSubmit, setModalIsOpen }) => {
         />
       </div>
       <br />
-      <div style={{ textAlign: 'left', lineHeight: '15px', display: 'flex', marginLeft: '5%' }}>
+      <div
+        style={{
+          textAlign: 'left',
+          lineHeight: '15px',
+          display: 'flex',
+          marginLeft: '5%',
+          fontSize: '11px',
+          alignItems: 'center'
+        }}
+      >
         <div>
           {intl.formatMessage({ id: 'legal.ihaveread' })}
           <Link to="/terms" onClick={() => setModalIsOpen()}>
@@ -82,7 +91,7 @@ export const SignUpForm = ({ onSubmit, setModalIsOpen }) => {
         <input
           name="terms"
           type="checkbox"
-          style={{ width: '15px', height: '15px' }}
+          style={{ width: '11px', height: '11px', marginLeft: '6px' }}
           checked={agreed}
           onClick={e => setAgreed(e.target.checked)}
         />

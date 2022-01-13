@@ -54,13 +54,12 @@ const PaymentMode = ({
           <div className="services">{intl.formatMessage({ id: 'payment.service1' })}</div>
           {!event?.finished ? (
             <div className="services">
-              {intl.formatMessage({ id: 'payment.service1.date' })}{' '}
-              {+' ' + EventDate(event?.eventDate)}
+              {intl.formatMessage({ id: 'payment.service1.date' })} {EventDate(event?.eventDate)}
             </div>
           ) : (
             <div className="services">
               {intl.formatMessage({ id: 'payment.service1.replaydate' })}{' '}
-              {+' ' + EventDate(event?.eventDate)}
+              {EventDate(event?.eventDate)}
             </div>
           )}
         </div>

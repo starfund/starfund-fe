@@ -152,6 +152,7 @@ export default {
   'billing.addCard': 'Add payment method',
   'billing.newpassword': 'Please enter a new password with at least 8 characters',
   'billing.nomatch': 'Your password confirmation must be equal to the password',
+  'billing.terms': 'Please accept the terms and conditions',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',

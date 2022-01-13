@@ -6,7 +6,6 @@ import { CardNumberElement, CardExpiryElement, CardCVCElement } from 'react-stri
 import { useIntl } from 'react-intl';
 import ReactGA from 'react-ga';
 import { useMediaQuery } from 'react-responsive';
-import { Link } from 'react-router-dom';
 
 import Loading from 'components/common/Loading';
 import withStripe from 'components/hocs/withStripe';
@@ -140,19 +139,19 @@ const BillingForm = ({
               />
             </div>
             {!agreedOnSumit && (
-              <p className="error-message">{intl.formatMessage({ id: 'billing.nomatch' })}</p>
+              <p className="error-message">{intl.formatMessage({ id: 'billing.terms' })}</p>
             )}
             <div
               style={{ textAlign: 'left', lineHeight: '15px', display: 'flex', marginLeft: '5%' }}
             >
               <div>
                 {intl.formatMessage({ id: 'legal.ihaveread' })}
-                <Link to="/terms">{intl.formatMessage({ id: 'legal.conditions' })}</Link>
+                {intl.formatMessage({ id: 'legal.conditions' })}
               </div>
               <input
                 name="terms"
                 type="checkbox"
-                style={{ width: '15px', height: '15px' }}
+                style={{ width: '15px', height: '15px', marginLeft: '8px' }}
                 checked={agreed}
                 onClick={e => setAgreed(e.target.checked)}
               />

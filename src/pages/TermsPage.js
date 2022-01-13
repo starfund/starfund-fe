@@ -9,6 +9,7 @@ const TermsPage = () => {
       </center>
       <div>
         <h4> 1. Welcome to Starfund! </h4>
+        <br />
         <p>
           {' '}
           1.1 Introduction: Starfund, Inc. (“Starfund,” “we,” “us,” “our”) provides its services
@@ -20,6 +21,7 @@ const TermsPage = () => {
           10 (BINDING ARBITRATION; SITE ACTION WAIVER), WHICH AFFECTS YOUR RIGHTS IN THE EVENT OF A
           DISPUTE BETWEEN US.{' '}
         </p>
+        <br />
         <p>
           {' '}
           1.2 Modifications to Terms of Service:We reserve the right, at our sole discretion, to
@@ -35,13 +37,16 @@ const TermsPage = () => {
           will be subject to any additional terms applicable to such Services that may be posted on
           the Service from time to time.
         </p>
+        <br />
         <p>
           {' '}
           1.3 Privacy:At Starfund, we respect the privacy of our users. For details please see our
           Privacy Policy. By using the Service, you consent to our collection and use of personal
           data as outlined therein.
         </p>
+        <br />
         <h4>2. Access and Use of the Service</h4>
+        <br />
         <p>
           2.1 Use Description:The Starfund service, and any content viewed through our service, is
           solely for your personal and non-commercial use. With your Starfund purchase we grant you
@@ -54,6 +59,7 @@ const TermsPage = () => {
           copies of such materials, whether made in accordance with these Terms of Service or
           otherwise.
         </p>
+        <br />
         <p>
           2.2 Your Registration Obligations: You may be required to register with Starfund in order
           to access and use certain features of the Service. If you choose to register for the
@@ -64,6 +70,7 @@ const TermsPage = () => {
           registering. In addition, if you are under 18 years old, you may use the Service, with or
           without registering, only with the approval of your parent or guardian.
         </p>
+        <br />
         <p>
           2.3 Member Account, Password and Security: You may never use another's account, and you
           may not provide another person with the username and password to access your account. You
@@ -74,6 +81,7 @@ const TermsPage = () => {
           your account at the end of each session when accessing the Service. Starfund will not be
           liable for any loss or damage arising from your failure to comply with this Section.
         </p>
+        <br />
         <p>
           2.4 Modifications to Service: Starfund reserves the right to modify or discontinue,
           temporarily or permanently, the Service (or any part thereof) with or without notice. You
@@ -82,6 +90,7 @@ const TermsPage = () => {
           Account or Submitted Content for any period of time beyond what may be required by
           applicable law.
         </p>
+        <br />
         <p>
           2.5 General Practices Regarding Use and Storage: You acknowledge that Starfund may
           establish general practices and limits concerning use of the Service, including without
@@ -94,6 +103,7 @@ const TermsPage = () => {
           change these general practices and limits at any time, in its sole discretion, with or
           without notice.
         </p>
+        <br />
         <p>
           2.6 Mobile Services:The Service may include certain services that are available via a
           mobile device, including (i) the ability to upload content to the Service via a mobile
@@ -116,8 +126,9 @@ const TermsPage = () => {
           promptly update your Starfund account information to ensure that your messages are not
           sent to the person that acquires your old number.
         </p>
-
+        <br />
         <h4>3. Conditions of Use</h4>
+        <br />
         <p>
           3.1 User Conduct:You are solely responsible for all code, video, images, information,
           data, text, software, music, sound, photographs, graphics, messages or other materials
@@ -154,6 +165,7 @@ const TermsPage = () => {
           or otherwise obtain any materials or information through any means not intentionally made
           available or provided for through the Service.
         </p>
+        <br />
         <p>
           3.2 Fees:To the extent the Service or any portion thereof is made available for any fee,
           you will be required to select a payment plan and provide Starfund information regarding
@@ -172,6 +184,7 @@ const TermsPage = () => {
           amount. You shall be responsible for all taxes associated with the Services other than
           U.S. taxes based on Starfund’s net income.
         </p>
+        <br />
         <p>
           3.3 Recurring Subscriptions:If you select a Service with an auto renewal feature
           (“Recurring Subscription”), you authorize Starfund to maintain your account information
@@ -217,6 +230,7 @@ const TermsPage = () => {
           under the Subscription box and then following the onscreen instructions to continue and
           cancel subscription.
         </p>
+        <br />
         <p>
           3.4 Special Notice for International Use; Export Controls:Software (defined below)
           available in connection with the Service and the transmission of applicable data, if any,
@@ -226,6 +240,7 @@ const TermsPage = () => {
           you agree to comply with all local rules and laws regarding your use of the Service,
           including as it concerns online conduct and acceptable content.
         </p>
+        <br />
         <p>
           3.5 Commercial Use:Unless otherwise expressly authorized herein or by Starfund in writing,
           you agree not to display, distribute, license, perform, publish, reproduce, duplicate,
@@ -233,7 +248,9 @@ const TermsPage = () => {
           any commercial purposes, any portion of the Service, use of the Service, or access to the
           Service.
         </p>
+        <br />
         <h4>4. Intellectual Property Rights</h4>
+        <br />
         <p>
           4.1 Service Content, Software and Trademarks:You acknowledge and agree that the Service
           may contain content or features (“Service Content”) that are protected by copyright,
@@ -262,6 +279,7 @@ const TermsPage = () => {
           in each instance. All goodwill generated from the use of Starfund Trademarks will inure to
           our exclusive benefit.
         </p>
+        <br />
         <p>
           4.2 Third Party Material:Under no circumstances will Starfund be liable in any way for any
           content or materials of any third parties (including users), including, but not limited
@@ -275,6 +293,7 @@ const TermsPage = () => {
           and bear all risks associated with, the use of any content, including any reliance on the
           accuracy, completeness, or usefulness of such content.
         </p>
+        <br />
         <p>
           4.3 User Content Transmitted:Through the Service: With respect to the content or other
           materials you upload through the Service or share with other users or recipients
@@ -306,6 +325,7 @@ const TermsPage = () => {
           transmissions over various networks; and (b) changes to conform and adapt to technical
           requirements of connecting networks or devices.
         </p>
+        <br />
         <p>
           4.4 Copyright Complaints:Staarfybd respects the intellectual property of others, and we
           ask our users to do the same. If you believe that your work has been copied in a way that
@@ -325,6 +345,7 @@ const TermsPage = () => {
           copyright or intellectual property owner or authorized to act on the copyright or
           intellectual property owner’s behalf.
         </p>
+        <br />
         <p>
           4.5 Counter-Notice:If you believe that your User Content that was removed (or to which
           access was disabled) is not infringing, or that you have the authorization from the
@@ -345,6 +366,7 @@ const TermsPage = () => {
           removed content may be replaced, or access to it restored, in 10 to 14 business days or
           more after receipt of the counter-notice, at our sole discretion.
         </p>
+        <br />
         <p>
           4.6 Repeat Infringer Policy:In accordance with the DMCA and other applicable law, Starfund
           has adopted a policy of terminating, in appropriate circumstances and at Starfund sole
@@ -353,7 +375,9 @@ const TermsPage = () => {
           infringe any intellectual property rights of others, whether or not there is any repeat
           infringement.
         </p>
+        <br />
         <h4>5. Third Party Websites</h4>
+        <br />
         <p>
           The Service may provide, or third parties may provide, links or other access to other
           sites and resources on the Internet. Starfund has no control over such sites and resources
@@ -365,7 +389,9 @@ const TermsPage = () => {
           Service are between you and the third party, and you agree that Starfund is not liable for
           any loss or claim that you may have against any such third party.
         </p>
+        <br />
         <h4>6. Social Networking Services</h4>
+        <br />
         <p>
           You may enable or log in to the Service via various online third party services, such as
           social media and social networking services like Facebook or Twitter (“Social Networking
@@ -391,7 +417,9 @@ const TermsPage = () => {
           a convenience and the integration or inclusion of such features does not imply an
           endorsement or recommendation.
         </p>
+        <br />
         <h4>7. Indemnity and Release</h4>
+        <br />
         <p>
           To the fullest extent permitted by law, you agree to release, indemnify and hold Starfund
           and its affiliates and their officers, employees, directors and agent harmless from any
@@ -405,7 +433,9 @@ const TermsPage = () => {
           affected his settlement with the debtor.” If you are a resident of another jurisdiction,
           you waive any comparable statute or doctrine.
         </p>
+        <br />
         <h4>8. Disclaimer of Warranties</h4>
+        <br />
         <p>
           YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. THE SERVICE IS PROVIDED ON AN “AS IS” AND
           “AS AVAILABLE” BASIS. EXCEPT AS OTHERWISE EXPRESSLY PROVIDED HEREIN, STARFUND EXPRESSLY
@@ -417,7 +447,9 @@ const TermsPage = () => {
           ACCURATE OR RELIABLE, OR (IV) THE QUALITY OF ANY PRODUCTS, SERVICES, INFORMATION, OR OTHER
           MATERIAL PURCHASED OR OBTAINED BY YOU THROUGH THE SERVICE WILL MEET YOUR EXPECTATIONS.
         </p>
+        <br />
         <h4>9. Limitation of Liability</h4>
+        <br />
         <p>
           YOU EXPRESSLY UNDERSTAND AND AGREE THAT STARFUND WILL NOT BE LIABLE FOR ANY INDIRECT,
           INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY DAMAGES, OR DAMAGES FOR LOSS OF PROFITS
@@ -437,7 +469,9 @@ const TermsPage = () => {
           APPLY TO YOU. IF YOU ARE DISSATISFIED WITH ANY PORTION OF THE SERVICE OR WITH THESE TERMS
           OF SERVICE, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE USE OF THE SERVICE.
         </p>
+        <br />
         <h4>10. Binding Arbitration; Class Action Waiver</h4>
+        <br />
         <p>
           You and Starfund agree that these Terms of Service affect interstate commerce and that the
           U.S. Federal Arbitration Act governs the interpretation and enforcement of these
@@ -522,7 +556,9 @@ const TermsPage = () => {
           THE ENROLMENT PROCESS) AND THAT YOU ARE WAIVING YOUR RIGHT TO LEAD OR PARTICIPATE IN A
           LAWSUIT INVOLVING OTHER PERSONS, SUCH AS A CLASS ACTION.
         </p>
+        <br />
         <h4>11. Termination</h4>
+        <br />
         <p>
           You agree that Starfund, in its sole discretion, may suspend or terminate your account (or
           any part thereof) or use of the Service and remove and discard any content within the
@@ -539,14 +575,18 @@ const TermsPage = () => {
           agree that Starfund will not be liable to you or any third party for any termination of
           your access to the Service.
         </p>
+        <br />
         <h4>12. Disputes Between Users</h4>
+        <br />
         <p>
           You agree that you are solely responsible for your interactions with any other user in
           connection with the Service and Starfund will have no liability or responsibility with
           respect thereto. Starfund reserves the right, but has no obligation, to become involved in
           any way with disputes between you and any other user of the Service.
         </p>
+        <br />
         <h4>13. General</h4>
+        <br />
         <p>
           These Terms of Service constitute the entire agreement between you and Starfund and govern
           your use of the Service, superseding any prior agreements between you and Starfund with
@@ -578,12 +618,15 @@ const TermsPage = () => {
           changes to these Terms of Service or other matters by displaying notices or links to
           notices generally on the Service.
         </p>
+        <br />
         <h4>14. Questions? Concerns? Suggestions?</h4>
+        <br />
         <p>
           Please contact us at 1747 Tysons Central St Suite 1303, Vienna VA 22182 or
           info@starfund.app to report any violations of these Terms of Service or to pose any
           questions regarding this Terms of Service or the Service.
         </p>
+        <br />
       </div>
     </div>
   );

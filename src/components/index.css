@@ -718,8 +718,15 @@ h3 {
   background-color: #020612;
   padding: 0 20%;
 
+  @media (max-width:768px){
+    padding: 0px;
+  }
   h4 { padding: 15px 0; }
-  p {padding: 5px 0;}
+  p {
+    padding: 5px 0;
+    font-weight: normal !important;
+  }
+  h1{font-size: 35px !important;}
 
   div {
     padding: 30px;
