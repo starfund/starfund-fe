@@ -33,9 +33,11 @@ const BillingForm = ({
   team,
   business,
   organization,
+  fighters,
   orgEvent,
   type,
-  price
+  price,
+  hasReferal
 }) => {
   ReactGA.modalview(`/${type}`);
   const { status: subStatus, error } = useStatus(subscribe);
@@ -48,6 +50,7 @@ const BillingForm = ({
   const [focus, setFocus] = useState('');
   const [agreed, setAgreed] = useState(false);
   const [agreedOnSumit, setAgreedOnSubmit] = useState(true);
+  const [codeField, setCodeField] = useState();
   const [emailField, setEmailField] = useState(email);
   const [name, setName] = useState('');
   const [number] = useState('4242');
@@ -78,7 +81,8 @@ const BillingForm = ({
       organization,
       orgEvent,
       type,
-      price
+      price,
+      referalCode: codeField
     });
   };
 
@@ -234,6 +238,22 @@ const BillingForm = ({
                         placeholder={intl.formatMessage({ id: 'billing.email' })}
                         onChange={e => setEmailField(e.target.value)}
                       />
+                    </div>
+                  )}
+                  {hasReferal && (
+                    <div className="code-container">
+                      <div className="ckeckbox-items">
+                        <div>{intl.formatMessage({ id: 'billing.addreferal' })}</div>
+                      </div>
+                      <div className="code-text">
+                        <select onChange={e => setCodeField(e.target.value)}>
+                          <option value="">
+                            {intl.formatMessage({ id: 'billing.referalcode' })}
+                          </option>
+                          {fighters && fighters.map(f => <option value={f}>{f}</option>)}
+                        </select>
+                      </div>
+                      <br />
                     </div>
                   )}
                   <Button

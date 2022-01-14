@@ -91,6 +91,22 @@ const OrganizationView = () => {
     setModalIsOpen(false);
   };
 
+  function uniq(a) {
+    return a.sort().filter(function(item, pos, ary) {
+      return !pos || item != ary[pos - 1];
+    });
+  }
+
+  const getAllFighters = () => {
+    const allVideos = organization?.events?.map(e => e?.mainEvents.concat(e?.prelimEvents)).flat();
+    const allFighters = allVideos
+      .map(v => {
+        return [v?.fighter1, v?.fighter2];
+      })
+      .flat();
+    return uniq(allFighters);
+  };
+
   const [home, setHome] = useState(!payedPPV);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(payedPPV);
@@ -299,8 +315,10 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
+              fighters={getAllFighters()}
               price={organization?.subPrice}
               type="subscription"
+              hasReferal
             />
           </ConfirmationModal>
           <ConfirmationModal
@@ -317,7 +335,9 @@ const OrganizationView = () => {
               email={currentUser?.email}
               orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
               price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
+              fighters={getAllFighters()}
               type="ppv"
+              hasReferal
             />
           </ConfirmationModal>
           <ConfirmationModal
@@ -339,12 +359,14 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
+              fighters={getAllFighters()}
               type="subscription"
               price={
                 Math.round(
                   (organization?.subPrice / 100) * 12 * ((100 - organization?.yearlyDiscount) / 100)
                 ) * 100
               }
+              hasReferal
             />
           </ConfirmationModal>
         </div>

@@ -251,6 +251,30 @@ h3 {
       padding: 10px;
     }
   }
+
+  .code-container{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .ckeckbox-items{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .code-text{
+      width: 100%;
+      select {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+      }
+    }
+  }
 }
 
 .bi-shield-lock {

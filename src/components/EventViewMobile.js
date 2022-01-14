@@ -150,9 +150,9 @@ const EventViewMobile = ({
           </div>
         </div>
       </div>
-      {(payed || displayContent.public) && (
+      {(payed || displayContent?.public) && (
         <ReactPlayer
-          url={displayContent.videoUrl || displayContent.video}
+          url={displayContent?.videoUrl || displayContent?.video}
           width
           muted
           controls
@@ -173,11 +173,11 @@ const EventViewMobile = ({
           }}
         />
       )}
-      {!payed && !displayContent.public && (
+      {!payed && !displayContent?.public && (
         <div>
           <div className="select-cover-video" onClick={() => subscribeAction()} />
           <ReactPlayer
-            url={displayContent.videoUrl || displayContent.video}
+            url={displayContent?.videoUrl || displayContent?.video}
             style={{
               margin: '3%',
               minHeight: '35vh',
@@ -185,7 +185,7 @@ const EventViewMobile = ({
               minWidth: '95vw',
               maxWidth: '95vw'
             }}
-            light={!displayContent.videoUrl && displayContent.thumbnail}
+            light={!displayContent?.videoUrl && displayContent?.thumbnail}
             muted
             config={{
               file: {
@@ -199,7 +199,7 @@ const EventViewMobile = ({
         </div>
       )}
       <div className="event-view-mobile-videos">
-        <h3>{formatTitle(displayContent, language)}</h3>
+        <h3>{displayContent && formatTitle(displayContent, language)}</h3>
       </div>
       <div className="event-view-mobile-video-small">
         <div>

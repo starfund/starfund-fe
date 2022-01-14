@@ -12,7 +12,18 @@ export default stripe => {
   const { showErrorToast } = useToast();
 
   const createCreditCard = async billing => {
-    const { name, email, fighter, team, business, organization, orgEvent, type, price } = billing;
+    const {
+      name,
+      email,
+      fighter,
+      team,
+      business,
+      organization,
+      orgEvent,
+      type,
+      price,
+      referalCode
+    } = billing;
 
     setLoading(true);
 
@@ -47,12 +58,22 @@ export default stripe => {
             business,
             organization,
             price,
+            referalCode,
             card_data: data
           })
         );
       } else {
         await dispatch(
-          charge({ token: data.token, name, email, fighter, price, orgEvent, card_data: data })
+          charge({
+            token: data.token,
+            name,
+            email,
+            fighter,
+            price,
+            orgEvent,
+            referalCode,
+            card_data: data
+          })
         );
       }
     }

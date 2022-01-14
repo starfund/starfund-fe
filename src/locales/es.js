@@ -156,6 +156,8 @@ export default {
   'billing.newpassword': 'Porfavor ingrese una nueva contraseña con por lo menos 8 caracteres',
   'billing.nomatch': 'La confirmacion de contraseña debe coincidir con la contraseña',
   'billing.terms': 'Porfavor aceptar los terminos y condiciones',
+  'billing.referalcode': 'Ninguno',
+  'billing.addreferal': '¿A traves de que peleador llego a la pagina?',
 
   // FAQS
   'faqs.title': 'Preguntas Frecuentes',

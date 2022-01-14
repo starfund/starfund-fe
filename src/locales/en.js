@@ -153,6 +153,8 @@ export default {
   'billing.newpassword': 'Please enter a new password with at least 8 characters',
   'billing.nomatch': 'Your password confirmation must be equal to the password',
   'billing.terms': 'Please accept the terms and conditions',
+  'billing.referalcode': 'No one',
+  'billing.addreferal': 'Which fighter referred you to our page?',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',
