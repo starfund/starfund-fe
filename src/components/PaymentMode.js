@@ -51,17 +51,20 @@ const PaymentMode = ({
             <sup>$</sup>
             {onDemandPrice / 100}
           </div>
-          <div className="services">{intl.formatMessage({ id: 'payment.service1' })}</div>
-          {!event?.finished ? (
-            <div className="services">
-              {intl.formatMessage({ id: 'payment.service1.date' })} {EventDate(event?.eventDate)}
-            </div>
-          ) : (
-            <div className="services">
-              {intl.formatMessage({ id: 'payment.service1.replaydate' })}{' '}
-              {EventDate(event?.eventDate)}
-            </div>
-          )}
+          <div className="services-container">
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service1' })}`}</div>
+            {!event?.finished ? (
+              <div className="services">
+                {`✓ ${intl.formatMessage({ id: 'payment.service1.date' })}`}{' '}
+                {EventDate(event?.eventDate)}
+              </div>
+            ) : (
+              <div className="services">
+                {`✓ ${intl.formatMessage({ id: 'payment.service1.replaydate' })}`}{' '}
+                {EventDate(event?.eventDate)}
+              </div>
+            )}
+          </div>
         </div>
       )}
       {!payed && (
@@ -71,8 +74,10 @@ const PaymentMode = ({
             <sup>$</sup>
             {MonthlyPrice / 100}
           </div>
-          <div className="services">{intl.formatMessage({ id: 'payment.service2' })}</div>
-          <div className="services">{intl.formatMessage({ id: 'payment.service3' })}</div>
+          <div className="services-container">
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service2' })}`}</div>
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service3' })}`}</div>
+          </div>
         </div>
       )}
       {!payed && (
@@ -80,16 +85,18 @@ const PaymentMode = ({
           <span className="featured">{intl.formatMessage({ id: 'payment.featured' })}</span>
           <div className="payment-yearly">{intl.formatMessage({ id: 'payment.yearly' })}</div>
           <div className="price">
+            <sup>$</sup>
+            {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
             {yearlyDiscount && (
               <div className="discount-percentage">
                 <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
                 {yearlyDiscount}% OFF
               </div>
             )}
-            <sup>$</sup>
-            {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
           </div>
-          <div className="services">{intl.formatMessage({ id: 'payment.service4' })}</div>
+          <div className="services-container">
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service4' })}`}</div>
+          </div>
         </div>
       )}
     </div>

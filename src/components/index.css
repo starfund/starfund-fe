@@ -3303,99 +3303,126 @@ h3 {
   justify-content: center;
   align-content: center;
   background-color: black;
+  height: 350px;
 
   @media only screen and (max-width: 768px) {
     flex-direction: column;
+    height: 100%;
   }
 
   .box {
-    margin: 5px;
-    height: 40vh;
-    width: 17vw;
-    padding: 40px 0px;
-    background: #fff;
-    text-align: center;
-    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 3.75rem 2rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 1px;
     position: relative;
-    overflow: hidden;
-    transition: 0.3s;
     cursor: pointer;
-    @media only screen and (max-width: 768px) {
-      width: 60vw;
-    }
+    margin: 10px;
     @media only screen and (max-width: 1024px) {
       width: 60vw;
+      height: 300px;
     }
   }
   .box:hover {
     transform: scale(1.1);
-    border: solid black;
   }  
   .featured {
-    width: 200px;
     position: absolute;
-    top: 18px;
-    right: -68px;
-    transform: rotate(45deg);
-    z-index: 1;
+    top: 10px;
+    left: 0px;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: red;
+    color: white;
     font-size: 14px;
-    padding: 1px 0 3px 0;
-    background: red;
-    color: #fff;
+    border-radius: 2px 2px 0px 0px;
   }
 
   .payment-on-demand {
-    font-size: 3vh;
-    margin-bottom: 10px;
-    color: orange;
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
   }
   
   .payment-monthly {
-    font-size: 3vh;
-    margin-bottom: 10px;
-    color: orangered;
-  }
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    }
 
   .payment-yearly {
-    font-size: 3vh;
-    color: red;
+    margin-bottom: 0.75rem;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
   }
 
   .price {
-    font-size: 7vh;
-    color: #444444;
-    font-weight: 600;
-    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
     sup{
-      font-size: 3vh;
-      top: -15px;
+      font-size: 23px;
+      top: 0px;
       left: -3px;
     }
   }
 
   .discount{
     text-decoration: line-through;
-    color: grey;
-    font-size: 2.5vh;
+    color: white;
+    font-size: 17px;
     margin-bottom: -10%;
     margin-right: 5px;
+    @media only screen and (max-width: 768px) {
+      font-size:13px;
+    }
   }
   .discount-percentage{
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: red;
-    font-size: 2.5vh;
+    font-size: 17px;
     margin-bottom: -4%;
+    @media only screen and (max-width: 768px) {
+      font-size:13px;
+    }
   }
 
   .services{
-    font-size: 2.5vh;
-    display: flex;
-    justify-content: center;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    font-weight: normal!important;
     @media only screen and (max-width: 768px) {
       font-size: 1.9vh;
     }
+  }
+
+  .services-container{
+    width: 80%;
+    bottom: 20px;
+    left: 25px;
+    padding: 5px;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: #adadad solid 2px;
+    position: absolute;
   }
 }
 

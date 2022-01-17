@@ -97,8 +97,20 @@ const OrganizationView = () => {
     });
   }
 
-  const getAllFighters = () => {
-    const allVideos = organization?.events?.map(e => e?.mainEvents.concat(e?.prelimEvents)).flat();
+  const getAllFightersOrganization = () => {
+    const allVideos = organization?.events
+      ?.map(e => !e?.homePage && e?.mainEvents.concat(e?.prelimEvents))
+      .flat();
+    const allFighters = allVideos
+      .map(v => {
+        return [v?.fighter1, v?.fighter2];
+      })
+      .flat();
+    return uniq(allFighters);
+  };
+
+  const getAllFightersLastEvent = () => {
+    const allVideos = lastEvent?.mainEvents.concat(lastEvent?.prelimEvents).flat();
     const allFighters = allVideos
       .map(v => {
         return [v?.fighter1, v?.fighter2];
@@ -315,7 +327,7 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
-              fighters={getAllFighters()}
+              fighters={getAllFightersOrganization()}
               price={organization?.subPrice}
               type="subscription"
               hasReferal
@@ -335,7 +347,7 @@ const OrganizationView = () => {
               email={currentUser?.email}
               orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
               price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
-              fighters={getAllFighters()}
+              fighters={getAllFightersLastEvent()}
               type="ppv"
               hasReferal
             />
@@ -359,7 +371,7 @@ const OrganizationView = () => {
             <BillingForm
               email={currentUser?.email}
               organization={organization?.name}
-              fighters={getAllFighters()}
+              fighters={getAllFightersOrganization()}
               type="subscription"
               price={
                 Math.round(

@@ -318,7 +318,7 @@ export default {
   // PAYMENT
   'payment.title': 'Please select a payment plan',
   'payment.featured': 'Featured',
-  'payment.ondemand': 'Purchase {eventName}',
+  'payment.ondemand': 'PURCHASE {eventName}',
   'payment.ondemand.rewatch': 'Replay {eventName}',
   'payment.monthly': 'MONTHLY',
   'payment.yearly': 'YEARLY',
