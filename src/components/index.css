@@ -3326,6 +3326,8 @@ h3 {
   }
   .box:hover {
     transform: scale(1.1);
+    background-color: #202020;
+    border-color: white;
   }  
   .featured {
     position: absolute;
@@ -3343,8 +3345,8 @@ h3 {
 
   .payment-on-demand {
     margin-bottom: 0.75rem;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 19px;
+    line-height: 19px;
     font-weight: 800;
     color: white;
     text-transform: uppercase;
@@ -3352,8 +3354,8 @@ h3 {
   
   .payment-monthly {
     margin-bottom: 0.75rem;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 19px;
+    line-height: 19px;
     font-weight: 800;
     color: white;
     text-transform: uppercase;
@@ -3361,15 +3363,15 @@ h3 {
 
   .payment-yearly {
     margin-bottom: 0.75rem;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 19px;
+    line-height: 19px;
     font-weight: 800;
     color: white;
     text-transform: uppercase;
   }
 
   .price {
-    font-size: 23px;
+    font-size: 27px;
     font-weight: bold;
     margin-bottom: 5px;
     color: white;
@@ -4113,4 +4115,13 @@ h3 {
       }
     }
   }
+}
+
+.back-button {
+  color: white;
+  background-color: black;
+  border: solid 1px #cacaca;
+  padding: 5px;
+  font-weight: 100 !important;
+  border-radius: 2px;
 }

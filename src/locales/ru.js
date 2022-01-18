@@ -153,7 +153,7 @@ export default {
   'billing.newpassword': 'Пожалуйста, введите новый пароль длиной не менее 8 символов',
   'billing.nomatch': 'Подтверждение вашего пароля должно совпадать с паролем',
   'billing.terms': 'Пожалуйста, примите условия',
-  'billing.referalcode': 'Ни один. Никто',
+  'billing.referalcode': 'Никто',
   'billing.addreferal': 'Какой боец ​​направил вас на нашу страницу?',
 
   // FAQS
@@ -323,7 +323,8 @@ export default {
   'payment.service1.replaydate': 'Это событие транслировалось',
   'payment.service2': 'Доступ к 100+ боям',
   'payment.service3': 'Получите 10% скидку на PPV',
-  'payment.service4': 'Плюс все, начиная с месяца',
+  'payment.service4': 'сэкономьте $ {amount}',
+  'payment.service5': 'Плюс все, начиная с месяца',
 
   // BUSINESSES
   'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',

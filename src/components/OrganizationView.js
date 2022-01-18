@@ -91,6 +91,13 @@ const OrganizationView = () => {
     setModalIsOpen(false);
   };
 
+  const backFunction = () => {
+    setPayPPV(false);
+    setPayMonthly(false);
+    setPayYearly(false);
+    setModalIsOpen(true);
+  };
+
   function uniq(a) {
     return a.sort().filter(function(item, pos, ary) {
       return !pos || item != ary[pos - 1];
@@ -323,6 +330,7 @@ const OrganizationView = () => {
             price={organization?.subPrice}
             email={currentUser?.email}
             organization={organization?.id}
+            backFunction={() => backFunction()}
           >
             <BillingForm
               email={currentUser?.email}
@@ -342,6 +350,7 @@ const OrganizationView = () => {
             price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
             email={currentUser?.email}
             organization={organization?.id}
+            backFunction={() => backFunction()}
           >
             <BillingForm
               email={currentUser?.email}
@@ -367,6 +376,7 @@ const OrganizationView = () => {
             }
             email={currentUser?.email}
             organization={organization?.id}
+            backFunction={() => backFunction()}
           >
             <BillingForm
               email={currentUser?.email}

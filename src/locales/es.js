@@ -331,7 +331,8 @@ export default {
   'payment.service1.replaydate': 'Este evento fue el',
   'payment.service2': 'Acceder a 100+ peleas',
   'payment.service3': 'Recivir 10% off en PPV',
-  'payment.service4': 'Todo lo del mensual',
+  'payment.service4': 'Ahorra $ {amount}',
+  'payment.service5': 'Todo lo del mensual',
 
   // BUSINESSES
   'business.programs.title': 'CONOCE NUESTROS CURSOS',

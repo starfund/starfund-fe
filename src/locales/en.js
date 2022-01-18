@@ -153,7 +153,7 @@ export default {
   'billing.newpassword': 'Please enter a new password with at least 8 characters',
   'billing.nomatch': 'Your password confirmation must be equal to the password',
   'billing.terms': 'Please accept the terms and conditions',
-  'billing.referalcode': 'No one',
+  'billing.referalcode': 'None',
   'billing.addreferal': 'Which fighter referred you to our page?',
 
   // FAQS
@@ -327,7 +327,8 @@ export default {
   'payment.service1.replaydate': 'This event was aired on',
   'payment.service2': 'Access to 100+ fights',
   'payment.service3': 'Recieve 10% off on PPV',
-  'payment.service4': 'Plus everything from monthly',
+  'payment.service4': 'Save $ {amount}',
+  'payment.service5': 'Plus everything from monthly',
 
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',

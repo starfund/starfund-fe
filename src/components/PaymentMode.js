@@ -82,20 +82,33 @@ const PaymentMode = ({
       )}
       {!payed && (
         <div className="box" onClick={() => selectOptionYearly()}>
-          <span className="featured">{intl.formatMessage({ id: 'payment.featured' })}</span>
+          <div className="featured">
+            {intl.formatMessage({ id: 'payment.featured' })}
+            <span style={{ color: 'black' }}>{` ${yearlyDiscount}`}% OFF</span>
+          </div>
           <div className="payment-yearly">{intl.formatMessage({ id: 'payment.yearly' })}</div>
           <div className="price">
             <sup>$</sup>
             {Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)}
-            {yearlyDiscount && (
-              <div className="discount-percentage">
-                <div className="discount">$ {(MonthlyPrice * 12) / 100}</div>
-                {yearlyDiscount}% OFF
-              </div>
-            )}
           </div>
           <div className="services-container">
-            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service4' })}`}</div>
+            {yearlyDiscount && (
+              <div className="services">
+                {'✓ '}
+                {
+                  <FormattedMessage
+                    id="payment.service4"
+                    values={{
+                      amount: (
+                        (MonthlyPrice * 12) / 100 -
+                        Math.round((MonthlyPrice * 12 * ((100 - yearlyDiscount) / 100)) / 100)
+                      ).toFixed(2)
+                    }}
+                  />
+                }
+              </div>
+            )}
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service5' })}`}</div>
           </div>
         </div>
       )}
