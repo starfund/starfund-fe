@@ -19,15 +19,13 @@ const Header = () => {
   const pathname = history.location?.pathname;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const isMobile = useMediaQuery({
-    query: '(max-width: 765px)'
+    query: '(max-width: 768px)'
   });
 
   const intl = useIntl();
 
   const goHome = () => {
-    if (window.location.href.indexOf('starfund-stage') === -1) {
-      history.push('/');
-    }
+    history.push('/');
   };
 
   return (

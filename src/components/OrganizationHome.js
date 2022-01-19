@@ -19,17 +19,21 @@ const OrganizationHome = ({
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
+  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
   return (
     <div className="organization-container">
       <div>
-        {sortedEvents && !isMobile && (
+        {lastEvent && !isMobile && (
           <CountDownTimer
-            event={sortedEvents[sortedEvents?.length - 1]}
+            event={lastEvent}
             subscribeAction={subscribeAction}
             payed={payedPPV}
             watchAction={watchAction}
           />
         )}
+        {!lastEvent && <br />}
+        {!lastEvent && <br />}
+        {!lastEvent && <br />}
         {sortedEvents && !isMobile && (
           <EventView
             prevEvent={sortedEvents[sortedEvents?.length - 3]}

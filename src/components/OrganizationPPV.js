@@ -48,7 +48,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
       .concat(event?.prelimEvents)
       .filter(v => v.fighter1 && v.fighter2)
       .slice(0, 1);
-    if (video.length > 0) {
+    if (video?.length > 0) {
       return video[0].fighter1;
     }
     return '';
@@ -59,7 +59,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
       .concat(event?.prelimEvents)
       .filter(v => v.fighter1 && v.fighter2)
       .slice(0, 1);
-    if (video.length > 0) {
+    if (video?.length > 0) {
       return video[0].fighter2;
     }
     return '';

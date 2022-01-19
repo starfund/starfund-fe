@@ -25,7 +25,7 @@ const ConfirmationModal = ({
   const dispatch = useDispatch();
   const intl = useIntl();
   const history = useHistory();
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isMobile = useMediaQuery('(max-width: 1024px)');
   const height = isMobile ? '100%' : '460px';
   const width = isMobile ? '100%' : '760px';
   const styles = modalStyles(
@@ -151,19 +151,19 @@ const ConfirmationModal = ({
           <div className="confirm_modal_footer">
             <div className="container">
               <div className="row">
-                <div className="col-12 col-md-3">
+                <div className="col-12 col-md-4">
+                  <p> {intl.formatMessage({ id: 'modal.footer.secured' })} </p>
+                  <br />
+                  <img src={SupportedCards} alt="Supported cards" />
+                </div>
+                <div className="col-sm-4">
                   <p className="big">
                     {' '}
                     100% {intl.formatMessage({ id: 'modal.footer.guaranteed' })}{' '}
                   </p>
                 </div>
-                <div className="col-sm-4 offset-sm-1">
-                  <p className="pad-20"> {intl.formatMessage({ id: 'modal.footer.secured' })} </p>
-                  <br />
-                  <img src={SupportedCards} alt="Supported cards" />
-                </div>
-                <div className="col-sm-3">
-                  <p className="pad-20"> {intl.formatMessage({ id: 'modal.footer.question' })} </p>
+                <div className="col-sm-4">
+                  <p> {intl.formatMessage({ id: 'modal.footer.question' })} </p>
                   <p className="email-pad"> info@starfund.app </p>
                 </div>
               </div>

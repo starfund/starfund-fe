@@ -267,6 +267,9 @@ export default {
   'organization.winner': 'ПОБЕДИТЕЛЬ',
   'organization.upcoming': 'ПРЕДСТОЯЩИЙ',
   'organization.rewatch': 'ПЕРЕСМОТРЕТЬ',
+  'organization.noppv.title': 'Нет предстоящих шоу, зайдите позже',
+  'organization.noppv.desc':
+    'Подпишитесь ежемесячно, чтобы получить доступ к более чем 100 бойцовским материалам',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

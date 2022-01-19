@@ -85,7 +85,7 @@ export default {
   'modal.header.processing': 'PROCESSING YOUR PAYMENT',
   'modal.footer.guaranteed': 'GUARANTEED',
   'modal.footer.secured': 'SECURED WITH SSL',
-  'modal.footer.question': 'Have any question?',
+  'modal.footer.question': 'Have any questions?',
 
   // Header
   'header.business': 'ORGANIZATIONS',
@@ -268,6 +268,8 @@ export default {
   'organization.winner': 'WINNER',
   'organization.upcoming': 'UPCOMING',
   'organization.rewatch': 'REWATCH',
+  'organization.noppv.title': 'No Upcoming Shows, Check Back Later',
+  'organization.noppv.desc': 'Subscribe Monthly to Get Access to 100 + Fight Contents',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

@@ -49,6 +49,16 @@ const VideoSlider = ({
     }
   }, [selectedVideo]);
 
+  const getCols = () => {
+    if (isBigScreen) {
+      return 4;
+    }
+    if (isMobileBig) {
+      return 2;
+    }
+    return 3;
+  };
+
   const months = [
     'jan.long',
     'feb.long',
@@ -92,10 +102,10 @@ const VideoSlider = ({
               controls
               style={{
                 margin: '3%',
-                minHeight: `${isMobile ? '35vh' : '50vh'}`,
-                maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-                minWidth: `${isMobile ? '100vw' : '44vw'}`,
-                maxWidth: `${isMobile ? '100vw' : '44vw'}`
+                minHeight: `${isMobileBig ? '35vh' : '50vh'}`,
+                maxHeight: `${isMobileBig ? '35vh' : '50vh'}`,
+                minWidth: `${isMobileBig ? '80vw' : '44vw'}`,
+                maxWidth: `${isMobileBig ? '80vw' : '44vw'}`
               }}
               config={{
                 file: {
@@ -116,10 +126,10 @@ const VideoSlider = ({
               playIcon
               style={{
                 margin: '3%',
-                minHeight: `${isMobile ? '35vh' : '50vh'}`,
-                maxHeight: `${isMobile ? '35vh' : '50vh'}`,
-                minWidth: `${isMobile ? '100vw' : '45vw'}`,
-                maxWidth: `${isMobile ? '100vw' : '45vw'}`,
+                minHeight: `${isMobileBig ? '35vh' : '50vh'}`,
+                maxHeight: `${isMobileBig ? '35vh' : '50vh'}`,
+                minWidth: `${isMobileBig ? '80vw' : '45vw'}`,
+                maxWidth: `${isMobileBig ? '80vw' : '45vw'}`,
                 pointerEvents: 'none'
               }}
               config={{
@@ -133,7 +143,7 @@ const VideoSlider = ({
             />
           )}
         </LazyLoadComponent>
-        {!isMobile && (
+        {!isMobileBig && (
           <div className="event-video-text">
             <div className="event-name">{event?.name}</div>
             <div className="event-title">{displayContent?.title}</div>
@@ -148,14 +158,14 @@ const VideoSlider = ({
       </div>
       <div>
         <Carousel
-          mobileBreakpoint={1024}
+          mobileBreakpoint={767}
           containerStyle={{
             backgroundColor: '#202020',
             width: `${isMobile ? '100vw' : '75vw'}`,
             marginLeft: `${isMobile ? '0vw' : '2vw'}`,
             marginTop: '10px'
           }}
-          cols={isBigScreen ? 4 : 3}
+          cols={getCols()}
           rows={1}
           gap={0}
           loop

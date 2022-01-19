@@ -272,6 +272,9 @@ export default {
   'organization.winner': 'GANADOR',
   'organization.upcoming': 'PROXIMO',
   'organization.rewatch': 'VOLVER A VER',
+  'organization.noppv.title': 'No hay shows en este momento, volver a consultar más tarde',
+  'organization.noppv.desc':
+    'Suscribirse mensualmente para obtener acceso a 100 + videos de peleas',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

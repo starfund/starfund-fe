@@ -99,7 +99,7 @@ const OrganizationView = () => {
   };
 
   function uniq(a) {
-    return a.sort().filter(function(item, pos, ary) {
+    return a?.sort().filter(function(item, pos, ary) {
       return !pos || item != ary[pos - 1];
     });
   }
@@ -119,7 +119,7 @@ const OrganizationView = () => {
   const getAllFightersLastEvent = () => {
     const allVideos = lastEvent?.mainEvents.concat(lastEvent?.prelimEvents).flat();
     const allFighters = allVideos
-      .map(v => {
+      ?.map(v => {
         return [v?.fighter1, v?.fighter2];
       })
       .flat();
@@ -165,16 +165,18 @@ const OrganizationView = () => {
                   }
                 }}
               >
-                {lastEvent?.finished ? (
+                {!lastEvent && intl.formatMessage({ id: 'organization.seasonpass' })}
+                {lastEvent && lastEvent?.finished && (
                   <FormattedMessage
                     id="organization.button.rewatchppv"
                     values={{ eventName: lastEvent?.name }}
                   />
-                ) : (
+                )}
+                {lastEvent &&
+                  !lastEvent?.finished &&
                   intl.formatMessage({
                     id: 'organization.button.watch'
-                  })
-                )}
+                  })}
               </button>
             )}
           </div>
@@ -283,7 +285,7 @@ const OrganizationView = () => {
           setAllEvents={setAllEvents2}
         />
       )}
-      {ppv && (
+      {ppv && lastEvent && (
         <OrganizationPPV
           event={event}
           payed={payedPPV}
@@ -294,6 +296,20 @@ const OrganizationView = () => {
             setPPV(false);
           }}
         />
+      )}
+      {ppv && !lastEvent && (
+        <div className="no-ppv-page">
+          <div className="no-ppv-title">
+            {intl.formatMessage({
+              id: 'organization.noppv.title'
+            })}
+          </div>
+          <div className="no-ppv-desc">
+            {intl.formatMessage({
+              id: 'organization.noppv.desc'
+            })}
+          </div>
+        </div>
       )}
       {organization && (
         <div>
@@ -313,7 +329,7 @@ const OrganizationView = () => {
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
               payed={payed}
-              payedPPV={payedPPV}
+              payedPPV={payedPPV || !lastEvent}
               yearlyDiscount={organization?.yearlyDiscount}
               event={lastEvent}
             />
@@ -321,9 +337,6 @@ const OrganizationView = () => {
 
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.title' })}
-            explain={intl.formatMessage({
-              id: 'modal.header.explain'
-            })}
             isOpen={payMonthly}
             setIsOpen={setPayMonthly}
             isDelete={false}
@@ -363,9 +376,6 @@ const OrganizationView = () => {
           </ConfirmationModal>
           <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.title.yearly' })}
-            explain={intl.formatMessage({
-              id: 'modal.header.explain'
-            })}
             isOpen={payYearly}
             setIsOpen={setPayYearly}
             isDelete={false}

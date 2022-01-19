@@ -74,12 +74,7 @@ const EventViewMobile = ({
     const allVideos = selectedEvent?.mainEvents.concat(selectedEvent?.prelimEvents);
     const content = allVideos[0];
     setSelectedVideo(formatTitle(content, language));
-    if (content.public || payed) {
-      setDisplayContent(content);
-    } else {
-      setDisplayContent(content);
-      subscribeAction();
-    }
+    setDisplayContent(content);
   };
 
   const months = [
