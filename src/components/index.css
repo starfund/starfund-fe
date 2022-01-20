@@ -790,7 +790,7 @@ h3 {
 
   .navbar {
     margin: auto;
-    margin-top: -6px;
+    margin-top: -10px;
 
     li {
       
@@ -944,7 +944,7 @@ h3 {
   .centered {
     position: absolute;
     width: 100%;
-    top: 55%;
+    top: 75%;
     left: 50%;
     z-index: 2;
     font-size: 60px;
@@ -956,7 +956,7 @@ h3 {
     }
 
     @media (max-height: 1024px) {
-      top: 65%;
+      top: 75%;
     }
 
     @media (max-height: 850px) {
@@ -968,7 +968,7 @@ h3 {
     }
 
     @media (max-height: 732px) {
-      top: 53%;
+      top: 70%;
 
     }
 
@@ -997,7 +997,7 @@ h3 {
 
   .fighter-cover {
     object-fit: cover;
-    max-height: calc(100vh - 300px);
+    max-height: calc(100vh - 00px);
     min-height: calc(100vh - 300px);
     width: 100%;
   }
