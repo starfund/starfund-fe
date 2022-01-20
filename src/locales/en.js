@@ -147,7 +147,7 @@ export default {
   'billing.copy':
     "By clicking 'Place Secure Order', you agree to enroll in our monthly subscription plan and to our",
   'billing.copy2':
-    '. Your payment method will be charged the price above the first month and monthly thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in Settings. No refunds for partial unused periods, or after gift is redeemed.',
+    '. Your payment method will be charged the price above the first month and monthly thereafter at the then-current rate. Prices are non-tax inclusive. Cancel any time in Settings. No refunds for partial unused periods.',
   'billing.legal': ' Offer Terms and Terms of Service',
   'billing.addCard': 'Add payment method',
   'billing.newpassword': 'Please enter a new password with at least 8 characters',

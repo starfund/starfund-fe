@@ -2382,15 +2382,14 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 8vh;
   @media (max-width: 765px) {
     width:100vw;
     margin-left:0px;
     font-size: 4vw;
     justify-content: flex-start;
   }
-  @media (min-width: 2080px) {
-    height:4vh;
+  @media (min-width: 765px) {
+    height:8vh;
   }
   .winner1-tag{
     position: absolute;
@@ -4169,4 +4168,11 @@ h3 {
     }
   }
 
+}
+
+.dropdown-header-ppv{
+  display: flex;
+  width: 84vw;
+  justify-content: space-between;
+  align-items: center;
 }

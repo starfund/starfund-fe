@@ -150,7 +150,7 @@ export default {
   'billing.copy':
     "Clickeando 'Realizar Orden Segura', das tu concentimiento para subscribirte a nuestra membresia mensual y a nuestros ",
   'billing.copy2':
-    '. Un cargo sera realizado contra tu metodo de pago el primer mes y continuara realizandose de forma mensual de igual manera. Los precios no incluyen impuestos. Puede cancelar en cualquier momento en su perfil. No se realizan devoluciones ni devoluciones parciales para periodos no utilizados ni para regalos si ya fueron reclamados',
+    '. Un cargo sera realizado contra tu metodo de pago el primer mes y continuara realizandose de forma mensual de igual manera. Los precios no incluyen impuestos. Puede cancelar en cualquier momento en su perfil. No se realizan devoluciones ni devoluciones parciales para periodos no utilizados.',
   'billing.legal': ' Terminos de Oferta y Terminos de Servicio',
   'billing.addCard': 'Agregar medio de pago',
   'billing.newpassword': 'Porfavor ingrese una nueva contraseña con por lo menos 8 caracteres',

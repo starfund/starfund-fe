@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player/lazy';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/awcf_poster_bg2.png';
+import DropDown from './common/DropDown';
 
 const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
   const divImage = {
@@ -231,16 +232,34 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
                     {intl.formatMessage({ id: `organization.event.livevideo` })}
                   </div>
                 )}
-                {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
-                {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
-                {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
-                {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                <div>
-                  {v?.fighter1} vs {v?.fighter2}
-                  <div className="event-item-ppv-desc">
-                    {`${v?.division} | ${v?.rounds} Rounds`}
+                {!v.isLive && !isMobile && v.winner == v.fighter1 && (
+                  <div className="winner1-tag">W</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter2 && (
+                  <div className="winner2-tag">W</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter1 && (
+                  <div className="loser2-tag">L</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter2 && (
+                  <div className="loser1-tag">L</div>
+                )}
+                {!isMobile && (
+                  <div>
+                    {v?.fighter1} vs {v?.fighter2}
+                    <div className="event-item-ppv-desc">
+                      {`${v?.division} | ${v?.rounds} Rounds`}
+                    </div>
                   </div>
-                </div>
+                )}
+                {isMobile && v?.winner && (
+                  <DropDown
+                    textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
+                    text={v?.winner}
+                    title={`${v?.fighter1} vs ${v?.fighter2}`}
+                    subtitle={`${v?.division} | ${v?.rounds} Rounds`}
+                  />
+                )}
               </div>
             ))}
           {prelim &&
@@ -252,29 +271,39 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
                     {intl.formatMessage({ id: `organization.event.livevideo` })}
                   </div>
                 )}
-                {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
-                {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
-                {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
-                {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                <div>
-                  {v?.fighter1} vs {v?.fighter2}
-                  <div className="event-item-ppv-desc">
-                    {`${v?.division} | ${v?.rounds} Rounds`}
+                {!v.isLive && !isMobile && v.winner == v.fighter1 && (
+                  <div className="winner1-tag">W</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter2 && (
+                  <div className="winner2-tag">W</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter1 && (
+                  <div className="loser2-tag">L</div>
+                )}
+                {!v.isLive && !isMobile && v.winner == v.fighter2 && (
+                  <div className="loser1-tag">L</div>
+                )}
+                {!isMobile && (
+                  <div>
+                    {v?.fighter1} vs {v?.fighter2}
+                    <div className="event-item-ppv-desc">
+                      {`${v?.division} | ${v?.rounds} Rounds`}
+                    </div>
                   </div>
-                </div>
+                )}
+                {isMobile && v?.winner && (
+                  <DropDown
+                    textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
+                    text={v?.winner}
+                    title={`${v?.fighter1} vs ${v?.fighter2}`}
+                    subtitle={`${v?.division} | ${v?.rounds} Rounds`}
+                  />
+                )}
               </div>
             ))}
         </div>
         <br />
       </div>
-      {isMobile && (
-        <div className="event-div">
-          <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
-            {intl.formatMessage({ id: 'organization.button.buyppv' })}
-          </button>
-          <br />
-        </div>
-      )}
       {!isMobile && <br />}
       {!isMobile && <br />}
       {!isMobile && <br />}
