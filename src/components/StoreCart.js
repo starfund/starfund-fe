@@ -1,9 +1,11 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 
 const StoreCart = ({ cartItems }) => {
+  const intl = useIntl();
   function getTotal() {
     let total = 0;
-    cartItems.array.forEach(i => {
+    cartItems.forEach(i => {
       total += i?.price * i?.amount;
     });
     return total;
@@ -11,7 +13,11 @@ const StoreCart = ({ cartItems }) => {
 
   return (
     <div className="cart-container">
-      {cartItems.length === 0 && <div className="empty-cart">Your cart is empty</div>}
+      {cartItems.length === 0 && (
+        <div className="empty-cart">
+          {intl.formatMessage({ id: 'organization.store.emptycart' })}
+        </div>
+      )}
       {cartItems?.map(i => (
         <div className="cart-item">
           <div className="amount-name-container">
@@ -23,11 +29,15 @@ const StoreCart = ({ cartItems }) => {
       ))}
       {cartItems.length > 0 && (
         <div className="total">
-          <span style={{ fontWeight: 'bold' }}>TOTAL:</span>
+          <span style={{ fontWeight: 'bold' }}>
+            {intl.formatMessage({ id: 'organization.store.total' })}
+          </span>
           {` ${getTotal()}$`}
         </div>
       )}
-      {cartItems.length > 0 && <button type="button">Buy now</button>}
+      {cartItems.length > 0 && (
+        <button type="button">{intl.formatMessage({ id: 'organization.store.buy' })}</button>
+      )}
     </div>
   );
 };

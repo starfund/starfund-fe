@@ -273,6 +273,15 @@ export default {
     'Подпишитесь ежемесячно, чтобы получить доступ к более чем 100 бойцовским материалам',
   'organization.store.title': 'Все продукты {orgName}',
   'organization.store.goTo': 'Просмотреть магазин >>',
+  'organization.store.viewCart': 'Посмотреть корзину',
+  'organization.store.cateogry': 'Категория: ',
+  'organization.store.sizes': 'Доступные размеры: ',
+  'organization.store.dimensions': 'Габаритные размеры: ',
+  'organization.store.quantity': 'Количество: ',
+  'organization.store.addToCart': 'Добавить в корзину',
+  'organization.store.emptycart': 'Ваша корзина пуста',
+  'organization.store.total': 'ВСЕГО:',
+  'organization.store.buy': 'Купи сейчас',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

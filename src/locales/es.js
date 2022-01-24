@@ -278,6 +278,15 @@ export default {
     'Suscribirse mensualmente para obtener acceso a 100 + videos de peleas',
   'organization.store.title': 'Todos los productos de {orgName}',
   'organization.store.goTo': 'Ver Tienda >>',
+  'organization.store.viewCart': 'Ver Carro',
+  'organization.store.cateogry': 'Categoria: ',
+  'organization.store.sizes': 'Talles disponibles: ',
+  'organization.store.dimensions': 'Dimensiones: ',
+  'organization.store.quantity': 'Cantidad: ',
+  'organization.store.addToCart': 'Agregar al carro',
+  'organization.store.emptycart': 'El carro esta vacio',
+  'organization.store.total': 'TOTAL:',
+  'organization.store.buy': 'Comprar ahora',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

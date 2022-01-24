@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
 const MerchItemDetails = ({ merchItem, addItems, close }) => {
+  const intl = useIntl();
   const isMobile = useMediaQuery({
     query: '(max-width: 992px)'
   });
@@ -115,14 +117,16 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
           <div className="details-name">{merchItem?.name}</div>
           <div className="centered">
             <div className="details-type">
-              <span style={{ fontWeight: 'bold' }}>Category: </span>
+              <span style={{ fontWeight: 'bold' }}>
+                {intl.formatMessage({ id: 'organization.store.cateogry' })}
+              </span>
               {merchItem?.productType}
             </div>
             <div className="details-price">{merchItem?.price}$</div>
           </div>
           {hasSizes() && (
             <div className="details-sizes">
-              Available sizes:
+              {intl.formatMessage({ id: 'organization.store.sizes' })}
               <ButtonGroup>
                 {!isMobile && merchItem?.amountXs > 0 && (
                   <ButtonToggle
@@ -251,14 +255,14 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
           )}
           {hasDimensions() && (
             <div className="details-dimensions">
-              Dimensions:
+              {intl.formatMessage({ id: 'organization.store.dimensions' })}
               <div className="dimensions">
                 {merchItem?.length} x {merchItem?.width}
               </div>
             </div>
           )}
           <div className="details-quantity">
-            Qantity:
+            {intl.formatMessage({ id: 'organization.store.quantity' })}
             <div className="quantity-selector">
               <button type="button" onClick={() => decrease()}>
                 -
@@ -278,7 +282,7 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
               close();
             }}
           >
-            Add to Cart
+            {intl.formatMessage({ id: 'organization.store.addToCart' })}
           </button>
         </div>
       </div>

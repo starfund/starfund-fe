@@ -273,6 +273,15 @@ export default {
   'organization.noppv.desc': 'Subscribe Monthly to Get Access to 100 + Fight Contents',
   'organization.store.title': 'All {orgName} products',
   'organization.store.goTo': 'View Store >>',
+  'organization.store.viewCart': 'View Cart',
+  'organization.store.cateogry': 'Category: ',
+  'organization.store.sizes': 'Available sizes: ',
+  'organization.store.dimensions': 'Dimensions: ',
+  'organization.store.quantity': 'Qantity: ',
+  'organization.store.addToCart': 'Add to Cart',
+  'organization.store.emptycart': 'Your cart is empty',
+  'organization.store.total': 'TOTAL:',
+  'organization.store.buy': 'Buy now',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

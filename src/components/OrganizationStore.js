@@ -64,7 +64,7 @@ const OrganizationStore = ({ organization, homeNav }) => {
             setCartModalIsOpen(true);
           }}
         >
-          View Cart
+          {intl.formatMessage({ id: 'organization.store.viewCart' })}
         </button>
       )}
       <br />
