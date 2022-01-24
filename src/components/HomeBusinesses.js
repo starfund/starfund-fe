@@ -27,30 +27,27 @@ const HomeBusinesses = ({ title }) => {
           </SkeletonTheme>
         )}
         <Slider>
-          {organizations.length > 0 && (
-            <React.Fragment>
-              {organizations.map(b => (
-                <Link
-                  key={b.id}
-                  className="fighter-card-link"
-                  href=""
-                  onClick={() => history.push(`/organization/${b.name}`)}
-                >
-                  <div key={b.id} className="fighter-card">
-                    <img className="fighter-card-image" src={b?.mobileCoverPhoto} alt="Card cap" />
-                    <div className="organizations-card-overlay">
-                      <div className="fighter-card-name-wrapper">
-                        <span className="fighter-card-text">{b.name} </span>
-                        <br />
-                        <br />
-                        <br />
-                      </div>
+          {organizations.length > 0 &&
+            organizations.map(b => (
+              <Link
+                key={b.id}
+                className="fighter-card-link"
+                href=""
+                onClick={() => history.push(`/organization/${b.name}`)}
+              >
+                <div key={b.id} className="fighter-card">
+                  <img className="fighter-card-image" src={b?.mobileCoverPhoto} alt="Card cap" />
+                  <div className="organizations-card-overlay">
+                    <div className="fighter-card-name-wrapper">
+                      <span className="fighter-card-text">{b.name} </span>
+                      <br />
+                      <br />
+                      <br />
                     </div>
                   </div>
-                </Link>
-              ))}
-            </React.Fragment>
-          )}
+                </div>
+              </Link>
+            ))}
         </Slider>
       </div>
     </div>
