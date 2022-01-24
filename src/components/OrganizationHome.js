@@ -12,7 +12,8 @@ const OrganizationHome = ({
   watchAction,
   payed,
   payedPPV,
-  eventsNav
+  eventsNav,
+  storeNav
 }) => {
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
@@ -55,6 +56,7 @@ const OrganizationHome = ({
             subscribeAction={subscribeAction}
             payed={payed}
             eventsNav={eventsNav}
+            storeNav={storeNav}
           />
         )}
       </div>

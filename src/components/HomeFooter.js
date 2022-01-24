@@ -206,7 +206,7 @@ const HomeFooter = () => {
         <div className={isMobile ? 'col-12 last-row-mobile' : 'col-12 last-row'}>
           <div className="copyright-div">
             {' '}
-            Copyright © {new Date().getFullYear()} STARFUND All rights reserved{' '}
+            Copyright © {new Date().getFullYear()} STARFUND INC All rights reserved{' '}
           </div>
         </div>
       </div>

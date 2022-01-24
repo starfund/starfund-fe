@@ -112,6 +112,7 @@ export default {
   'header.contact': 'Связаться с нами',
   'header.ppv': 'PPV',
   'header.allevents': 'События',
+  'header.store': 'Магазин',
   'header.prelim': 'Предварительные мероприятия',
   'header.main': 'Основная карта',
   'organization.allevents': 'Все видео бойцов {organizationName}',
@@ -270,6 +271,8 @@ export default {
   'organization.noppv.title': 'Нет предстоящих шоу, зайдите позже',
   'organization.noppv.desc':
     'Подпишитесь ежемесячно, чтобы получить доступ к более чем 100 бойцовским материалам',
+  'organization.store.title': 'Все продукты {orgName}',
+  'organization.store.goTo': 'Просмотреть магазин >>',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

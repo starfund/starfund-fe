@@ -115,6 +115,7 @@ export default {
   'header.contact': 'Contacto',
   'header.ppv': 'PPV',
   'header.allevents': 'Eventos',
+  'header.store': 'Tienda',
   'header.prelim': 'Preliminares',
   'header.main': 'Peleas preincipales',
 
@@ -275,6 +276,8 @@ export default {
   'organization.noppv.title': 'No hay shows en este momento, volver a consultar más tarde',
   'organization.noppv.desc':
     'Suscribirse mensualmente para obtener acceso a 100 + videos de peleas',
+  'organization.store.title': 'Todos los productos de {orgName}',
+  'organization.store.goTo': 'Ver Tienda >>',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

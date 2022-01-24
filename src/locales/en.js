@@ -109,6 +109,7 @@ export default {
   'header.contact': 'Contact Us',
   'header.ppv': 'PPV',
   'header.allevents': 'ALL EVENTS',
+  'header.store': 'STORE',
   'header.prelim': 'PRELIMS',
   'header.main': 'MAIN CARD',
   'organization.allevents': 'All {organizationName} fight videos',
@@ -270,6 +271,8 @@ export default {
   'organization.rewatch': 'REWATCH',
   'organization.noppv.title': 'No Upcoming Shows, Check Back Later',
   'organization.noppv.desc': 'Subscribe Monthly to Get Access to 100 + Fight Contents',
+  'organization.store.title': 'All {orgName} products',
+  'organization.store.goTo': 'View Store >>',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

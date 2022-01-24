@@ -18,6 +18,7 @@ import HomeFooter from './HomeFooter';
 import OrganizationHome from './OrganizationHome';
 import OrganizationPPV from './OrganizationPPV';
 import OrganizationEvents from './OrganizationEvents';
+import OrganizationStore from './OrganizationStore';
 
 const OrganizationView = () => {
   const { name } = useParams();
@@ -129,6 +130,7 @@ const OrganizationView = () => {
   const [home, setHome] = useState(!payedPPV);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(payedPPV);
+  const [store, setStore] = useState(false);
   const [event, setEvent] = useState(sortedEvents?.filter(e => e.homePage)[0]);
 
   return (
@@ -196,6 +198,7 @@ const OrganizationView = () => {
                         setHome(true);
                         setAllEvents(false);
                         setPPV(false);
+                        setStore(false);
                       }}
                     >
                       {intl.formatMessage({ id: 'header.home' })}{' '}
@@ -212,6 +215,7 @@ const OrganizationView = () => {
                       setAllEvents(true);
                       setAllEvents2(true);
                       setPPV(false);
+                      setStore(false);
                     }}
                   >
                     {intl.formatMessage({ id: 'header.allevents' })}{' '}
@@ -224,10 +228,24 @@ const OrganizationView = () => {
                       setHome(false);
                       setAllEvents(false);
                       setPPV(true);
+                      setStore(false);
                       setEvent(sortedEvents.filter(e => e.homePage)[0]);
                     }}
                   >
                     {intl.formatMessage({ id: 'header.ppv' })}
+                  </Link>
+                </li>
+                <li className={cn('nav-item', { active: store })}>
+                  <Link
+                    className="nav-link"
+                    onClick={() => {
+                      setHome(false);
+                      setAllEvents(false);
+                      setPPV(false);
+                      setStore(true);
+                    }}
+                  >
+                    {intl.formatMessage({ id: 'header.store' })}
                   </Link>
                 </li>
               </ul>
@@ -245,22 +263,32 @@ const OrganizationView = () => {
             setHome(false);
             setAllEvents(false);
             setPPV(true);
+            setStore(false);
             setEvent(sortedEvents[sortedEvents?.length - 1]);
           }}
           homeNav={() => {
             setHome(true);
             setAllEvents(false);
             setPPV(false);
+            setStore(false);
           }}
           eventsNav={() => {
             setHome(false);
             setAllEvents(true);
             setPPV(false);
+            setStore(false);
           }}
           PPVNav={() => {
             setHome(false);
             setAllEvents(false);
             setPPV(true);
+            setStore(false);
+          }}
+          storeNav={() => {
+            setHome(false);
+            setAllEvents(false);
+            setPPV(false);
+            setStore(true);
           }}
         />
       )}
@@ -310,6 +338,17 @@ const OrganizationView = () => {
             })}
           </div>
         </div>
+      )}
+      {store && (
+        <OrganizationStore
+          organization={organization}
+          homeNav={() => {
+            setHome(true);
+            setAllEvents(false);
+            setPPV(false);
+            setStore(false);
+          }}
+        />
       )}
       {organization && (
         <div>

@@ -14,6 +14,7 @@ const EventViewMobile = ({
   event,
   video,
   eventsNav,
+  storeNav,
   showResults
 }) => {
   const intl = useIntl();
@@ -102,6 +103,10 @@ const EventViewMobile = ({
   return (
     <div className="mobile-background">
       <div className="event-view-mobile-container">
+        <br />
+        <p style={{ textAlign: 'right', width: '90vw' }} onClick={() => storeNav()}>
+          {intl.formatMessage({ id: 'organization.store.goTo' })}
+        </p>
         <br />
         <h3>
           <FormattedMessage
