@@ -37,7 +37,8 @@ const BillingForm = ({
   orgEvent,
   type,
   price,
-  hasReferal
+  hasReferal,
+  subscriptionType
 }) => {
   ReactGA.modalview(`/${type}`);
   const { status: subStatus, error } = useStatus(subscribe);
@@ -82,6 +83,7 @@ const BillingForm = ({
       orgEvent,
       type,
       price,
+      subscriptionType,
       referalCode: codeField
     });
   };

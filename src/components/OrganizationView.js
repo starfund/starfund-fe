@@ -351,6 +351,7 @@ const OrganizationView = () => {
               fighters={getAllFightersOrganization()}
               price={organization?.subPrice}
               type="subscription"
+              subscriptionType="monthly"
               hasReferal
             />
           </ConfirmationModal>
@@ -393,6 +394,7 @@ const OrganizationView = () => {
               organization={organization?.name}
               fighters={getAllFightersOrganization()}
               type="subscription"
+              subscriptionType="yearly"
               price={
                 Math.round(
                   (organization?.subPrice / 100) * 12 * ((100 - organization?.yearlyDiscount) / 100)
