@@ -163,7 +163,7 @@ const FighterLottery = () => {
         isDelete={false}
         price={subPrice}
       >
-        <BillingForm fighter={fighter} type="subscription" />
+        <BillingForm fighter={fighter} type="subscription" subscriptionType="monthly" />
       </ConfirmationModal>
     </div>
   );

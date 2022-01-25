@@ -154,7 +154,12 @@ const TeamStar = () => {
         price={team?.subPrice}
         email={currentUser?.email}
       >
-        <BillingForm email={currentUser?.email} team={team?.id} type="subscription" />
+        <BillingForm
+          email={currentUser?.email}
+          team={team?.id}
+          type="subscription"
+          subscriptionType="monthly"
+        />
       </ConfirmationModal>
       <CommonModal
         title={intl.formatMessage({ id: 'ppv.title' })}

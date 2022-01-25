@@ -243,7 +243,12 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
             price={team?.subPrice}
             email={currentUser?.email}
           >
-            <BillingForm email={currentUser?.email} team={team?.id} type="subscription" />
+            <BillingForm
+              email={currentUser?.email}
+              team={team?.id}
+              type="subscription"
+              subscriptionType="monthly"
+            />
           </ConfirmationModal>
           <CommonModal
             title={intl.formatMessage({ id: 'ppv.title' })}
@@ -288,7 +293,12 @@ const FighterTeamHome = ({ isTeam, team, fighter, authenticated, supporting, vid
             email={currentUser?.email}
             fighter={fighter?.id}
           >
-            <BillingForm email={currentUser?.email} fighter={fighter?.id} type="subscription" />
+            <BillingForm
+              email={currentUser?.email}
+              fighter={fighter?.id}
+              type="subscription"
+              subscriptionType="monthly"
+            />
           </ConfirmationModal>
           <CommonModal
             title={intl.formatMessage({ id: 'ppv.title' })}

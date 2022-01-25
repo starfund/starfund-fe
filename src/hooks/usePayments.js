@@ -22,7 +22,8 @@ export default stripe => {
       orgEvent,
       type,
       price,
-      referalCode
+      referalCode,
+      subscriptionType
     } = billing;
 
     setLoading(true);
@@ -59,6 +60,7 @@ export default stripe => {
             organization,
             price,
             referalCode,
+            subscriptionType,
             card_data: data
           })
         );
