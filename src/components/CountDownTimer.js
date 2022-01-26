@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
-const CountDownTimer = ({ event, subscribeAction, watchAction, payed }) => {
+const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasTimer }) => {
   const intl = useIntl();
   const date = new Date(event?.eventDate);
   const months = [
@@ -147,11 +147,11 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed }) => {
     <div>
       <br />
       <br />
-      <div className="timer-div">{timerComponents.length > 0 && timerComponents}</div>
+      {hasTimer && <div className="timer-div">{timerComponents.length > 0 && timerComponents}</div>}
       <br />
       <br />
       <br />
-      {timerComponents.length > 0 && (
+      {(timerComponents.length > 0 || !hasTimer) && (
         <div className="event-div">
           <div className="event-name">{event.name}</div>
           <div className="event-row">

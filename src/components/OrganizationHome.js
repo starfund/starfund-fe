@@ -29,12 +29,27 @@ const OrganizationHome = ({
             subscribeAction={subscribeAction}
             payed={payedPPV}
             watchAction={watchAction}
+            hasTimer
           />
+        )}
+        {lastEvent && isMobile && sortedEvents[0].homePage && (
+          <div>
+            <CountDownTimer
+              event={lastEvent}
+              subscribeAction={subscribeAction}
+              payed={payedPPV}
+              watchAction={watchAction}
+              hasTimer={false}
+            />
+            <br />
+            <br />
+            <br />
+          </div>
         )}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
-        {sortedEvents && !isMobile && (
+        {sortedEvents && !sortedEvents[0].homePage && !isMobile && (
           <EventView
             prevEvent={sortedEvents[sortedEvents?.length - 3]}
             currEvent={sortedEvents[sortedEvents?.length - 2]}
@@ -49,7 +64,7 @@ const OrganizationHome = ({
             }
           />
         )}
-        {sortedEvents && isMobile && (
+        {sortedEvents && !sortedEvents[0].homePage && isMobile && (
           <EventViewMobile
             organization={organization}
             subscribeAction={subscribeAction}

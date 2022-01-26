@@ -259,10 +259,14 @@ const OrganizationEvents = ({
                           type="button"
                           className="btn btn-danger btn-lg"
                           onClick={() => {
-                            setAllEvents(false);
-                            setCurrEvent(item);
-                            setPrevEvent(sortedEvents[index - 1]);
-                            setNextEvent(sortedEvents[index + 1]);
+                            if (payed) {
+                              setAllEvents(false);
+                              setCurrEvent(item);
+                              setPrevEvent(sortedEvents[index - 1]);
+                              setNextEvent(sortedEvents[index + 1]);
+                            } else {
+                              subscribeAction();
+                            }
                           }}
                         >
                           {intl.formatMessage({ id: 'organization.watchevent' })}

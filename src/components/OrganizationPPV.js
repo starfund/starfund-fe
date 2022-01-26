@@ -175,18 +175,22 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
         {!isMobile && <br />}
         {isMobile && (
           <div className="mobile-nav-center">
-            <div
-              className={!prelim ? 'nav-button-active' : 'nav-button'}
-              onClick={() => setPrelim(false)}
-            >
-              {intl.formatMessage({ id: 'header.main' })}
-            </div>
-            <div
-              className={prelim ? 'nav-button-active' : 'nav-button'}
-              onClick={() => setPrelim(true)}
-            >
-              {intl.formatMessage({ id: 'header.prelim' })}
-            </div>
+            {event?.mainEvents.length > 0 && (
+              <div
+                className={!prelim ? 'nav-button-active' : 'nav-button'}
+                onClick={() => setPrelim(false)}
+              >
+                {intl.formatMessage({ id: 'header.main' })}
+              </div>
+            )}
+            {event?.prelimEvents.length > 0 && (
+              <div
+                className={prelim ? 'nav-button-active' : 'nav-button'}
+                onClick={() => setPrelim(true)}
+              >
+                {intl.formatMessage({ id: 'header.prelim' })}
+              </div>
+            )}
           </div>
         )}
         {!isMobile && (
@@ -194,29 +198,33 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
             <div className="navbar-collapse" id="navbarText">
               <React.Fragment>
                 <ul className="navbar-nav">
-                  <li className={cn('nav-item', { active: !prelim })}>
-                    <p
-                      className="nav-link"
-                      href=""
-                      onClick={() => {
-                        setPrelim(false);
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'header.main' })}{' '}
-                      <span className="sr-only">(current)</span>
-                    </p>
-                  </li>
-                  <li className={cn('nav-item', { active: prelim })}>
-                    <p
-                      className="nav-link"
-                      href=""
-                      onClick={() => {
-                        setPrelim(true);
-                      }}
-                    >
-                      {intl.formatMessage({ id: 'header.prelim' })}{' '}
-                    </p>
-                  </li>
+                  {event?.mainEvents.length > 0 && (
+                    <li className={cn('nav-item', { active: !prelim })}>
+                      <p
+                        className="nav-link"
+                        href=""
+                        onClick={() => {
+                          setPrelim(false);
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'header.main' })}{' '}
+                        <span className="sr-only">(current)</span>
+                      </p>
+                    </li>
+                  )}
+                  {event?.prelimEvents.length > 0 && (
+                    <li className={cn('nav-item', { active: prelim })}>
+                      <p
+                        className="nav-link"
+                        href=""
+                        onClick={() => {
+                          setPrelim(true);
+                        }}
+                      >
+                        {intl.formatMessage({ id: 'header.prelim' })}{' '}
+                      </p>
+                    </li>
+                  )}
                 </ul>
               </React.Fragment>
             </div>
