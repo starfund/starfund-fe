@@ -156,6 +156,7 @@ export default {
   'billing.terms': 'Пожалуйста, примите условия',
   'billing.referalcode': 'Никто',
   'billing.addreferal': 'Какой боец ​​направил вас на нашу страницу?',
+  'billing.shipping': 'Перейти к оплате',
 
   // FAQS
   'faqs.title': 'Часто задаваемые вопросы',
@@ -282,6 +283,7 @@ export default {
   'organization.store.emptycart': 'Ваша корзина пуста',
   'organization.store.total': 'ВСЕГО:',
   'organization.store.buy': 'Купи сейчас',
+  'organization.store.pleasesize': 'Пожалуйста выберите размер',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

@@ -54,7 +54,7 @@ const StoreCard = ({ merchItem }) => {
       />
       <div className="card-body">
         <h5 className="card-title-ppv">{merchItem?.name}</h5>
-        <p className="card-text-ppv">{`${merchItem?.price}$`}</p>
+        <p className="card-text-ppv">{`$${merchItem?.price}`}</p>
       </div>
     </div>
   );

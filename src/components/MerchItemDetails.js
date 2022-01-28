@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useIntl } from 'react-intl';
 import styled from 'styled-components';
 
-const MerchItemDetails = ({ merchItem, addItems, close }) => {
+const MerchItemDetails = ({ merchItem, close, nextStep }) => {
   const intl = useIntl();
   const isMobile = useMediaQuery({
     query: '(max-width: 992px)'
@@ -11,6 +11,7 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
 
   const [active, setActive] = useState('');
   const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState(false);
 
   const Button = styled.button``;
   const ButtonToggle = styled(Button)`
@@ -68,13 +69,9 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
     return merchItem?.length > 0 && merchItem.width > 0;
   };
 
-  const addToCart = () => {
-    const newItem = {
-      name: merchItem?.name,
-      amount: quantity,
-      price: merchItem?.price
-    };
-    addItems(newItem);
+  const buy = amount => {
+    nextStep(amount);
+    close();
   };
 
   const increase = () => {
@@ -114,6 +111,11 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
           <img src={merchItem?.photo} alt="" />
         </div>
         <div className="col-12 col-md-6" style={!isMobile ? { marginLeft: '-30px' } : {}}>
+          {error && (
+            <div className="error-message">
+              {intl.formatMessage({ id: 'organization.store.pleasesize' })}
+            </div>
+          )}
           <div className="details-name">{merchItem?.name}</div>
           <div className="centered">
             <div className="details-type">
@@ -122,7 +124,7 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
               </span>
               {merchItem?.productType}
             </div>
-            <div className="details-price">{merchItem?.price}$</div>
+            <div className="details-price">${merchItem?.price}</div>
           </div>
           {hasSizes() && (
             <div className="details-sizes">
@@ -273,17 +275,27 @@ const MerchItemDetails = ({ merchItem, addItems, close }) => {
               </button>
             </div>
           </div>
-          <button
-            className="button-confirm"
-            type="button"
-            disabled={!((active != '' && hasSizes()) || !hasSizes())}
-            onClick={() => {
-              addToCart();
-              close();
-            }}
-          >
-            {intl.formatMessage({ id: 'organization.store.addToCart' })}
-          </button>
+          <div className="sub-total">
+            <span style={{ fontWeight: 'bold' }}>
+              {intl.formatMessage({ id: 'organization.store.total' })}
+            </span>
+            ${quantity * merchItem?.price}
+          </div>
+          <div className="button-container">
+            <div
+              className="diabled-clickable"
+              onClick={() =>
+                !((active != '' && hasSizes()) || !hasSizes()) ? setError(true) : buy(quantity)
+              }
+            />
+            <button
+              className="button-confirm"
+              type="button"
+              disabled={!((active != '' && hasSizes()) || !hasSizes())}
+            >
+              {intl.formatMessage({ id: 'organization.store.buy' })}
+            </button>
+          </div>
         </div>
       </div>
     </div>

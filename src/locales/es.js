@@ -159,6 +159,7 @@ export default {
   'billing.terms': 'Porfavor aceptar los terminos y condiciones',
   'billing.referalcode': 'Ninguno',
   'billing.addreferal': '¿A traves de que peleador llego a la pagina?',
+  'billing.shipping': 'Continuar al pago',
 
   // FAQS
   'faqs.title': 'Preguntas Frecuentes',
@@ -287,6 +288,7 @@ export default {
   'organization.store.emptycart': 'El carro esta vacio',
   'organization.store.total': 'TOTAL:',
   'organization.store.buy': 'Comprar ahora',
+  'organization.store.pleasesize': 'Porfavor elegir un talle',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

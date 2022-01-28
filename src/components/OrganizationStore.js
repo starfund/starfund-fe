@@ -5,22 +5,21 @@ import { useMediaQuery } from 'react-responsive';
 import ConfirmationModal from './common/ConfirmationModal';
 import StoreCard from './common/StoreCard';
 import MerchItemDetails from './MerchItemDetails';
-import Cart from '../assets/cart.png';
-import StoreCart from './StoreCart';
+import ShippingInfo from './ShippingInfo';
+import BillingForm from './BillingForm';
 
-const OrganizationStore = ({ organization, homeNav }) => {
+const OrganizationStore = ({ organization, homeNav, currentUser }) => {
   const intl = useIntl();
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
   });
-  const isMobileBig = useMediaQuery({
-    query: '(max-width: 1024px)'
-  });
   const [searchText, setSearchText] = useState('');
   const [merchItem, setMerchItem] = useState();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [cartModalIsOpen, setCartModalIsOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [shippingInfo, setShippingInfo] = useState(false);
+  const [payModal, setPayModal] = useState(false);
+  const [billingInfo, setBillingInfo] = useState();
+  const [amount, setAmount] = useState();
   const merchItems = organization?.merch;
 
   const filterMerch = useCallback(list => {
@@ -39,10 +38,15 @@ const OrganizationStore = ({ organization, homeNav }) => {
     setModalIsOpen(true);
   };
 
-  const addItems = item => {
-    const newItems = cartItems.slice();
-    newItems.push(item);
-    setCartItems(newItems);
+  const getBillingInfo = data => {
+    setBillingInfo(data);
+    alert(billingInfo);
+    setPayModal(true);
+  };
+
+  const getAmount = a => {
+    setAmount(a);
+    setShippingInfo(true);
   };
 
   return (
@@ -56,31 +60,10 @@ const OrganizationStore = ({ organization, homeNav }) => {
       )}
       <br />
       <br />
-      {isMobileBig && (
-        <button
-          type="button"
-          className="view-cart-button"
-          onClick={() => {
-            setCartModalIsOpen(true);
-          }}
-        >
-          {intl.formatMessage({ id: 'organization.store.viewCart' })}
-        </button>
-      )}
       <br />
       <h2>
         <FormattedMessage id="organization.store.title" values={{ orgName: organization?.name }} />
       </h2>
-      {!isMobileBig && (
-        <div
-          className="storeIcon"
-          onClick={() => {
-            setCartModalIsOpen(true);
-          }}
-        >
-          <img src={Cart} alt="" />
-        </div>
-      )}
       <div className="events-container">
         <div className={isMobile ? 'search-bar-mobile' : 'search-bar'}>
           <div className="bar">
@@ -123,15 +106,29 @@ const OrganizationStore = ({ organization, homeNav }) => {
             </div>
           ))}
       </div>
-      <ConfirmationModal isOpen={modalIsOpen} setIsOpen={setModalIsOpen} isDelete={false}>
+      <ConfirmationModal isOpen={modalIsOpen} setIsOpen={setModalIsOpen} isDelete={false} noFooter>
         <MerchItemDetails
           merchItem={merchItem}
-          addItems={addItems}
           close={() => setModalIsOpen(false)}
+          nextStep={getAmount}
         />
       </ConfirmationModal>
-      <ConfirmationModal isOpen={cartModalIsOpen} setIsOpen={setCartModalIsOpen} isDelete={false}>
-        <StoreCart cartItems={cartItems} />
+      <ConfirmationModal
+        isOpen={shippingInfo}
+        setIsOpen={setShippingInfo}
+        isDelete={false}
+        noFooter
+      >
+        <ShippingInfo close={() => setShippingInfo(false)} next={getBillingInfo} />
+      </ConfirmationModal>
+      <ConfirmationModal
+        isOpen={payModal}
+        setIsOpen={setPayModal}
+        isDelete={false}
+        price={amount * merchItem?.price}
+        email={currentUser?.email}
+      >
+        <BillingForm email={currentUser?.email} price={amount * merchItem?.price} type="ppv" />
       </ConfirmationModal>
       <br />
     </div>

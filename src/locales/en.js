@@ -156,6 +156,7 @@ export default {
   'billing.terms': 'Please accept the terms and conditions',
   'billing.referalcode': 'None',
   'billing.addreferal': 'Which fighter referred you to our page?',
+  'billing.shipping': 'Continue to payment',
 
   // FAQS
   'faqs.title': 'Frequently Asked Questions',
@@ -282,6 +283,7 @@ export default {
   'organization.store.emptycart': 'Your cart is empty',
   'organization.store.total': 'TOTAL:',
   'organization.store.buy': 'Buy now',
+  'organization.store.pleasesize': 'Please select a size',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

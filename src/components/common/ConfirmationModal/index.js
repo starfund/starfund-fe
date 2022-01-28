@@ -20,7 +20,8 @@ const ConfirmationModal = ({
   isOpen,
   setIsOpen,
   price,
-  backFunction
+  backFunction,
+  noFooter
 }) => {
   const dispatch = useDispatch();
   const intl = useIntl();
@@ -147,7 +148,7 @@ const ConfirmationModal = ({
           </button>
         </div>
         {children}
-        {!newUser && (
+        {!newUser && !noFooter && (
           <div className="confirm_modal_footer">
             <div className="container">
               <div className="row">

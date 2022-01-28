@@ -348,6 +348,7 @@ const OrganizationView = () => {
             setPPV(false);
             setStore(false);
           }}
+          currentUser={currentUser}
         />
       )}
       {organization && (
