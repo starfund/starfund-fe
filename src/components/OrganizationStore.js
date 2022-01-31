@@ -20,6 +20,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
   const [payModal, setPayModal] = useState(false);
   const [billingInfo, setBillingInfo] = useState();
   const [amount, setAmount] = useState();
+  const [size, setSize] = useState();
   const merchItems = organization?.merch;
 
   const filterMerch = useCallback(list => {
@@ -44,8 +45,9 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
     setPayModal(true);
   };
 
-  const getAmount = a => {
+  const getAmountAndSize = (a, s) => {
     setAmount(a);
+    setSize(s);
     setShippingInfo(true);
   };
 
@@ -110,7 +112,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
         <MerchItemDetails
           merchItem={merchItem}
           close={() => setModalIsOpen(false)}
-          nextStep={getAmount}
+          nextStep={getAmountAndSize}
         />
       </ConfirmationModal>
       <ConfirmationModal
@@ -125,10 +127,17 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
         isOpen={payModal}
         setIsOpen={setPayModal}
         isDelete={false}
-        price={amount * merchItem?.price}
+        price={amount * merchItem?.price * 100}
         email={currentUser?.email}
       >
-        <BillingForm email={currentUser?.email} price={amount * merchItem?.price} type="ppv" />
+        <BillingForm
+          email={currentUser?.email}
+          price={amount * merchItem?.price * 100}
+          type="ppv"
+          merchItem={merchItems}
+          amount={amount}
+          size={size}
+        />
       </ConfirmationModal>
       <br />
     </div>

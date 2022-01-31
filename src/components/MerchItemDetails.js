@@ -69,8 +69,8 @@ const MerchItemDetails = ({ merchItem, close, nextStep }) => {
     return merchItem?.length > 0 && merchItem.width > 0;
   };
 
-  const buy = amount => {
-    nextStep(amount);
+  const buy = (amount, size) => {
+    nextStep(amount, size);
     close();
   };
 
