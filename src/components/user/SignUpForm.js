@@ -43,7 +43,6 @@ export const SignUpForm = ({ onSubmit, setModalIsOpen }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {status === ERROR && <strong>{error}</strong>}
       <div>
         <Input
           name="email"
@@ -71,6 +70,7 @@ export const SignUpForm = ({ onSubmit, setModalIsOpen }) => {
           {...inputProps(fields.passwordConfirmation)}
         />
       </div>
+      {status === ERROR && <strong className="error-message">{error}</strong>}
       <br />
       <div
         style={{

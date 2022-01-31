@@ -8,7 +8,7 @@ import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import Background from '../assets/awcf_poster_bg2.png';
 import DropDown from './common/DropDown';
 
-const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
+const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground }) => {
   const divImage = {
     backgroundImage: `url(${Background})`
   };
@@ -80,7 +80,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav }) => {
   return (
     <div
       className={isMobile ? 'mobile-background' : 'organization-container'}
-      style={isMobile ? { backgroundColor: '#202020' } : divImage}
+      style={isMobile || !hasBackground ? { backgroundColor: '#202020' } : divImage}
     >
       {!isMobile && <br />}
       {!isMobile && <br />}

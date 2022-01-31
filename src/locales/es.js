@@ -58,7 +58,7 @@ export default {
   'email.invalid': 'Debe ingresar un email válido',
   'password.presence': 'Debe ingresar una contraseña para continuar',
   'passwordConfirmation.presence': 'Debe confirmar su contraseña para continuar',
-  'passwordConfirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
+  'passwordConfirmation.equality': 'Las contraseñas no coinciden',
 
   // Fields
   'form.signin.submit': 'INICIAR SESIÓN',
@@ -154,7 +154,7 @@ export default {
   'billing.legal': ' Terminos de Oferta y Terminos de Servicio',
   'billing.addCard': 'Agregar medio de pago',
   'billing.newpassword': 'Porfavor ingrese una nueva contraseña con por lo menos 8 caracteres',
-  'billing.nomatch': 'La confirmacion de contraseña debe coincidir con la contraseña',
+  'billing.nomatch': 'Las contraseñas no coinciden',
   'billing.terms': 'Porfavor aceptar los terminos y condiciones',
   'billing.referalcode': 'Ninguno',
   'billing.addreferal': '¿A traves de que peleador llego a la pagina?',

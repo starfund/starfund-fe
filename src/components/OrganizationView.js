@@ -290,6 +290,7 @@ const OrganizationView = () => {
           event={event}
           payed={payedPPV}
           subscribeAction={() => setModalIsOpen(true)}
+          hasBackground={!sortedEvents[0]?.homePage}
           homeNav={() => {
             setHome(true);
             setAllEvents(false);
@@ -328,7 +329,7 @@ const OrganizationView = () => {
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
-              payed={payed}
+              payed={payed || sortedEvents[0]?.homePage}
               payedPPV={payedPPV || !lastEvent}
               yearlyDiscount={organization?.yearlyDiscount}
               event={lastEvent}
