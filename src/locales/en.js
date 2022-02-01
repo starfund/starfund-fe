@@ -53,6 +53,7 @@ export default {
   'password.presence': 'You must enter a password to continue',
   'passwordConfirmation.presence': 'You must enter a password confirmation to continue',
   'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
+  'shipping.allfields': 'Please fill out all fields',
 
   // Fields
   'form.signin.submit': 'SIGN IN',

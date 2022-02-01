@@ -59,6 +59,7 @@ export default {
   'password.presence': 'Debe ingresar una contraseña para continuar',
   'passwordConfirmation.presence': 'Debe confirmar su contraseña para continuar',
   'passwordConfirmation.equality': 'Su confirmación de contraseña debe ser igual a la contraseña',
+  'shipping.allfields': 'Porfavor completar todos los campos',
 
   // Fields
   'form.signin.submit': 'INICIAR SESIÓN',

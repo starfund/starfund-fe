@@ -53,6 +53,7 @@ export default {
   'password.presence': 'Для продолжения введите пароль',
   'passwordConfirmation.presence': 'Для продолжения введите подтверждение пароля',
   'passwordConfirmation.equality': 'Пароли должны совпадать',
+  'shipping.allfields': 'Пожалуйста, заполните все поля',
 
   // Fields
   'form.signin.submit': 'Войти',

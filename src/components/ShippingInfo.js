@@ -6,24 +6,31 @@ import Input from './common/Input';
 import Button from './common/Button';
 
 const ShippingInfo = ({ close, next }) => {
-  const [region, setRegion] = useState();
-  const [city, setCity] = useState();
-  const [address, setAddress] = useState();
-  const [zipCode, setZipCode] = useState();
+  const [region, setRegion] = useState('');
+  const [city, setCity] = useState('');
+  const [address, setAddress] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [error, setError] = useState(false);
 
   const enter = () => {
-    const data = {
-      state: region,
-      city,
-      address,
-      zipCode
-    };
-    next(data);
-    close();
+    if (region == '' || city == '' || address == '' || zipCode == '') {
+      setError(true);
+    } else {
+      const data = {
+        state: region,
+        city,
+        address,
+        zipCode
+      };
+      setError(false);
+      next(data);
+      close();
+    }
   };
 
   return (
     <div className="row no-gutters checkout-container">
+      <div className="col-12">{error && <div className="error-message" />}</div>
       <div className="col-12">
         <select
           className="shipping-input"

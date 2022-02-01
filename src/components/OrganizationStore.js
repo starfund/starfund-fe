@@ -41,7 +41,6 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
 
   const getBillingInfo = data => {
     setBillingInfo(data);
-    alert(billingInfo);
     setPayModal(true);
   };
 
@@ -135,6 +134,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
           price={amount * merchItem?.price * 100}
           type="ppv"
           merchItem={merchItems}
+          shippingInfo={billingInfo}
           amount={amount}
           size={size}
         />
