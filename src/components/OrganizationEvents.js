@@ -272,7 +272,7 @@ const OrganizationEvents = ({
                           {intl.formatMessage({ id: 'organization.watchevent' })}
                         </button>
                       )}
-                    {!isMobile && item?.id == lastEventId && (
+                    {!isMobile && item?.id == lastEventId && !payedPPV && (
                       <button
                         type="button"
                         className="btn btn-danger btn-lg"
