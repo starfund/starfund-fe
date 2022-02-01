@@ -360,7 +360,7 @@ export default {
     'If you have fanbase and want to join STARFUND as a Star Athlete,you can apply here and we will be in touch within 72 hours.',
   'enroll.organization.title': 'Apply to join STARFUND as an Organization!',
   'enroll.organization.description':
-    'If you work in the entertainment or sports industry and want to earn extra money by monetizing your content, apply here and we’ll be in touch within 72 hours.',
+    'If you work in the entertainment or sports industry and want to earn a stable revenue by monetizing your content, apply here and we’ll be in touch within 72 hours.',
   'enroll.note':
     'Note: you are not automatically enrolled on STARFUND. If you meet the eligibility requirements, a talent representative will contact you within a few days to finish onboarding.',
   'enroll.submit': 'Submit',

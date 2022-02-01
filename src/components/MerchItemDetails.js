@@ -285,7 +285,9 @@ const MerchItemDetails = ({ merchItem, close, nextStep }) => {
             <div
               className="diabled-clickable"
               onClick={() =>
-                !((active != '' && hasSizes()) || !hasSizes()) ? setError(true) : buy(quantity)
+                !((active != '' && hasSizes()) || !hasSizes())
+                  ? setError(true)
+                  : buy(quantity, active)
               }
             />
             <button

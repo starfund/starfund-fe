@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
 import { State, City } from 'country-state-city';
+import { useIntl } from 'react-intl';
 
 import Input from './common/Input';
 import Button from './common/Button';
 
 const ShippingInfo = ({ close, next }) => {
+  const intl = useIntl();
+
   const [region, setRegion] = useState('');
   const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
@@ -30,7 +33,11 @@ const ShippingInfo = ({ close, next }) => {
 
   return (
     <div className="row no-gutters checkout-container">
-      <div className="col-12">{error && <div className="error-message" />}</div>
+      <div className="col-12">
+        {error && (
+          <div className="error-message">{intl.formatMessage({ id: 'shipping.allfields' })}</div>
+        )}
+      </div>
       <div className="col-12">
         <select
           className="shipping-input"

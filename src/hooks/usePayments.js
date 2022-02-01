@@ -20,6 +20,10 @@ export default stripe => {
       business,
       organization,
       orgEvent,
+      merchItem,
+      size,
+      amount,
+      shippingInfo,
       type,
       price,
       referalCode,
@@ -73,6 +77,10 @@ export default stripe => {
             fighter,
             price,
             orgEvent,
+            merchItem,
+            size,
+            amount,
+            shippingInfo,
             referalCode,
             card_data: data
           })

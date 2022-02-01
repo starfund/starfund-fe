@@ -133,7 +133,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
           email={currentUser?.email}
           price={amount * merchItem?.price * 100}
           type="ppv"
-          merchItem={merchItems}
+          merchItem={merchItem?.name}
           shippingInfo={billingInfo}
           amount={amount}
           size={size}

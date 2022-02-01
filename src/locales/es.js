@@ -365,7 +365,7 @@ export default {
     'Si tenes una fanbase y queres unirte a STARFUND como estrella, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',
   'enroll.organization.title': 'Applicar para unirse a STARFUND como organizacion!',
   'enroll.organization.description':
-    'Si trabajas en las industrias de entretenimiento o deporte y quieres ganar mas dinero monetizando tu contenido, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',
+    'Si trabajas en las industrias de entretenimiento o deporte y quieres generar ingresos estables monetizando tu contenido, puedes aplicar aqui y estaremos en contacto dentro de 72hs.',
   'enroll.note':
     'Nota: no quedaras inscripto en STARFUND automaticamente. Si tienes los requermimientos de elegibilidad, un representante se contactara en unos dias para finalizar el proceso',
   'enroll.submit': 'Submitir',
