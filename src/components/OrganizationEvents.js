@@ -254,7 +254,7 @@ const OrganizationEvents = ({
                     )}
                     {item?.mainEvents.concat(item?.prelimEvents).length != 0 &&
                       !isMobile &&
-                      item?.id != lastEventId && (
+                      !item?.homePage && (
                         <button
                           type="button"
                           className="btn btn-danger btn-lg"
@@ -272,7 +272,7 @@ const OrganizationEvents = ({
                           {intl.formatMessage({ id: 'organization.watchevent' })}
                         </button>
                       )}
-                    {!isMobile && item?.id == lastEventId && !payedPPV && (
+                    {!isMobile && item?.homePage && !payedPPV && (
                       <button
                         type="button"
                         className="btn btn-danger btn-lg"
@@ -287,7 +287,7 @@ const OrganizationEvents = ({
                   <div>
                     <div className="event-row">
                       {!isMobile &&
-                        item.id != lastEventId &&
+                        !item?.homePage &&
                         getEventVideos(item, sortedEvents)
                           .slice(0, 3)
                           .map(v => (
@@ -353,7 +353,7 @@ const OrganizationEvents = ({
                               </div>
                             </div>
                           ))}
-                      {item?.id == lastEventId && (
+                      {item?.homePage && (
                         <div>
                           <br />
                           <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
@@ -362,7 +362,7 @@ const OrganizationEvents = ({
                     </div>
                     {isMobile && (
                       <Carousel cols={1} rows={1} gap={15} loop>
-                        {item.id != lastEventId &&
+                        {!item?.homePage &&
                           item?.mainEvents.concat(item?.prelimEvents).length > 0 &&
                           item?.mainEvents.concat(item?.prelimEvents) &&
                           item?.mainEvents.concat(item?.prelimEvents).map(v => (
