@@ -18,6 +18,7 @@ import HomeFooter from './HomeFooter';
 import OrganizationHome from './OrganizationHome';
 import OrganizationPPV from './OrganizationPPV';
 import OrganizationEvents from './OrganizationEvents';
+import OrganizationMultiplePPV from './OrganizationMultiplePPV';
 
 const OrganizationView = () => {
   const { name } = useParams();
@@ -286,7 +287,8 @@ const OrganizationView = () => {
           setAllEvents={setAllEvents2}
         />
       )}
-      {ppv && lastEvent && (
+      {ppv && ppvEvents?.length > 1 && <OrganizationMultiplePPV events={ppvEvents} />}
+      {ppv && lastEvent && ppvEvents?.length == 1 && (
         <OrganizationPPV
           event={event}
           payed={payedPPV}
@@ -370,7 +372,7 @@ const OrganizationView = () => {
           >
             <BillingForm
               email={currentUser?.email}
-              orgEvent={sortedEvents[sortedEvents?.length - 1]?.id}
+              orgEvent={lastEvent?.id}
               price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
               fighters={getAllFightersLastEvent()}
               type="ppv"
