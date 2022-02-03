@@ -17,23 +17,25 @@ const EventViewMobile = ({
   showResults
 }) => {
   const intl = useIntl();
-  const sortedEvents = organization?.events.slice();
-  sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1)).pop();
+  const sortedEvents = organization && [...organization.events];
+  sortedEvents
+    ?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1))
+    ?.pop();
 
   const [prelim, setPrelim] = useState(false);
   const [prelim2, setPrelim2] = useState(false);
   const [selectedEventName, setSelectedEventName] = useState(event || sortedEvents[0]?.name);
   const [sortedPrelimEvents, setSortedPrelimEvents] = useState(
     sortedEvents
-      .filter(ev => ev.name === selectedEventName)[0]
+      ?.filter(ev => ev.name === selectedEventName)[0]
       ?.prelimEvents.slice()
-      .sort((a, b) => a.eventDate - b.eventDate)
+      ?.sort((a, b) => a.eventDate - b.eventDate)
   );
   const [sortedMainEvents, setSortedMainEvents] = useState(
     sortedEvents
-      .filter(ev => ev.name === selectedEventName)[0]
+      ?.filter(ev => ev.name === selectedEventName)[0]
       ?.mainEvents.slice()
-      .sort((a, b) => a.eventDate - b.eventDate)
+      ?.sort((a, b) => a.eventDate - b.eventDate)
   );
   const [selectedVideo, setSelectedVideo] = useState(
     video?.title || sortedEvents[0]?.mainEvents.concat(sortedEvents[0]?.prelimEvents)[0]?.title
@@ -117,13 +119,13 @@ const EventViewMobile = ({
             }}
             className="mobile-filters"
           >
-            {sortedEvents && sortedEvents.map(ev => <option>{ev.name}</option>)}
+            {sortedEvents && sortedEvents.map(ev => <option>{ev?.name}</option>)}
           </select>
           {sortedEvents
             .filter(ev => ev.name == selectedEventName)[0]
             ?.mainEvents.concat(
               sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.prelimEvents
-            ).length > 0 && (
+            )?.length > 0 && (
             <select
               value={selectedVideo}
               onChange={e => {
@@ -137,7 +139,7 @@ const EventViewMobile = ({
                   ?.mainEvents.concat(
                     sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.prelimEvents
                   )
-                  .map(v => <option>{formatTitle(v, language)}</option>)}
+                  ?.map(v => <option>{formatTitle(v, language)}</option>)}
             </select>
           )}
           <div className="link-text" onClick={() => eventsNav()}>
