@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
-import { Country } from 'country-state-city';
 import { useIntl } from 'react-intl';
 import { sendForm } from '@emailjs/browser';
 
@@ -9,7 +8,7 @@ const EnrollOrganization = () => {
   const intl = useIntl();
   const form = useRef();
   const [notesLenght, setNotesLenght] = useState(0);
-  const countries = Country.getAllCountries();
+  const countries = ['a', 'b', 'c'];
   const isMobile = useMediaQuery({
     query: '(max-width: 1024px)'
   });
