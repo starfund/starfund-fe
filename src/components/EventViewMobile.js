@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { formatTitle, formatDescription } from 'utils/translationsHelper';
 import Carousel from 'react-grid-carousel';
+import DropDown from './common/DropDown';
 
 const EventViewMobile = ({
   organization,
@@ -332,11 +333,14 @@ const EventViewMobile = ({
                       {intl.formatMessage({ id: `organization.event.livevideo` })}
                     </div>
                   )}
-                  {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
-                  {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
-                  {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
-                  {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                  {v?.fighter1} vs {v?.fighter2}
+                  {v?.winner && (
+                    <DropDown
+                      textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
+                      text={v?.winner}
+                      title={`${v?.fighter1} vs ${v?.fighter2}`}
+                      subtitle={`${v?.division} | ${v?.rounds} Rounds`}
+                    />
+                  )}
                 </div>
               ))}
             {prelim2 &&
@@ -348,11 +352,14 @@ const EventViewMobile = ({
                       {intl.formatMessage({ id: `organization.event.livevideo` })}
                     </div>
                   )}
-                  {!v.isLive && v.winner == v.fighter1 && <div className="winner1-tag">W</div>}
-                  {!v.isLive && v.winner == v.fighter2 && <div className="winner2-tag">W</div>}
-                  {!v.isLive && v.winner == v.fighter1 && <div className="loser2-tag">L</div>}
-                  {!v.isLive && v.winner == v.fighter2 && <div className="loser1-tag">L</div>}
-                  {v?.fighter1} vs {v?.fighter2}
+                  {v?.winner && (
+                    <DropDown
+                      textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
+                      text={v?.winner}
+                      title={`${v?.fighter1} vs ${v?.fighter2}`}
+                      subtitle={`${v?.division} | ${v?.rounds} Rounds`}
+                    />
+                  )}
                 </div>
               ))}
           </div>
