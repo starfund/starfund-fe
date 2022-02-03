@@ -8,7 +8,6 @@ const EnrollStar = () => {
   const intl = useIntl();
   const form = useRef();
   const [notesLenght, setNotesLenght] = useState(0);
-  const countries = ['a', 'b', 'c'];
   const isMobile = useMediaQuery({
     query: '(max-width: 1024px)'
   });
@@ -72,19 +71,6 @@ const EnrollStar = () => {
             name="phone"
             placeholder={intl.formatMessage({ id: 'enroll.phonenumber.placeholder' })}
           />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="country">{intl.formatMessage({ id: 'enroll.country' })}</label>
-          <br />
-          <select id="country" name="country">
-            <option value="" disabled selected>
-              {intl.formatMessage({ id: 'enroll.selectCountry' })}
-            </option>
-            {countries.map(c => (
-              <option>{c?.name}</option>
-            ))}
-          </select>
         </div>
         <br />
         <div>
