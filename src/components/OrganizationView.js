@@ -57,7 +57,8 @@ const OrganizationView = () => {
   const supporting = useSelector(state => state.subscriptions?.orgSubscriptions);
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
-  const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
+  const ppvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === true);
+  const lastEvent = ppvEvents && ppvEvents[0];
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -161,7 +162,7 @@ const OrganizationView = () => {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
-                    setEvent(sortedEvents.filter(e => e.homePage)[0]);
+                    setEvent(lastEvent);
                   } else {
                     setModalIsOpen(true);
                   }
@@ -229,7 +230,7 @@ const OrganizationView = () => {
                       setAllEvents(false);
                       setPPV(true);
                       setStore(false);
-                      setEvent(sortedEvents.filter(e => e.homePage)[0]);
+                      setEvent(lastEvent);
                     }}
                   >
                     {intl.formatMessage({ id: 'header.ppv' })}
@@ -318,6 +319,7 @@ const OrganizationView = () => {
           event={event}
           payed={payedPPV}
           subscribeAction={() => setModalIsOpen(true)}
+          hasBackground={!sortedEvents[0]?.homePage}
           homeNav={() => {
             setHome(true);
             setAllEvents(false);
@@ -368,7 +370,7 @@ const OrganizationView = () => {
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
-              payed={payed}
+              payed={payed || sortedEvents[0]?.homePage}
               payedPPV={payedPPV || !lastEvent}
               yearlyDiscount={organization?.yearlyDiscount}
               event={lastEvent}
@@ -391,6 +393,7 @@ const OrganizationView = () => {
               fighters={getAllFightersOrganization()}
               price={organization?.subPrice}
               type="subscription"
+              subscriptionType="monthly"
               hasReferal
               subscriptionType="monthly"
             />

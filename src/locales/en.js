@@ -52,8 +52,8 @@ export default {
   'email.invalid': 'You must enter a valid email',
   'password.presence': 'You must enter a password to continue',
   'passwordConfirmation.presence': 'You must enter a password confirmation to continue',
-  'passwordConfirmation.equality': 'Your password confirmation must be equal to the password',
   'shipping.allfields': 'Please fill out all fields',
+  'passwordConfirmation.equality': 'Passwords do not match',
 
   // Fields
   'form.signin.submit': 'SIGN IN',
@@ -153,7 +153,7 @@ export default {
   'billing.legal': ' Offer Terms and Terms of Service',
   'billing.addCard': 'Add payment method',
   'billing.newpassword': 'Please enter a new password with at least 8 characters',
-  'billing.nomatch': 'Your password confirmation must be equal to the password',
+  'billing.nomatch': 'Passwords do not match',
   'billing.terms': 'Please accept the terms and conditions',
   'billing.referalcode': 'None',
   'billing.addreferal': 'Which fighter referred you to our page?',

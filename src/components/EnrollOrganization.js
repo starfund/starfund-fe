@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 import { useMediaQuery } from 'react-responsive';
-import { Country } from 'country-state-city';
 import { useIntl } from 'react-intl';
 import { sendForm } from '@emailjs/browser';
 
@@ -9,7 +8,6 @@ const EnrollOrganization = () => {
   const intl = useIntl();
   const form = useRef();
   const [notesLenght, setNotesLenght] = useState(0);
-  const countries = Country.getAllCountries();
   const isMobile = useMediaQuery({
     query: '(max-width: 1024px)'
   });
@@ -97,19 +95,6 @@ const EnrollOrganization = () => {
             type="text"
             placeholder={intl.formatMessage({ id: 'enroll.companyinstagram.placeholder' })}
           />
-        </div>
-        <br />
-        <div>
-          <label htmlFor="country">{intl.formatMessage({ id: 'enroll.country' })}</label>
-          <br />
-          <select name="country" id="country">
-            <option value="" disabled selected>
-              {intl.formatMessage({ id: 'enroll.selectCountry' })}
-            </option>
-            {countries.map(c => (
-              <option>{c?.name}</option>
-            ))}
-          </select>
         </div>
         <br />
         <div>

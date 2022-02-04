@@ -22,6 +22,7 @@ const EventView = ({
   const [next, setNext] = useState(false);
   const [prelim, setPrelim] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(video);
+  const [selectedEvent, setSelectedEvent] = useState(currEvent);
 
   function getPublicVideos(e) {
     return e.mainEvents.concat(e.prelimEvents).filter(v => v.public);
@@ -49,6 +50,7 @@ const EventView = ({
                     setPrev(true);
                     setCurr(false);
                     setNext(false);
+                    setSelectedEvent(prevEvent);
                   }}
                 >
                   {prevEvent?.name}{' '}
@@ -62,6 +64,7 @@ const EventView = ({
                     setPrev(false);
                     setCurr(true);
                     setNext(false);
+                    setSelectedEvent(currEvent);
                   }}
                 >
                   {currEvent?.name} <span className="sr-only">(current)</span>
@@ -82,6 +85,7 @@ const EventView = ({
                       setPrev(false);
                       setCurr(false);
                       setNext(true);
+                      setSelectedEvent(nextEvent);
                     }
                   }}
                 >
@@ -97,41 +101,13 @@ const EventView = ({
             </ul>
           </React.Fragment>
         </div>
-        {prev && (
+        {selectedEvent && (
           <div>
-            {prevEvent && (
+            {selectedEvent && (
               <VideoSlider
-                event={prevEvent}
-                publicVideos={getPublicVideos(prevEvent)}
-                privateVideos={getPrivateVideos(prevEvent)}
-                subscribeAction={subscribeAction}
-                selectedVideo={selectedVideo}
-                payed={payed}
-              />
-            )}
-          </div>
-        )}
-        {curr && (
-          <div>
-            {currEvent && (
-              <VideoSlider
-                event={currEvent}
-                publicVideos={getPublicVideos(currEvent)}
-                privateVideos={getPrivateVideos(currEvent)}
-                subscribeAction={subscribeAction}
-                selectedVideo={selectedVideo}
-                payed={payed}
-              />
-            )}
-          </div>
-        )}
-        {next && (
-          <div>
-            {nextEvent && (
-              <VideoSlider
-                event={nextEvent}
-                publicVideos={getPublicVideos(nextEvent)}
-                privateVideos={getPrivateVideos(nextEvent)}
+                event={selectedEvent}
+                publicVideos={getPublicVideos(selectedEvent)}
+                privateVideos={getPrivateVideos(selectedEvent)}
                 subscribeAction={subscribeAction}
                 selectedVideo={selectedVideo}
                 payed={payed}
@@ -147,38 +123,42 @@ const EventView = ({
           <div className="navbar-collapse" id="navbarText">
             <React.Fragment>
               <ul className="navbar-nav">
-                <li className={cn('nav-item', { active: !prelim })}>
-                  <p
-                    className="nav-link"
-                    href=""
-                    onClick={() => {
-                      setPrelim(false);
-                    }}
-                  >
-                    {intl.formatMessage({ id: 'header.main' })}{' '}
-                    <span className="sr-only">(current)</span>
-                  </p>
-                </li>
-                <li className={cn('nav-item', { active: prelim })}>
-                  <p
-                    className="nav-link"
-                    href=""
-                    onClick={() => {
-                      setPrelim(true);
-                    }}
-                  >
-                    {intl.formatMessage({ id: 'header.prelim' })}{' '}
-                  </p>
-                </li>
+                {selectedEvent?.mainEvents.length > 0 && (
+                  <li className={cn('nav-item', { active: !prelim })}>
+                    <p
+                      className="nav-link"
+                      href=""
+                      onClick={() => {
+                        setPrelim(false);
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'header.main' })}{' '}
+                      <span className="sr-only">(current)</span>
+                    </p>
+                  </li>
+                )}
+                {selectedEvent?.prelimEvents.length > 0 && (
+                  <li className={cn('nav-item', { active: prelim })}>
+                    <p
+                      className="nav-link"
+                      href=""
+                      onClick={() => {
+                        setPrelim(true);
+                      }}
+                    >
+                      {intl.formatMessage({ id: 'header.prelim' })}{' '}
+                    </p>
+                  </li>
+                )}
               </ul>
             </React.Fragment>
           </div>
         </nav>
         <div className="container-nav">
           {!prelim &&
-            curr &&
-            currEvent?.mainEvents &&
-            currEvent?.mainEvents.map(v => (
+            selectedEvent &&
+            selectedEvent?.mainEvents &&
+            selectedEvent?.mainEvents.map(v => (
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}
@@ -202,96 +182,9 @@ const EventView = ({
               </div>
             ))}
           {prelim &&
-            curr &&
-            currEvent?.prelimEvents &&
-            currEvent?.prelimEvents.map(v => (
-              <div className="event-item">
-                <div className="event-item-title">
-                  {v?.title}
-                  {payed && (
-                    <div className="event-item-desc">
-                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                        v?.resultDescription
-                      }`}
-                    </div>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
-              </div>
-            ))}
-          {!prelim &&
-            next &&
-            nextEvent?.mainEvents &&
-            nextEvent?.mainEvents.map(v => (
-              <div className="event-item">
-                <div className="event-item-title">
-                  {v?.title}
-                  {payed && (
-                    <div className="event-item-desc">
-                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                        v?.resultDescription
-                      }`}
-                    </div>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
-              </div>
-            ))}
-          {prelim &&
-            next &&
-            nextEvent?.prelimEvents &&
-            nextEvent?.prelimEvents.map(v => (
-              <div className="event-item">
-                {v?.title}
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
-              </div>
-            ))}
-          {!prelim &&
-            prev &&
-            prevEvent?.mainEvents &&
-            prevEvent?.mainEvents.map(v => (
-              <div className="event-item">
-                <div className="event-item-title">
-                  {v?.title}
-                  {payed && (
-                    <div className="event-item-desc">
-                      {`${intl.formatMessage({ id: 'organization.winner' })} : ${v?.winner} | ${
-                        v?.resultDescription
-                      }`}
-                    </div>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  className={isMobile ? 'btn-mob btn-danger btn-lg' : 'btn btn-danger btn-lg'}
-                  onClick={() => (v.public || payed ? setSelectedVideo(v) : subscribeAction())}
-                >
-                  {intl.formatMessage({ id: 'organization.watchfight' })}
-                </button>
-              </div>
-            ))}
-          {prelim &&
-            prev &&
-            prevEvent?.prelimEvents &&
-            prevEvent?.prelimEvents.map(v => (
+            selectedEvent &&
+            selectedEvent?.prelimEvents &&
+            selectedEvent?.prelimEvents.map(v => (
               <div className="event-item">
                 <div className="event-item-title">
                   {v?.title}

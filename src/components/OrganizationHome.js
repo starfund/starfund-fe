@@ -21,6 +21,36 @@ const OrganizationHome = ({
     query: '(max-width: 765px)'
   });
   const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
+  const nonPpvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === false);
+
+  const getPrevEvent = () => {
+    if (nonPpvEvents?.length >= 3) {
+      return nonPpvEvents[nonPpvEvents.length - 3];
+    }
+    if (nonPpvEvents?.length == 2) {
+      return nonPpvEvents[0];
+    }
+  };
+
+  const getCurrentEvent = () => {
+    if (nonPpvEvents?.length >= 3) {
+      return nonPpvEvents[nonPpvEvents.length - 2];
+    }
+    if (nonPpvEvents?.length == 2) {
+      return nonPpvEvents[1];
+    }
+    if (nonPpvEvents?.length == 1) {
+      return nonPpvEvents[0];
+    }
+  };
+
+  const getNextEvent = () => {
+    if (nonPpvEvents?.length >= 3) {
+      return nonPpvEvents[nonPpvEvents.length - 1];
+    }
+    return lastEvent;
+  };
+
   return (
     <div className="organization-container">
       <div>
@@ -30,27 +60,39 @@ const OrganizationHome = ({
             subscribeAction={subscribeAction}
             payed={payedPPV}
             watchAction={watchAction}
+            hasTimer
           />
+        )}
+        {lastEvent && isMobile && sortedEvents[0].homePage && (
+          <div>
+            <CountDownTimer
+              event={lastEvent}
+              subscribeAction={subscribeAction}
+              payed={payedPPV}
+              watchAction={watchAction}
+              hasTimer={false}
+            />
+            <br />
+            <br />
+            <br />
+          </div>
         )}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
-        {sortedEvents && !isMobile && (
+        {nonPpvEvents && !sortedEvents[0].homePage && !isMobile && (
           <EventView
-            prevEvent={sortedEvents[sortedEvents?.length - 3]}
-            currEvent={sortedEvents[sortedEvents?.length - 2]}
-            nextEvent={sortedEvents[sortedEvents?.length - 1]}
+            prevEvent={getPrevEvent()}
+            currEvent={getCurrentEvent()}
+            nextEvent={getNextEvent()}
             subscribeAction={subscribeAction}
             payed={payed}
             payedPPV={payedPPV}
             goToPPV={watchAction}
-            isUpcoming={
-              sortedEvents[sortedEvents?.length - 1]?.id ==
-              sortedEvents.filter(e => e.homePage === true)[0]?.id
-            }
+            isUpcoming={getNextEvent()?.id == lastEvent?.id}
           />
         )}
-        {sortedEvents && isMobile && (
+        {sortedEvents && !sortedEvents[0].homePage && isMobile && (
           <EventViewMobile
             organization={organization}
             subscribeAction={subscribeAction}
