@@ -19,7 +19,7 @@ const OrganizationEvents = ({
   subscribeAction,
   payed,
   homeNav,
-  payedPPV,
+  supportingPPV,
   goToPPV,
   allevents,
   setAllEvents
@@ -27,7 +27,8 @@ const OrganizationEvents = ({
   const intl = useIntl();
   const sortedEvents = organization?.events.slice();
   sortedEvents?.sort((a, b) => (new Date(a.eventDate) - new Date(b.eventDate) >= 0 ? 1 : -1));
-  const lastEventId = sortedEvents[sortedEvents?.length - 1]?.id;
+  const ppvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === true);
+  const lastEvent = ppvEvents && ppvEvents[0];
   const [prevEvent, setPrevEvent] = useState();
   const [currEvent, setCurrEvent] = useState();
   const [nextEvent, setNextEvent] = useState();
@@ -185,7 +186,7 @@ const OrganizationEvents = ({
                   type="button"
                   className="btn btn-danger btn-lg"
                   onClick={() => {
-                    subscribeAction();
+                    subscribeAction(lastEvent);
                   }}
                 >
                   {intl.formatMessage({ id: 'organization.seasonpass' })}
@@ -265,24 +266,26 @@ const OrganizationEvents = ({
                               setPrevEvent(sortedEvents[index - 1]);
                               setNextEvent(sortedEvents[index + 1]);
                             } else {
-                              subscribeAction();
+                              subscribeAction(lastEvent);
                             }
                           }}
                         >
                           {intl.formatMessage({ id: 'organization.watchevent' })}
                         </button>
                       )}
-                    {!isMobile && item?.homePage && !payedPPV && (
-                      <button
-                        type="button"
-                        className="btn btn-danger btn-lg"
-                        onClick={() => {
-                          subscribeAction();
-                        }}
-                      >
-                        {intl.formatMessage({ id: 'organization.button.buyppv' })}
-                      </button>
-                    )}
+                    {!isMobile &&
+                      item?.homePage &&
+                      !supportingPPV.map(s => s.orgEvent).includes(item?.id) && (
+                        <button
+                          type="button"
+                          className="btn btn-danger btn-lg"
+                          onClick={() => {
+                            subscribeAction(item);
+                          }}
+                        >
+                          {intl.formatMessage({ id: 'organization.button.buyppv' })}
+                        </button>
+                      )}
                   </div>
                   <div>
                     <div className="event-row">
@@ -307,7 +310,7 @@ const OrganizationEvents = ({
                                   setPrevEvent(sortedEvents[index - 1]);
                                   setNextEvent(sortedEvents[index + 1]);
                                 } else {
-                                  subscribeAction();
+                                  subscribeAction(lastEvent);
                                 }
                               }}
                             >
@@ -378,7 +381,7 @@ const OrganizationEvents = ({
                                     setPrevEvent(sortedEvents[index - 1]);
                                     setNextEvent(sortedEvents[index + 1]);
                                   } else {
-                                    subscribeAction();
+                                    subscribeAction(lastEvent);
                                   }
                                 }}
                               >
@@ -448,18 +451,18 @@ const OrganizationEvents = ({
               prevEvent={prevEvent}
               currEvent={currEvent}
               nextEvent={nextEvent}
-              subscribeAction={subscribeAction}
+              subscribeAction={() => subscribeAction(lastEvent)}
               video={selectedVideo}
               payed={payed}
-              payedPPV={payedPPV}
+              payedPPV={supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id)}
               goToPPV={goToPPV}
-              isUpcoming={nextEvent?.id === lastEventId}
+              isUpcoming={nextEvent?.homePage}
             />
           )}
           {isMobile && (
             <EventViewMobile
               organization={organization}
-              subscribeAction={subscribeAction}
+              subscribeAction={() => subscribeAction(lastEvent)}
               payed={payed}
               eventsNav={() => setAllEvents(true)}
               event={currEvent?.name}

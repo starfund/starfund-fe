@@ -4178,5 +4178,56 @@ h3 {
 }
 
 .many-ppv-container {
-  .many-ppv-card{}
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .row {
+    width: 80%;
+    margin-bottom: 5%
+  }
+
+  .many-ppv-title{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .many-ppv-card{
+    width: 100%;
+    border: solid 1px #1f1f1f;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #373737;
+
+    .many-ppv-card-title{
+      font-size: 28px;
+      margin: 5px;
+      margin-top: 10%;
+    }
+
+    .many-ppv-card-date {
+      font-weight: normal !important;
+    }
+
+    button{
+      background: #EB0000;
+      width: 80%;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal !important;
+      font-size: 17px;
+      line-height: 21px;
+      height: 45px;
+      letter-spacing: -0.025em;
+      color: #FFFFFF;
+      margin-top: 30%;
+      margin-bottom: 10%;
+    }
+  }
+
 }

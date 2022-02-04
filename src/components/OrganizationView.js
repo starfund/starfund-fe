@@ -59,6 +59,8 @@ const OrganizationView = () => {
   const payed = supporting.map(s => s.orgName).includes(name);
   const ppvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === true);
   const lastEvent = ppvEvents && ppvEvents[0];
+  const [ppvEvent, setPPVEvent] = useState(lastEvent);
+  const [selectedPPV, setSelectedPPV] = useState(ppvEvents?.length == 1);
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -67,10 +69,14 @@ const OrganizationView = () => {
 
   const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id);
 
-  const isDiscount =
-    lastEvent?.finished &&
-    today > new Date(lastEvent?.eventDate) &&
-    today < addDays(lastEvent?.eventDate, 30);
+  const isDiscount = e => {
+    return e?.finished && today > new Date(e?.eventDate) && today < addDays(e?.eventDate, 30);
+  };
+
+  const selectPPVEvent = e => {
+    setPPVEvent(e);
+    setSelectedPPV(true);
+  };
 
   const selectOptionPPV = () => {
     setPayPPV(true);
@@ -118,8 +124,8 @@ const OrganizationView = () => {
     return uniq(allFighters);
   };
 
-  const getAllFightersLastEvent = () => {
-    const allVideos = lastEvent?.mainEvents.concat(lastEvent?.prelimEvents).flat();
+  const getAllFightersLastEvent = e => {
+    const allVideos = e?.mainEvents.concat(lastEvent?.prelimEvents).flat();
     const allFighters = allVideos
       ?.map(v => {
         return [v?.fighter1, v?.fighter2];
@@ -128,10 +134,14 @@ const OrganizationView = () => {
     return uniq(allFighters);
   };
 
+  const subscribeAction = e => {
+    setPPVEvent(e);
+    setModalIsOpen(true);
+  };
+
   const [home, setHome] = useState(!payedPPV);
   const [allevents, setAllEvents] = useState(false);
   const [ppv, setPPV] = useState(payedPPV);
-  const [event, setEvent] = useState(sortedEvents?.filter(e => e.homePage)[0]);
 
   return (
     <div className="fighter-container">
@@ -161,8 +171,8 @@ const OrganizationView = () => {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
-                    setEvent(lastEvent);
                   } else {
+                    setPPVEvent(lastEvent);
                     setModalIsOpen(true);
                   }
                 }}
@@ -226,7 +236,9 @@ const OrganizationView = () => {
                       setHome(false);
                       setAllEvents(false);
                       setPPV(true);
-                      setEvent(lastEvent);
+                      if (ppvEvents?.length > 1) {
+                        setSelectedPPV(false);
+                      }
                     }}
                   >
                     {intl.formatMessage({ id: 'header.ppv' })}
@@ -240,14 +252,13 @@ const OrganizationView = () => {
       {home && (
         <OrganizationHome
           organization={organization}
-          subscribeAction={() => setModalIsOpen(true)}
+          subscribeAction={() => subscribeAction(lastEvent)}
           payed={payed}
           payedPPV={payedPPV}
           watchAction={() => {
             setHome(false);
             setAllEvents(false);
             setPPV(true);
-            setEvent(sortedEvents[sortedEvents?.length - 1]);
           }}
           homeNav={() => {
             setHome(true);
@@ -269,30 +280,31 @@ const OrganizationView = () => {
       {allevents && (
         <OrganizationEvents
           organization={organization}
-          subscribeAction={() => setModalIsOpen(true)}
+          subscribeAction={subscribeAction}
           payed={payed}
           homeNav={() => {
             setHome(true);
             setAllEvents(false);
             setPPV(false);
           }}
-          payedPPV={payedPPV}
+          supportingPPV={supportingPPV}
           goToPPV={() => {
             setHome(false);
             setAllEvents(false);
             setPPV(true);
-            setEvent(sortedEvents.filter(e => e.homePage)[0]);
           }}
           allevents={allevents2}
           setAllEvents={setAllEvents2}
         />
       )}
-      {ppv && ppvEvents?.length > 1 && <OrganizationMultiplePPV events={ppvEvents} />}
-      {ppv && lastEvent && ppvEvents?.length == 1 && (
+      {ppv && !selectedPPV && (
+        <OrganizationMultiplePPV events={ppvEvents} selectEvent={selectPPVEvent} />
+      )}
+      {ppv && selectedPPV && (
         <OrganizationPPV
-          event={event}
-          payed={payedPPV}
-          subscribeAction={() => setModalIsOpen(true)}
+          event={ppvEvent}
+          payed={supportingPPV.map(s => s.orgEvent).includes(ppvEvent?.id)}
+          subscribeAction={() => subscribeAction(ppvEvent)}
           hasBackground={!sortedEvents[0]?.homePage}
           homeNav={() => {
             setHome(true);
@@ -327,15 +339,17 @@ const OrganizationView = () => {
             email={currentUser?.email}
           >
             <PaymentMode
-              onDemandPrice={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
+              onDemandPrice={
+                isDiscount(ppvEvent) ? organization?.ppvPrice * 0.75 : organization?.ppvPrice
+              }
               MonthlyPrice={organization?.subPrice}
               selectOptionPPV={() => selectOptionPPV()}
               selectOptionMonthly={() => selectOptionMonthly()}
               selectOptionYearly={() => selectOptionYearly()}
               payed={payed || sortedEvents[0]?.homePage}
-              payedPPV={payedPPV || !lastEvent}
+              payedPPV={supportingPPV.map(s => s.orgEvent).includes(ppvEvent?.id) || !lastEvent}
               yearlyDiscount={organization?.yearlyDiscount}
-              event={lastEvent}
+              event={ppvEvent}
             />
           </ConfirmationModal>
 
@@ -365,16 +379,16 @@ const OrganizationView = () => {
             isOpen={payPPV}
             setIsOpen={setPayPPV}
             isDelete={false}
-            price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
+            price={isDiscount(ppvEvent) ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
             email={currentUser?.email}
             organization={organization?.id}
             backFunction={() => backFunction()}
           >
             <BillingForm
               email={currentUser?.email}
-              orgEvent={lastEvent?.id}
-              price={isDiscount ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
-              fighters={getAllFightersLastEvent()}
+              orgEvent={ppvEvent?.id}
+              price={isDiscount(ppvEvent) ? organization?.ppvPrice * 0.75 : organization?.ppvPrice}
+              fighters={getAllFightersLastEvent(ppvEvent)}
               type="ppv"
               hasReferal
             />
