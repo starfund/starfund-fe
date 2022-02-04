@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-import { State, City } from 'country-state-city';
 import { useIntl } from 'react-intl';
 
 import Input from './common/Input';
@@ -39,30 +37,23 @@ const ShippingInfo = ({ close, next }) => {
         )}
       </div>
       <div className="col-12">
-        <select
-          className="shipping-input"
-          style={{ marginTop: '30px' }}
+        <Input
           value={region}
           onChange={e => setRegion(e.target.value)}
-        >
-          <option value="" disabled selected>
-            State
-          </option>
-          {State.getStatesOfCountry('US').map(s => (
-            <option value={s?.isoCode}>{s?.name}</option>
-          ))}
-        </select>
+          className="shipping-input"
+          name="State"
+          placeholder="State"
+        />
       </div>
       <br />
       <div className="col-12">
-        <select className="shipping-input" value={city} onChange={e => setCity(e.target.value)}>
-          <option value="" disabled selected>
-            City
-          </option>
-          {City.getCitiesOfState('US', region).map(c => (
-            <option value={c?.name}>{c?.name}</option>
-          ))}
-        </select>
+        <Input
+          value={city}
+          onChange={e => setCity(e.target.value)}
+          className="shipping-input"
+          name="City"
+          placeholder="City"
+        />
       </div>
       <br />
       <div className="col-12">
