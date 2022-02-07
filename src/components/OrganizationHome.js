@@ -21,6 +21,7 @@ const OrganizationHome = ({
   });
   const lastEvent = sortedEvents && sortedEvents.filter(e => e.homePage === true)[0];
   const nonPpvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === false);
+  const ppvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === true);
 
   const getPrevEvent = () => {
     if (nonPpvEvents?.length >= 3) {
@@ -59,6 +60,7 @@ const OrganizationHome = ({
             subscribeAction={subscribeAction}
             payed={payedPPV}
             watchAction={watchAction}
+            hasManyPPV={ppvEvents.length > 1}
             hasTimer
           />
         )}
@@ -69,6 +71,7 @@ const OrganizationHome = ({
               subscribeAction={subscribeAction}
               payed={payedPPV}
               watchAction={watchAction}
+              hasManyPPV={ppvEvents.length > 1}
               hasTimer={false}
             />
             <br />
@@ -86,7 +89,7 @@ const OrganizationHome = ({
             nextEvent={getNextEvent()}
             subscribeAction={subscribeAction}
             payed={payed}
-            payedPPV={payedPPV}
+            payedPPV={payedPPV || ppvEvents.length > 1}
             goToPPV={watchAction}
             isUpcoming={getNextEvent()?.id == lastEvent?.id}
           />

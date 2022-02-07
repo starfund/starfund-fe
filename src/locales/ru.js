@@ -270,6 +270,9 @@ export default {
   'organization.noppv.title': 'Нет предстоящих шоу, зайдите позже',
   'organization.noppv.desc':
     'Подпишитесь ежемесячно, чтобы получить доступ к более чем 100 бойцовским материалам',
+  'organizations.manyppv.watchnow': 'Смотри',
+  'organizations.manyppv.details': 'посмотреть детали',
+  'organization.manyppv.title': 'Все предстоящие PPV-события',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

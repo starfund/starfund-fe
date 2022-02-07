@@ -167,7 +167,7 @@ const OrganizationView = () => {
                 type="button"
                 className="btn btn-danger btn-lg"
                 onClick={() => {
-                  if (payedPPV || isMobile) {
+                  if (payedPPV || isMobile || ppvEvents.length > 0) {
                     setHome(false);
                     setAllEvents(false);
                     setPPV(true);
@@ -298,7 +298,11 @@ const OrganizationView = () => {
         />
       )}
       {ppv && !selectedPPV && (
-        <OrganizationMultiplePPV events={ppvEvents} selectEvent={selectPPVEvent} />
+        <OrganizationMultiplePPV
+          events={ppvEvents}
+          selectEvent={selectPPVEvent}
+          supportingPPV={supportingPPV}
+        />
       )}
       {ppv && selectedPPV && (
         <OrganizationPPV

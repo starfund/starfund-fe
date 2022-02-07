@@ -275,6 +275,9 @@ export default {
   'organization.noppv.title': 'No hay shows en este momento, volver a consultar más tarde',
   'organization.noppv.desc':
     'Suscribirse mensualmente para obtener acceso a 100 + videos de peleas',
+  'organizations.manyppv.watchnow': 'Ver ahora',
+  'organizations.manyppv.details': 'Ver Detalles',
+  'organization.manyppv.title': 'Eventos PPV',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',

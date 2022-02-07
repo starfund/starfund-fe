@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'react-responsive';
 
-const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasTimer }) => {
+const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasManyPPV, hasTimer }) => {
   const intl = useIntl();
   const date = new Date(event?.eventDate);
   const months = [
@@ -181,7 +181,7 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasTimer }
             type="button"
             className="btn btn-danger btn-lg"
             onClick={() => {
-              payed ? watchAction() : subscribeAction();
+              payed || hasManyPPV ? watchAction() : subscribeAction();
             }}
           >
             {payed

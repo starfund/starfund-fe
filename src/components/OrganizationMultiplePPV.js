@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 
-const OrganizationMultiplePPV = ({ events, selectEvent }) => {
+const OrganizationMultiplePPV = ({ events, selectEvent, supportingPPV }) => {
   const intl = useIntl();
 
   const months = [
@@ -30,7 +30,11 @@ const OrganizationMultiplePPV = ({ events, selectEvent }) => {
     <div className="many-ppv-container">
       <div className="row">
         <div className="col-12 many-ppv-title">
-          <h2>All upcoming PPV events</h2>
+          <h2>
+            {intl.formatMessage({
+              id: 'organization.manyppv.title'
+            })}
+          </h2>
         </div>
         <br />
         <br />
@@ -39,8 +43,15 @@ const OrganizationMultiplePPV = ({ events, selectEvent }) => {
             <div className="many-ppv-card">
               <div className="many-ppv-card-title">{e?.name}</div>
               <div className="many-ppv-card-date">{EventDate(e?.eventDate)}</div>
+              <img alt="" src={e?.coverPhoto} className="many-ppv-card-image" />
               <button type="button" onClick={() => selectEvent(e)}>
-                View Details
+                {!supportingPPV.map(s => s.orgEvent).includes(e?.id)
+                  ? intl.formatMessage({
+                      id: 'organization.manyppv.details'
+                    })
+                  : intl.formatMessage({
+                      id: 'organization.manyppv.watchnow'
+                    })}
               </button>
             </div>
           </div>

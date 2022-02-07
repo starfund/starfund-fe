@@ -4214,6 +4214,12 @@ h3 {
       font-weight: normal !important;
     }
 
+    .many-ppv-card-image {
+      width: 80%;
+      height: 300px;
+      margin-top: 10%;
+    }
+
     button{
       background: #EB0000;
       width: 80%;
@@ -4225,7 +4231,7 @@ h3 {
       height: 45px;
       letter-spacing: -0.025em;
       color: #FFFFFF;
-      margin-top: 30%;
+      margin-top: 10%;
       margin-bottom: 10%;
     }
   }

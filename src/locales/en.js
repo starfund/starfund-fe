@@ -270,6 +270,9 @@ export default {
   'organization.rewatch': 'REWATCH',
   'organization.noppv.title': 'No Upcoming Shows, Check Back Later',
   'organization.noppv.desc': 'Subscribe Monthly to Get Access to 100 + Fight Contents',
+  'organization.manyppv.watchnow': 'Watch now',
+  'organization.manyppv.details': 'View Details',
+  'organization.manyppv.title': 'All upcoming PPV events',
 
   // HOME
   'home.fighters.title': 'Explore Stars',
