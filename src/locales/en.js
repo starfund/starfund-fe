@@ -285,6 +285,7 @@ export default {
   'organization.store.total': 'TOTAL:',
   'organization.store.buy': 'Buy now',
   'organization.store.pleasesize': 'Please select a size',
+  'organization.store.notification': 'Your order was recieved!',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

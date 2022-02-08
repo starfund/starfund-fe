@@ -21,7 +21,8 @@ const ConfirmationModal = ({
   setIsOpen,
   price,
   backFunction,
-  noFooter
+  noFooter,
+  merchItem
 }) => {
   const dispatch = useDispatch();
   const intl = useIntl();
@@ -51,6 +52,9 @@ const ConfirmationModal = ({
       if (subStatus === SUCCESS) {
         dispatch(subscribe.reset());
         setIsOpen(false);
+        if (merchItem) {
+          window.history.pushState({ order: true }, '', '/dashboard');
+        }
         window.location.reload();
       }
     }
@@ -59,6 +63,9 @@ const ConfirmationModal = ({
       dispatch(updatePassword.reset());
       setIsOpen(false);
       window.history.pushState({ new: true }, '', '/dashboard');
+      if (merchItem) {
+        window.history.pushState({ order: true }, '', '/dashboard');
+      }
       window.location.reload();
     }
 
@@ -66,6 +73,9 @@ const ConfirmationModal = ({
       if (chargeStatus === SUCCESS) {
         dispatch(charge.reset());
         setIsOpen(false);
+        if (merchItem) {
+          window.history.pushState({ order: true }, '', '/dashboard');
+        }
         window.location.reload();
       }
     }
@@ -75,6 +85,9 @@ const ConfirmationModal = ({
         dispatch(updatePassword.reset());
         setIsOpen(false);
         window.history.pushState({ new: true }, '', '/dashboard');
+        if (merchItem) {
+          window.history.pushState({ order: true }, '', '/dashboard');
+        }
         window.location.reload();
       }
     }
@@ -88,7 +101,8 @@ const ConfirmationModal = ({
     subStatus,
     chargeStatus,
     history,
-    intl
+    intl,
+    merchItem
   ]);
 
   return (

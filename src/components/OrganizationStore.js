@@ -107,7 +107,13 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
             </div>
           ))}
       </div>
-      <ConfirmationModal isOpen={modalIsOpen} setIsOpen={setModalIsOpen} isDelete={false} noFooter>
+      <ConfirmationModal
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+        isDelete={false}
+        noFooter
+        merchItem={merchItem}
+      >
         <MerchItemDetails
           merchItem={merchItem}
           close={() => setModalIsOpen(false)}
@@ -119,6 +125,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
         setIsOpen={setShippingInfo}
         isDelete={false}
         noFooter
+        merchItem={merchItem}
       >
         <ShippingInfo close={() => setShippingInfo(false)} next={getBillingInfo} />
       </ConfirmationModal>
@@ -128,6 +135,7 @@ const OrganizationStore = ({ organization, homeNav, currentUser }) => {
         isDelete={false}
         price={amount * merchItem?.price * 100}
         email={currentUser?.email}
+        merchItem={merchItem}
       >
         <BillingForm
           email={currentUser?.email}

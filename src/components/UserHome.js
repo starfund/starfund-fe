@@ -40,6 +40,7 @@ const UserHome = () => {
   const language = useSelector(state => state.language.language);
   const eventPPV = useSelector(state => state.subscriptions.ppvCharges);
   const value = window.history.state?.new;
+  const order = window.history.state?.order;
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -73,6 +74,18 @@ const UserHome = () => {
               <div className="flash-message-text">
                 <h4>{intl.formatMessage({ id: 'password.create.title' })}</h4>
                 {intl.formatMessage({ id: 'password.create.message' })}
+              </div>
+            </div>
+          </FlashMessage>
+        </div>
+      )}
+      {order && (
+        <div className="flash-message-container">
+          <FlashMessage duration={5000} persistOnHover>
+            <div className="flash-message">
+              <img style={{ width: '8vh' }} src={Tick} alt="" />
+              <div className="flash-message-text">
+                <h4>{intl.formatMessage({ id: 'organization.store.notification' })}</h4>
               </div>
             </div>
           </FlashMessage>

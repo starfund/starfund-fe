@@ -4,9 +4,13 @@ import { useIntl } from 'react-intl';
 import Input from './common/Input';
 import Button from './common/Button';
 
+const CityState = require('city-and-state');
+
+const cityState = new CityState();
+
 const ShippingInfo = ({ close, next }) => {
   const intl = useIntl();
-
+  const states = cityState.getStates();
   const [region, setRegion] = useState('');
   const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
@@ -37,23 +41,23 @@ const ShippingInfo = ({ close, next }) => {
         )}
       </div>
       <div className="col-12">
-        <Input
-          value={region}
-          onChange={e => setRegion(e.target.value)}
-          className="shipping-input"
-          name="State"
-          placeholder="State"
-        />
+        <select value={region} onChange={e => setRegion(e.target.value)} className="shipping-input">
+          <option value="" disabled>
+            Select State
+          </option>
+          {states.map(s => (
+            <option value={s}>{s}</option>
+          ))}
+        </select>
       </div>
       <br />
       <div className="col-12">
-        <Input
-          value={city}
-          onChange={e => setCity(e.target.value)}
-          className="shipping-input"
-          name="City"
-          placeholder="City"
-        />
+        <select value={city} onChange={e => setCity(e.target.value)} className="shipping-input">
+          <option value="" disabled>
+            Select City
+          </option>
+          {cityState.getCitiesOfState('Indiana')?.map(s => <option value={s}>{s}</option>)}
+        </select>
       </div>
       <br />
       <div className="col-12">

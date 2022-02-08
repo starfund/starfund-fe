@@ -285,6 +285,7 @@ export default {
   'organization.store.total': 'ВСЕГО:',
   'organization.store.buy': 'Купи сейчас',
   'organization.store.pleasesize': 'Пожалуйста выберите размер',
+  'organization.store.notification': 'Ваш заказ получен!',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

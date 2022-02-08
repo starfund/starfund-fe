@@ -6333,6 +6333,11 @@ circular-json@^0.3.1:
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
   integrity sha512-UZK3NBx2Mca+b5LsG7bY183pHWt5Y1xts4P3Pz7ENTwGVnJOUWbRb3ocjvX7hx9tq/yTAdclXm9sZ38gNuem4A==
 
+city-and-state@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/city-and-state/-/city-and-state-2.0.0.tgz#729081f7fbc5c01e20d012adeed496e45326afc8"
+  integrity sha512-9JKilw4Hcf5wQtMNvWtv6dSx63+aTSttuy5yS0d8B4a6VZmUSJl4SoLruvI+C0UWKJeHgpyhOmx7X5+We/efnA==
+
 cjs-module-lexer@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz#4186fcca0eae175970aee870b9fe2d6cf8d5655f"

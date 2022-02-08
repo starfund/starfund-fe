@@ -290,6 +290,7 @@ export default {
   'organization.store.total': 'TOTAL:',
   'organization.store.buy': 'Comprar ahora',
   'organization.store.pleasesize': 'Porfavor elegir un talle',
+  'organization.store.notification': 'Su pedido fue recibido!',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',
