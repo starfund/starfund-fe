@@ -4,13 +4,11 @@ import { useIntl } from 'react-intl';
 import Input from './common/Input';
 import Button from './common/Button';
 
-const CityState = require('city-and-state');
-
-const cityState = new CityState();
+const csc = require('countrycitystatejson');
 
 const ShippingInfo = ({ close, next }) => {
   const intl = useIntl();
-  const states = cityState.getStates();
+  const states = csc.getStatesByShort('US');
   const [region, setRegion] = useState('');
   const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
@@ -56,7 +54,9 @@ const ShippingInfo = ({ close, next }) => {
           <option value="" disabled>
             Select City
           </option>
-          {cityState.getCitiesOfState('Indiana')?.map(s => <option value={s}>{s}</option>)}
+          {csc.getCities('US', region).map(s => (
+            <option value={s}>{s}</option>
+          ))}
         </select>
       </div>
       <br />
