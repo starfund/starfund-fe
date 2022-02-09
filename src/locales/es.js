@@ -210,6 +210,7 @@ export default {
 
   // ORGANIZTION
   'organization.button.watch': 'MIRAR EN VIVO EN PPV',
+  'organization.button.replay': 'MIRAR REPLAY',
   'organization.days': 'DIAS',
   'organization.day': 'DIA',
   'organization.hours': 'HORAS',
@@ -275,6 +276,7 @@ export default {
   'organization.noppv.title': 'No hay shows en este momento, volver a consultar más tarde',
   'organization.noppv.desc':
     'Suscribirse mensualmente para obtener acceso a 100 + videos de peleas',
+  'organization.upcomingPPV': 'Este evento estara disponible el',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',
@@ -332,6 +334,7 @@ export default {
   'payment.service1': 'Comprar PPV unico',
   'payment.service1.date': 'Este evento empieza el',
   'payment.service1.replaydate': 'Este evento fue el',
+  'payment.service1.availabledate': 'Este evento estara disponible el',
   'payment.service2': 'Acceder a 100+ peleas',
   'payment.service3': 'Recivir 10% off en PPV',
   'payment.service4': 'Ahorra $ {amount}',

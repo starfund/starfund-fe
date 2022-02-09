@@ -150,7 +150,7 @@ const VideoSlider = ({
             <br />
             <div className="event-subtitle">{displayContent?.description}</div>
             <br />
-            <div className="event-description">{EventDate(event?.eventDate)}</div>
+            <div className="event-description">{EventDate(event?.eventDate?.slice(0, 19))}</div>
             <br />
             <div className="event-description">{event?.location}</div>
           </div>

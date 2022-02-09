@@ -206,6 +206,7 @@ export default {
 
   // ORGANIZTION
   'organization.button.watch': 'СМОТРЕТЬ В РЕЖИМЕ PPV',
+  'organization.button.replay': 'СМОТРЕТЬ ПОВТОР',
   'organization.days': 'ДНЕЙ',
   'organization.day': 'ДЕНЬ',
   'organization.hours': 'ЧАСЫ',
@@ -270,6 +271,7 @@ export default {
   'organization.noppv.title': 'Нет предстоящих шоу, зайдите позже',
   'organization.noppv.desc':
     'Подпишитесь ежемесячно, чтобы получить доступ к более чем 100 бойцовским материалам',
+  'organization.upcomingPPV': 'Это событие будет доступно на',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',
@@ -324,6 +326,7 @@ export default {
   'payment.service1': 'Покупка одного PPV',
   'payment.service1.date': 'Это мероприятие начинается',
   'payment.service1.replaydate': 'Это событие транслировалось',
+  'payment.service1.availabledate': 'Это событие будет доступно для повтора на',
   'payment.service2': 'Доступ к 100+ боям',
   'payment.service3': 'Получите 10% скидку на PPV',
   'payment.service4': 'сэкономьте $ {amount}',

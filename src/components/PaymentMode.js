@@ -53,15 +53,22 @@ const PaymentMode = ({
           </div>
           <div className="services-container">
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service1' })}`}</div>
-            {!event?.finished ? (
+            {!event?.finished && !event?.replay && (
               <div className="services">
                 {`✓ ${intl.formatMessage({ id: 'payment.service1.date' })}`}{' '}
-                {EventDate(event?.eventDate)}
+                {EventDate(event?.eventDate?.slice(0, 19))}
               </div>
-            ) : (
+            )}
+            {!event?.finished && event?.replay && (
+              <div className="services">
+                {`✓ ${intl.formatMessage({ id: 'payment.service1.availabledate' })}`}{' '}
+                {EventDate(event?.eventDate?.slice(0, 19))}
+              </div>
+            )}
+            {event?.finished && (
               <div className="services">
                 {`✓ ${intl.formatMessage({ id: 'payment.service1.replaydate' })}`}{' '}
-                {EventDate(event?.eventDate)}
+                {EventDate(event?.eventDate?.slice(0, 19))}
               </div>
             )}
           </div>

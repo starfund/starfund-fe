@@ -204,7 +204,11 @@ const EventViewMobile = ({
           <p>{`${displayContent?.division} | ${displayContent?.rounds} Rounds`}</p>
         </div>
         <div>
-          <p>{EventDate(sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.eventDate)}</p>
+          <p>
+            {EventDate(
+              sortedEvents.filter(ev => ev.name == selectedEventName)[0]?.eventDate?.slice(0, 19)
+            )}
+          </p>
         </div>
       </div>
       <div className="mobile-nav-center">

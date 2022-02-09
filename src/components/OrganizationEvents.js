@@ -235,7 +235,9 @@ const OrganizationEvents = ({
                     {item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
                       <div className="event-video-text">
                         <div className="event-name-all-events">{item?.name}</div>
-                        <div className="event-description">{EventDate(item?.eventDate)}</div>
+                        <div className="event-description">
+                          {EventDate(item?.eventDate?.slice(0, 19))}
+                        </div>
                         <br />
                       </div>
                     )}

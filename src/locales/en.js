@@ -207,6 +207,7 @@ export default {
 
   // ORGANIZTION
   'organization.button.watch': 'WATCH LIVE ON PPV',
+  'organization.button.replay': 'WATCH REPLAY',
   'organization.days': 'DAYS',
   'organization.day': 'DAY',
   'organization.hours': 'HOURS',
@@ -270,6 +271,7 @@ export default {
   'organization.rewatch': 'REWATCH',
   'organization.noppv.title': 'No Upcoming Shows, Check Back Later',
   'organization.noppv.desc': 'Subscribe Monthly to Get Access to 100 + Fight Contents',
+  'organization.upcomingPPV': 'This event will be available on',
 
   // HOME
   'home.fighters.title': 'Explore Stars',
@@ -327,6 +329,7 @@ export default {
   'payment.service1': 'Purchase single PPV',
   'payment.service1.date': 'This event starts on',
   'payment.service1.replaydate': 'This event was aired on',
+  'payment.service1.availabledate': 'This event will be available for replay on',
   'payment.service2': 'Access to 100+ fights',
   'payment.service3': 'Recieve 10% off on PPV',
   'payment.service4': 'Save $ {amount}',
