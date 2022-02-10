@@ -64,7 +64,7 @@ const OrganizationHome = ({
             hasTimer
           />
         )}
-        {lastEvent && isMobile && sortedEvents[0].homePage && (
+        {lastEvent && isMobile && (
           <div>
             <CountDownTimer
               event={lastEvent}
@@ -82,7 +82,7 @@ const OrganizationHome = ({
         {!lastEvent && <br />}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
-        {nonPpvEvents && !sortedEvents[0].homePage && !isMobile && (
+        {nonPpvEvents && !isMobile && (
           <EventView
             prevEvent={getPrevEvent()}
             currEvent={getCurrentEvent()}
@@ -94,7 +94,7 @@ const OrganizationHome = ({
             isUpcoming={getNextEvent()?.id == lastEvent?.id}
           />
         )}
-        {sortedEvents && !sortedEvents[0].homePage && isMobile && (
+        {sortedEvents && nonPpvEvents && isMobile && (
           <EventViewMobile
             organization={organization}
             subscribeAction={subscribeAction}

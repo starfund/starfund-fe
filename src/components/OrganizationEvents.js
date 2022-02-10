@@ -275,6 +275,7 @@ const OrganizationEvents = ({
                       )}
                     {!isMobile &&
                       item?.homePage &&
+                      item?.mainEvents.concat(item?.prelimEvents).length != 0 &&
                       !supportingPPV.map(s => s.orgEvent).includes(item?.id) && (
                         <button
                           type="button"
@@ -356,7 +357,7 @@ const OrganizationEvents = ({
                               </div>
                             </div>
                           ))}
-                      {item?.homePage && (
+                      {item?.homePage && item?.mainEvents.concat(item?.prelimEvents).length != 0 && (
                         <div>
                           <br />
                           <h3>{intl.formatMessage({ id: 'organization.event.comingsoon' })}</h3>
