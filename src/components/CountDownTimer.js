@@ -4,7 +4,8 @@ import { useMediaQuery } from 'react-responsive';
 
 const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasManyPPV, hasTimer }) => {
   const intl = useIntl();
-  const date = new Date(event?.eventDate);
+  const dateString = event?.eventDate?.slice(0, 19);
+  const date = new Date(dateString);
   const months = [
     'jan',
     'feb',
@@ -184,9 +185,9 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasManyPPV
               payed || hasManyPPV ? watchAction() : subscribeAction();
             }}
           >
-            {payed
-              ? intl.formatMessage({ id: 'organization.button.watch' })
-              : intl.formatMessage({ id: 'organization.button.buyppv' })}
+            {payed && !event?.replay && intl.formatMessage({ id: 'organization.button.watch' })}
+            {payed && event?.replay && intl.formatMessage({ id: 'organization.button.replay' })}
+            {!payed && intl.formatMessage({ id: 'organization.button.buyppv' })}
           </button>
         </div>
       )}

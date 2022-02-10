@@ -47,7 +47,8 @@ const OrganizationView = () => {
   }, [authenticated, dispatch]);
 
   const organization = useSelector(
-    state => state.organizations.organizations.filter(f => f.name == name)[0]
+    state =>
+      state.organizations.organizations.filter(f => f.name.toLowerCase() == name.toLowerCase())[0]
   );
 
   const sortedEvents = organization && [...organization.events];
@@ -186,8 +187,15 @@ const OrganizationView = () => {
                 )}
                 {lastEvent &&
                   !lastEvent?.finished &&
+                  !lastEvent.replay &&
                   intl.formatMessage({
                     id: 'organization.button.watch'
+                  })}
+                {lastEvent &&
+                  !lastEvent?.finished &&
+                  lastEvent.replay &&
+                  intl.formatMessage({
+                    id: 'organization.button.replay'
                   })}
               </button>
             )}

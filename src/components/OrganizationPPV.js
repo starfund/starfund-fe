@@ -16,14 +16,15 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
   const sortedMainEvents = event?.mainEvents.slice();
   sortedMainEvents?.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
   sortedMainEvents?.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
-
+  const dateString = event?.eventDate?.slice(0, 19);
+  const date = new Date(dateString);
+  const today = new Date();
   const sortedPrelimEvents = event?.prelimEvents.slice();
   sortedPrelimEvents?.sort((a, b) => new Date(a?.eventDate) - new Date(b?.eventDate));
   sortedPrelimEvents?.sort((a, b) => (a.isLive && !b.isLive ? -1 : 1));
 
   window.scrollTo(0, 700);
   const intl = useIntl();
-  const date = new Date(event?.eventDate);
   const months = [
     'jan',
     'feb',
@@ -39,6 +40,39 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
     'dec'
   ];
   const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  const monthsLong = [
+    'jan.long',
+    'feb.long',
+    'mar.long',
+    'apr.long',
+    'may.long',
+    'jun.long',
+    'jul.long',
+    'aug.long',
+    'sep.long',
+    'oct.long',
+    'nov.long',
+    'dec.long'
+  ];
+
+  function EventDate(d) {
+    const date = new Date(d);
+    return `${intl.formatMessage({
+      id: `organization.months.${monthsLong[date?.getMonth()]}`
+    })} ${date?.getDate()}, ${date.getFullYear()}`;
+  }
+
+  function formatAMPM(d) {
+    let hours = d.getHours();
+    let minutes = d.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours %= 12;
+    hours = hours || 12;
+    minutes = minutes < 10 ? `0${minutes}` : minutes;
+    const strTime = `${hours}:${minutes} ${ampm}`;
+    return strTime;
+  }
+
   const [prelim, setPrelim] = useState(false);
   const isMobile = useMediaQuery({
     query: '(max-width: 765px)'
@@ -64,17 +98,6 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
       return video[0].fighter2;
     }
     return '';
-  }
-
-  function formatAMPM(d) {
-    let hours = d.getHours();
-    let minutes = d.getMinutes();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours %= 12;
-    hours = hours || 12;
-    minutes = minutes < 10 ? `0${minutes}` : minutes;
-    const strTime = `${hours}:${minutes} ${ampm}`;
-    return strTime;
   }
 
   return (
@@ -123,26 +146,35 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
           </div>
           <br />
           <button type="button" className="btn btn-danger btn-lg" onClick={subscribeAction}>
-            {event?.finished ? (
+            {event?.finished && (
               <FormattedMessage
                 id="organization.button.rewatchppv"
                 values={{ eventName: event?.name }}
               />
-            ) : (
+            )}
+            {!event?.finished &&
+              !event?.replay &&
               intl.formatMessage({
                 id: 'organization.button.watch'
-              })
-            )}
+              })}
+            {!event?.finished &&
+              event?.replay &&
+              intl.formatMessage({
+                id: 'organization.button.replay'
+              })}
           </button>
         </div>
       )}
-      {payed && (
+      {payed && date <= today && (
         <div className="video-div">
           <div className="video-title">
             {isMobile ? <div className="title-mobile">{event?.name}</div> : <h2>{event?.name}</h2>}
             <div className="event-live">
               {intl.formatMessage({
-                id: event?.finished ? 'organization.event.rewatch' : 'organization.event.live'
+                id:
+                  event?.finished || event?.replay
+                    ? 'organization.event.rewatch'
+                    : 'organization.event.live'
               })}
             </div>
           </div>
@@ -164,6 +196,16 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
               }}
             />
           </LazyLoadComponent>
+        </div>
+      )}
+      {payed && date > today && (
+        <div className="no-ppv-page">
+          <div className="no-ppv-title">
+            {intl.formatMessage({
+              id: 'organization.upcomingPPV'
+            })}
+            {` ${EventDate(event?.eventDate?.slice(0, 19))}, ${formatAMPM(date)}`}
+          </div>
         </div>
       )}
       <br />
