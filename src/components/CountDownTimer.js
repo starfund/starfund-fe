@@ -174,7 +174,10 @@ const CountDownTimer = ({ event, subscribeAction, watchAction, payed, hasManyPPV
               {' | '}
             </div>
             <div className="event-watch">
-              &nbsp;{intl.formatMessage({ id: 'organization.event.ppv' })}
+              &nbsp;
+              {event?.replay
+                ? intl.formatMessage({ id: 'organization.button.replay' })
+                : intl.formatMessage({ id: 'organization.event.ppv' })}
             </div>
           </div>
           <br />

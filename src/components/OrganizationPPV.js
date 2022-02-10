@@ -141,7 +141,9 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
               {' | '}
             </div>
             <div className="event-watch">
-              {intl.formatMessage({ id: 'organization.event.ppv' })}
+              {event?.replay
+                ? intl.formatMessage({ id: 'organization.button.replay' })
+                : intl.formatMessage({ id: 'organization.event.ppv' })}
             </div>
           </div>
           <br />

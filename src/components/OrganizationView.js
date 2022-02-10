@@ -59,9 +59,9 @@ const OrganizationView = () => {
   const supportingPPV = useSelector(state => state.subscriptions?.ppvCharges);
   const payed = supporting.map(s => s.orgName).includes(name);
   const ppvEvents = sortedEvents && sortedEvents.filter(e => e.homePage === true);
+  const [selectedPPV, setSelectedPPV] = useState(ppvEvents?.length <= 1);
   const lastEvent = ppvEvents && ppvEvents[0];
   const [ppvEvent, setPPVEvent] = useState(lastEvent);
-  const [selectedPPV, setSelectedPPV] = useState(ppvEvents?.length == 1);
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -305,7 +305,7 @@ const OrganizationView = () => {
           setAllEvents={setAllEvents2}
         />
       )}
-      {ppv && !selectedPPV && (
+      {ppv && !selectedPPV && ppvEvents.length > 1 && (
         <OrganizationMultiplePPV
           events={ppvEvents}
           selectEvent={selectPPVEvent}
