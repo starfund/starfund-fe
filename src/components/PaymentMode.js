@@ -7,10 +7,8 @@ const PaymentMode = ({
   MonthlyPrice,
   selectOptionPPV,
   selectOptionMonthly,
-  selectOptionYearly,
   payed,
   payedPPV,
-  yearlyDiscount,
   event
 }) => {
   const intl = useIntl();
@@ -84,10 +82,11 @@ const PaymentMode = ({
           <div className="services-container">
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service2' })}`}</div>
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service3' })}`}</div>
+            <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service6' })}`}</div>
           </div>
         </div>
       )}
-      {!payed && (
+      {/*! payed && (
         <div className="box" onClick={() => selectOptionYearly()}>
           <div className="featured">
             {intl.formatMessage({ id: 'payment.featured' })}
@@ -118,7 +117,7 @@ const PaymentMode = ({
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service5' })}`}</div>
           </div>
         </div>
-      )}
+      ) */}
     </div>
   );
 };

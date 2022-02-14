@@ -336,7 +336,7 @@ export default {
   'payment.service2': 'Access to 100+ fights',
   'payment.service3': 'Recieve 10% off on PPV',
   'payment.service4': 'Save $ {amount}',
-  'payment.service5': 'Plus everything from monthly',
+  'payment.service6': 'Billed annualy',
 
   // BUSINESSES
   'business.programs.title': 'KNOW OUR PROGRAMS',

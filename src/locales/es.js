@@ -342,6 +342,7 @@ export default {
   'payment.service3': 'Recivir 10% off en PPV',
   'payment.service4': 'Ahorra $ {amount}',
   'payment.service5': 'Todo lo del mensual',
+  'payment.service6': 'Facturado anualmente',
 
   // BUSINESSES
   'business.programs.title': 'CONOCE NUESTROS CURSOS',

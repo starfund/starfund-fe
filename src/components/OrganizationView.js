@@ -27,7 +27,7 @@ const OrganizationView = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [payPPV, setPayPPV] = useState(false);
   const [payMonthly, setPayMonthly] = useState(false);
-  const [payYearly, setPayYearly] = useState(false);
+  const [setPayYearly] = useState(false);
   const [allevents2, setAllEvents2] = useState(true);
   const currentUser = useSelector(state => state.session.user);
   const { authenticated } = useSession();
@@ -370,7 +370,7 @@ const OrganizationView = () => {
             isOpen={payMonthly}
             setIsOpen={setPayMonthly}
             isDelete={false}
-            price={organization?.subPrice}
+            price={organization?.subPrice * 12}
             email={currentUser?.email}
             organization={organization?.id}
             backFunction={() => backFunction()}
@@ -379,7 +379,7 @@ const OrganizationView = () => {
               email={currentUser?.email}
               organization={organization?.name}
               fighters={getAllFightersOrganization()}
-              price={organization?.subPrice}
+              price={organization?.subPrice * 12}
               type="subscription"
               subscriptionType="monthly"
               hasReferal
@@ -405,7 +405,7 @@ const OrganizationView = () => {
               hasReferal
             />
           </ConfirmationModal>
-          <ConfirmationModal
+          {/* <ConfirmationModal
             title={intl.formatMessage({ id: 'billing.title.yearly' })}
             isOpen={payYearly}
             setIsOpen={setPayYearly}
@@ -432,7 +432,7 @@ const OrganizationView = () => {
               }
               hasReferal
             />
-          </ConfirmationModal>
+            </ConfirmationModal> */}
         </div>
       )}
       <HomeFooter />

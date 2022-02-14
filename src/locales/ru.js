@@ -333,7 +333,7 @@ export default {
   'payment.service2': 'Доступ к 100+ боям',
   'payment.service3': 'Получите 10% скидку на PPV',
   'payment.service4': 'сэкономьте $ {amount}',
-  'payment.service5': 'Плюс все, начиная с месяца',
+  'payment.service5': 'Счет ежегодно',
 
   // BUSINESSES
   'business.programs.title': 'ЗНАЙТЕ НАШИ ПРОГРАММЫ',
