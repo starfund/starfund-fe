@@ -25,7 +25,7 @@ const OrganizationHome = ({
 
   const getPrevEvent = () => {
     if (nonPpvEvents?.length >= 3) {
-      return nonPpvEvents[nonPpvEvents.length - 3];
+      return nonPpvEvents[nonPpvEvents?.length - 3];
     }
     if (nonPpvEvents?.length == 2) {
       return nonPpvEvents[0];
@@ -34,7 +34,7 @@ const OrganizationHome = ({
 
   const getCurrentEvent = () => {
     if (nonPpvEvents?.length >= 3) {
-      return nonPpvEvents[nonPpvEvents.length - 2];
+      return nonPpvEvents[nonPpvEvents?.length - 2];
     }
     if (nonPpvEvents?.length == 2) {
       return nonPpvEvents[1];
@@ -46,7 +46,7 @@ const OrganizationHome = ({
 
   const getNextEvent = () => {
     if (nonPpvEvents?.length >= 3) {
-      return nonPpvEvents[nonPpvEvents.length - 1];
+      return nonPpvEvents[nonPpvEvents?.length - 1];
     }
     return lastEvent;
   };
@@ -60,7 +60,7 @@ const OrganizationHome = ({
             subscribeAction={subscribeAction}
             payed={payedPPV}
             watchAction={watchAction}
-            hasManyPPV={ppvEvents.length > 1}
+            hasManyPPV={ppvEvents?.length > 1}
             hasTimer
           />
         )}
@@ -71,7 +71,7 @@ const OrganizationHome = ({
               subscribeAction={subscribeAction}
               payed={payedPPV}
               watchAction={watchAction}
-              hasManyPPV={ppvEvents.length > 1}
+              hasManyPPV={ppvEvents?.length > 1}
               hasTimer={false}
             />
             <br />
@@ -82,7 +82,7 @@ const OrganizationHome = ({
         {!lastEvent && <br />}
         {!lastEvent && <br />}
         {!lastEvent && <br />}
-        {nonPpvEvents.length > 0 && !isMobile && (
+        {nonPpvEvents?.length > 0 && !isMobile && (
           <EventView
             prevEvent={getPrevEvent()}
             currEvent={getCurrentEvent()}
