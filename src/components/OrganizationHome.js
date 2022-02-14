@@ -94,7 +94,7 @@ const OrganizationHome = ({
             isUpcoming={getNextEvent()?.id == lastEvent?.id}
           />
         )}
-        {sortedEvents && nonPpvEvents.length > 0 && isMobile && (
+        {sortedEvents && nonPpvEvents?.length > 0 && isMobile && (
           <EventViewMobile
             organization={organization}
             subscribeAction={subscribeAction}
