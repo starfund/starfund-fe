@@ -11,7 +11,7 @@ const DropDown = ({ title, subtitle, textBold, text }) => {
             {subtitle}
           </div>
         </div>
-        {isOpen && (
+        {isOpen && text && (
           <svg
             onClick={() => setIsOpen(false)}
             width="13"
@@ -26,7 +26,7 @@ const DropDown = ({ title, subtitle, textBold, text }) => {
             />
           </svg>
         )}
-        {!isOpen && (
+        {!isOpen && text && (
           <svg
             onClick={() => setIsOpen(true)}
             width="13"
@@ -42,7 +42,7 @@ const DropDown = ({ title, subtitle, textBold, text }) => {
           </svg>
         )}
       </div>
-      {isOpen && (
+      {isOpen && text && (
         <div className="event-item-ppv-desc" style={{ textAlign: 'left' }}>
           <span style={{ fontWeight: 'bold' }}>{textBold}</span>
           {text}

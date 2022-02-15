@@ -337,14 +337,14 @@ const EventViewMobile = ({
                       {intl.formatMessage({ id: `organization.event.livevideo` })}
                     </div>
                   )}
-                  {v?.winner && (
+                  {
                     <DropDown
                       textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
                       text={v?.winner}
                       title={`${v?.fighter1} vs ${v?.fighter2}`}
                       subtitle={`${v?.division} | ${v?.rounds} Rounds`}
                     />
-                  )}
+                  }
                 </div>
               ))}
             {prelim2 &&
@@ -356,14 +356,14 @@ const EventViewMobile = ({
                       {intl.formatMessage({ id: `organization.event.livevideo` })}
                     </div>
                   )}
-                  {v?.winner && (
+                  {
                     <DropDown
                       textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
                       text={v?.winner}
                       title={`${v?.fighter1} vs ${v?.fighter2}`}
                       subtitle={`${v?.division} | ${v?.rounds} Rounds`}
                     />
-                  )}
+                  }
                 </div>
               ))}
           </div>

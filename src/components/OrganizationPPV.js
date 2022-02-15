@@ -304,7 +304,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
                     </div>
                   </div>
                 )}
-                {isMobile && v?.winner && (
+                {isMobile && (
                   <DropDown
                     textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
                     text={v?.winner}
@@ -343,7 +343,7 @@ const OrganizationPPV = ({ event, payed, subscribeAction, homeNav, hasBackground
                     </div>
                   </div>
                 )}
-                {isMobile && v?.winner && (
+                {isMobile && (
                   <DropDown
                     textBold={`${intl.formatMessage({ id: 'organization.winner' })}: `}
                     text={v?.winner}

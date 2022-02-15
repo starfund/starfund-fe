@@ -38,16 +38,21 @@ const PaymentMode = ({
     <div className="pricing">
       {!payedPPV && (
         <div className="box" onClick={() => selectOptionPPV()}>
-          <div className="payment-on-demand">
-            {event?.finnished ? (
-              <FormattedMessage id="payment.ondemand.rewatch" values={{ eventName: event?.name }} />
-            ) : (
-              <FormattedMessage id="payment.ondemand" values={{ eventName: event?.name }} />
-            )}
-          </div>
-          <div className="price">
-            <sup>$</sup>
-            {onDemandPrice / 100}
+          <div style={{ marginBottom: '10px' }}>
+            <div className="payment-on-demand">
+              {event?.finnished ? (
+                <FormattedMessage
+                  id="payment.ondemand.rewatch"
+                  values={{ eventName: event?.name }}
+                />
+              ) : (
+                <FormattedMessage id="payment.ondemand" values={{ eventName: event?.name }} />
+              )}
+            </div>
+            <div className="price">
+              <sup>$</sup>
+              {onDemandPrice / 100}
+            </div>
           </div>
           <div className="services-container">
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service1' })}`}</div>
@@ -74,10 +79,12 @@ const PaymentMode = ({
       )}
       {!payed && (
         <div className="box" onClick={() => selectOptionMonthly()}>
-          <div className="payment-monthly">{intl.formatMessage({ id: 'payment.monthly' })}</div>
-          <div className="price">
-            <sup>$</sup>
-            {MonthlyPrice / 100}
+          <div style={{ marginBottom: '10px' }}>
+            <div className="payment-monthly">{intl.formatMessage({ id: 'payment.monthly' })}</div>
+            <div className="price">
+              <sup>$</sup>
+              {MonthlyPrice / 100}
+            </div>
           </div>
           <div className="services-container">
             <div className="services">{`✓ ${intl.formatMessage({ id: 'payment.service2' })}`}</div>
