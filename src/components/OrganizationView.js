@@ -167,7 +167,7 @@ const OrganizationView = () => {
             />
           )}
         {organization && isMobile && organization?.mobileCoverPhotos?.length > 1 && (
-          <Carousel loop autoplay={4000} gap={0}>
+          <Carousel loop autoplay={4000} gap={0} mobileBreakpoint={0} hideArrow>
             {organization?.mobileCoverPhotos.map(f => (
               <Carousel.Item>
                 <img src={f.image} alt="" className="fighter-cover" style={{ width: '100vw' }} />
