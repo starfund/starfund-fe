@@ -38,7 +38,7 @@ const HomeBusinesses = ({ title }) => {
                 <div key={b.id} className="fighter-card">
                   <img
                     className="fighter-card-image"
-                    src={b?.mobileCoverPhotos.length > 0 ? b?.mobileCoverPhotos[0]?.image : ''}
+                    src={b?.mobileCoverPhotos?.length > 0 ? b?.mobileCoverPhotos[0]?.image : ''}
                     alt="Card cap"
                   />
                   <div className="organizations-card-overlay">
