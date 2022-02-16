@@ -8,6 +8,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useMediaQuery } from 'react-responsive';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { useSession } from 'hooks';
+import Carousel from 'react-grid-carousel';
 import ConfirmationModal from './common/ConfirmationModal';
 import { getOrganizations } from '../state/actions/organizationActions';
 import { getSubscriptions } from '../state/actions/subscriptionActions';
@@ -152,17 +153,44 @@ const OrganizationView = () => {
   return (
     <div className="fighter-container">
       <div className="cover-container">
-        {organization ? (
-          <LazyLoadImage
-            className="fighter-cover"
-            src={isMobile ? organization?.mobileCoverPhoto : organization?.coverPhoto}
-            alt="Cover"
-          />
-        ) : (
-          <SkeletonTheme color="#202020" highlightColor="#444">
-            <Skeleton height="90vh" />
-          </SkeletonTheme>
+        {organization &&
+          ((isMobile && organization?.mobileCoverPhotos?.length == 1) ||
+            (!isMobile && organization?.coverPhotos?.length == 1)) && (
+            <LazyLoadImage
+              className="fighter-cover"
+              src={
+                isMobile
+                  ? organization?.mobileCoverPhotos[0]?.image
+                  : organization?.coverPhotos[0]?.image
+              }
+              alt="Cover"
+            />
+          )}
+        {organization && isMobile && organization?.mobileCoverPhotos?.length > 1 && (
+          <Carousel loop autoplay={4000} gap={0}>
+            {organization?.mobileCoverPhotos.map(f => (
+              <Carousel.Item>
+                <img src={f.image} alt="" className="fighter-cover" style={{ width: '100vw' }} />
+              </Carousel.Item>
+            ))}
+          </Carousel>
         )}
+        {organization && !isMobile && organization?.coverPhotos?.length > 1 && (
+          <Carousel loop autoplay={4000}>
+            {organization?.coverPhotos.map(f => (
+              <Carousel.Item>
+                <img src={f.image} alt="" className="fighter-cover" style={{ width: '100vw' }} />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        )}
+        {!organization ||
+          (((isMobile && organization?.mobileCoverPhotos?.length == 0) ||
+            (!isMobile && organization?.coverPhotos?.length == 0)) && (
+            <SkeletonTheme color="#202020" highlightColor="#444">
+              <Skeleton height="90vh" />
+            </SkeletonTheme>
+          ))}
         {organization && (
           <div className="centered">
             <br />
