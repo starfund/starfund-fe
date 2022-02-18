@@ -42,62 +42,68 @@ const EventView = ({
         <div className={isMobile ? 'event-view-nav-mobile' : 'event-view-nav'}>
           <React.Fragment>
             <ul className="navbar-nav">
-              <li className={cn('nav-item', { active: prev })}>
-                <p
-                  className="nav-link"
-                  href=""
-                  onClick={() => {
-                    setPrev(true);
-                    setCurr(false);
-                    setNext(false);
-                    setSelectedEvent(prevEvent);
-                  }}
-                >
-                  {prevEvent?.name}{' '}
-                </p>
-              </li>
-              <li className={cn('nav-item', { active: curr })}>
-                <p
-                  className="nav-link"
-                  href=""
-                  onClick={() => {
-                    setPrev(false);
-                    setCurr(true);
-                    setNext(false);
-                    setSelectedEvent(currEvent);
-                  }}
-                >
-                  {currEvent?.name} <span className="sr-only">(current)</span>
-                </p>
-              </li>
-              <li className={cn('nav-item', { active: next })}>
-                <p
-                  className="nav-link"
-                  href=""
-                  onClick={() => {
-                    if (isUpcoming) {
-                      if (payedPPV) {
-                        goToPPV();
-                      } else {
-                        subscribeAction();
-                      }
-                    } else {
-                      setPrev(false);
+              {prev && (
+                <li className={cn('nav-item', { active: prev })}>
+                  <p
+                    className="nav-link"
+                    href=""
+                    onClick={() => {
+                      setPrev(true);
                       setCurr(false);
-                      setNext(true);
-                      setSelectedEvent(nextEvent);
-                    }
-                  }}
-                >
-                  {`${nextEvent?.name} `}
-                  {isUpcoming &&
-                    !nextEvent?.finished &&
-                    `(${intl.formatMessage({ id: 'organization.upcoming' })})`}
-                  {isUpcoming &&
-                    nextEvent?.finished &&
-                    `(${intl.formatMessage({ id: 'organization.rewatch' })})`}
-                </p>
-              </li>
+                      setNext(false);
+                      setSelectedEvent(prevEvent);
+                    }}
+                  >
+                    {prevEvent?.name}{' '}
+                  </p>
+                </li>
+              )}
+              {curr && (
+                <li className={cn('nav-item', { active: curr })}>
+                  <p
+                    className="nav-link"
+                    href=""
+                    onClick={() => {
+                      setPrev(false);
+                      setCurr(true);
+                      setNext(false);
+                      setSelectedEvent(currEvent);
+                    }}
+                  >
+                    {currEvent?.name} <span className="sr-only">(current)</span>
+                  </p>
+                </li>
+              )}
+              {next && (
+                <li className={cn('nav-item', { active: next })}>
+                  <p
+                    className="nav-link"
+                    href=""
+                    onClick={() => {
+                      if (isUpcoming) {
+                        if (payedPPV) {
+                          goToPPV();
+                        } else {
+                          subscribeAction();
+                        }
+                      } else {
+                        setPrev(false);
+                        setCurr(false);
+                        setNext(true);
+                        setSelectedEvent(nextEvent);
+                      }
+                    }}
+                  >
+                    {`${nextEvent?.name} `}
+                    {isUpcoming &&
+                      !nextEvent?.finished &&
+                      `(${intl.formatMessage({ id: 'organization.upcoming' })})`}
+                    {isUpcoming &&
+                      nextEvent?.finished &&
+                      `(${intl.formatMessage({ id: 'organization.rewatch' })})`}
+                  </p>
+                </li>
+              )}
             </ul>
           </React.Fragment>
         </div>
