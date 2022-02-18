@@ -4236,3 +4236,123 @@ h3 {
   }
 
 }
+
+.organizations-info-container{
+  margin-bottom: 10%;
+
+  .image-background {
+    background: url("../assets/background.png");
+    height: 100vh;
+    padding-top: 10%;
+    box-shadow: 0 0 30px 30px #191c21 inset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      padding-top: 30%;
+      background: none;
+      height: 40vh;
+    }
+
+    .image-overlay{
+      background-color: black;
+      width: fit-content;
+      box-shadow: 0 0 75px 75px black;
+      @media (max-width: 1024px) {
+        background: none;
+        box-shadow: none;
+      }
+    }
+  }
+  
+  button {
+    color: white;
+    background-color: #ea0a0a;
+    border: solid #eb0000 1px;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    height: 6vh;
+    padding: 5px 90px;
+    border-radius: 0;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+    @media (max-width: 600px) {
+      font-size: 5vw;
+      height: 18vw;
+      width: 90vw;
+    }
+  }
+  .org-info-text{
+    color: white;
+    font-weight: normal !important;
+    font-size: 25px;
+  }
+
+  .org-info-text-2{
+    color: white;
+    font-weight: normal !important;
+    font-size: 20px;
+  }
+
+  .organizations-info-more{
+    margin-top: 10%;
+    @media (max-width: 1024px) {
+      margin-top: 50%;
+    }
+  }
+
+  img {
+    @media (max-width: 1024px) {
+      width: 100vw;
+    }
+  }
+}
+
+.org-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 1024px) {
+    margin-top: 10%
+  }
+  .image-org-card{
+    margin-left: 5%;
+    width: 90%;
+    height: 355px;
+  }
+
+  .card-button {
+    color: white;
+    background-color: #ea0a0a;
+    border: solid #eb0000 1px;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    height: 6vh;
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 90%;
+    padding: 5px 90px;
+    border-radius: 0;
+    font-weight: 500 !important;
+    letter-spacing: -0.02em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 600px) {
+      font-size: 7vw;
+      height: 18vw;
+      width: 90vw;
+    }
+  }
+}
+
+.cards-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 1024px) {
+    width:100%;
+  }
+}

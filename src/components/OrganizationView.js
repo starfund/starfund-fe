@@ -63,6 +63,7 @@ const OrganizationView = () => {
   const lastEvent = ppvEvents && ppvEvents[0];
   const [ppvEvent, setPPVEvent] = useState(lastEvent);
   const [selectedPPV, setSelectedPPV] = useState(ppvEvents?.length == 1);
+  const [noReload, setNoReload] = useState(false);
   function addDays(date, days) {
     const result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -70,9 +71,11 @@ const OrganizationView = () => {
   }
 
   useEffect(() => {
-    setPPVEvent(lastEvent);
-    setSelectedPPV(ppvEvents?.length == 1);
-  }, [lastEvent, ppvEvents]);
+    if (!noReload) {
+      setPPVEvent(lastEvent);
+      setSelectedPPV(ppvEvents?.length == 1);
+    }
+  }, [noReload, lastEvent, ppvEvents]);
 
   const payedPPV = supportingPPV.map(s => s.orgEvent).includes(lastEvent?.id);
 
@@ -81,8 +84,9 @@ const OrganizationView = () => {
   };
 
   const selectPPVEvent = e => {
-    setPPVEvent(e);
     setSelectedPPV(true);
+    setPPVEvent(e);
+    setNoReload(true);
   };
 
   const selectOptionPPV = () => {
@@ -167,7 +171,7 @@ const OrganizationView = () => {
             />
           )}
         {organization && isMobile && organization?.mobileCoverPhotos?.length > 1 && (
-          <Carousel loop autoplay={4000} gap={0} mobileBreakpoint={0} hideArrow>
+          <Carousel loop autoplay={2000} gap={0} mobileBreakpoint={0} hideArrow>
             {organization?.mobileCoverPhotos.map(f => (
               <Carousel.Item>
                 <img src={f.image} alt="" className="fighter-cover" style={{ width: '100vw' }} />
@@ -176,7 +180,7 @@ const OrganizationView = () => {
           </Carousel>
         )}
         {organization && !isMobile && organization?.coverPhotos?.length > 1 && (
-          <Carousel loop autoplay={4000}>
+          <Carousel loop autoplay={2000}>
             {organization?.coverPhotos.map(f => (
               <Carousel.Item>
                 <img src={f.image} alt="" className="fighter-cover" style={{ width: '100vw' }} />
@@ -279,6 +283,7 @@ const OrganizationView = () => {
                       setPPV(true);
                       if (ppvEvents?.length > 1) {
                         setSelectedPPV(false);
+                        setNoReload(false);
                       }
                     }}
                   >

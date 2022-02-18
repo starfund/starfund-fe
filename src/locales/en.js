@@ -40,7 +40,7 @@ export default {
   commingSoon: 'Coming soon...',
   emailUs: 'Email Us',
   findFighter: 'FIND YOUR STAR',
-  findBusiness: 'FIND YOUR ORGANIZATION',
+  findBusiness: 'Choose Your Favorite Organization, enjoy live and past event fight contents.',
   ppvTitle: 'Request a personal video to your fighter',
   team: 'Team',
 
@@ -275,6 +275,14 @@ export default {
   'organization.manyppv.details': 'View Details',
   'organization.manyppv.title': 'All upcoming PPV events',
   'organization.upcomingPPV': 'This event will be available on',
+
+  // ORGANIZATIONS HOME
+  'organizations.title': 'Changing the way you stream',
+  'organizations.subtitle': 'Enjoy 1000 plus videos from your favorite Organizations',
+  'organizations.getstart': 'Get Started',
+  'organizations.exclusive': 'Enjoy Exclusive Access',
+  'organizations.unlock': 'Unlock the power of a video and enjoy premium ad-free experience.',
+  'organizations.oneplatform': 'One Platform All you need as a Combat Sports Fan',
 
   // HOME
   'home.fighters.title': 'Explore Stars',

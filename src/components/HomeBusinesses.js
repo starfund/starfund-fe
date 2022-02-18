@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useMediaQuery } from 'react-responsive';
 
 import { getOrganizations } from '../state/actions/organizationActions';
-
-import Slider from './common/Slider';
+import OrganizationCard from './OrganizationCard';
 
 import '../styles/components/_home-starts.scss';
 
 const HomeBusinesses = ({ title }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const isMobile = useMediaQuery({
+    query: '(max-width: 765px)'
+  });
   useEffect(() => {
     dispatch(getOrganizations(true));
   }, [dispatch]);
@@ -19,40 +20,26 @@ const HomeBusinesses = ({ title }) => {
 
   return (
     <div className="stars-container">
-      <h1 className="stars-title"> {title} </h1>
-      <div className="fighters-slider-wrapper">
-        {organizations.length == 0 && (
+      {isMobile ? (
+        <h3 className="stars-title"> {title} </h3>
+      ) : (
+        <h2 className="stars-title"> {title} </h2>
+      )}
+      <br />
+      {organizations.length == 0 && (
+        <div className="fighters-slider-wrapper">
           <SkeletonTheme color="#202020" highlightColor="#444">
             <Skeleton height="90vh" />
           </SkeletonTheme>
-        )}
-        <Slider>
-          {organizations.length > 0 &&
-            organizations.map(b => (
-              <Link
-                key={b.id}
-                className="fighter-card-link"
-                href=""
-                onClick={() => history.push(`/organization/${b.name}`)}
-              >
-                <div key={b.id} className="fighter-card">
-                  <img
-                    className="fighter-card-image"
-                    src={b?.mobileCoverPhotos?.length > 0 ? b?.mobileCoverPhotos[0]?.image : ''}
-                    alt="Card cap"
-                  />
-                  <div className="organizations-card-overlay">
-                    <div className="fighter-card-name-wrapper">
-                      <span className="fighter-card-text">{b.name} </span>
-                      <br />
-                      <br />
-                      <br />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-        </Slider>
+        </div>
+      )}
+      <div className="row cards-container">
+        {organizations?.length > 0 &&
+          organizations.map(o => (
+            <div className="col-12 col-md-4">
+              <OrganizationCard organization={o} />
+            </div>
+          ))}
       </div>
     </div>
   );

@@ -40,7 +40,7 @@ export default {
   commingSoon: 'Скоро на сайте',
   emailUs: 'Написать нам на почту',
   findFighter: 'НАЙДИТЕ СВОЮ ЗВЕЗДУ',
-  findBusiness: 'Найди свой фитнес-центр',
+  findBusiness: 'Выберите свою любимую организацию, наслаждайтесь живыми и прошлыми боями.',
   ppvTitle: 'Заказать персональное видеосообщение',
   team: 'Команда',
 
@@ -275,6 +275,15 @@ export default {
   'organizations.manyppv.details': 'посмотреть детали',
   'organization.manyppv.title': 'Все предстоящие PPV-события',
   'organization.upcomingPPV': 'Это событие будет доступно на',
+
+  // ORGANIZATIONS HOME
+  'organizations.title': 'Изменение способа трансляции',
+  'organizations.subtitle': 'Наслаждайтесь более чем 1000 видео от ваших любимых организаций',
+  'organizations.getstart': 'Начать',
+  'organizations.exclusive': 'Наслаждайтесь эксклюзивным доступом',
+  'organizations.unlock':
+    'Раскройте всю мощь видео и наслаждайтесь премиальным опытом без рекламы.',
+  'organizations.oneplatform': 'Единая платформа Все, что вам нужно фанату единоборств',
 
   // HOME
   'home.fighters.title': 'Исследуйте звезды',

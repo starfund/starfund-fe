@@ -46,7 +46,7 @@ export default {
   commingSoon: 'Estamos trabajando...',
   emailUs: 'Contactanos a ',
   findFighter: 'Encuentra tu estrella',
-  findBusiness: 'Encuentra tu organizacion',
+  findBusiness: 'Elige una organizacion, y disfrute contenido en vivo y pasado',
   ppvTitle: 'Solicita videos personalizados a tus atletas',
   equipo: 'Equipo',
 
@@ -280,6 +280,16 @@ export default {
   'organizations.manyppv.details': 'Ver Detalles',
   'organization.manyppv.title': 'Eventos PPV',
   'organization.upcomingPPV': 'Este evento estara disponible el',
+
+  // ORGANIZATIONS HOME
+  'organizations.title': 'Cambiando la forma que streameas',
+  'organizations.subtitle': 'Disfrute de mas de 1000 videos de tus organizaciones preferidas',
+  'organizations.getstart': 'Comenzar',
+  'organizations.exclusive': 'Disfrutar acceso exclusivo',
+  'organizations.unlock':
+    'Desbloquee el poder de un video y disfrute una experiencia premium y ad-free.',
+  'organizations.oneplatform':
+    'Una Plataforma, con todo lo que necesita como fan de deportes de combate',
 
   // HOME
   'home.fighters.title': 'Descubre Estrellas',
